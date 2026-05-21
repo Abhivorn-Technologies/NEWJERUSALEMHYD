@@ -1,0 +1,15 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Target only top-level containers that are direct children of the main wrapper */
+.elementor > .elementor-inner > .e-con,
+.elementor > .elementor-section-wrap > .e-con {
+    margin-bottom: 50px;
+}
+
+/* Remove margin from last container */
+.elementor > .elementor-inner > .e-con:last-child,
+.elementor > .elementor-section-wrap > .e-con:last-child {
+    margin-bottom: 0;
+}
+</style>
+<!-- end Simple Custom CSS and JS -->

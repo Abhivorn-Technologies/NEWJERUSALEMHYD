@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #173C4E;
+  --secondary: #54595F;
+  --text: #7A7A7A;
+  --accent: #61CE70;
+  --brick-red: #AB2423;
+  --teal-green: #1F6F5A;
+  --gold: #B8962E;
+  --teal: #2A9094;
+  --dark-teal: #015C61;
+  --very-dark-teal: #003138;
+  --light-teal: #A4DCE0;
+  --medium-teal: #7ACED4;
+  --card-bg: #F3F3F3;
+}
+
+@theme inline {
+  --color-background: #ffffff;
+  --color-foreground: #171717;
+  --font-sans: "Roboto", sans-serif;
+  --font-mono: "Roboto Mono", monospace;
+}
+
+body {
+  background: #ffffff;
+  color: #171717;
+  font-family: "Roboto", sans-serif;
+}
+
+.elementor-shape-divider {
+  position: relative;
+  overflow: hidden;
+}
+.elementor-shape-divider svg {
+  display: block;
+  width: calc(180% + 1.3px);
+  height: 420px;
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}

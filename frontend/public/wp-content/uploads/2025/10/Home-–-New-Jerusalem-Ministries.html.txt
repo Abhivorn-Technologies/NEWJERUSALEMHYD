@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://newjerusalemministries.com/home/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<title>Home – New Jerusalem Ministries</title>
+<meta name="robots" content="max-image-preview:large">
+<link rel="alternate" type="application/rss+xml" title="New Jerusalem Ministries » Feed" href="https://newjerusalemministries.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="New Jerusalem Ministries » Comments Feed" href="https://newjerusalemministries.com/comments/feed/">
+<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/newjerusalemministries.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script><script src="./Home – New Jerusalem Ministries_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="dashicons-css" href="./Home – New Jerusalem Ministries_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Home – New Jerusalem Ministries_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-icons-css" href="./Home – New Jerusalem Ministries_files/elementor-icons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-common-css" href="./Home – New Jerusalem Ministries_files/common.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Home – New Jerusalem Ministries_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="classic-theme-styles-css" href="./Home – New Jerusalem Ministries_files/classic-themes.min.css" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="petite-stories-font-awesome-css" href="./Home – New Jerusalem Ministries_files/font-awesome.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="petite-stories-style-css" href="./Home – New Jerusalem Ministries_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="petite-stories-fonts-css" href="./Home – New Jerusalem Ministries_files/62bacff032135e54663070dac5825cf6.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-frontend-css" href="./Home – New Jerusalem Ministries_files/frontend-lite.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-442-css" href="./Home – New Jerusalem Ministries_files/post-442.css" type="text/css" media="all">
+<link rel="stylesheet" id="elementor-post-540-css" href="./Home – New Jerusalem Ministries_files/post-540.css" type="text/css" media="all">
+<link rel="stylesheet" id="google-fonts-1-css" href="./Home – New Jerusalem Ministries_files/css" type="text/css" media="all">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""><script type="text/javascript" src="./Home – New Jerusalem Ministries_files/jquery.min.js.download" id="jquery-core-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/jquery-migrate.min.js.download" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://newjerusalemministries.com/wp-json/"><link rel="alternate" type="application/json" href="https://newjerusalemministries.com/wp-json/wp/v2/pages/540"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://newjerusalemministries.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://newjerusalemministries.com/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="WordPress 6.1.1">
+<link rel="canonical" href="https://newjerusalemministries.com/home/">
+<link rel="shortlink" href="https://newjerusalemministries.com/?p=540">
+<link rel="alternate" type="application/json+oembed" href="https://newjerusalemministries.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnewjerusalemministries.com%2Fhome%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://newjerusalemministries.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fnewjerusalemministries.com%2Fhome%2F&amp;format=xml">
+		<style type="text/css">
+			/** BACKGROUND BOX FOR NAVIGATION */
+						/** */
+
+			.custom-logo-link img {
+				width: auto;
+				max-height: 65px;
+			}
+
+			.all-blog-articles {
+				display: block;
+			}
+
+			.add-blog-to-sidebar .all-blog-articles .blogposts-list {
+				width: 100%;
+				max-width: 100%;
+				flex: 100%;
+			}
+
+			
+			/** COLOR SCHEME **/
+			:root {
+				--petite-stories-primary: #e8e8e8;
+				--petite-stories-primary-dark: #cacaca;
+				--petite-stories-secondary: #ffeee2;
+				--petite-stories-secondary-dark: #e1d0c4;
+				--petite-stories-tertiary: #e9fbff;
+				--petite-stories-tertiary-dark: #cbdde1;
+				--petite-stories-foreground: #2d2d2d;
+				--petite-stories-background: #ffffff;
+				--petite-stories-light-1: #fff9c4;
+				--petite-stories-light-2: #efefef;
+				--petite-stories-light-3: #a0816a;
+				--petite-stories-dark-1: #717171;
+				--petite-stories-dark-2: #614d47;
+				--petite-stories-dark-3: #ffc106;
+			}
+
+			/** COLOR SCHEME **/
+		</style>
+<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+	<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+	}
+</style>
+	<link rel="icon" href="https://newjerusalemministries.com/wp-content/uploads/2022/12/cropped-01-32x32.png" sizes="32x32">
+<link rel="icon" href="https://newjerusalemministries.com/wp-content/uploads/2022/12/cropped-01-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://newjerusalemministries.com/wp-content/uploads/2022/12/cropped-01-180x180.png">
+<meta name="msapplication-TileImage" content="https://newjerusalemministries.com/wp-content/uploads/2022/12/cropped-01-270x270.png">
+</head>
+
+<body class="page-template page-template-elementor_header_footer page page-id-540 logged-in admin-bar masthead-fixed elementor-default elementor-template-full-width elementor-kit-442 elementor-page elementor-page-540 customize-support e--ua-blink e--ua-chrome e--ua-webkit" data-elementor-device-mode="desktop">
+		<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+				request = true;
+	
+			b[c] = b[c].replace( rcs, ' ' );
+			// The customizer requires postMessage and CORS (if the site is cross domain).
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+			<div id="wpadminbar" class="nojq">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu"><li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://newjerusalemministries.com/wp-admin/about.php"><span class="ab-icon" aria-hidden="true"></span><span class="screen-reader-text">About WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu"><li id="wp-admin-bar-about"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/about.php">About WordPress</a></li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu"><li id="wp-admin-bar-wporg"><a class="ab-item" href="https://wordpress.org/">WordPress.org</a></li><li id="wp-admin-bar-documentation"><a class="ab-item" href="https://wordpress.org/support/">Documentation</a></li><li id="wp-admin-bar-support-forums"><a class="ab-item" href="https://wordpress.org/support/forums/">Support</a></li><li id="wp-admin-bar-feedback"><a class="ab-item" href="https://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li></ul></div></li><li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://newjerusalemministries.com/wp-admin/">New Jerusalem Ministries</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu"><li id="wp-admin-bar-dashboard"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/">Dashboard</a></li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu"><li id="wp-admin-bar-themes"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/themes.php">Themes</a></li><li id="wp-admin-bar-widgets"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/widgets.php">Widgets</a></li><li id="wp-admin-bar-menus"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/nav-menus.php">Menus</a></li><li id="wp-admin-bar-background" class="hide-if-customize"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/themes.php?page=custom-background">Background</a></li><li id="wp-admin-bar-header" class="hide-if-customize"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/themes.php?page=custom-header">Header</a></li></ul></div></li><li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/customize.php?url=https%3A%2F%2Fnewjerusalemministries.com%2Fhome%2F">Customize</a></li><li id="wp-admin-bar-comments"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/edit-comments.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text comments-in-moderation-text">0 Comments in moderation</span></a></li><li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://newjerusalemministries.com/wp-admin/post-new.php"><span class="ab-icon" aria-hidden="true"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu"><li id="wp-admin-bar-new-post"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/post-new.php">Post</a></li><li id="wp-admin-bar-new-media"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/media-new.php">Media</a></li><li id="wp-admin-bar-new-page"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/post-new.php?post_type=page">Page</a></li><li id="wp-admin-bar-new-e-landing-page"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/edit.php?action=elementor_new_post&amp;post_type=e-landing-page&amp;template_type=landing-page&amp;_wpnonce=f6ebd6bb28#library">Landing Page</a></li><li id="wp-admin-bar-new-elementor_library"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/post-new.php?post_type=elementor_library">Template</a></li><li id="wp-admin-bar-new-user"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/user-new.php">User</a></li></ul></div></li><li id="wp-admin-bar-edit"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/post.php?post=540&amp;action=edit">Edit Page</a></li><li id="wp-admin-bar-elementor_edit_page" class="menupop"><a aria-haspopup="true" class="ab-item  " href="https://newjerusalemministries.com/wp-admin/post.php?post=540&amp;action=elementor"><span class="elementor-edit-link-title">Edit with Elementor</span></a><div class="ab-sub-wrapper"><ul class="ab-submenu" id="wp-admin-bar-elementor_edit_page-default"><li id="wp-admin-bar-elementor_site_settings" class="elementor-second-section"><a class="ab-item  elementor-site-settings" href="https://newjerusalemministries.com/wp-admin/post.php?post=540&amp;action=elementor#e:run:panel/global/open"><span class="elementor-edit-link-title">Site Settings</span><span class="elementor-edit-link-type">Site</span></a></li><li id="wp-admin-bar-elementor_app_site_editor" class="elementor-second-section"><a class="ab-item  elementor-app-link" href="https://newjerusalemministries.com/wp-admin/admin.php?page=elementor-app&amp;ver=3.9.2#site-editor/promotion"><span class="elementor-edit-link-title">Theme Builder</span><span class="elementor-edit-link-type">Site</span></a></li></ul></div></li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu"><li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://newjerusalemministries.com/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form></div></li><li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="https://newjerusalemministries.com/wp-admin/profile.php">Howdy, <span class="display-name">pallawebsolutions</span><img alt="" src="./Home – New Jerusalem Ministries_files/aa572907d248d622fab9b35402bba149.png" srcset="https://secure.gravatar.com/avatar/aa572907d248d622fab9b35402bba149?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26" loading="lazy" decoding="async"></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu"><li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="https://newjerusalemministries.com/wp-admin/profile.php"><img alt="" src="./Home – New Jerusalem Ministries_files/aa572907d248d622fab9b35402bba149(1).png" srcset="https://secure.gravatar.com/avatar/aa572907d248d622fab9b35402bba149?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64" loading="lazy" decoding="async"><span class="display-name">pallawebsolutions</span></a></li><li id="wp-admin-bar-edit-profile"><a class="ab-item" href="https://newjerusalemministries.com/wp-admin/profile.php">Edit Profile</a></li><li id="wp-admin-bar-logout"><a class="ab-item" href="https://newjerusalemministries.com/wp-login.php?action=logout&amp;_wpnonce=2f760e84f0">Log Out</a></li></ul></div></li></ul>			</div>
+						<a class="screen-reader-shortcut" href="https://newjerusalemministries.com/wp-login.php?action=logout&amp;_wpnonce=2f760e84f0">Log Out</a>
+					</div>
+
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0.49803921568627"></fefuncr><fefuncg type="table" tableValues="0 0.49803921568627"></fefuncg><fefuncb type="table" tableValues="0 0.49803921568627"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.54901960784314 0.98823529411765"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0.71764705882353 0.25490196078431"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 0.27843137254902"></fefuncg><fefuncb type="table" tableValues="0.5921568627451 0.27843137254902"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0 0"></fefuncr><fefuncg type="table" tableValues="0 0.64705882352941"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.78039215686275 1"></fefuncr><fefuncg type="table" tableValues="0 0.94901960784314"></fefuncg><fefuncb type="table" tableValues="0.35294117647059 0.47058823529412"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.65098039215686 0.40392156862745"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0.44705882352941 0.4"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tableValues="0.098039215686275 1"></fefuncr><fefuncg type="table" tableValues="0 0.66274509803922"></fefuncg><fefuncb type="table" tableValues="0.84705882352941 0.41960784313725"></fefuncb><fefunca type="table" tableValues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg>	<a class="skip-link screen-reader-text" href="https://newjerusalemministries.com/home/#content">Skip to content</a>
+
+	<header id="masthead" class="sheader site-header clearfix">
+		        <nav id="primary-site-navigation" class="primary-menu main-navigation clearfix">
+                    <a href="https://newjerusalemministries.com/home/#" class="nav-pull smenu-hide toggle-mobile-menu menu-toggle" aria-expanded="false">
+                            <span class="logofont site-title">
+                    New Jerusalem Ministries                </span>
+                        <span class="navigation-icon-nav">
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.33301 1H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M1.33301 9H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M1.33301 17H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+        </a>
+            <div class="top-nav-wrapper">
+                <div class="content-wrap">
+                    <div class="header-content-container">
+                        <div class="logo-container">
+                            
+                                
+
+                                
+                                    <a class="logofont site-title" href="https://newjerusalemministries.com/" rel="home">New Jerusalem Ministries</a>
+                                                                            <p class="logodescription site-description">New Jerusalem Ministries</p>
+                                    
+                                                            </div>
+
+                                <div class="center-main-menu">
+            <div class="menu-menu-container"><ul id="primary-menu" class="pmenu"><li id="menu-item-1269" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-540 current_page_item menu-item-1269"><a href="https://newjerusalemministries.com/home/" aria-current="page">Home</a></li>
+<li id="menu-item-1275" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1275"><a>About us</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+<ul class="sub-menu">
+	<li id="menu-item-1270" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1270"><a href="https://newjerusalemministries.com/mission-vission/">Mission &amp; VIssion</a></li>
+	<li id="menu-item-1266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1266"><a href="https://newjerusalemministries.com/about/">What we Believes</a></li>
+</ul>
+</li>
+<li id="menu-item-6819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6819"><a href="https://newjerusalemministries.com/the-bible-resources/">Bible Resources</a></li>
+<li id="menu-item-7488" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7488"><a href="https://newjerusalemministries.com/home/#">Sunday School</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://newjerusalemministries.com/sunday-school/sunday-school-songs/">Song Lyrics</a></li>
+	<li id="menu-item-1484" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1484"><a href="https://newjerusalemministries.com/sunday-school/stories/">Stories</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+	<ul class="sub-menu">
+		<li id="menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1482"><a href="https://newjerusalemministries.com/sunday-school/stories/old-testament/">Old Testament</a></li>
+		<li id="menu-item-1481" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481"><a href="https://newjerusalemministries.com/sunday-school/stories/new-testament/">New Testament</a></li>
+		<li id="menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1480"><a href="https://newjerusalemministries.com/sunday-school/stories/topical/">Topical</a></li>
+		<li id="menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479"><a href="https://newjerusalemministries.com/sunday-school/stories/biographical/">Biographical</a></li>
+		<li id="menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1478"><a href="https://newjerusalemministries.com/sunday-school/stories/pre-school/">Pre School</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1483"><a href="https://newjerusalemministries.com/sunday-school/activities/">Activities</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+	<ul class="sub-menu">
+		<li id="menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1477"><a href="https://newjerusalemministries.com/sunday-school/activities/coloring/">Coloring</a></li>
+		<li id="menu-item-1476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1476"><a href="https://newjerusalemministries.com/sunday-school/activities/puzzles/">Puzzles</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2365"><a href="https://newjerusalemministries.com/songs/">Songs Lyrics</a></li>
+<li id="menu-item-1339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1339"><a href="https://newjerusalemministries.com/prayer-request/">Prayer Request</a></li>
+<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267"><a href="https://newjerusalemministries.com/contact/">Contact us</a></li>
+</ul></div>        </div>
+                    </div>
+                </div>
+        </div></nav>
+		<div class="super-menu clearfix menu-offconvas-mobile-only">
+			<div class="super-menu-inner">
+				<div class="header-content-container">
+					<div class="mob-logo-wrap">
+																				
+								<a class="logofont site-title" href="https://newjerusalemministries.com/" rel="home">New Jerusalem Ministries</a>
+																	<p class="logodescription site-description">New Jerusalem Ministries</p>
+								
+													</div>
+
+
+											<a href="https://newjerusalemministries.com/home/#" class="nav-pull toggle-mobile-menu menu-toggle" aria-expanded="false">
+							<span class="navigation-icon">
+								<svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M1.33301 1H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									<path d="M1.33301 9H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+									<path d="M1.33301 17H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</span>
+						</a>
+									</div>
+			</div>
+		</div>
+	</header>
+
+			<!-- Header img -->
+				<!-- / Header img -->
+	
+	<div class="content-wrap">
+		<!-- Upper widgets -->
+				<!-- / Upper widgets -->
+	</div>
+
+
+			<div data-elementor-type="wp-page" data-elementor-id="540" class="elementor elementor-540">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-1c2e378 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="1c2e378" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-014c27b" data-id="014c27b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-1a1897e elementor-widget elementor-widget-image" data-id="1a1897e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img decoding="async" width="2560" height="403" src="./Home – New Jerusalem Ministries_files/Main-slide-copy-1-scaled.jpg" class="attachment-full size-full wp-image-8135" alt="" loading="lazy" srcset="https://newjerusalemministries.com/wp-content/uploads/2022/12/Main-slide-copy-1-scaled.jpg 2560w, https://newjerusalemministries.com/wp-content/uploads/2022/12/Main-slide-copy-1-300x47.jpg 300w, https://newjerusalemministries.com/wp-content/uploads/2022/12/Main-slide-copy-1-1024x161.jpg 1024w, https://newjerusalemministries.com/wp-content/uploads/2022/12/Main-slide-copy-1-768x121.jpg 768w, https://newjerusalemministries.com/wp-content/uploads/2022/12/Main-slide-copy-1-1536x242.jpg 1536w, https://newjerusalemministries.com/wp-content/uploads/2022/12/Main-slide-copy-1-2048x323.jpg 2048w" sizes="(max-width: 2560px) 100vw, 2560px">															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+		<div class="elementor-element elementor-element-ce9f497 e-con-full e-con" data-id="ce9f497" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-75cdd38 e-con-full e-con" data-id="75cdd38" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+		<div class="elementor-element elementor-element-068852f e-con-full e-con" data-id="068852f" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-e1d8348 elementor-widget__width-initial elementor-widget elementor-widget-heading" data-id="e1d8348" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h1 class="elementor-heading-title elementor-size-default">Our Mission</h1>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2b13e9e elementor-widget elementor-widget-text-editor" data-id="2b13e9e" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#818a91;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#818a91;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p><span style="font-size: 8pt;"><span style="color: #ff6600;">1 కొరింథి 4 : 20</span> దేవుని రాజ్యము మాటలతో కాదు శక్తి తోనే యున్నది. </span><br><span style="font-size: 8pt;"><span style="color: #ff6600;">రోమీయులకు 14 : 17&nbsp;</span> “దేవుని రాజ్యము భోజనమును పానమును కాదు గాని, నీతియు సమాధానమును, పరిశుద్ధాత్మయందలి ఆనందమునై యున్నది.”</span></p>						</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-b748b99 elementor-widget elementor-widget-text-editor" data-id="b748b99" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="font-family: ramabadra; font-size: 12pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;నిత్యజీవప్రధాతయైన దేవుని వాక్యం యొక్క శక్తి నిరంతరము గొప్పది మరియు ఘనమైనది.&nbsp; ఆ ఘనమైన దేవుని వాక్యమును ప్రబలముగా నమ్మి, యేసుక్రీస్తు నందు ఒకరినొకరు అపోస్తులుల బోధ. ప్రార్థన, ప్రేమ, విశ్వాసం, విధేయత మరియు కరుణతో కొనసాగించుచున్నాము. ఈ పరిచర్యకు ప్రజలు యేసుక్రీస్తు ప్రభులవారి సువార్త యొక్క శుభవార్త వినడానికి స్వచ్ఛందంగా వస్తారు, వారి పాపాలను ఒప్పుకొని మరియు నీతియు సమాధానమును, పరిశుద్ధాత్మయందలి ఆనందమును అనుభవించి కొత్త జీవితాన్ని ప్రారంభిస్తారు. ఈ పరిచర్య చాలా కొద్ది మంది ఆత్మలతో ప్రారంభించబడి, దేవుని దయతో మరియు ఆయన మీద ప్రగాఢమైన విశ్వాసముతో నడపబడుతున్న ఈ పరిచర్యకు ప్రతి ఆదివారం ప్రజలు సర్వశక్తిమంతుడైన&nbsp; యేసుక్రీస్తు ప్రభులవారిని ఆరాధించడానికి మందిరమునకు వేగిరపడుచున్నారు. ఈ పరిచర్యకు <i>(</i><i>FCRA</i> <i>ఫారిన్ కంట్రిబ్యూషన్ రెగ్యులేషన్ యాక్ట్</i><i>&nbsp;</i><i> లేదు)</i> విదేశీ నిధులు లేవు. ఇది పూర్తిగా 100% భారతీయ మరియు స్వదేశీ పరిచర్య.</span></p>						</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-c251511 e-con-full e-con" data-id="c251511" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-7053aca elementor-widget elementor-widget-image" data-id="7053aca" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="512" height="512" src="./Home – New Jerusalem Ministries_files/01-2.png" class="attachment-full size-full wp-image-7179" alt="" loading="lazy" srcset="https://newjerusalemministries.com/wp-content/uploads/2022/12/01-2.png 512w, https://newjerusalemministries.com/wp-content/uploads/2022/12/01-2-300x300.png 300w, https://newjerusalemministries.com/wp-content/uploads/2022/12/01-2-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px">															</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-d6962c1 elementor-hidden-desktop elementor-hidden-tablet elementor-hidden-mobile e-con-boxed e-con" data-id="d6962c1" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-afafa02 e-con-full e-con" data-id="afafa02" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+		<div class="elementor-element elementor-element-fce3e50 e-con-full e-con" data-id="fce3e50" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;,&quot;position&quot;:&quot;absolute&quot;}">
+				<div class="elementor-element elementor-element-b2345fc elementor-widget elementor-widget-text-editor" data-id="b2345fc" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="font-size: 8pt;"><span style="color: #ff6600;">1 కొరింథి 4 : 20</span> దేవుని రాజ్యము మాటలతో కాదు శక్తి తోనే యున్నది. </span><br><span style="font-size: 8pt;"><span style="color: #ff6600;">రోమీయులకు 14 : 17&nbsp;</span> “దేవుని రాజ్యము భోజనమును పానమును కాదు గాని, నీతియు సమాధానమును, పరిశుద్ధాత్మయందలి ఆనందమునై యున్నది.”</span></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-cddbd30 elementor-widget elementor-widget-text-editor" data-id="cddbd30" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="font-family: ramabadra; font-size: 12pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;నిత్యజీవప్రధాతయైన దేవుని వాక్యం యొక్క శక్తి నిరంతరము గొప్పది మరియు ఘనమైనది.&nbsp; ఆ ఘనమైన దేవుని వాక్యమును ప్రబలముగా నమ్మి, యేసుక్రీస్తు నందు ఒకరినొకరు అపోస్తులుల బోధ. ప్రార్థన, ప్రేమ, విశ్వాసం, విధేయత మరియు కరుణతో కొనసాగించుచున్నాము. ఈ పరిచర్యకు ప్రజలు యేసుక్రీస్తు ప్రభులవారి సువార్త యొక్క శుభవార్త వినడానికి స్వచ్ఛందంగా వస్తారు, వారి పాపాలను ఒప్పుకొని మరియు నీతియు సమాధానమును, పరిశుద్ధాత్మయందలి ఆనందమును అనుభవించి కొత్త జీవితాన్ని ప్రారంభిస్తారు. ఈ పరిచర్య చాలా కొద్ది మంది ఆత్మలతో ప్రారంభించబడి, దేవుని దయతో మరియు ఆయన మీద ప్రగాఢమైన విశ్వాసముతో నడపబడుతున్న ఈ పరిచర్యకు ప్రతి ఆదివారం ప్రజలు సర్వశక్తిమంతుడైన&nbsp; యేసుక్రీస్తు ప్రభులవారిని ఆరాధించడానికి మందిరమునకు వేగిరపడుచున్నారు. ఈ పరిచర్యకు <i>(</i><i>FCRA</i> <i>ఫారిన్ కంట్రిబ్యూషన్ రెగ్యులేషన్ యాక్ట్</i><i>&nbsp;</i><i> లేదు)</i> విదేశీ నిధులు లేవు. ఇది పూర్తిగా 100% భారతీయ మరియు స్వదేశీ పరిచర్య.</span></p>						</div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-3fe8348 e-con-full e-con" data-id="3fe8348" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-7253750 elementor-widget elementor-widget-image" data-id="7253750" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="512" height="512" src="./Home – New Jerusalem Ministries_files/01-2.png" class="attachment-large size-large wp-image-7179" alt="" loading="lazy" srcset="https://newjerusalemministries.com/wp-content/uploads/2022/12/01-2.png 512w, https://newjerusalemministries.com/wp-content/uploads/2022/12/01-2-300x300.png 300w, https://newjerusalemministries.com/wp-content/uploads/2022/12/01-2-150x150.png 150w" sizes="(max-width: 512px) 100vw, 512px">															</div>
+				</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-2d2105b e-con-full e-con" data-id="2d2105b" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-a696143 elementor-arrows-position-inside elementor-pagination-position-outside elementor-widget elementor-widget-image-carousel e-widget-swiper" data-id="a696143" data-element_type="widget" data-settings="{&quot;slides_to_show&quot;:&quot;1&quot;,&quot;navigation&quot;:&quot;both&quot;,&quot;autoplay&quot;:&quot;yes&quot;,&quot;pause_on_hover&quot;:&quot;yes&quot;,&quot;pause_on_interaction&quot;:&quot;yes&quot;,&quot;autoplay_speed&quot;:5000,&quot;infinite&quot;:&quot;yes&quot;,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500}" data-widget_type="image-carousel.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.9.2 - 21-12-2022 */
+.elementor-widget-image-carousel .swiper-container{position:static}.elementor-widget-image-carousel .swiper-container .swiper-slide figure{line-height:inherit}.elementor-widget-image-carousel .swiper-slide{text-align:center}.elementor-image-carousel-wrapper:not(.swiper-container-initialized) .swiper-slide{max-width:calc(100% / var(--e-image-carousel-slides-to-show, 3))}</style>		<div class="elementor-image-carousel-wrapper swiper-container swiper-container-initialized swiper-container-horizontal" dir="ltr">
+			<div class="elementor-image-carousel swiper-wrapper" style="transform: translate3d(-3380px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" data-swiper-slide-index="3" style="width: 1690px;"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="./Home – New Jerusalem Ministries_files/01-1.jpg" alt="01"></figure></div>
+								<div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 1690px;"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="./Home – New Jerusalem Ministries_files/03.jpg" alt="03"></figure></div><div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 1690px;"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="./Home – New Jerusalem Ministries_files/04.jpg" alt="04"></figure></div><div class="swiper-slide swiper-slide-next" data-swiper-slide-index="2" style="width: 1690px;"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="./Home – New Jerusalem Ministries_files/02.jpg" alt="02"></figure></div><div class="swiper-slide" data-swiper-slide-index="3" style="width: 1690px;"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="./Home – New Jerusalem Ministries_files/01-1.jpg" alt="01"></figure></div>			<div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 1690px;"><figure class="swiper-slide-inner"><img decoding="async" class="swiper-slide-image" src="./Home – New Jerusalem Ministries_files/03.jpg" alt="03"></figure></div></div>
+												<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 4"></span></div>
+													<div class="elementor-swiper-button elementor-swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide">
+						<i aria-hidden="true" class="eicon-chevron-left"></i>						<span class="elementor-screen-only">Previous</span>
+					</div>
+					<div class="elementor-swiper-button elementor-swiper-button-next" tabindex="0" role="button" aria-label="Next slide">
+						<i aria-hidden="true" class="eicon-chevron-right"></i>						<span class="elementor-screen-only">Next</span>
+					</div>
+									<span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+				</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-6a85944 e-con-boxed e-con" data-id="6a85944" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-da36759 e-con-full e-con" data-id="da36759" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;}">
+				<div class="elementor-element elementor-element-11e1ab3 elementor-widget elementor-widget-image" data-id="11e1ab3" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="500" height="800" src="./Home – New Jerusalem Ministries_files/02-1.jpg" class="attachment-full size-full wp-image-7080" alt="" loading="lazy" srcset="https://newjerusalemministries.com/wp-content/uploads/2022/12/02-1.jpg 500w, https://newjerusalemministries.com/wp-content/uploads/2022/12/02-1-188x300.jpg 188w" sizes="(max-width: 500px) 100vw, 500px">															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-846400b e-con-boxed e-con" data-id="846400b" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+		<div class="elementor-element elementor-element-8eb8faf e-con-full e-con" data-id="8eb8faf" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;full&quot;,&quot;background_background&quot;:&quot;classic&quot;}">
+				<div class="elementor-element elementor-element-7c3d4d0 elementor-widget elementor-widget-text-editor" data-id="7c3d4d0" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><em><span style="font-size: 10pt;"><span style="font-weight: 400; color: #ff6600;">1థెస్సలోని 5: 14-15 </span><span style="font-weight: 400;"><br></span><span style="font-weight: 400;">14&nbsp; </span><span style="font-weight: 400;">“సహోదరులారా, మేము మీకు బోధించునది ఏమనగా- అక్రమముగా నడుచుకొను వారికి బుద్ధి చెప్పుడి, ధైర్యము చెడిన వారిని ధైర్యపరచుడి. బలహీనులకు ఊతనియ్యడి. అందరియెడల దీర్ఘ శాంతము గలవారై యుండుడి.” </span><span style="font-weight: 400;">15&nbsp; </span><span style="font-weight: 400;">ఎవడును కీడునకు ప్రతికీడు ఎవనికైనను చేయకుండ చూచుకొనుడి; మీరు ఒకని యెడల ఒకడును మనుష్యులందరి యెడల ఎల్లప్పుడును మేలైన దానిని అనుసరించి నడుచుకొనుడి</span><span style="font-weight: 400;">.</span></span></em></p>						</div>
+				</div>
+				<div class="elementor-element elementor-element-4578bbd elementor-widget elementor-widget-text-editor" data-id="4578bbd" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+							<p><span style="font-weight: 400; font-family: ramabadra; font-size: 14pt;">&nbsp; &nbsp; &nbsp; &nbsp; నిశ్చయముగా ఈ పరిచర్య మీకు నిశ్చలత్వమును, నిర్బయమును, నిగూఢయైన దైవిక క్రమమును, నిరంతరమైన ధైర్యమును, నిలకడైన ఆత్మీయతను పంచగలదని ప్రగాఢమైన విశ్వాసముతో….. మరియు ధనదాహముతో కాక నిస్వార్ధమైన ఆత్మలదాహముతో కొనసాగే ఈ నిబంధన పరిచర్యలో మీరు నిజమైన పాలిభాగస్తులు కాగలరని నిండు మనస్సుతో ఆహ్వానిస్తున్నాము.&nbsp;</span><span style="font-family: ramabadra; font-size: 14pt;"><span style="font-weight: 400;"><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;మీకొరకు ప్రార్ధించే మీ సంఘం, మీ దైవజనులు ఎల్లప్పుడు మీకు తోడుగా ఉన్నారని మరచిపోవద్దు.</span></span></p>						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-1cafb9b e-con-boxed e-con" data-id="1cafb9b" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-507e12e elementor-widget elementor-widget-heading" data-id="507e12e" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">'</h2>		</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-0819b4c e-con-boxed e-con" data-id="0819b4c" data-element_type="container" data-settings="{&quot;content_width&quot;:&quot;boxed&quot;}">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-9d38d3d elementor-absolute elementor-view-default elementor-widget elementor-widget-icon" data-id="9d38d3d" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="700pt" height="700pt" viewBox="0 0 700 700"><defs><symbol id="t"><path d="m18.766-1.125c-0.96875 0.5-1.9805 0.875-3.0312 1.125-1.043 0.25781-2.1367 0.39062-3.2812 0.39062-3.3984 0-6.0898-0.94531-8.0781-2.8438-1.9922-1.9062-2.9844-4.4844-2.9844-7.7344 0-3.2578 0.99219-5.8359 2.9844-7.7344 1.9883-1.9062 4.6797-2.8594 8.0781-2.8594 1.1445 0 2.2383 0.13281 3.2812 0.39062 1.0508 0.25 2.0625 0.625 3.0312 1.125v4.2188c-0.98047-0.65625-1.9453-1.1406-2.8906-1.4531-0.94922-0.3125-1.9492-0.46875-3-0.46875-1.875 0-3.3516 0.60547-4.4219 1.8125-1.0742 1.1992-1.6094 2.8555-1.6094 4.9688 0 2.1055 0.53516 3.7617 1.6094 4.9688 1.0703 1.1992 2.5469 1.7969 4.4219 1.7969 1.0508 0 2.0508-0.14844 3-0.45312 0.94531-0.3125 1.9102-0.80078 2.8906-1.4688z"></path></symbol><symbol id="b"><path d="m13.734-11.141c-0.4375-0.19531-0.87109-0.34375-1.2969-0.4375-0.41797-0.10156-0.83984-0.15625-1.2656-0.15625-1.2617 0-2.2305 0.40625-2.9062 1.2188-0.67969 0.80469-1.0156 1.9531-1.0156 3.4531v7.0625h-4.8906v-15.312h4.8906v2.5156c0.625-1 1.3438-1.7266 2.1562-2.1875 0.82031-0.46875 1.8008-0.70312 2.9375-0.70312 0.16406 0 0.34375 0.011719 0.53125 0.03125 0.19531 0.011719 0.47656 0.039062 0.84375 0.078125z"></path></symbol><symbol id="a"><path d="m17.641-7.7031v1.4062h-11.453c0.125 1.1484 0.53906 2.0078 1.25 2.5781 0.70703 0.57422 1.7031 0.85938 2.9844 0.85938 1.0312 0 2.082-0.14844 3.1562-0.45312 1.082-0.3125 2.1914-0.77344 3.3281-1.3906v3.7656c-1.1562 0.4375-2.3125 0.76562-3.4688 0.98438-1.1562 0.22656-2.3125 0.34375-3.4688 0.34375-2.7734 0-4.9297-0.70312-6.4688-2.1094-1.5312-1.4062-2.2969-3.3789-2.2969-5.9219 0-2.5 0.75391-4.4609 2.2656-5.8906 1.5078-1.4375 3.582-2.1562 6.2188-2.1562 2.4062 0 4.332 0.73047 5.7812 2.1875 1.4453 1.4492 2.1719 3.3828 2.1719 5.7969zm-5.0312-1.625c0-0.92578-0.27344-1.6719-0.8125-2.2344-0.54297-0.57031-1.25-0.85938-2.125-0.85938-0.94922 0-1.7188 0.26562-2.3125 0.79688s-0.96484 1.2969-1.1094 2.2969z"></path></symbol><symbol id="d"><path d="m9.2188-6.8906c-1.0234 0-1.793 0.17188-2.3125 0.51562-0.51172 0.34375-0.76562 0.85547-0.76562 1.5312 0 0.625 0.20703 1.1172 0.625 1.4688 0.41406 0.34375 0.98828 0.51562 1.7188 0.51562 0.92578 0 1.7031-0.32812 2.3281-0.98438 0.63281-0.66406 0.95312-1.4922 0.95312-2.4844v-0.5625zm7.4688-1.8438v8.7344h-4.9219v-2.2656c-0.65625 0.92969-1.3984 1.6055-2.2188 2.0312-0.82422 0.41406-1.8242 0.625-3 0.625-1.5859 0-2.8711-0.45703-3.8594-1.375-0.99219-0.92578-1.4844-2.1289-1.4844-3.6094 0-1.7891 0.61328-3.1016 1.8438-3.9375 1.2383-0.84375 3.1797-1.2656 5.8281-1.2656h2.8906v-0.39062c0-0.76953-0.30859-1.332-0.92188-1.6875-0.61719-0.36328-1.5703-0.54688-2.8594-0.54688-1.0547 0-2.0312 0.10547-2.9375 0.3125-0.89844 0.21094-1.7305 0.52344-2.5 0.9375v-3.7344c1.0391-0.25 2.0859-0.44141 3.1406-0.57812 1.0625-0.13281 2.125-0.20312 3.1875-0.20312 2.7578 0 4.75 0.54688 5.9688 1.6406 1.2266 1.0859 1.8438 2.8555 1.8438 5.3125z"></path></symbol><symbol id="c"><path d="m7.7031-19.656v4.3438h5.0469v3.5h-5.0469v6.5c0 0.71094 0.14062 1.1875 0.42188 1.4375s0.83594 0.375 1.6719 0.375h2.5156v3.5h-4.1875c-1.9375 0-3.3125-0.39844-4.125-1.2031-0.80469-0.8125-1.2031-2.1797-1.2031-4.1094v-6.5h-2.4219v-3.5h2.4219v-4.3438z"></path></symbol><symbol id="i"><path d="m12.766-13.078v-8.2031h4.9219v21.281h-4.9219v-2.2188c-0.66797 0.90625-1.4062 1.5703-2.2188 1.9844s-1.7578 0.625-2.8281 0.625c-1.8867 0-3.4336-0.75-4.6406-2.25-1.2109-1.5-1.8125-3.4258-1.8125-5.7812 0-2.3633 0.60156-4.2969 1.8125-5.7969 1.207-1.5 2.7539-2.25 4.6406-2.25 1.0625 0 2 0.21484 2.8125 0.64062 0.82031 0.42969 1.5664 1.0859 2.2344 1.9688zm-3.2188 9.9219c1.0391 0 1.8359-0.37891 2.3906-1.1406 0.55078-0.76953 0.82812-1.8828 0.82812-3.3438 0-1.457-0.27734-2.5664-0.82812-3.3281-0.55469-0.76953-1.3516-1.1562-2.3906-1.1562-1.043 0-1.8398 0.38672-2.3906 1.1562-0.55469 0.76172-0.82812 1.8711-0.82812 3.3281 0 1.4609 0.27344 2.5742 0.82812 3.3438 0.55078 0.76172 1.3477 1.1406 2.3906 1.1406z"></path></symbol><symbol id="h"><path d="m10.5-3.1562c1.0508 0 1.8516-0.37891 2.4062-1.1406 0.55078-0.76953 0.82812-1.8828 0.82812-3.3438 0-1.457-0.27734-2.5664-0.82812-3.3281-0.55469-0.76953-1.3555-1.1562-2.4062-1.1562-1.0547 0-1.8594 0.38672-2.4219 1.1562-0.55469 0.77344-0.82812 1.8828-0.82812 3.3281 0 1.4492 0.27344 2.5586 0.82812 3.3281 0.5625 0.77344 1.3672 1.1562 2.4219 1.1562zm-3.25-9.9219c0.67578-0.88281 1.4219-1.5391 2.2344-1.9688 0.82031-0.42578 1.7656-0.64062 2.8281-0.64062 1.8945 0 3.4453 0.75 4.6562 2.25 1.207 1.5 1.8125 3.4336 1.8125 5.7969 0 2.3555-0.60547 4.2812-1.8125 5.7812-1.2109 1.5-2.7617 2.25-4.6562 2.25-1.0625 0-2.0078-0.21094-2.8281-0.625-0.8125-0.42578-1.5586-1.0859-2.2344-1.9844v2.2188h-4.8906v-21.281h4.8906z"></path></symbol><symbol id="g"><path d="m0.34375-15.312h4.8906l4.125 10.391 3.5-10.391h4.8906l-6.4375 16.766c-0.64844 1.6953-1.4023 2.8828-2.2656 3.5625-0.86719 0.6875-2 1.0312-3.4062 1.0312h-2.8438v-3.2188h1.5312c0.83203 0 1.4375-0.13672 1.8125-0.40625 0.38281-0.26172 0.67969-0.73047 0.89062-1.4062l0.14062-0.42188z"></path></symbol><symbol id="f"><path d="m2.5781-20.406h5.875l7.4219 14v-14h4.9844v20.406h-5.875l-7.4219-14v14h-4.9844z"></path></symbol><symbol id="s"><path d="m2.5781-20.406h6.6875l4.6562 10.922 4.6719-10.922h6.6875v20.406h-4.9844v-14.938l-4.7031 11.016h-3.3281l-4.7031-11.016v14.938h-4.9844z"></path></symbol><symbol id="r"><path d="m2.3594-15.312h4.8906v15.312h-4.8906zm0-5.9688h4.8906v4h-4.8906z"></path></symbol><symbol id="q"><path d="m12.422-21.281v3.2188h-2.7031c-0.6875 0-1.1719 0.125-1.4531 0.375-0.27344 0.25-0.40625 0.6875-0.40625 1.3125v1.0625h4.1875v3.5h-4.1875v11.812h-4.8906v-11.812h-2.4375v-3.5h2.4375v-1.0625c0-1.6641 0.46094-2.8984 1.3906-3.7031 0.92578-0.80078 2.3672-1.2031 4.3281-1.2031z"></path></symbol><symbol id="e"><path d="m9.6406-12.188c-1.0859 0-1.9141 0.39062-2.4844 1.1719-0.57422 0.78125-0.85938 1.9062-0.85938 3.375s0.28516 2.5938 0.85938 3.375c0.57031 0.77344 1.3984 1.1562 2.4844 1.1562 1.0625 0 1.875-0.38281 2.4375-1.1562 0.57031-0.78125 0.85938-1.9062 0.85938-3.375s-0.28906-2.5938-0.85938-3.375c-0.5625-0.78125-1.375-1.1719-2.4375-1.1719zm0-3.5c2.6328 0 4.6914 0.71484 6.1719 2.1406 1.4766 1.418 2.2188 3.3867 2.2188 5.9062 0 2.5117-0.74219 4.4805-2.2188 5.9062-1.4805 1.418-3.5391 2.125-6.1719 2.125-2.6484 0-4.7148-0.70703-6.2031-2.125-1.4922-1.4258-2.2344-3.3945-2.2344-5.9062 0-2.5195 0.74219-4.4883 2.2344-5.9062 1.4883-1.4258 3.5547-2.1406 6.2031-2.1406z"></path></symbol><symbol id="p"><path d="m16.547-12.766c0.61328-0.94531 1.3477-1.6719 2.2031-2.1719 0.85156-0.5 1.7891-0.75 2.8125-0.75 1.7578 0 3.0977 0.54688 4.0156 1.6406 0.92578 1.0859 1.3906 2.6562 1.3906 4.7188v9.3281h-4.9219v-7.9844-0.35938c0.007813-0.13281 0.015625-0.32031 0.015625-0.5625 0-1.082-0.16406-1.8633-0.48438-2.3438-0.3125-0.48828-0.82422-0.73438-1.5312-0.73438-0.92969 0-1.6484 0.38672-2.1562 1.1562-0.51172 0.76172-0.77344 1.8672-0.78125 3.3125v7.5156h-4.9219v-7.9844c0-1.6953-0.14844-2.7852-0.4375-3.2656-0.29297-0.48828-0.8125-0.73438-1.5625-0.73438-0.9375 0-1.6641 0.38672-2.1719 1.1562-0.51172 0.76172-0.76562 1.8594-0.76562 3.2969v7.5312h-4.9219v-15.312h4.9219v2.2344c0.60156-0.86328 1.2891-1.5156 2.0625-1.9531 0.78125-0.4375 1.6406-0.65625 2.5781-0.65625 1.0625 0 2 0.25781 2.8125 0.76562 0.8125 0.51172 1.4258 1.2305 1.8438 2.1562z"></path></symbol><symbol id="o"><path d="m17.75-9.3281v9.3281h-4.9219v-7.1094c0-1.3438-0.03125-2.2656-0.09375-2.7656s-0.16797-0.86719-0.3125-1.1094c-0.1875-0.3125-0.44922-0.55469-0.78125-0.73438-0.32422-0.17578-0.69531-0.26562-1.1094-0.26562-1.0234 0-1.8242 0.39844-2.4062 1.1875-0.58594 0.78125-0.875 1.8711-0.875 3.2656v7.5312h-4.8906v-21.281h4.8906v8.2031c0.73828-0.88281 1.5195-1.5391 2.3438-1.9688 0.83203-0.42578 1.75-0.64062 2.75-0.64062 1.7695 0 3.1133 0.54688 4.0312 1.6406 0.91406 1.0859 1.375 2.6562 1.375 4.7188z"></path></symbol><symbol id="n"><path d="m2.1875-5.9688v-9.3438h4.9219v1.5312c0 0.83594-0.007813 1.875-0.015625 3.125-0.011719 1.25-0.015625 2.0859-0.015625 2.5 0 1.2422 0.03125 2.1328 0.09375 2.6719 0.070313 0.54297 0.17969 0.93359 0.32812 1.1719 0.20703 0.32422 0.47266 0.57422 0.79688 0.75 0.32031 0.16797 0.69141 0.25 1.1094 0.25 1.0195 0 1.8203-0.39062 2.4062-1.1719 0.58203-0.78125 0.875-1.8672 0.875-3.2656v-7.5625h4.8906v15.312h-4.8906v-2.2188c-0.74219 0.89844-1.5234 1.5586-2.3438 1.9844-0.82422 0.41406-1.7344 0.625-2.7344 0.625-1.7617 0-3.1055-0.53906-4.0312-1.625-0.92969-1.082-1.3906-2.6602-1.3906-4.7344z"></path></symbol><symbol id="m"><path d="m17.75-9.3281v9.3281h-4.9219v-7.1406c0-1.3203-0.03125-2.2344-0.09375-2.7344s-0.16797-0.86719-0.3125-1.1094c-0.1875-0.3125-0.44922-0.55469-0.78125-0.73438-0.32422-0.17578-0.69531-0.26562-1.1094-0.26562-1.0234 0-1.8242 0.39844-2.4062 1.1875-0.58594 0.78125-0.875 1.8711-0.875 3.2656v7.5312h-4.8906v-15.312h4.8906v2.2344c0.73828-0.88281 1.5195-1.5391 2.3438-1.9688 0.83203-0.42578 1.75-0.64062 2.75-0.64062 1.7695 0 3.1133 0.54688 4.0312 1.6406 0.91406 1.0859 1.375 2.6562 1.375 4.7188z"></path></symbol><symbol id="l"><path d="m2.5781-20.406h8.7344c2.5938 0 4.582 0.57812 5.9688 1.7344 1.3945 1.1484 2.0938 2.7891 2.0938 4.9219 0 2.1367-0.69922 3.7812-2.0938 4.9375-1.3867 1.1562-3.375 1.7344-5.9688 1.7344h-3.4844v7.0781h-5.25zm5.25 3.8125v5.7031h2.9219c1.0195 0 1.8047-0.25 2.3594-0.75 0.5625-0.5 0.84375-1.2031 0.84375-2.1094 0-0.91406-0.28125-1.6172-0.84375-2.1094-0.55469-0.48828-1.3398-0.73438-2.3594-0.73438z"></path></symbol><symbol id="k"><path d="m2.3594-15.312h4.8906v15.031c0 2.0508-0.49609 3.6172-1.4844 4.7031-0.98047 1.082-2.4062 1.625-4.2812 1.625h-2.4219v-3.2188h0.85938c0.92578 0 1.5625-0.21094 1.9062-0.625 0.35156-0.41797 0.53125-1.2461 0.53125-2.4844zm0-5.9688h4.8906v4h-4.8906z"></path></symbol><symbol id="j"><path d="m14.719-14.828v3.9844c-0.65625-0.45703-1.3242-0.79688-2-1.0156-0.66797-0.21875-1.3594-0.32812-2.0781-0.32812-1.3672 0-2.4336 0.40234-3.2031 1.2031-0.76172 0.79297-1.1406 1.9062-1.1406 3.3438 0 1.4297 0.37891 2.543 1.1406 3.3438 0.76953 0.79297 1.8359 1.1875 3.2031 1.1875 0.75781 0 1.4844-0.10938 2.1719-0.32812 0.6875-0.22656 1.3203-0.56641 1.9062-1.0156v4c-0.76172 0.28125-1.5391 0.48828-2.3281 0.625-0.78125 0.14453-1.5742 0.21875-2.375 0.21875-2.7617 0-4.9219-0.70703-6.4844-2.125-1.5547-1.4141-2.3281-3.3828-2.3281-5.9062 0-2.5312 0.77344-4.5039 2.3281-5.9219 1.5625-1.4141 3.7227-2.125 6.4844-2.125 0.80078 0 1.5938 0.074219 2.375 0.21875 0.78125 0.13672 1.5547 0.35156 2.3281 0.64062z"></path></symbol></defs><g><path d="m491.68 225.68c0-77.84-63.281-141.68-141.68-141.68s-141.68 63.84-141.68 141.68c0 77.84 63.281 142.24 141.68 142.24 16.801 0 33.602-3.3594 49.281-8.9609-3.3594 35.281-13.441 71.68-31.359 105.84-1.6797 2.2383-1.6797 5.6016-0.55859 7.8398 0.55859 1.6797 2.2383 3.3594 3.9219 3.3594 2.2383 0.55859 5.0391 0 7.8398-2.2383 33.602-29.121 62.719-66.641 82.32-108.64 17.922-38.641 28-79.52 29.68-123.2 0.55469-5.6016 0.55469-11.203 0.55469-16.242z"></path><use x="70" y="644" xlink:href="#t"></use><use x="90.550781" y="644" xlink:href="#b"></use><use x="104.359375" y="644" xlink:href="#a"></use><use x="123.347656" y="644" xlink:href="#d"></use><use x="142.242188" y="644" xlink:href="#c"></use><use x="155.628906" y="644" xlink:href="#a"></use><use x="174.617188" y="644" xlink:href="#i"></use><use x="204.410156" y="644" xlink:href="#h"></use><use x="224.453125" y="644" xlink:href="#g"></use><use x="252.453125" y="644" xlink:href="#f"></use><use x="275.882812" y="644" xlink:href="#a"></use><use x="294.875" y="644" xlink:href="#s"></use><use x="322.738281" y="644" xlink:href="#d"></use><use x="341.632812" y="644" xlink:href="#b"></use><use x="355.441406" y="644" xlink:href="#r"></use><use x="365.039062" y="644" xlink:href="#d"></use><use x="70" y="672" xlink:href="#q"></use><use x="82.183594" y="672" xlink:href="#b"></use><use x="95.992188" y="672" xlink:href="#e"></use><use x="115.226562" y="672" xlink:href="#p"></use><use x="154.152344" y="672" xlink:href="#c"></use><use x="167.535156" y="672" xlink:href="#o"></use><use x="187.46875" y="672" xlink:href="#a"></use><use x="216.207031" y="672" xlink:href="#f"></use><use x="239.640625" y="672" xlink:href="#e"></use><use x="258.878906" y="672" xlink:href="#n"></use><use x="278.8125" y="672" xlink:href="#m"></use><use x="308.492188" y="672" xlink:href="#l"></use><use x="329.015625" y="672" xlink:href="#b"></use><use x="342.820312" y="672" xlink:href="#e"></use><use x="362.058594" y="672" xlink:href="#k"></use><use x="371.65625" y="672" xlink:href="#a"></use><use x="390.648438" y="672" xlink:href="#j"></use><use x="407.242188" y="672" xlink:href="#c"></use></g></svg>			</div>
+		</div>
+				</div>
+				</div>
+				<div class="elementor-element elementor-element-0208389 elementor-absolute elementor-view-default elementor-widget elementor-widget-icon" data-id="0208389" data-element_type="widget" data-settings="{&quot;_position&quot;:&quot;absolute&quot;}" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-wrapper">
+			<div class="elementor-icon">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="700pt" height="700pt" viewBox="0 0 700 700"><defs><symbol id="t"><path d="m18.766-1.125c-0.96875 0.5-1.9805 0.875-3.0312 1.125-1.043 0.25781-2.1367 0.39062-3.2812 0.39062-3.3984 0-6.0898-0.94531-8.0781-2.8438-1.9922-1.9062-2.9844-4.4844-2.9844-7.7344 0-3.2578 0.99219-5.8359 2.9844-7.7344 1.9883-1.9062 4.6797-2.8594 8.0781-2.8594 1.1445 0 2.2383 0.13281 3.2812 0.39062 1.0508 0.25 2.0625 0.625 3.0312 1.125v4.2188c-0.98047-0.65625-1.9453-1.1406-2.8906-1.4531-0.94922-0.3125-1.9492-0.46875-3-0.46875-1.875 0-3.3516 0.60547-4.4219 1.8125-1.0742 1.1992-1.6094 2.8555-1.6094 4.9688 0 2.1055 0.53516 3.7617 1.6094 4.9688 1.0703 1.1992 2.5469 1.7969 4.4219 1.7969 1.0508 0 2.0508-0.14844 3-0.45312 0.94531-0.3125 1.9102-0.80078 2.8906-1.4688z"></path></symbol><symbol id="b"><path d="m13.734-11.141c-0.4375-0.19531-0.87109-0.34375-1.2969-0.4375-0.41797-0.10156-0.83984-0.15625-1.2656-0.15625-1.2617 0-2.2305 0.40625-2.9062 1.2188-0.67969 0.80469-1.0156 1.9531-1.0156 3.4531v7.0625h-4.8906v-15.312h4.8906v2.5156c0.625-1 1.3438-1.7266 2.1562-2.1875 0.82031-0.46875 1.8008-0.70312 2.9375-0.70312 0.16406 0 0.34375 0.011719 0.53125 0.03125 0.19531 0.011719 0.47656 0.039062 0.84375 0.078125z"></path></symbol><symbol id="a"><path d="m17.641-7.7031v1.4062h-11.453c0.125 1.1484 0.53906 2.0078 1.25 2.5781 0.70703 0.57422 1.7031 0.85938 2.9844 0.85938 1.0312 0 2.082-0.14844 3.1562-0.45312 1.082-0.3125 2.1914-0.77344 3.3281-1.3906v3.7656c-1.1562 0.4375-2.3125 0.76562-3.4688 0.98438-1.1562 0.22656-2.3125 0.34375-3.4688 0.34375-2.7734 0-4.9297-0.70312-6.4688-2.1094-1.5312-1.4062-2.2969-3.3789-2.2969-5.9219 0-2.5 0.75391-4.4609 2.2656-5.8906 1.5078-1.4375 3.582-2.1562 6.2188-2.1562 2.4062 0 4.332 0.73047 5.7812 2.1875 1.4453 1.4492 2.1719 3.3828 2.1719 5.7969zm-5.0312-1.625c0-0.92578-0.27344-1.6719-0.8125-2.2344-0.54297-0.57031-1.25-0.85938-2.125-0.85938-0.94922 0-1.7188 0.26562-2.3125 0.79688s-0.96484 1.2969-1.1094 2.2969z"></path></symbol><symbol id="d"><path d="m9.2188-6.8906c-1.0234 0-1.793 0.17188-2.3125 0.51562-0.51172 0.34375-0.76562 0.85547-0.76562 1.5312 0 0.625 0.20703 1.1172 0.625 1.4688 0.41406 0.34375 0.98828 0.51562 1.7188 0.51562 0.92578 0 1.7031-0.32812 2.3281-0.98438 0.63281-0.66406 0.95312-1.4922 0.95312-2.4844v-0.5625zm7.4688-1.8438v8.7344h-4.9219v-2.2656c-0.65625 0.92969-1.3984 1.6055-2.2188 2.0312-0.82422 0.41406-1.8242 0.625-3 0.625-1.5859 0-2.8711-0.45703-3.8594-1.375-0.99219-0.92578-1.4844-2.1289-1.4844-3.6094 0-1.7891 0.61328-3.1016 1.8438-3.9375 1.2383-0.84375 3.1797-1.2656 5.8281-1.2656h2.8906v-0.39062c0-0.76953-0.30859-1.332-0.92188-1.6875-0.61719-0.36328-1.5703-0.54688-2.8594-0.54688-1.0547 0-2.0312 0.10547-2.9375 0.3125-0.89844 0.21094-1.7305 0.52344-2.5 0.9375v-3.7344c1.0391-0.25 2.0859-0.44141 3.1406-0.57812 1.0625-0.13281 2.125-0.20312 3.1875-0.20312 2.7578 0 4.75 0.54688 5.9688 1.6406 1.2266 1.0859 1.8438 2.8555 1.8438 5.3125z"></path></symbol><symbol id="c"><path d="m7.7031-19.656v4.3438h5.0469v3.5h-5.0469v6.5c0 0.71094 0.14062 1.1875 0.42188 1.4375s0.83594 0.375 1.6719 0.375h2.5156v3.5h-4.1875c-1.9375 0-3.3125-0.39844-4.125-1.2031-0.80469-0.8125-1.2031-2.1797-1.2031-4.1094v-6.5h-2.4219v-3.5h2.4219v-4.3438z"></path></symbol><symbol id="i"><path d="m12.766-13.078v-8.2031h4.9219v21.281h-4.9219v-2.2188c-0.66797 0.90625-1.4062 1.5703-2.2188 1.9844s-1.7578 0.625-2.8281 0.625c-1.8867 0-3.4336-0.75-4.6406-2.25-1.2109-1.5-1.8125-3.4258-1.8125-5.7812 0-2.3633 0.60156-4.2969 1.8125-5.7969 1.207-1.5 2.7539-2.25 4.6406-2.25 1.0625 0 2 0.21484 2.8125 0.64062 0.82031 0.42969 1.5664 1.0859 2.2344 1.9688zm-3.2188 9.9219c1.0391 0 1.8359-0.37891 2.3906-1.1406 0.55078-0.76953 0.82812-1.8828 0.82812-3.3438 0-1.457-0.27734-2.5664-0.82812-3.3281-0.55469-0.76953-1.3516-1.1562-2.3906-1.1562-1.043 0-1.8398 0.38672-2.3906 1.1562-0.55469 0.76172-0.82812 1.8711-0.82812 3.3281 0 1.4609 0.27344 2.5742 0.82812 3.3438 0.55078 0.76172 1.3477 1.1406 2.3906 1.1406z"></path></symbol><symbol id="h"><path d="m10.5-3.1562c1.0508 0 1.8516-0.37891 2.4062-1.1406 0.55078-0.76953 0.82812-1.8828 0.82812-3.3438 0-1.457-0.27734-2.5664-0.82812-3.3281-0.55469-0.76953-1.3555-1.1562-2.4062-1.1562-1.0547 0-1.8594 0.38672-2.4219 1.1562-0.55469 0.77344-0.82812 1.8828-0.82812 3.3281 0 1.4492 0.27344 2.5586 0.82812 3.3281 0.5625 0.77344 1.3672 1.1562 2.4219 1.1562zm-3.25-9.9219c0.67578-0.88281 1.4219-1.5391 2.2344-1.9688 0.82031-0.42578 1.7656-0.64062 2.8281-0.64062 1.8945 0 3.4453 0.75 4.6562 2.25 1.207 1.5 1.8125 3.4336 1.8125 5.7969 0 2.3555-0.60547 4.2812-1.8125 5.7812-1.2109 1.5-2.7617 2.25-4.6562 2.25-1.0625 0-2.0078-0.21094-2.8281-0.625-0.8125-0.42578-1.5586-1.0859-2.2344-1.9844v2.2188h-4.8906v-21.281h4.8906z"></path></symbol><symbol id="g"><path d="m0.34375-15.312h4.8906l4.125 10.391 3.5-10.391h4.8906l-6.4375 16.766c-0.64844 1.6953-1.4023 2.8828-2.2656 3.5625-0.86719 0.6875-2 1.0312-3.4062 1.0312h-2.8438v-3.2188h1.5312c0.83203 0 1.4375-0.13672 1.8125-0.40625 0.38281-0.26172 0.67969-0.73047 0.89062-1.4062l0.14062-0.42188z"></path></symbol><symbol id="f"><path d="m2.5781-20.406h5.875l7.4219 14v-14h4.9844v20.406h-5.875l-7.4219-14v14h-4.9844z"></path></symbol><symbol id="s"><path d="m2.5781-20.406h6.6875l4.6562 10.922 4.6719-10.922h6.6875v20.406h-4.9844v-14.938l-4.7031 11.016h-3.3281l-4.7031-11.016v14.938h-4.9844z"></path></symbol><symbol id="r"><path d="m2.3594-15.312h4.8906v15.312h-4.8906zm0-5.9688h4.8906v4h-4.8906z"></path></symbol><symbol id="q"><path d="m12.422-21.281v3.2188h-2.7031c-0.6875 0-1.1719 0.125-1.4531 0.375-0.27344 0.25-0.40625 0.6875-0.40625 1.3125v1.0625h4.1875v3.5h-4.1875v11.812h-4.8906v-11.812h-2.4375v-3.5h2.4375v-1.0625c0-1.6641 0.46094-2.8984 1.3906-3.7031 0.92578-0.80078 2.3672-1.2031 4.3281-1.2031z"></path></symbol><symbol id="e"><path d="m9.6406-12.188c-1.0859 0-1.9141 0.39062-2.4844 1.1719-0.57422 0.78125-0.85938 1.9062-0.85938 3.375s0.28516 2.5938 0.85938 3.375c0.57031 0.77344 1.3984 1.1562 2.4844 1.1562 1.0625 0 1.875-0.38281 2.4375-1.1562 0.57031-0.78125 0.85938-1.9062 0.85938-3.375s-0.28906-2.5938-0.85938-3.375c-0.5625-0.78125-1.375-1.1719-2.4375-1.1719zm0-3.5c2.6328 0 4.6914 0.71484 6.1719 2.1406 1.4766 1.418 2.2188 3.3867 2.2188 5.9062 0 2.5117-0.74219 4.4805-2.2188 5.9062-1.4805 1.418-3.5391 2.125-6.1719 2.125-2.6484 0-4.7148-0.70703-6.2031-2.125-1.4922-1.4258-2.2344-3.3945-2.2344-5.9062 0-2.5195 0.74219-4.4883 2.2344-5.9062 1.4883-1.4258 3.5547-2.1406 6.2031-2.1406z"></path></symbol><symbol id="p"><path d="m16.547-12.766c0.61328-0.94531 1.3477-1.6719 2.2031-2.1719 0.85156-0.5 1.7891-0.75 2.8125-0.75 1.7578 0 3.0977 0.54688 4.0156 1.6406 0.92578 1.0859 1.3906 2.6562 1.3906 4.7188v9.3281h-4.9219v-7.9844-0.35938c0.007813-0.13281 0.015625-0.32031 0.015625-0.5625 0-1.082-0.16406-1.8633-0.48438-2.3438-0.3125-0.48828-0.82422-0.73438-1.5312-0.73438-0.92969 0-1.6484 0.38672-2.1562 1.1562-0.51172 0.76172-0.77344 1.8672-0.78125 3.3125v7.5156h-4.9219v-7.9844c0-1.6953-0.14844-2.7852-0.4375-3.2656-0.29297-0.48828-0.8125-0.73438-1.5625-0.73438-0.9375 0-1.6641 0.38672-2.1719 1.1562-0.51172 0.76172-0.76562 1.8594-0.76562 3.2969v7.5312h-4.9219v-15.312h4.9219v2.2344c0.60156-0.86328 1.2891-1.5156 2.0625-1.9531 0.78125-0.4375 1.6406-0.65625 2.5781-0.65625 1.0625 0 2 0.25781 2.8125 0.76562 0.8125 0.51172 1.4258 1.2305 1.8438 2.1562z"></path></symbol><symbol id="o"><path d="m17.75-9.3281v9.3281h-4.9219v-7.1094c0-1.3438-0.03125-2.2656-0.09375-2.7656s-0.16797-0.86719-0.3125-1.1094c-0.1875-0.3125-0.44922-0.55469-0.78125-0.73438-0.32422-0.17578-0.69531-0.26562-1.1094-0.26562-1.0234 0-1.8242 0.39844-2.4062 1.1875-0.58594 0.78125-0.875 1.8711-0.875 3.2656v7.5312h-4.8906v-21.281h4.8906v8.2031c0.73828-0.88281 1.5195-1.5391 2.3438-1.9688 0.83203-0.42578 1.75-0.64062 2.75-0.64062 1.7695 0 3.1133 0.54688 4.0312 1.6406 0.91406 1.0859 1.375 2.6562 1.375 4.7188z"></path></symbol><symbol id="n"><path d="m2.1875-5.9688v-9.3438h4.9219v1.5312c0 0.83594-0.007813 1.875-0.015625 3.125-0.011719 1.25-0.015625 2.0859-0.015625 2.5 0 1.2422 0.03125 2.1328 0.09375 2.6719 0.070313 0.54297 0.17969 0.93359 0.32812 1.1719 0.20703 0.32422 0.47266 0.57422 0.79688 0.75 0.32031 0.16797 0.69141 0.25 1.1094 0.25 1.0195 0 1.8203-0.39062 2.4062-1.1719 0.58203-0.78125 0.875-1.8672 0.875-3.2656v-7.5625h4.8906v15.312h-4.8906v-2.2188c-0.74219 0.89844-1.5234 1.5586-2.3438 1.9844-0.82422 0.41406-1.7344 0.625-2.7344 0.625-1.7617 0-3.1055-0.53906-4.0312-1.625-0.92969-1.082-1.3906-2.6602-1.3906-4.7344z"></path></symbol><symbol id="m"><path d="m17.75-9.3281v9.3281h-4.9219v-7.1406c0-1.3203-0.03125-2.2344-0.09375-2.7344s-0.16797-0.86719-0.3125-1.1094c-0.1875-0.3125-0.44922-0.55469-0.78125-0.73438-0.32422-0.17578-0.69531-0.26562-1.1094-0.26562-1.0234 0-1.8242 0.39844-2.4062 1.1875-0.58594 0.78125-0.875 1.8711-0.875 3.2656v7.5312h-4.8906v-15.312h4.8906v2.2344c0.73828-0.88281 1.5195-1.5391 2.3438-1.9688 0.83203-0.42578 1.75-0.64062 2.75-0.64062 1.7695 0 3.1133 0.54688 4.0312 1.6406 0.91406 1.0859 1.375 2.6562 1.375 4.7188z"></path></symbol><symbol id="l"><path d="m2.5781-20.406h8.7344c2.5938 0 4.582 0.57812 5.9688 1.7344 1.3945 1.1484 2.0938 2.7891 2.0938 4.9219 0 2.1367-0.69922 3.7812-2.0938 4.9375-1.3867 1.1562-3.375 1.7344-5.9688 1.7344h-3.4844v7.0781h-5.25zm5.25 3.8125v5.7031h2.9219c1.0195 0 1.8047-0.25 2.3594-0.75 0.5625-0.5 0.84375-1.2031 0.84375-2.1094 0-0.91406-0.28125-1.6172-0.84375-2.1094-0.55469-0.48828-1.3398-0.73438-2.3594-0.73438z"></path></symbol><symbol id="k"><path d="m2.3594-15.312h4.8906v15.031c0 2.0508-0.49609 3.6172-1.4844 4.7031-0.98047 1.082-2.4062 1.625-4.2812 1.625h-2.4219v-3.2188h0.85938c0.92578 0 1.5625-0.21094 1.9062-0.625 0.35156-0.41797 0.53125-1.2461 0.53125-2.4844zm0-5.9688h4.8906v4h-4.8906z"></path></symbol><symbol id="j"><path d="m14.719-14.828v3.9844c-0.65625-0.45703-1.3242-0.79688-2-1.0156-0.66797-0.21875-1.3594-0.32812-2.0781-0.32812-1.3672 0-2.4336 0.40234-3.2031 1.2031-0.76172 0.79297-1.1406 1.9062-1.1406 3.3438 0 1.4297 0.37891 2.543 1.1406 3.3438 0.76953 0.79297 1.8359 1.1875 3.2031 1.1875 0.75781 0 1.4844-0.10938 2.1719-0.32812 0.6875-0.22656 1.3203-0.56641 1.9062-1.0156v4c-0.76172 0.28125-1.5391 0.48828-2.3281 0.625-0.78125 0.14453-1.5742 0.21875-2.375 0.21875-2.7617 0-4.9219-0.70703-6.4844-2.125-1.5547-1.4141-2.3281-3.3828-2.3281-5.9062 0-2.5312 0.77344-4.5039 2.3281-5.9219 1.5625-1.4141 3.7227-2.125 6.4844-2.125 0.80078 0 1.5938 0.074219 2.375 0.21875 0.78125 0.13672 1.5547 0.35156 2.3281 0.64062z"></path></symbol></defs><g><path d="m491.68 225.68c0-77.84-63.281-141.68-141.68-141.68s-141.68 63.84-141.68 141.68c0 77.84 63.281 142.24 141.68 142.24 16.801 0 33.602-3.3594 49.281-8.9609-3.3594 35.281-13.441 71.68-31.359 105.84-1.6797 2.2383-1.6797 5.6016-0.55859 7.8398 0.55859 1.6797 2.2383 3.3594 3.9219 3.3594 2.2383 0.55859 5.0391 0 7.8398-2.2383 33.602-29.121 62.719-66.641 82.32-108.64 17.922-38.641 28-79.52 29.68-123.2 0.55469-5.6016 0.55469-11.203 0.55469-16.242z"></path><use x="70" y="644" xlink:href="#t"></use><use x="90.550781" y="644" xlink:href="#b"></use><use x="104.359375" y="644" xlink:href="#a"></use><use x="123.347656" y="644" xlink:href="#d"></use><use x="142.242188" y="644" xlink:href="#c"></use><use x="155.628906" y="644" xlink:href="#a"></use><use x="174.617188" y="644" xlink:href="#i"></use><use x="204.410156" y="644" xlink:href="#h"></use><use x="224.453125" y="644" xlink:href="#g"></use><use x="252.453125" y="644" xlink:href="#f"></use><use x="275.882812" y="644" xlink:href="#a"></use><use x="294.875" y="644" xlink:href="#s"></use><use x="322.738281" y="644" xlink:href="#d"></use><use x="341.632812" y="644" xlink:href="#b"></use><use x="355.441406" y="644" xlink:href="#r"></use><use x="365.039062" y="644" xlink:href="#d"></use><use x="70" y="672" xlink:href="#q"></use><use x="82.183594" y="672" xlink:href="#b"></use><use x="95.992188" y="672" xlink:href="#e"></use><use x="115.226562" y="672" xlink:href="#p"></use><use x="154.152344" y="672" xlink:href="#c"></use><use x="167.535156" y="672" xlink:href="#o"></use><use x="187.46875" y="672" xlink:href="#a"></use><use x="216.207031" y="672" xlink:href="#f"></use><use x="239.640625" y="672" xlink:href="#e"></use><use x="258.878906" y="672" xlink:href="#n"></use><use x="278.8125" y="672" xlink:href="#m"></use><use x="308.492188" y="672" xlink:href="#l"></use><use x="329.015625" y="672" xlink:href="#b"></use><use x="342.820312" y="672" xlink:href="#e"></use><use x="362.058594" y="672" xlink:href="#k"></use><use x="371.65625" y="672" xlink:href="#a"></use><use x="390.648438" y="672" xlink:href="#j"></use><use x="407.242188" y="672" xlink:href="#c"></use></g></svg>			</div>
+		</div>
+				</div>
+				</div>
+					</div>
+				</div>
+							</div>
+		
+
+<footer id="colophon" class="site-footer clearfix">
+
+	<div class="content-wrap">
+		
+	</div>
+
+	<div class="site-info">
+		©2022 New Jerusalem Ministries		<span class="footer-info-right">
+			 | WordPress Theme by <a href="https://superbthemes.com/"> SuperbThemes</a>
+		</span>
+	</div><!-- .site-info -->
+
+
+</footer><!-- #colophon -->
+
+
+<div id="smobile-menu" class="mobile-only wpadminbar-active"><nav id="primary-site-navigation" class="primary-menu main-navigation clearfix">
+                    <a href="https://newjerusalemministries.com/home/#" class="nav-pull smenu-hide toggle-mobile-menu menu-toggle" aria-expanded="false">
+                            <span class="logofont site-title">
+                    New Jerusalem Ministries                </span>
+                        <span class="navigation-icon-nav">
+                <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.33301 1H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M1.33301 9H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M1.33301 17H22.6663" stroke="#2D2D2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </span>
+        </a>
+            <div class="top-nav-wrapper">
+                <div class="content-wrap">
+                    <div class="header-content-container">
+                        <div class="logo-container">
+                            
+                                
+
+                                
+                                    <a class="logofont site-title" href="https://newjerusalemministries.com/" rel="home">New Jerusalem Ministries</a>
+                                                                            <p class="logodescription site-description">New Jerusalem Ministries</p>
+                                    
+                                                            </div>
+
+                                <div class="center-main-menu">
+            <div class="menu-menu-container"><ul id="primary-menu" class="pmenu"><li id="menu-item-1269" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-540 current_page_item menu-item-1269"><a href="https://newjerusalemministries.com/home/" aria-current="page">Home</a></li>
+<li id="menu-item-1275" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1275"><a>About us</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+<ul class="sub-menu">
+	<li id="menu-item-1270" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1270"><a href="https://newjerusalemministries.com/mission-vission/">Mission &amp; VIssion</a></li>
+	<li id="menu-item-1266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1266"><a href="https://newjerusalemministries.com/about/">What we Believes</a></li>
+</ul>
+</li>
+<li id="menu-item-6819" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6819"><a href="https://newjerusalemministries.com/the-bible-resources/">Bible Resources</a></li>
+<li id="menu-item-7488" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-7488"><a href="https://newjerusalemministries.com/home/#">Sunday School</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+<ul class="sub-menu">
+	<li id="menu-item-1451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1451"><a href="https://newjerusalemministries.com/sunday-school/sunday-school-songs/">Song Lyrics</a></li>
+	<li id="menu-item-1484" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1484"><a href="https://newjerusalemministries.com/sunday-school/stories/">Stories</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+	<ul class="sub-menu">
+		<li id="menu-item-1482" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1482"><a href="https://newjerusalemministries.com/sunday-school/stories/old-testament/">Old Testament</a></li>
+		<li id="menu-item-1481" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1481"><a href="https://newjerusalemministries.com/sunday-school/stories/new-testament/">New Testament</a></li>
+		<li id="menu-item-1480" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1480"><a href="https://newjerusalemministries.com/sunday-school/stories/topical/">Topical</a></li>
+		<li id="menu-item-1479" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1479"><a href="https://newjerusalemministries.com/sunday-school/stories/biographical/">Biographical</a></li>
+		<li id="menu-item-1478" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1478"><a href="https://newjerusalemministries.com/sunday-school/stories/pre-school/">Pre School</a></li>
+	</ul>
+</li>
+	<li id="menu-item-1483" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1483"><a href="https://newjerusalemministries.com/sunday-school/activities/">Activities</a><span class="sub-arrow"><i class="fa fa-angle-down"></i></span>
+	<ul class="sub-menu">
+		<li id="menu-item-1477" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1477"><a href="https://newjerusalemministries.com/sunday-school/activities/coloring/">Coloring</a></li>
+		<li id="menu-item-1476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1476"><a href="https://newjerusalemministries.com/sunday-school/activities/puzzles/">Puzzles</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-2365" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2365"><a href="https://newjerusalemministries.com/songs/">Songs Lyrics</a></li>
+<li id="menu-item-1339" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1339"><a href="https://newjerusalemministries.com/prayer-request/">Prayer Request</a></li>
+<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1267"><a href="https://newjerusalemministries.com/contact/">Contact us</a></li>
+</ul></div>        </div>
+                    </div>
+                </div>
+        </div></nav></div>
+<div id="mobile-menu-overlay"></div>
+
+<script type="text/template" id="tmpl-elementor-templates-modal__header">
+	<div class="elementor-templates-modal__header__logo-area"></div>
+	<div class="elementor-templates-modal__header__menu-area"></div>
+	<div class="elementor-templates-modal__header__items-area">
+		<# if ( closeType ) { #>
+			<div class="elementor-templates-modal__header__close elementor-templates-modal__header__close--{{{ closeType }}} elementor-templates-modal__header__item">
+				<# if ( 'skip' === closeType ) { #>
+				<span>Skip</span>
+				<# } #>
+				<i class="eicon-close" aria-hidden="true" title="Close"></i>
+				<span class="elementor-screen-only">Close</span>
+			</div>
+		<# } #>
+		<div id="elementor-template-library-header-tools"></div>
+	</div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-templates-modal__header__logo">
+	<span class="elementor-templates-modal__header__logo__icon-wrapper e-logo-wrapper">
+		<i class="eicon-elementor"></i>
+	</span>
+	<span class="elementor-templates-modal__header__logo__title">{{{ title }}}</span>
+</script>
+<script type="text/template" id="tmpl-elementor-finder">
+	<div id="elementor-finder__search">
+		<i class="eicon-search"></i>
+		<input id="elementor-finder__search__input" placeholder="Type to find anything in Elementor" autocomplete="off">
+	</div>
+	<div id="elementor-finder__content"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder-results-container">
+	<div id="elementor-finder__no-results">No Results Found</div>
+	<div id="elementor-finder__results"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder__results__category">
+	<div class="elementor-finder__results__category__title">{{{ title }}}</div>
+	<div class="elementor-finder__results__category__items"></div>
+</script>
+
+<script type="text/template" id="tmpl-elementor-finder__results__item">
+	<a href="{{ url }}" class="elementor-finder__results__item__link">
+		<div class="elementor-finder__results__item__icon">
+			<i class="eicon-{{{ icon }}}"></i>
+		</div>
+		<div class="elementor-finder__results__item__title">{{{ title }}}</div>
+		<# if ( description ) { #>
+			<div class="elementor-finder__results__item__description">- {{{ description }}}</div>
+		<# } #>
+
+		<# if ( lock ) { #>
+		<div class="elementor-finder__results__item__badge"><i class="{{{ lock.badge.icon }}}"></i>{{ lock.badge.text }}</div>
+		<# } #>
+	</a>
+	<# if ( actions.length ) { #>
+		<div class="elementor-finder__results__item__actions">
+		<# jQuery.each( actions, function() { #>
+			<a class="elementor-finder__results__item__action elementor-finder__results__item__action--{{ this.name }}" href="{{ this.url }}" target="_blank">
+				<i class="eicon-{{{ this.icon }}}"></i>
+			</a>
+		<# } ); #>
+		</div>
+	<# } #>
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/navigation.js.download" id="petite-stories-navigation-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/skip-link-focus-fix.js.download" id="petite-stories-skip-link-focus-fix-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/script.js.download" id="petite-stories-script-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/accessibility.js.download" id="petite-stories-accessibility-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/core.min.js.download" id="jquery-ui-core-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/mouse.min.js.download" id="jquery-ui-mouse-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/draggable.min.js.download" id="jquery-ui-draggable-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/underscore.min.js.download" id="underscore-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/backbone.min.js.download" id="backbone-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/backbone.marionette.min.js.download" id="backbone-marionette-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/backbone.radio.min.js.download" id="backbone-radio-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/common-modules.min.js.download" id="elementor-common-modules-js"></script>
+<script type="text/javascript" id="elementor-web-cli-js-before">
+var elementorWebCliConfig = {"isDebug":false,"urls":{"rest":"https:\/\/newjerusalemministries.com\/wp-json\/","assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"e121754d8b","version":"3.9.2"};
+var elementorWebCliConfig = {"isDebug":false,"urls":{"rest":"https:\/\/newjerusalemministries.com\/wp-json\/","assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/"},"nonce":"e121754d8b","version":"3.9.2"};
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/web-cli.min.js.download" id="elementor-web-cli-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/dialog.min.js.download" id="elementor-dialog-js"></script>
+<script type="text/javascript" id="wp-api-request-js-extra">
+/* <![CDATA[ */
+var wpApiSettings = {"root":"https:\/\/newjerusalemministries.com\/wp-json\/","nonce":"e121754d8b","versionString":"wp\/v2\/"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/api-request.min.js.download" id="wp-api-request-js"></script>
+<script type="text/javascript" id="elementor-dev-tools-js-before">
+var elementorDevToolsConfig = {"isDebug":false,"urls":{"assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"3.9.2"}};
+var elementorDevToolsConfig = {"isDebug":false,"urls":{"assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"3.9.2"}};
+var elementorDevToolsConfig = {"isDebug":false,"urls":{"assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/"},"deprecation":{"soft_notices":[],"soft_version_count":4,"hard_version_count":8,"current_version":"3.9.2"}};
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/dev-tools.min.js.download" id="elementor-dev-tools-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/regenerator-runtime.min.js.download" id="regenerator-runtime-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/wp-polyfill.min.js.download" id="wp-polyfill-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/hooks.min.js.download" id="wp-hooks-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/i18n.min.js.download" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="text/javascript" id="elementor-common-js-before">
+var elementorCommonConfig = {"version":"3.9.2","isRTL":false,"isDebug":false,"isElementorDebug":false,"activeModules":["ajax","finder","connect","event-tracker"],"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"additional_custom_breakpoints":true,"e_import_export":true,"e_hidden_wordpress_widgets":true,"container":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"kit-elements-defaults":true},"urls":{"assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/","rest":"https:\/\/newjerusalemministries.com\/wp-json\/"},"filesUpload":{"unfilteredFiles":true},"library_connect":{"is_connected":false,"subscription_plans":{"0":{"label":null,"promotion_url":null,"color":null},"1":{"label":"Pro","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=gopro","color":"#92003B"},"20":{"label":"Expert","promotion_url":"https:\/\/elementor.com\/pro\/?utm_source=template-library&utm_medium=wp-dash&utm_campaign=goexpert","color":"#010051"}},"base_access_level":0,"current_access_level":0},"ajax":{"url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin-ajax.php","nonce":"e4fd15253f"},"finder":{"data":{"edit":{"title":"Edit","dynamic":true,"name":"edit"},"general":{"title":"General","dynamic":false,"items":{"saved-templates":{"title":"Saved Templates","icon":"library-save","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?post_type=elementor_library&tabs_group=library","keywords":["template","section","page","library"]},"system-info":{"title":"System Info","icon":"info-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-system-info","keywords":["system","info","environment","elementor"]},"role-manager":{"title":"Role Manager","icon":"person","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-role-manager","keywords":["role","manager","user","elementor"]},"knowledge-base":{"title":"Knowledge Base","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=go_knowledge_base_site","keywords":["help","knowledge","docs","elementor"]},"theme-builder":{"title":"Theme Builder","icon":"library-save","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-app&ver=3.9.2#site-editor\/promotion","keywords":["template","header","footer","single","archive","search","404","library"]},"kit-library":{"title":"Kit Library","icon":"kit-parts","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-app&ver=3.9.2#\/kit-library","keywords":["kit library","kit","library","site parts","parts","assets","templates"]}},"name":"general"},"create":{"title":"Create","dynamic":false,"items":{"page":{"title":"Add New Page Template","icon":"plus-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=page&_wpnonce=f6ebd6bb28","keywords":["Add New Page Template","post","page","template","new","create"]},"section":{"title":"Add New Section","icon":"plus-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=section&_wpnonce=f6ebd6bb28","keywords":["Add New Section","post","page","template","new","create"]},"container":{"title":"Add New Container","icon":"plus-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=elementor_library&template_type=stack&_wpnonce=f6ebd6bb28","keywords":["Add New Container","post","page","template","new","create"]},"wp-post":{"title":"Add New Post","icon":"plus-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=post&template_type=wp-post&_wpnonce=f6ebd6bb28","keywords":["Add New Post","post","page","template","new","create"]},"wp-page":{"title":"Add New Page","icon":"plus-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=page&template_type=wp-page&_wpnonce=f6ebd6bb28","keywords":["Add New Page","post","page","template","new","create"]},"landing-page":{"title":"Add New Landing Page","icon":"plus-circle-o","url":"https:\/\/newjerusalemministries.com\/wp-admin\/edit.php?action=elementor_new_post&post_type=e-landing-page&template_type=landing-page&_wpnonce=f6ebd6bb28#library","keywords":["Add New Landing Page","post","page","template","new","create"]}},"name":"create"},"site":{"title":"Site","dynamic":false,"items":{"homepage":{"title":"Homepage","url":"https:\/\/newjerusalemministries.com","icon":"home-heart","keywords":["home","page"]},"wordpress-dashboard":{"title":"Dashboard","icon":"dashboard","url":"https:\/\/newjerusalemministries.com\/wp-admin\/","keywords":["dashboard","wordpress"]},"wordpress-menus":{"title":"Menus","icon":"wordpress","url":"https:\/\/newjerusalemministries.com\/wp-admin\/nav-menus.php","keywords":["menu","wordpress"]},"wordpress-themes":{"title":"Themes","icon":"wordpress","url":"https:\/\/newjerusalemministries.com\/wp-admin\/themes.php","keywords":["themes","wordpress"]},"wordpress-customizer":{"title":"Customizer","icon":"wordpress","url":"https:\/\/newjerusalemministries.com\/wp-admin\/customize.php","keywords":["customizer","wordpress"]},"wordpress-plugins":{"title":"Plugins","icon":"wordpress","url":"https:\/\/newjerusalemministries.com\/wp-admin\/plugins.php","keywords":["plugins","wordpress"]},"wordpress-users":{"title":"Users","icon":"wordpress","url":"https:\/\/newjerusalemministries.com\/wp-admin\/users.php","keywords":["users","profile","wordpress"]}},"name":"site"},"settings":{"title":"Settings","dynamic":false,"items":{"general-settings":{"title":"General Settings","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor","keywords":["general","settings","elementor"]},"advanced":{"title":"Advanced","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor#tab-advanced","keywords":["advanced","settings","elementor"]},"experiments":{"title":"Experiments","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor#tab-experiments","keywords":["settings","elementor","experiments"]}},"name":"settings"},"tools":{"title":"Tools","dynamic":false,"items":{"tools":{"title":"Tools","icon":"tools","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-tools","keywords":["tools","regenerate css","safe mode","debug bar","sync library","elementor"]},"replace-url":{"title":"Replace URL","icon":"tools","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-tools#tab-replace_url","keywords":["tools","replace url","domain","elementor"]},"maintenance-mode":{"title":"Maintenance Mode","icon":"tools","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-tools#tab-maintenance_mode","keywords":["tools","maintenance","coming soon","elementor"]},"import-export":{"title":"Import Export","icon":"import-export","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-tools#tab-import-export-kit","keywords":["tools","import export","import","export","kit"]},"version-control":{"title":"Version Control","icon":"time-line","url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-tools#tab-versions","keywords":["tools","version","control","rollback","beta","elementor"]}},"name":"tools"}}},"connect":[],"event-tracker":{"isUserDataShared":false}};
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/common.min.js.download" id="elementor-common-js"></script>
+<script type="text/javascript" id="elementor-app-loader-js-before">
+var elementorAppConfig = {"menu_url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-app&ver=3.9.2#site-editor\/promotion","assets_url":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/","return_url":"https:\/\/newjerusalemministries.com\/wp-admin\/","hasPro":false,"admin_url":"https:\/\/newjerusalemministries.com\/wp-admin\/","login_url":"https:\/\/newjerusalemministries.com\/wp-login.php","base_url":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-app&ver=3.9.2","site-editor":[],"import-export":[],"kit-library":[],"onboarding":[]};
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/app-loader.min.js.download" id="elementor-app-loader-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/webpack.runtime.min.js.download" id="elementor-webpack-runtime-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/frontend-modules.min.js.download" id="elementor-frontend-modules-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/waypoints.min.js.download" id="elementor-waypoints-js"></script>
+<script type="text/javascript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Extra","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Extra","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.9.2","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"additional_custom_breakpoints":true,"e_import_export":true,"e_hidden_wordpress_widgets":true,"container":true,"landing-pages":true,"elements-color-picker":true,"favorite-widgets":true,"admin-top-bar":true,"kit-elements-defaults":true},"urls":{"assets":"https:\/\/newjerusalemministries.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":540,"title":"Home%20%E2%80%93%20New%20Jerusalem%20Ministries","excerpt":"","featuredImage":false},"user":{"roles":["administrator"]}};
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/frontend.min.js.download" id="elementor-frontend-js"></script><span id="elementor-device-mode" class="elementor-screen-only"></span>
+<script type="text/javascript" id="elementor-admin-bar-js-before">
+var elementorAdminBarConfig = {"elementor_edit_page":{"id":"elementor_edit_page","title":"Edit with Elementor","href":"https:\/\/newjerusalemministries.com\/wp-admin\/post.php?post=540&action=elementor","children":{"541":{"id":"elementor_site_settings","title":"Site Settings","sub_title":"Site","href":"https:\/\/newjerusalemministries.com\/wp-admin\/post.php?post=540&action=elementor#e:run:panel\/global\/open","class":"elementor-site-settings","parent_class":"elementor-second-section"},"542":{"id":"elementor_app_site_editor","title":"Theme Builder","sub_title":"Site","href":"https:\/\/newjerusalemministries.com\/wp-admin\/admin.php?page=elementor-app&ver=3.9.2#site-editor\/promotion","class":"elementor-app-link","parent_class":"elementor-second-section"}}}};
+</script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/elementor-admin-bar.min.js.download" id="elementor-admin-bar-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/hoverintent-js.min.js.download" id="hoverintent-js-js"></script>
+<script type="text/javascript" src="./Home – New Jerusalem Ministries_files/admin-bar.min.js.download" id="admin-bar-js"></script>
+    <script>
+        "use strict";
+        /(trident|msie)/i.test(navigator.userAgent) && document.getElementById && window.addEventListener && window.addEventListener("hashchange", function() {
+            var t, e = location.hash.substring(1);
+            /^[A-z0-9_-]+$/.test(e) && (t = document.getElementById(e)) && (/^(?:a|select|input|button|textarea)$/i.test(t.tagName) || (t.tabIndex = -1), t.focus())
+        }, !1);
+    </script>
+
+
+<script src="./Home – New Jerusalem Ministries_files/swiper.min.js.download"></script><iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./Home – New Jerusalem Ministries_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" style="display: none;" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}"></div><div></div></body></html>

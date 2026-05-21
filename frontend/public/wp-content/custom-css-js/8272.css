@@ -1,0 +1,27 @@
+<!-- start Simple Custom CSS and JS -->
+<style type="text/css">
+/* Smart Sticky Header */
+.smart-sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+/* When header is hidden (scrolling down) */
+.smart-sticky-header.hide {
+  transform: translateY(-100%);
+}
+
+/* Add padding so content doesn’t go under header */
+body {
+  padding-top: 90px; /* Adjust to match header height */
+}
+</style>
+<!-- end Simple Custom CSS and JS -->
