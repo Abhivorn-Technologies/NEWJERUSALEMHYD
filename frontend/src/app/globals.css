@@ -29,6 +29,13 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+@media (max-width: 767px) {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
 .elementor-shape-divider {
   position: relative;
   overflow: hidden;
@@ -43,3 +50,320 @@ body {
   transform: translateX(-50%);
   pointer-events: none;
 }
+
+/* Custom Hero Animations */
+
+@keyframes wave-flow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes bob-and-rock {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-5px) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(1.5deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes float-book {
+  0% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-4deg);
+  }
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+}
+
+@keyframes swim-fish {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-3px, -4px) rotate(-3deg);
+  }
+  50% {
+    transform: translate(-6px, 0) rotate(0deg);
+  }
+  75% {
+    transform: translate(-3px, 4px) rotate(3deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.animate-wave-slow {
+  animation: wave-flow 18s linear infinite;
+}
+
+.animate-wave-mid {
+  animation: wave-flow 12s linear infinite;
+}
+
+.animate-wave-fast {
+  animation: wave-flow 7.5s linear infinite;
+}
+
+.animate-boat {
+  animation: bob-and-rock 5s ease-in-out infinite;
+}
+
+.animate-book {
+  animation: float-book 6s ease-in-out infinite;
+}
+
+.animate-fish {
+  animation: swim-fish 8s ease-in-out infinite;
+}
+
+/* Scroll Reveal System (Apple-Style Blurred Fade-in) */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale,
+.about-content > * {
+  opacity: 0;
+  filter: blur(4px);
+  will-change: transform, opacity, filter;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal,
+.about-content > * {
+  transform: translateY(30px);
+}
+
+.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  transform: translateX(40px);
+}
+
+.reveal-scale {
+  transform: scale(0.92);
+}
+
+/* Active visible state */
+.reveal.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible,
+.about-content > *.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0) scale(1);
+}
+
+/* Staggered Delay Utilities */
+.reveal-delay-100 { transition-delay: 100ms; }
+.reveal-delay-200 { transition-delay: 200ms; }
+.reveal-delay-300 { transition-delay: 300ms; }
+.reveal-delay-400 { transition-delay: 400ms; }
+.reveal-delay-500 { transition-delay: 500ms; }
+.reveal-delay-600 { transition-delay: 600ms; }
+.reveal-delay-700 { transition-delay: 700ms; }
+.reveal-delay-800 { transition-delay: 800ms; }
+
+/* Custom Scrollbar for Smooth Aesthetics */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Premium Button & Interactive Link Hover Animations */
+button, 
+.btn, 
+a.btn, 
+.active-tab,
+.nav-link {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+button:hover:not(:disabled),
+.btn:hover:not(:disabled),
+a.btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+button:active:not(:disabled),
+.btn:active:not(:disabled),
+a.btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Smooth Link Animations */
+a:not([class*="slant"]):not([class*="reveal"]) {
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+/* Card Elevate Effect for general cards */
+.card-elevate {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-elevate:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.08), 0 10px 15px -5px rgba(0, 0, 0, 0.03);
+}
+
+/* Alphabet Index keyboard button scaling */
+.grid button:not(:disabled), 
+.sse-alpha:not(:disabled) {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.grid button:not(:disabled):hover, 
+.sse-alpha:not(:disabled):hover {
+  transform: scale(1.15) translateY(-2px) !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08) !important;
+  z-index: 10 !important;
+}
+
+/* Image Scale Container Zoom */
+.img-scale-container {
+  overflow: hidden;
+}
+
+.img-scale-container img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.img-scale-container:hover img {
+  transform: scale(1.08) !important;
+}
+
+/* About Us Cards & Hover Effects */
+.about-content > div {
+  background-color: #ffffff;
+  padding: 2.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(31, 66, 81, 0.08);
+  border-left: 5px solid #8b1e15;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-content > div:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(31, 66, 81, 0.1), 0 10px 10px -5px rgba(31, 66, 81, 0.04);
+  border-color: rgba(139, 30, 21, 0.3);
+  background-color: #fafbfc;
+}
+
+/* 3D Bible Resource Cards */
+.perspective-1200 {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.reflect-below {
+  -webkit-box-reflect: below 8px linear-gradient(transparent 30%, transparent 60%, rgba(255, 255, 255, 0.25));
+}
+
+.slant-card {
+  transform-style: preserve-3d;
+  transition: transform 0.15s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), margin 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, filter, box-shadow, margin;
+  
+  /* Initial values for mouse tilt variables */
+  --rx: 0deg;
+  --ry: var(--original-rot);
+  --scale: 1;
+  --tz: 0px;
+  
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) scale(var(--scale)) translateZ(var(--tz));
+}
+
+.slant-left-far {
+  --original-rot: 28deg;
+}
+
+.slant-left-near {
+  --original-rot: 22deg;
+}
+
+.slant-flat-center {
+  --original-rot: 0deg;
+  --scale: 1.05;
+  --tz: 30px;
+}
+
+.slant-right-near {
+  --original-rot: -22deg;
+}
+
+.slant-right-far {
+  --original-rot: -28deg;
+}
+
+/* Hovering a specific card: pops out, straightens, pushes out card margins, adds shadow */
+.slant-card:hover {
+  --scale: 1.08 !important;
+  --tz: 40px !important;
+  z-index: 50 !important;
+  filter: brightness(1.08) contrast(1.02) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  margin-left: 20px !important;
+  margin-right: 20px !important;
+}
+
+/* Active card state (clicked/selected) */
+.slant-card.active-card {
+  --original-rot: 0deg !important;
+  --ry: 0deg !important;
+  --scale: 1.08 !important;
+  --tz: 40px !important;
+  z-index: 45 !important;
+  filter: brightness(1.08) contrast(1.02) !important;
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.55), 0 0 15px rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Dim other cards when one is selected */
+.perspective-1200.has-active .slant-card:not(.active-card) {
+  filter: brightness(0.65) grayscale(0.2);
+  opacity: 0.6;
+  --tz: -15px;
+}
+
+/* Let inactive card hover normally even when has-active is true */
+.perspective-1200.has-active .slant-card:not(.active-card):hover {
+  filter: brightness(1.02) grayscale(0) !important;
+  opacity: 1 !important;
+  --scale: 1.08 !important;
+  --tz: 40px !important;
+  z-index: 50 !important;
+}
+
+/* Dim & push-back other cards in 3D space when a card inside the perspective-1200 container is hovered */
+.perspective-1200:hover .slant-card:not(:hover):not(.active-card) {
+  filter: brightness(0.7) grayscale(0.2);
+  --tz: -10px;
+}
+
+
+
+
+

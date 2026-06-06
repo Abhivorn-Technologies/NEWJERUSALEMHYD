@@ -1,110 +1,110 @@
 export const missionaryData = [
   {
-    "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM.jpeg",
-    "link": "/wp-content/uploads/2026/03/\u0c1c\u0c3e\u0c28\u0c4d-\u0c35\u0c46\u0c38\u0c4d\u0c32\u0c40-1.docx"
+    "image": "/wp-content/uploads/2026/04/అగస్టీన్--scaled.jpg",
+    "link": ""
+  },
+  {
+    "image": "/wp-content/uploads/2026/04/అగస్టీన్-సాలిన్స్-scaled.jpg",
+    "link": ""
+  },
+  {
+    "image": "/wp-content/uploads/2026/04/అదోనిరామ్-జడ్సన్-scaled.jpg",
+    "link": ""
+  },
+  {
+    "image": "/wp-content/uploads/2026/04/అమీకార్-మైఖెల్--scaled.jpg",
+    "link": ""
+  },
+  {
+    "image": "/wp-content/uploads/2026/04/అలెన్-గార్డెనర్-scaled.jpg",
+    "link": ""
   },
   {
     "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM-1.jpeg",
-    "link": "/wp-content/uploads/2026/03/\u0c06\u0c30\u0c4d.\u0c06\u0c30\u0c4d.\u0c15\u0c46.\u0c2e\u0c42\u0c30\u0c4d\u0c24\u0c3f-\u0c17\u0c3e\u0c30\u0c41.docx"
+    "link": "/wp-content/uploads/2026/03/ఆర్.ఆర్.కె.మూర్తి-గారు.docx"
+  },
+  {
+    "image": "/wp-content/uploads/2026/04/ఎలెన్-ఆర్నాల్డ్-scaled.jpg",
+    "link": ""
   },
   {
     "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM-2.jpeg",
-    "link": "/wp-content/uploads/2026/03/\u0c10\u0c21\u0c3e-\u0c38\u0c4d\u0c15\u0c21\u0c4d\u0c21\u0c30\u0c4d-\u0c1c\u0c40\u0c35\u0c3f\u0c24\u0c1a\u0c30\u0c3f\u0c24\u0c4d\u0c30.docx"
+    "link": "/wp-content/uploads/2026/03/ఐడా-స్కడ్డర్-జీవితచరిత్ర.docx"
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c2a\u0c02\u0c21\u0c3f\u0c24-\u0c30\u0c2e\u0c3e\u0c2c\u0c3e\u0c2f\u0c3f--scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/గ్రీన్-లారెన్స్-వార్టన్--scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c21\u0c47\u0c35\u0c3f\u0c21\u0c4d-\u0c2c\u0c4d\u0c30\u0c46\u0c2f\u0c3f\u0c28\u0c3e\u0c30\u0c4d\u0c21\u0c4d--scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/చార్లెస్-ఫిన్ని-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c21\u0c3f.\u0c2f\u0c32\u0c4d.-\u0c2e\u0c42\u0c21\u0c40-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/చార్లెస్-స్పర్జన్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c35\u0c3f\u0c32\u0c3f\u0c2f\u0c02-\u0c1f\u0c3f\u0c02\u0c21\u0c47\u0c32\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/జాన్-పేటన్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c1c\u0c3e\u0c30\u0c4d\u0c1c\u0c4d-\u0c35\u0c3f\u0c32\u0c3f\u0c2f\u0c2e\u0c4d\u0c38\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM.jpeg",
+    "link": "/wp-content/uploads/2026/03/జాన్-వెస్లీ-1.docx"
+  },
+  {
+    "image": "/wp-content/uploads/2026/04/జాన్-హైడ్--scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c1c\u0c3e\u0c30\u0c4d\u0c1c\u0c4d-\u0c35\u0c3f\u0c1f\u0c4d-\u0c2b\u0c40\u0c32\u0c4d\u0c21\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/జార్జ్-విట్-ఫీల్డ్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c1c\u0c3e\u0c28\u0c4d-\u0c39\u0c48\u0c21\u0c4d--scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/జార్జ్-విలియమ్స్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c1c\u0c3e\u0c28\u0c4d-\u0c2a\u0c47\u0c1f\u0c28\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/డి.యల్.-మూడీ-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c1a\u0c3e\u0c30\u0c4d\u0c32\u0c46\u0c38\u0c4d-\u0c38\u0c4d\u0c2a\u0c30\u0c4d\u0c1c\u0c28\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/డేవిడ్-బ్రెయినార్డ్--scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c1a\u0c3e\u0c30\u0c4d\u0c32\u0c46\u0c38\u0c4d-\u0c2b\u0c3f\u0c28\u0c4d\u0c28\u0c3f-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/పండిత-రమాబాయి--scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c17\u0c4d\u0c30\u0c40\u0c28\u0c4d-\u0c32\u0c3e\u0c30\u0c46\u0c28\u0c4d\u0c38\u0c4d-\u0c35\u0c3e\u0c30\u0c4d\u0c1f\u0c28\u0c4d--scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/రావూరి-రంగయ్య-లక్ష్మయ్య-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c30\u0c3e\u0c35\u0c42\u0c30\u0c3f-\u0c30\u0c02\u0c17\u0c2f\u0c4d\u0c2f-\u0c32\u0c15\u0c4d\u0c37\u0c4d\u0c2e\u0c2f\u0c4d\u0c2f-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/విలియం-టిండేల్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c0e\u0c32\u0c46\u0c28\u0c4d-\u0c06\u0c30\u0c4d\u0c28\u0c3e\u0c32\u0c4d\u0c21\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/విల్-ఫ్రెడ్-గ్రెన్-ఫెల్--scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c05\u0c32\u0c46\u0c28\u0c4d-\u0c17\u0c3e\u0c30\u0c4d\u0c21\u0c46\u0c28\u0c30\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/శామ్యూల్-రూథర్-ఫోర్డ్--scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c05\u0c2e\u0c40\u0c15\u0c3e\u0c30\u0c4d-\u0c2e\u0c48\u0c16\u0c46\u0c32\u0c4d--scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/సామ్యూల్-మోరిస్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c05\u0c26\u0c4b\u0c28\u0c3f\u0c30\u0c3e\u0c2e\u0c4d-\u0c1c\u0c21\u0c4d\u0c38\u0c28\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/సెయింట్-బోనిఫేస్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c05\u0c17\u0c38\u0c4d\u0c1f\u0c40\u0c28\u0c4d-\u0c38\u0c3e\u0c32\u0c3f\u0c28\u0c4d\u0c38\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/స్మిత్-విగ్గిల్స్-వర్త్-scaled.jpg",
     "link": ""
   },
   {
-    "image": "/wp-content/uploads/2026/04/\u0c05\u0c17\u0c38\u0c4d\u0c1f\u0c40\u0c28\u0c4d--scaled.jpg",
-    "link": ""
-  },
-  {
-    "image": "/wp-content/uploads/2026/04/\u0c35\u0c3f\u0c32\u0c4d-\u0c2b\u0c4d\u0c30\u0c46\u0c21\u0c4d-\u0c17\u0c4d\u0c30\u0c46\u0c28\u0c4d-\u0c2b\u0c46\u0c32\u0c4d--scaled.jpg",
-    "link": ""
-  },
-  {
-    "image": "/wp-content/uploads/2026/04/\u0c36\u0c3e\u0c2e\u0c4d\u0c2f\u0c42\u0c32\u0c4d-\u0c30\u0c42\u0c25\u0c30\u0c4d-\u0c2b\u0c4b\u0c30\u0c4d\u0c21\u0c4d--scaled.jpg",
-    "link": ""
-  },
-  {
-    "image": "/wp-content/uploads/2026/04/\u0c38\u0c3e\u0c2e\u0c4d\u0c2f\u0c42\u0c32\u0c4d-\u0c2e\u0c4b\u0c30\u0c3f\u0c38\u0c4d-scaled.jpg",
-    "link": ""
-  },
-  {
-    "image": "/wp-content/uploads/2026/04/\u0c38\u0c46\u0c2f\u0c3f\u0c02\u0c1f\u0c4d-\u0c2c\u0c4b\u0c28\u0c3f\u0c2b\u0c47\u0c38\u0c4d-scaled.jpg",
-    "link": ""
-  },
-  {
-    "image": "/wp-content/uploads/2026/04/\u0c38\u0c4d\u0c2e\u0c3f\u0c24\u0c4d-\u0c35\u0c3f\u0c17\u0c4d\u0c17\u0c3f\u0c32\u0c4d\u0c38\u0c4d-\u0c35\u0c30\u0c4d\u0c24\u0c4d-scaled.jpg",
-    "link": ""
-  },
-  {
-    "image": "/wp-content/uploads/2026/04/\u0c39\u0c21\u0c4d\u0c38\u0c28\u0c4d-\u0c1f\u0c47\u0c32\u0c30\u0c4d-scaled.jpg",
+    "image": "/wp-content/uploads/2026/04/హడ్సన్-టేలర్-scaled.jpg",
     "link": ""
   }
 ];

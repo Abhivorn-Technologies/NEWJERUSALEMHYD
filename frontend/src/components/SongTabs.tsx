@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 interface SongProps {
   telugu_lyrics: string;
+  hindi_lyrics: string;
   english_lyrics: string;
   powerpoint_slides: string;
   audio_video: string;
@@ -12,6 +13,7 @@ interface SongProps {
 export default function SongTabs({ song }: { song: SongProps }) {
   const tabs = [
     { id: 'telugu', label: 'Telugu Lyrics', content: song.telugu_lyrics },
+    { id: 'hindi', label: 'Hindi Lyrics', content: song.hindi_lyrics },
     { id: 'english', label: 'English Lyrics', content: song.english_lyrics },
     { id: 'ppt', label: 'PowerPoint Slides', content: song.powerpoint_slides },
     { id: 'audio', label: 'Audio / Video', content: song.audio_video },
@@ -20,6 +22,22 @@ export default function SongTabs({ song }: { song: SongProps }) {
 
   const activeTabs = tabs.filter(tab => tab.content && tab.content.trim().length > 0);
   const [activeId, setActiveId] = useState(activeTabs.length > 0 ? activeTabs[0].id : null);
+
+  const formatLyrics = (htmlContent: string) => {
+    if (!htmlContent) return '';
+    
+    // Clean up redundant newlines around HTML tags to prevent double line breaks
+    if (/<p>|<br\s*\/?>/i.test(htmlContent)) {
+      return htmlContent
+        .replace(/(<br\s*\/?>)\s*\n/gi, '$1')
+        .replace(/(<\/p>)\s*\n/gi, '$1')
+        .replace(/(<p>)\s*\n/gi, '$1')
+        .trim();
+    }
+    
+    // Fallback for plain text: convert newlines to HTML breaks
+    return htmlContent.replace(/\r?\n/g, '<br />');
+  };
 
   if (activeTabs.length === 0) {
     return <div className="text-gray-500 italic p-4">No lyrics or media available.</div>;
@@ -49,9 +67,8 @@ export default function SongTabs({ song }: { song: SongProps }) {
             className={activeId === tab.id ? 'block' : 'hidden'}
           >
             <div 
-              className="prose max-w-none text-gray-700 text-lg leading-relaxed space-y-4 whitespace-pre-line"
-              style={{ whiteSpace: 'pre-line' }}
-              dangerouslySetInnerHTML={{ __html: tab.content }}
+              className="prose max-w-none text-gray-800 text-[17px] leading-relaxed [&_p]:my-5 [&_p]:leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: formatLyrics(tab.content) }}
             />
           </div>
         ))}

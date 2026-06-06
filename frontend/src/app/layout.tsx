@@ -3,6 +3,7 @@ import { Roboto, Poppins, Suranna, Ramabhadra, Mallanna, Tenali_Ramakrishna } fr
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollObserver from "@/components/ScrollObserver";
 
 export const metadata: Metadata = {
   title: "New Jerusalem Ministries",
@@ -53,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${roboto.variable} ${poppins.variable} ${suranna.variable} ${ramabhadra.variable} ${mallanna.variable} ${tenaliRamakrishna.variable}`}>
       <body className="bg-white min-h-screen flex flex-col">
+        <ScrollObserver />
         <Navbar />
         <main className="flex-grow">
           {children}

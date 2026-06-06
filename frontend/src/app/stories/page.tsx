@@ -22,9 +22,9 @@ export default async function StoriesPage() {
   return (
     <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
       <div className="max-w-4xl mx-auto space-y-12">
-        <div className="text-center mb-16">
-          <Link href="/sunday-school" className="text-sm text-[#8b1e15] font-semibold hover:underline mb-4 inline-block">
-            &larr; Back to Sunday School
+        <div className="text-center mb-16 reveal">
+          <Link href="/sunday-school" className="inline-flex items-center text-[#1f4251]/80 hover:text-[#8b1e15] font-semibold transition-colors duration-200 mb-6">
+            <span className="mr-2">&larr;</span> Back to Sunday School
           </Link>
           <h1 className="text-4xl font-extrabold text-[#1f4251] mb-4">Bible Stories</h1>
           <div className="h-1 w-24 bg-[#8b1e15] mx-auto rounded-full"></div>
@@ -33,16 +33,38 @@ export default async function StoriesPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map(category => (
-            <Link key={category.id} href={category.link} className="group block">
-              <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-md hover:-translate-y-1">
-                <h3 className="text-lg font-bold text-[#1f4251] group-hover:text-[#8b1e15] transition-colors">
-                  {category.title}
-                </h3>
-              </div>
-            </Link>
-          ))}
+        <div className="flex flex-col md:flex-row justify-center gap-8 max-w-3xl mx-auto">
+          {categories.map((category) => {
+            let finalLink = category.link;
+            let icon = '📖';
+            let desc = 'Wonderful stories from the Bible.';
+            
+            if (category.title.toLowerCase().includes('old')) {
+              finalLink = '/stories/old-testament';
+              icon = '📜';
+              desc = 'Explore stories from Creation through the Prophets.';
+            } else if (category.title.toLowerCase().includes('new')) {
+              finalLink = '/stories/new-testament';
+              icon = '📖';
+              desc = 'Read stories about the life of Jesus and the early Church.';
+            }
+
+            return (
+              <Link key={category.id} href={finalLink} className="group block w-full md:w-80">
+                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full flex flex-col justify-between cursor-pointer">
+                  <div>
+                    <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform">
+                      {icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-[#1f4251] mb-2 group-hover:text-[#8b1e15] transition-colors">
+                      {category.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">{desc}</p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

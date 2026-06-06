@@ -11,11 +11,19 @@ async function getSong(slug: string) {
   const res = await fetch(`${baseUrl}/songs/`, { cache: 'no-store' });
   if (!res.ok) return null;
   const songs = await res.json();
-  return songs.find((s: any) => s.slug === slug);
+  const decodedParam = decodeURIComponent(slug);
+  return songs.find((s: any) => {
+    try {
+      return s.slug === slug || decodeURIComponent(s.slug) === decodedParam;
+    } catch {
+      return s.slug === slug;
+    }
+  });
 }
 
-export default async function SongPage({ params }: { params: { slug: string } }) {
-  const song = await getSong(params.slug);
+export default async function SongPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const song = await getSong(slug);
 
   if (!song) {
     notFound();

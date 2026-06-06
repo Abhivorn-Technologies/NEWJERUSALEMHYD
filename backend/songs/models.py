@@ -11,6 +11,7 @@ class Song(models.Model):
     LANGUAGE_CHOICES = [
         ('telugu', 'Telugu'),
         ('sunday_telugu', 'Sunday School Telugu'),
+        ('others', 'Others'),
         ('sunday_hindi', 'Sunday School Hindi'),
         ('sunday_english', 'Sunday School English'),
     ]
@@ -21,6 +22,7 @@ class Song(models.Model):
     categories = models.ManyToManyField(SongCategory, blank=True)
     
     telugu_lyrics = models.TextField(blank=True)
+    hindi_lyrics = models.TextField(blank=True)
     english_lyrics = models.TextField(blank=True)
     powerpoint_slides = models.TextField(blank=True)
     audio_video = models.TextField(blank=True)

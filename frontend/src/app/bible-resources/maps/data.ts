@@ -7,15 +7,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-holy-land.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-holy-land.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-holy-land.pdf"
           }
         ]
       },
@@ -24,15 +24,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-patriarchs.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-patriarchs.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-patriarchs.pdf"
           }
         ]
       },
@@ -41,15 +41,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-exodus-and-conquest-of-canaan.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-exodus-and-conquest-of-canaan.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-exodus-and-conquest-of-canaan.pdf"
           }
         ]
       },
@@ -58,15 +58,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-twelve-tribes-of-israel.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-twelve-tribes-of-israel.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-twelve-tribes-of-israel.pdf"
           }
         ]
       },
@@ -75,15 +75,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-kingdoms-of-david-saul-and-solomon.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-kingdoms-of-david-saul-and-solomon.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-kingdoms-of-david-saul-and-solomon.pdf"
           }
         ]
       },
@@ -92,15 +92,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-kingdoms-of-israel-and-judah.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-kingdoms-of-israel-and-judah.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-kingdoms-of-israel-and-judah.pdf"
           }
         ]
       },
@@ -109,15 +109,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-prophets-of-judah-and-israel.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-prophets-of-judah-and-israel.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-prophets-of-judah-and-israel.pdf"
           }
         ]
       },
@@ -126,15 +126,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-assyrian-empire-700bc.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-assyrian-empire-700bc.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-assyrian-empire-700bc.pdf"
           }
         ]
       },
@@ -143,15 +143,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-babylonian-empire-600bc.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-babylonian-empire-600bc.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-babylonian-empire-600bc.pdf"
           }
         ]
       },
@@ -160,19 +160,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-persian-empire-450bc.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-persian-empire-450bc.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-persian-empire-450bc.pdf"
           },
           {
-            "text": "Download All Old Testament Maps\u200b",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "text": "Download All Old Testament Maps​",
+            "url": "/wp-content/uploads/2026/03/download-all-old-testament-maps.zip"
           }
         ]
       }
@@ -186,15 +186,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-holy-land-in-the-time-of-jesus.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-holy-land-in-the-time-of-jesus.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-holy-land-in-the-time-of-jesus.pdf"
           }
         ]
       },
@@ -203,32 +203,32 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-ministry-of-jesus.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-ministry-of-jesus.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-ministry-of-jesus.pdf"
           }
         ]
       },
       {
-        "title": "Jesus\u2019 Final Week in Jerusalem",
+        "title": "Jesus’ Final Week in Jerusalem",
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/jesus-final-week-in-jerusalem.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/jesus-final-week-in-jerusalem.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/jesus-final-week-in-jerusalem.pdf"
           }
         ]
       },
@@ -237,32 +237,32 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-early-spread-of-christianity.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-early-spread-of-christianity.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-early-spread-of-christianity.pdf"
           }
         ]
       },
       {
-        "title": "Paul\u2019s Missionary Journeys",
+        "title": "Paul’s Missionary Journeys",
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/pauls-missionary-journeys.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/pauls-missionary-journeys.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/pauls-missionary-journeys.pdf"
           }
         ]
       },
@@ -271,19 +271,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "ILLUSTRATOR",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-roman-empire-and-the-early-church.ai"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-roman-empire-and-the-early-church.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-roman-empire-and-the-early-church.pdf"
           },
           {
-            "text": "Download All New Testament Maps\u200b",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "text": "Download All New Testament Maps​",
+            "url": "/wp-content/uploads/2026/03/download-all-new-testament-maps.zip"
           }
         ]
       }
@@ -297,11 +297,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-roman-empire-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-roman-empire-bw.pdf"
           }
         ]
       },
@@ -310,11 +310,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-division-of-levant-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-division-of-levant-bw.pdf"
           }
         ]
       },
@@ -323,11 +323,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/christ-in-galilee-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/christ-in-galilee-bw.pdf"
           }
         ]
       },
@@ -336,11 +336,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/galilee-to-jerusalem-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/galilee-to-jerusalem-bw.pdf"
           }
         ]
       },
@@ -349,11 +349,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/christ-in-judea-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/christ-in-judea-bw.pdf"
           }
         ]
       },
@@ -362,11 +362,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/jerusalem-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/jerusalem-bw.pdf"
           }
         ]
       },
@@ -375,11 +375,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/matthew-2-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/matthew-2-bw.pdf"
           }
         ]
       },
@@ -388,11 +388,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/luke-2-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/luke-2-bw.pdf"
           }
         ]
       },
@@ -401,11 +401,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/luke-24-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/luke-24-bw.pdf"
           }
         ]
       },
@@ -414,11 +414,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-1-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-1-bw.pdf"
           }
         ]
       },
@@ -427,11 +427,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-2-3-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-2-3-bw.pdf"
           }
         ]
       },
@@ -440,11 +440,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-4-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-4-bw.pdf"
           }
         ]
       },
@@ -453,11 +453,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-6-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-6-bw.pdf"
           }
         ]
       },
@@ -466,11 +466,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-7-10-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-7-10-bw.pdf"
           }
         ]
       },
@@ -479,11 +479,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-11-12-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/john-11-12-bw.pdf"
           }
         ]
       },
@@ -492,11 +492,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/early-christianity-east-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/early-christianity-east-bw.pdf"
           }
         ]
       },
@@ -505,24 +505,24 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/early-christianity-west-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/early-christianity-west-bw.pdf"
           }
         ]
       },
       {
-        "title": "Paul\u2019s Journeys",
+        "title": "Paul’s Journeys",
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/pauls-journeys-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/pauls-journeys-bw.pdf"
           }
         ]
       },
@@ -531,11 +531,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/antioch-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/antioch-bw.pdf"
           }
         ]
       },
@@ -544,11 +544,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/athens-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/athens-bw.pdf"
           }
         ]
       },
@@ -557,11 +557,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/corinth-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/corinth-bw.pdf"
           }
         ]
       },
@@ -570,11 +570,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/ephesus-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/ephesus-bw.pdf"
           }
         ]
       },
@@ -583,11 +583,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/caesarea-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/caesarea-bw.pdf"
           }
         ]
       },
@@ -596,11 +596,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/rome-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/rome-bw.pdf"
           }
         ]
       },
@@ -609,11 +609,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-2-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-2-bw.pdf"
           }
         ]
       },
@@ -622,11 +622,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-6-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-6-bw.pdf"
           }
         ]
       },
@@ -635,11 +635,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-7-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-7-bw.pdf"
           }
         ]
       },
@@ -648,11 +648,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-8-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-8-bw.pdf"
           }
         ]
       },
@@ -661,11 +661,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-9-11-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-9-11-bw.pdf"
           }
         ]
       },
@@ -674,11 +674,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-11-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-11-bw.pdf"
           }
         ]
       },
@@ -687,11 +687,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-12-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-12-bw.pdf"
           }
         ]
       },
@@ -700,11 +700,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-13-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-13-bw.pdf"
           }
         ]
       },
@@ -713,11 +713,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-14-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-14-bw.pdf"
           }
         ]
       },
@@ -726,11 +726,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-15-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-15-bw.pdf"
           }
         ]
       },
@@ -739,11 +739,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-16-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-16-bw.pdf"
           }
         ]
       },
@@ -752,11 +752,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-16-18-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-16-18-bw.pdf"
           }
         ]
       },
@@ -765,11 +765,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-18-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-18-bw.pdf"
           }
         ]
       },
@@ -778,11 +778,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-19-20-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-19-20-bw.pdf"
           }
         ]
       },
@@ -791,11 +791,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-21-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-21-bw.pdf"
           }
         ]
       },
@@ -804,11 +804,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-23-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-23-bw.pdf"
           }
         ]
       },
@@ -817,11 +817,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-27-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-27-bw.pdf"
           }
         ]
       },
@@ -830,11 +830,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-28-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/acts-28-bw.pdf"
           }
         ]
       },
@@ -843,11 +843,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/epistles-overview-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/epistles-overview-bw.pdf"
           }
         ]
       },
@@ -856,11 +856,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/romans-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/romans-bw.pdf"
           }
         ]
       },
@@ -869,11 +869,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/corinthians-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/corinthians-bw.pdf"
           }
         ]
       },
@@ -882,11 +882,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/galatians-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/galatians-bw.pdf"
           }
         ]
       },
@@ -895,11 +895,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/philippians-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/philippians-bw.pdf"
           }
         ]
       },
@@ -908,11 +908,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/colossians-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/colossians-bw.pdf"
           }
         ]
       },
@@ -921,11 +921,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/thessalonians-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/thessalonians-bw.pdf"
           }
         ]
       },
@@ -934,11 +934,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/timothy-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/timothy-bw.pdf"
           }
         ]
       },
@@ -947,11 +947,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/titus-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/titus-bw.pdf"
           }
         ]
       },
@@ -960,11 +960,11 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/peter-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/peter-bw.pdf"
           }
         ]
       },
@@ -973,15 +973,15 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "Color",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/revelation-color.pdf"
           },
           {
             "text": "Black &amp; White",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/revelation-bw.pdf"
           },
           {
-            "text": "Download All New Testament Maps\u200b",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "text": "Download All New Testament Maps​",
+            "url": "/wp-content/uploads/2026/03/download-all-new-testament-maps.zip"
           }
         ]
       }
@@ -995,19 +995,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.key"
           }
         ]
       },
@@ -1016,19 +1016,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.key"
           }
         ]
       },
@@ -1037,19 +1037,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.key"
           }
         ]
       },
@@ -1058,19 +1058,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.key"
           }
         ]
       },
@@ -1079,19 +1079,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.key"
           }
         ]
       },
@@ -1100,19 +1100,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.key"
           }
         ]
       },
@@ -1121,19 +1121,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.key"
           }
         ]
       },
@@ -1142,19 +1142,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.key"
           }
         ]
       },
@@ -1163,19 +1163,19 @@ export const bibleMapsData = [
         "links": [
           {
             "text": "PowerPoint",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.pptx"
           },
           {
             "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.jpg"
           },
           {
             "text": "PDF",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.pdf"
           },
           {
             "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/logo.pdf"
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.key"
           }
         ]
       }

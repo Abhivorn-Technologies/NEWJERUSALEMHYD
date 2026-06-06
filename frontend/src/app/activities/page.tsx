@@ -23,7 +23,7 @@ export default async function ActivitiesPage() {
   return (
     <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
       <div className="max-w-4xl mx-auto space-y-12">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 reveal">
           <Link href="/sunday-school" className="text-sm text-[#8b1e15] font-semibold hover:underline mb-4 inline-block">
             &larr; Back to Sunday School
           </Link>
@@ -35,18 +35,21 @@ export default async function ActivitiesPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-          {activities.map(activity => (
-            <Link key={activity.id} href={activity.link} className="group block">
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-lg hover:-translate-y-2">
-                <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform">
-                  {activity.icon}
+          {activities.map((activity, idx) => {
+            const delayClass = `reveal-delay-${((idx % 2) + 1) * 100}`;
+            return (
+              <Link key={activity.id} href={activity.link} className={`group block reveal-scale ${delayClass}`}>
+                <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center transition-all hover:shadow-lg hover:-translate-y-2">
+                  <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform">
+                    {activity.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#1f4251] group-hover:text-[#8b1e15] transition-colors">
+                    {activity.title}
+                  </h3>
                 </div>
-                <h3 className="text-2xl font-bold text-[#1f4251] group-hover:text-[#8b1e15] transition-colors">
-                  {activity.title}
-                </h3>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>

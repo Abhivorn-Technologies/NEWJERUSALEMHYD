@@ -79,7 +79,7 @@ class SongViewSet(viewsets.ReadOnlyModelViewSet):
         language = self.request.query_params.get('language')
         category = self.request.query_params.get('category')
         letter = self.request.query_params.get('letter')
-        if language:
+        if language and language != 'all':
             queryset = queryset.filter(language=language)
         if category:
             queryset = queryset.filter(categories__slug=category)
