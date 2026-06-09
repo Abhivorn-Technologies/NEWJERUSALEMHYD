@@ -15,8 +15,8 @@ export default function NewTestamentStoriesPage() {
     { scripture: 'Matthew 5–7', title: 'Jesus Teaches the Sermon on the Mount' },
     { scripture: 'Mark 2:1–12', title: 'Jesus Heals a Man Who Could Not Walk' },
     { scripture: 'Matthew 8:23–27; Mark 4:36–41', title: 'Jesus Calms the Storm' },
-    { scripture: 'Mark 5:21–43', title: 'Jesus Heals a Woman and Raises Jairus’s Daughter' },
-    { scripture: 'Luke 7:1–10', title: 'Jesus Heals a Centurion’s Servant' },
+    { scripture: 'Mark 5:21–43', title: 'Jesus Heals a Woman and Raises Jairus\u2019s Daughter' },
+    { scripture: 'Luke 7:1–10', title: 'Jesus Heals a Centurion\u2019s Servant' },
     { scripture: 'Luke 7:36–50', title: 'Jesus Forgives a Woman' },
     { scripture: 'Matthew 12:1–12; Luke 13:10–17', title: 'Jesus Heals a Woman on the Sabbath' },
     { scripture: 'Matthew 13', title: 'Jesus Teaches about Soil, Seeds, Bread, and Pearls' },
@@ -41,7 +41,7 @@ export default function NewTestamentStoriesPage() {
     { scripture: 'Mark 12:41–44', title: 'A Widow and Two Small Coins' },
     { scripture: 'Matthew 25:1–13', title: 'The Parable of the Ten Virgins' },
     { scripture: 'Matthew 25:14–30', title: 'The Parable of the Talents' },
-    { scripture: 'Matthew 25:31–46', title: '“Ye Have Done It unto Me”' },
+    { scripture: 'Matthew 25:31–46', title: '\u201cYe Have Done It unto Me\u201d' },
     { scripture: 'Matthew 26; Luke 22; John 13–14', title: 'The Last Supper' },
     { scripture: 'Matthew 26:36–46; Luke 22:39–46', title: 'Jesus in Gethsemane' },
     { scripture: 'Mark 14–15; Luke 22–23; John 18–19', title: 'Jesus Is Arrested' },
@@ -49,15 +49,15 @@ export default function NewTestamentStoriesPage() {
     { scripture: 'Luke 24:1–12, 36–49; John 20', title: 'He Is Risen' },
     { scripture: 'Luke 24:13–25', title: 'Jesus Comforts Two Disciples' },
     { scripture: 'John 21; Matthew 28:16–20; Mark 16:15–19', title: 'Jesus Asks the Apostles to Feed His Sheep' },
-    { scripture: 'Acts 1–4', title: 'Jesus’s Apostles Lead His Church' },
+    { scripture: 'Acts 1–4', title: 'Jesus\u2019s Apostles Lead His Church' },
     { scripture: 'Acts 6–7', title: 'Stephen Testifies of Jesus Christ' },
     { scripture: 'Acts 8:5–24', title: 'Simon and the Power of God' },
     { scripture: 'Acts 9:1–31', title: 'Jesus Appears to Saul' },
-    { scripture: 'Acts 9:36–42', title: 'Tabitha, a Woman “Full of Good Works”' },
+    { scripture: 'Acts 9:36–42', title: 'Tabitha, a Woman \u201cFull of Good Works\u201d' },
     { scripture: 'Acts 10', title: 'Cornelius and His Friends Receive the Holy Ghost' },
     { scripture: 'Acts 12:1–17', title: 'An Angel Frees Peter from Prison' },
     { scripture: 'Acts 16:9–40', title: 'Paul and Silas' },
-    { scripture: 'Acts 21–22; 26–28', title: 'Miracles during Paul’s Journey to Rome' },
+    { scripture: 'Acts 21–22; 26–28', title: 'Miracles during Paul\u2019s Journey to Rome' },
     { scripture: 'Romans 3:21–28, 5:1–11; 6:3–6', title: 'Relying on Jesus Christ for Salvation' },
     { scripture: 'Romans 8:18–39', title: 'Nothing Can Separate Us from the Love of Christ' },
     { scripture: '1 Corinthians 6:16–20', title: 'Paul Compares Our Bodies to the Temple' },
@@ -70,53 +70,71 @@ export default function NewTestamentStoriesPage() {
     { scripture: '1 and 2 Timothy', title: 'Letters to Timothy' },
     { scripture: 'Hebrews 11–12', title: 'Living by Faith in Jesus Christ' },
     { scripture: 'James 1–3', title: 'A Letter from James' },
-    { scripture: 'Revelation', title: 'Jesus Christ Will Come Again' }
+    { scripture: 'Revelation', title: 'Jesus Christ Will Come Again' },
   ];
 
   return (
-    <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
-      <div className="max-w-4xl mx-auto space-y-10">
-        <div className="text-center">
-          <Link 
-            href="/stories" 
-            className="inline-flex items-center text-[#1f4251]/85 hover:text-[#8b1e15] font-semibold transition-colors duration-200 mb-6"
+    <div className="min-h-screen bg-[#FADADD] py-16 px-6">
+      <div className="max-w-2xl mx-auto space-y-10">
+        <div>
+          <Link
+            href="/stories"
+            className="inline-flex items-center text-[#4D1C2C]/85 hover:text-[#D81B60] font-semibold transition-colors duration-200 mb-6"
           >
             <span className="mr-2">&larr;</span> Back to Stories
           </Link>
-          <h1 className="text-4xl font-extrabold text-[#1f4251] mb-4">New Testament Stories</h1>
-          <div className="h-1 w-24 bg-[#8b1e15] mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-700 font-medium max-w-2xl mx-auto">
-            Review the contents, scriptures, and chapters detailing stories from the New Testament.
-          </p>
         </div>
 
         {/* Contents Card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="bg-[#1f4251] px-8 py-6 text-white">
-            <h2 className="text-2xl font-bold">Contents</h2>
-            <p className="text-white/80 text-sm mt-1">Introduction & About the New Testament</p>
+          <div className="bg-gradient-to-r from-[#C2185B] to-[#E91E8C] px-4 sm:px-8 py-6 text-white flex flex-row items-center justify-between gap-4">
+            <div>
+              <h1 className="text-2xl font-bold">New Testament Stories</h1>
+              <p className="text-white/80 text-sm mt-1 max-w-md">
+                Review the contents, scriptures, and chapters detailing stories from the New Testament.
+              </p>
+            </div>
+            <img
+              src="/images/stories/old-testament/image1.jpeg"
+              alt="About the New Testament"
+              className="w-28 h-18 object-cover rounded-lg border border-white/20 shadow-sm"
+            />
           </div>
-          
+
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse table-auto">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="px-8 py-4 text-left text-xs font-bold text-[#1f4251] uppercase tracking-wider w-1/3">
-                    Scripture / Chapter
+                <tr className="bg-pink-50 border-b border-pink-100">
+                  <th className="px-2 py-3 sm:px-8 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#4D1C2C] uppercase tracking-wider w-16 sm:w-28">
+                    Illustration
                   </th>
-                  <th className="px-8 py-4 text-left text-xs font-bold text-[#1f4251] uppercase tracking-wider">
+                  <th className="px-2 py-3 sm:pl-16 sm:pr-6 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#4D1C2C] uppercase tracking-wider w-full">
                     Story Title
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
                 {storiesList.map((story, index) => (
-                  <tr key={index} className="hover:bg-gray-50/50 transition-colors">
-                    <td className="px-8 py-4 text-sm font-semibold text-[#8b1e15]">
-                      {story.scripture}
+                  <tr key={index} className="hover:bg-pink-50/50 transition-colors">
+                    <td className="px-2 py-3 sm:px-8 sm:py-4">
+                      <img
+                        src="/images/stories/old-testament/image2.jpeg"
+                        alt={story.title}
+                        className="w-14 h-10 sm:w-20 sm:h-14 object-cover rounded-lg shadow-sm border border-gray-100"
+                      />
                     </td>
-                    <td className="px-8 py-4 text-sm text-gray-700 font-medium">
-                      {story.title}
+                    <td className="px-2 py-3 sm:pl-16 sm:pr-6 sm:py-4 break-words">
+                      <a
+                        href="/wp-content/uploads/2026/03/logo.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-sm sm:text-lg text-gray-800 font-semibold hover:text-[#D81B60] hover:underline transition-colors duration-200 cursor-pointer"
+                      >
+                        {story.title}
+                      </a>
+                      <span className="block text-[10px] sm:text-xs text-gray-400 font-normal mt-0.5 line-clamp-2">
+                        {story.scripture}
+                      </span>
                     </td>
                   </tr>
                 ))}

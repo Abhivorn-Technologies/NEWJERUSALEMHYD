@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 const ScrollDivider = () => (
   <div className="flex justify-center py-6 select-none pointer-events-none">
@@ -18,48 +19,61 @@ const ScrollDivider = () => (
   </div>
 );
 
-const PinIcon = () => (
-  <svg className="w-5 h-5 md:w-6 md:h-6 text-[#AB2423] mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+const PinIcon = ({ className = "text-[#AB2423]" }: { className?: string }) => (
+  <svg className={`w-5 h-5 md:w-6 md:h-6 mt-1 flex-shrink-0 ${className}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
     <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
   </svg>
 );
 
-const PhoneIcon = () => (
-  <svg className="w-5 h-5 md:w-6 md:h-6 text-[#009FB2] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+const PhoneIcon = ({ className = "text-[#009FB2]" }: { className?: string }) => (
+  <svg className={`w-5 h-5 md:w-6 md:h-6 mt-0.5 flex-shrink-0 ${className}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
   </svg>
 );
 
-const MailIcon = () => (
-  <svg className="w-5 h-5 md:w-6 md:h-6 text-[#009FB2] mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+const MailIcon = ({ className = "text-[#009FB2]" }: { className?: string }) => (
+  <svg className={`w-5 h-5 md:w-6 md:h-6 mt-0.5 flex-shrink-0 ${className}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
   </svg>
 );
 
 export default function Footer() {
+  const pathname = usePathname() || '';
+  const isSongsPage = pathname === '/songs';
+  const isSundaySchool = pathname.startsWith('/sunday-school')
+    || pathname.startsWith('/stories')
+    || pathname.startsWith('/activities');
+  const isSpecialTheme = isSongsPage || isSundaySchool;
+
+  let footerBgClass = 'bg-[#003138]';
+  if (isSongsPage) {
+    footerBgClass = 'bg-[#5795A7]';
+  } else if (isSundaySchool) {
+    footerBgClass = 'bg-[#D04A73]';
+  }
+
   return (
-    <footer className="bg-[#003138] pb-6 text-white w-full select-none">
+    <footer className={`${footerBgClass} pb-6 text-white w-full select-none`}>
       <div className="max-w-7xl mx-auto px-6 space-y-4">
 
         {/* Contact Details Title */}
         <div 
-          className="text-center space-y-2 text-[#FFEBB3] text-[13px] sm:text-base md:text-lg lg:text-[21px] font-semibold leading-relaxed pt-8 md:pt-12"
-          style={{ fontFamily: 'var(--font-tenali)' }}
+          className="text-center text-[#FFEBB3] text-[13px] sm:text-base md:text-lg lg:text-[21px] font-normal leading-relaxed pt-4 md:pt-6"
+          style={{ fontFamily: 'var(--font-ramabhadra)' }}
         >
-          <p>మీకొరకు ప్రార్థించే మీ సంఘం, మీ దైవజనులు ఎల్లప్పుడు మీకు తోడుగా ఉన్నారని మరచిపోకుండా....</p>
-          <p className="text-white mt-1">మీ ప్రార్థన అవసరతకై సంప్రదించవలసిన మా చిరునామా :</p>
+          <p>మీ ప్రార్థన అవసరతకై సంప్రదించవలసిన మా చిరునామా :</p>
         </div>
 
         {/* Contact Address & Logo Grid */}
-        <div className="pt-6 max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-center w-full py-16 md:py-20">
+        <div className="pt-0 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-center w-full pt-1 pb-4 md:pt-2 md:pb-8">
             
             {/* Left Column - Logo */}
             <div className="w-full md:flex-1 flex justify-center md:justify-end md:pr-14">
-              <div className="bg-white p-0 rounded-[15px] shadow-lg w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px] flex items-center justify-center overflow-hidden">
+              <div className="p-0 w-[260px] sm:w-[320px] md:w-[380px] lg:w-[440px] flex items-center justify-center overflow-hidden">
                 <img
-                  src="/images/footer_logo.jpg"
+                  src="/images/footer_logo.png"
                   alt="New Jerusalem Ministries"
                   className="w-full h-auto object-contain"
                 />
@@ -73,7 +87,7 @@ export default function Footer() {
             <div className="w-full md:flex-1 flex flex-col justify-start md:pl-14 gap-6 text-gray-200 mt-8 md:mt-0" style={{ fontFamily: 'var(--font-poppins)' }}>
               {/* Location */}
               <div className="flex items-start gap-4">
-                <PinIcon />
+                <PinIcon className={isSpecialTheme ? 'text-[#FFEBB3]' : 'text-[#AB2423]'} />
                 <p className="text-sm sm:text-base font-[400] leading-relaxed">
                   # 14-22, Grace Nilayam, Kamala Nagar,<br />
                   Near Anitha Residency, MEDIPALLY,<br />
@@ -82,15 +96,15 @@ export default function Footer() {
               </div>
               {/* Phone */}
               <div className="flex items-center gap-4">
-                <PhoneIcon />
+                <PhoneIcon className={isSpecialTheme ? 'text-[#FFEBB3]' : 'text-[#009FB2]'} />
                 <p className="text-sm sm:text-base font-[500]">
                   +91 958 1234563 , +91-40-35585579
                 </p>
               </div>
               {/* Email */}
               <div className="flex items-center gap-4">
-                <MailIcon />
-                <p className="text-sm sm:text-base font-[400] hover:text-[#009FB2] transition-colors">
+                <MailIcon className={isSpecialTheme ? 'text-[#FFEBB3]' : 'text-[#009FB2]'} />
+                <p className={`text-sm sm:text-base font-[400] transition-colors ${isSpecialTheme ? 'hover:text-[#FFEBB3]' : 'hover:text-[#009FB2]'}`}>
                   info@newjerusalemminiseries.com
                 </p>
               </div>
@@ -98,24 +112,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <ScrollDivider />
-
         {/* Copyright Disclaimer Block */}
         <div 
           className="text-center space-y-4 text-gray-300 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-7xl mx-auto pt-2"
-          style={{ fontFamily: 'var(--font-tenali)' }}
         >
-          <p className="font-semibold text-white tracking-wide text-[13px] sm:text-base md:text-lg lg:text-[20px]">
+          <p 
+            className="font-normal text-white tracking-wide text-[13px] sm:text-base md:text-lg lg:text-[20px]"
+            style={{ fontFamily: 'var(--font-ramabhadra)' }}
+          >
             ఈ వెబ్ సైట్ యొక్క సర్వ హక్కులు నూతన యెరూషలేము పరిచర్యలు నకు చెందినవి.
           </p>
-          <p className="text-gray-300/85 leading-loose text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]">
+          <p 
+            className="text-gray-300/85 leading-loose text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]"
+            style={{ fontFamily: 'var(--font-mandali)' }}
+          >
             ముఖ్య గమనిక : నూతన యెరూషలేము పరిచర్యలు ఎప్పుడూ, ఎవరినీ ఆర్థిక సహాయం కోరదు; ఒకవేళ నూతన యెరూషలేము పరిచర్యలు పేరుతో ఎవరైనా ఆర్థిక సహాయం అడిగితే, వారి వివరాలు మాకు తప్పక తెలియజేయండి. ఈ హెచ్చరికను ఖాతరు చేయకుండా ఎవరైనా నూతన యెరూషలేము పరిచర్యలకు అనుకుని ఆర్థిక సహాయం అందిస్తే అందుకు నూతన యెరూషలేము పరిచర్యలు ఎలాంటి బాధ్యత వహించదు.
           </p>
         </div>
 
         {/* English Copyright & Developer Info */}
         <div 
-          className="flex flex-col md:flex-row items-center justify-between text-gray-400 text-xs sm:text-sm pt-4 border-t border-white/10 max-w-7xl mx-auto mt-6 gap-4"
+          className={`flex flex-col md:flex-row items-center justify-between text-xs sm:text-sm pt-4 border-t border-white/10 max-w-7xl mx-auto mt-6 gap-4 ${isSpecialTheme ? 'text-white/70' : 'text-gray-400'}`}
           style={{ fontFamily: 'var(--font-poppins)' }}
         >
           <p className="text-center md:text-left">
@@ -127,9 +144,18 @@ export default function Footer() {
               href="https://www.abhivorn.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[#009FB2] hover:text-[#00c3d9] transition-colors hover:underline"
+              className={`transition-colors hover:underline ${isSpecialTheme ? 'text-[#FFEBB3] hover:text-white' : 'text-[#009FB2] hover:text-[#00c3d9]'}`}
             >
               Abhivorn Technologies Pvt Ltd
+            </a>
+            {' '}and{' '}
+            <a 
+              href="https://www.digilevelup.in" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`transition-colors hover:underline ${isSpecialTheme ? 'text-[#FFEBB3] hover:text-white' : 'text-[#009FB2] hover:text-[#00c3d9]'}`}
+            >
+              Digi Levelup
             </a>
           </p>
         </div>
@@ -137,4 +163,3 @@ export default function Footer() {
     </footer>
   );
 }
-

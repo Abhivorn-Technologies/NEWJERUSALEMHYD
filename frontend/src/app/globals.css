@@ -14,6 +14,10 @@
   --light-teal: #A4DCE0;
   --medium-teal: #7ACED4;
   --card-bg: #F3F3F3;
+  
+  /* Override old Telugu fonts to point directly to Mandali */
+  --font-tenali: var(--font-mandali) !important;
+  --font-mallanna: var(--font-mandali) !important;
 }
 
 @theme inline {
@@ -213,6 +217,15 @@ a.btn:active:not(:disabled) {
   transform: translateY(0) scale(0.97);
 }
 
+.song-btn:hover {
+  transform: none !important;
+  filter: none !important;
+}
+
+.song-btn:active {
+  transform: none !important;
+}
+
 /* Smooth Link Animations */
 a:not([class*="slant"]):not([class*="reveal"]) {
   transition: color 0.25s ease, opacity 0.25s ease;
@@ -229,12 +242,12 @@ a:not([class*="slant"]):not([class*="reveal"]) {
 }
 
 /* Alphabet Index keyboard button scaling */
-.grid button:not(:disabled), 
+.keyboard-grid button:not(:disabled), 
 .sse-alpha:not(:disabled) {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.grid button:not(:disabled):hover, 
+.keyboard-grid button:not(:disabled):hover, 
 .sse-alpha:not(:disabled):hover {
   transform: scale(1.15) translateY(-2px) !important;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08) !important;
@@ -361,6 +374,83 @@ a:not([class*="slant"]):not([class*="reveal"]) {
 .perspective-1200:hover .slant-card:not(:hover):not(.active-card) {
   filter: brightness(0.7) grayscale(0.2);
   --tz: -10px;
+}
+
+/* Custom global font overrides for Telugu content compatibility */
+.about-content h1,
+.about-content h2,
+.about-content h3,
+.about-content h4 {
+  font-family: var(--font-ramabhadra), sans-serif !important;
+  font-weight: 400 !important;
+}
+
+.about-content p,
+.about-content span,
+.about-content li {
+  font-family: var(--font-mandali), sans-serif !important;
+}
+
+/* Bullet point styles for mission/vision lists inside about-content */
+
+/* ul/li bullet points (standard HTML lists) */
+.about-content ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0.5rem 0 !important;
+}
+
+.about-content ul li {
+  position: relative;
+  padding-left: 1.6rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.65 !important;
+  color: #374151;
+}
+
+.about-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #1f4251;
+  flex-shrink: 0;
+}
+
+.about-content ol {
+  list-style: decimal !important;
+  padding-left: 1.5rem !important;
+  margin: 0.5rem 0 !important;
+}
+
+.about-content ol li {
+  padding-left: 0.4rem !important;
+  margin-bottom: 0.75rem !important;
+  line-height: 1.65 !important;
+  color: #374151;
+}
+
+/* Bullet points for <p> tags inside nested divs (mission/vision items from CMS) */
+.about-content > div > div p {
+  position: relative;
+  padding-left: 1.6rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.65 !important;
+}
+
+.about-content > div > div p::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #1f4251;
+  flex-shrink: 0;
 }
 
 

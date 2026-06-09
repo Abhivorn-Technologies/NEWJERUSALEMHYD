@@ -54,28 +54,23 @@ export default function OldTestamentStoriesPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
-      <div className="max-w-4xl mx-auto space-y-10">
-        <div className="text-center">
+    <div className="min-h-screen bg-[#FADADD] py-16 px-6">
+      <div className="max-w-2xl mx-auto space-y-10">
+        <div>
           <Link 
             href="/stories" 
-            className="inline-flex items-center text-[#1f4251]/85 hover:text-[#8b1e15] font-semibold transition-colors duration-200 mb-6"
+            className="inline-flex items-center text-[#4D1C2C]/85 hover:text-[#D81B60] font-semibold transition-colors duration-200 mb-6"
           >
             <span className="mr-2">&larr;</span> Back to Stories
           </Link>
-          <h1 className="text-4xl font-extrabold text-[#1f4251] mb-4">Old Testament Stories</h1>
-          <div className="h-1 w-24 bg-[#8b1e15] mx-auto rounded-full"></div>
-          <p className="mt-6 text-gray-700 font-medium max-w-2xl mx-auto">
-            Review the contents, scriptures, and chapters detailing stories from the Old Testament.
-          </p>
         </div>
 
         {/* Contents Card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="bg-[#1f4251] px-4 sm:px-8 py-6 text-white flex flex-row items-center justify-between gap-4">
+          <div className="bg-gradient-to-r from-[#C2185B] to-[#E91E8C] px-4 sm:px-8 py-6 text-white flex flex-row items-center justify-between gap-4">
             <div>
-              <h2 className="text-2xl font-bold">Contents</h2>
-              <p className="text-white/80 text-sm mt-1">About the Old Testament</p>
+              <h1 className="text-2xl font-bold">Old Testament Stories</h1>
+              <p className="text-white/80 text-sm mt-1 max-w-md">Review the contents, scriptures, and chapters detailing stories from the Old Testament.</p>
             </div>
             <img 
               src="/images/stories/old-testament/image1.jpeg" 
@@ -85,16 +80,14 @@ export default function OldTestamentStoriesPage() {
           </div>
           
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
+            <table className="w-full border-collapse table-auto">
               <thead>
-                <tr className="bg-gray-50 border-b border-gray-100">
-                  <th className="px-2 py-3 sm:px-8 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#1f4251] uppercase tracking-wider w-16 sm:w-28">
+                <tr className="bg-pink-50 border-b border-pink-100">
+                  <th className="px-2 py-3 sm:px-8 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#4D1C2C] uppercase tracking-wider w-16 sm:w-28">
                     Illustration
                   </th>
-                  <th className="px-2 py-3 sm:px-6 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#1f4251] uppercase tracking-wider w-5/12 sm:w-1/3">
-                    Scripture / Chapter
-                  </th>
-                  <th className="px-2 py-3 sm:px-6 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#1f4251] uppercase tracking-wider">
+
+                  <th className="px-2 py-3 sm:pl-16 sm:pr-6 sm:py-4 text-left text-[10px] sm:text-xs font-bold text-[#4D1C2C] uppercase tracking-wider w-full">
                     Story Title
                   </th>
                 </tr>
@@ -104,7 +97,7 @@ export default function OldTestamentStoriesPage() {
                   const imageNum = index + 2;
                   const imagePath = `/images/stories/old-testament/image${imageNum}.jpeg`;
                   return (
-                    <tr key={index} className="hover:bg-gray-50/50 transition-colors">
+                    <tr key={index} className="hover:bg-pink-50/50 transition-colors">
                       <td className="px-2 py-3 sm:px-8 sm:py-4">
                         <img 
                           src={imagePath} 
@@ -112,11 +105,16 @@ export default function OldTestamentStoriesPage() {
                           className="w-14 h-10 sm:w-20 sm:h-14 object-cover rounded-lg shadow-sm border border-gray-100" 
                         />
                       </td>
-                      <td className="px-2 py-3 sm:px-6 sm:py-4 text-[11px] sm:text-sm font-semibold text-[#8b1e15] break-words">
-                        {story.scripture}
-                      </td>
-                      <td className="px-2 py-3 sm:px-6 sm:py-4 text-[11px] sm:text-sm text-gray-700 font-medium break-words">
-                        {story.title}
+                      <td className="px-2 py-3 sm:pl-16 sm:pr-6 sm:py-4 break-words">
+                        <a
+                          href="/wp-content/uploads/2026/03/logo.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="block text-sm sm:text-lg text-gray-800 font-semibold hover:text-[#D81B60] hover:underline transition-colors duration-200 cursor-pointer"
+                        >
+                          {story.title}
+                        </a>
+                        <span className="block text-[10px] sm:text-xs text-gray-400 font-normal mt-0.5 line-clamp-2">{story.scripture}</span>
                       </td>
                     </tr>
                   );

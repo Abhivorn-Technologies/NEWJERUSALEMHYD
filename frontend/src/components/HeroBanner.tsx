@@ -128,8 +128,8 @@ export default function HeroBanner() {
       {/* Subtitle (Chinna Pillala...) centered slightly to the left */}
       <div className="relative md:absolute md:left-[42%] md:-translate-x-1/2 top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] z-30 w-full md:w-[90%] max-w-4xl flex justify-center pointer-events-none pt-2 pb-1 px-4">
         <span 
-          className="text-[#102E44] text-[15px] sm:text-[16px] md:text-[20px] lg:text-[25px] font-[600] text-center select-none leading-normal font-sans"
-          style={{ fontFamily: 'var(--font-mallanna)' }}
+          className="text-[#102E44] text-[15px] sm:text-[16px] md:text-[20px] lg:text-[25px] font-normal text-center select-none leading-normal font-sans"
+          style={{ fontFamily: 'var(--font-ramabhadra)' }}
         >
           చిన్న పిల్లల ఆధ్యాత్మికమైన ఎదుగుదల కొరకు
         </span>
@@ -139,7 +139,7 @@ export default function HeroBanner() {
       <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[460px] lg:max-w-[520px] z-30 flex flex-row md:flex-col items-center justify-around md:justify-end md:items-end gap-2.5 sm:gap-10 md:gap-0 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
         
         {/* Slanted Folded Ribbon: "పూర్తిగా ఉచితము" designed exactly like the reference image */}
-        <div className="relative w-[135px] sm:w-[215px] md:w-[300px] lg:w-[360px] aspect-[400/180] select-none mb-0 md:mb-8 md:-translate-x-[60px] lg:-translate-x-[80px] flex-shrink-0">
+        <div className="relative w-[135px] sm:w-[215px] md:w-[300px] lg:w-[360px] aspect-[400/180] select-none mb-0 md:mb-8 md:translate-x-[20px] lg:translate-x-[30px] flex-shrink-0">
           <svg viewBox="0 0 400 180" className="w-full h-full overflow-visible">
             <defs>
               {/* Top Banner Gradient */}
@@ -221,7 +221,7 @@ export default function HeroBanner() {
           </svg>
         </div>
 
-        <div className="w-auto max-w-[180px] sm:max-w-full transform -translate-x-1 md:translate-x-0" style={{ fontFamily: 'var(--font-tenali)' }}>
+        <div className="w-auto max-w-[180px] sm:max-w-full transform -translate-x-1 md:translate-x-0" style={{ fontFamily: 'var(--font-mandali)' }}>
           {/* Two-column layout for the bullet points */}
           <div className="flex justify-between gap-2.5 sm:gap-8 md:gap-12 text-[#102E44]">
             {/* Left Column */}
@@ -261,7 +261,7 @@ export default function HeroBanner() {
       {/* Combined Book Cover & Stylized Title Image */}
       <div className="relative md:absolute md:left-[3%] sm:left-[5%] md:left-[6%] lg:left-[8%] md:top-[3%] sm:top-[4%] md:top-[4%] lg:top-[5%] z-30 flex items-center justify-center md:justify-start gap-2.5 md:gap-3 lg:gap-4 py-2 w-full md:w-auto mt-[-32px] md:mt-0">
         {/* Book Cover Image */}
-        <div className="w-[90px] sm:w-[145px] md:w-[185px] lg:w-[225px] animate-book origin-bottom-left flex-shrink-0">
+        <div className="w-[90px] sm:w-[145px] md:w-[185px] lg:w-[225px] origin-bottom-left flex-shrink-0 -translate-y-10 md:-translate-y-18">
           <img
             src="/wp-content/uploads/2026/03/book-image.png"
             alt="Book Cover"
@@ -269,33 +269,61 @@ export default function HeroBanner() {
           />
         </div>
 
-        {/* Stylized Title, Boat & Fish combined Image (Placed right after the book) */}
+        {/* Stylized Title, Boat & Fish - 3 separate images composed together */}
         <div 
-          className="w-[215px] sm:w-[350px] md:w-[380px] lg:w-[480px] xl:w-[580px] flex-shrink-0 transform translate-y-1 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 origin-bottom-right"
-          style={{ animation: 'float-book 12s ease-in-out infinite' }}
+          className="w-[215px] sm:w-[350px] md:w-[380px] lg:w-[480px] xl:w-[580px] flex-shrink-0 transform translate-y-1 sm:translate-y-2 md:translate-y-3 lg:translate-y-4 origin-bottom-right relative"
         >
+          {/* Chinnarula Jalari Title Text Image - top left */}
           <img
-            src="/images/boat_with background.png"
-            alt="Chinnarula Jalari, Boat and Fish"
-            className="w-full h-auto object-contain"
+            src="/wp-content/2026/03/text-image.png"
+            alt="చిన్నారుల జాలరి"
+            className="w-[58%] h-auto object-contain absolute top-[12%] left-[-4%] z-10"
+            style={{ filter: 'drop-shadow(0 2px 8px rgba(16,46,68,0.15))' }}
           />
+          {/* Boat Image - top right, larger size */}
+          <img
+            src="/wp-content/2026/03/boat.png"
+            alt="Boat"
+            className="w-[64%] h-auto object-contain absolute top-[-5%] right-[-8%] z-20"
+            style={{
+              filter: 'drop-shadow(0 4px 10px rgba(16,46,68,0.2))',
+              animation: 'float-book 12s ease-in-out infinite'
+            }}
+          />
+
+          {/* Invisible spacer to maintain container height */}
+          <div className="w-full" style={{ paddingTop: '90%' }} />
         </div>
       </div>
 
       {/* Welcome Message overlaying the bottom waves */}
       <div className="relative md:absolute bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-7xl px-6 pb-2 z-30 text-slate-800 text-center space-y-3 sm:space-y-4 select-none mt-3 md:mt-0">
         <h2 
-          className="text-base sm:text-lg md:text-xl lg:text-[23px] font-bold text-[#102E44] tracking-wide"
+          className="text-base sm:text-lg md:text-xl lg:text-[23px] font-normal text-[#102E44] tracking-wide"
           style={{ fontFamily: 'var(--font-ramabhadra)' }}
         >
           నూతన యెరూషలేము పరిచర్యల వెబ్ సైట్ కు స్వాగతం!
         </h2>
-        <p 
-          className="text-[12px] sm:text-sm md:text-[15px] lg:text-[18px] leading-relaxed font-[400] text-[#1F3E50]"
-          style={{ fontFamily: 'var(--font-tenali)' }}
-        >
-          నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.
-        </p>
+
+        {/* Paragraph + Fish side by side after స్వాగతం — fish never touches text */}
+        <div className="relative">
+          <p 
+            className="text-[12px] sm:text-sm md:text-[15px] lg:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[200px] text-justify"
+            style={{ fontFamily: 'var(--font-mandali)' }}
+          >
+            నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.
+          </p>
+          {/* Fish — larger size, gap guaranteed by increased pr above */}
+          <img
+            src="/wp-content/2026/03/fish.png"
+            alt="Fish"
+            className="hidden md:block absolute right-0 top-[45%] w-[150px] lg:w-[180px] h-auto object-contain pointer-events-none"
+            style={{
+              filter: 'drop-shadow(0 4px 12px rgba(16,46,68,0.2))',
+              transform: 'translateY(-50%) rotate(10deg)'
+            }}
+          />
+        </div>
 
         {/* Scroll Divider Ornament */}
         <div className="flex justify-center pt-0 mt-[-4px] select-none pointer-events-none">

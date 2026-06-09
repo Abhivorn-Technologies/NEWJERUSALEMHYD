@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
         <Link href="/" className="flex items-center py-2">
           <img
-            src="/images/main_logo.png"
+            src="/images/navbar_logo.png"
             alt="New Jerusalem Ministries Logo"
             className="h-14 w-auto object-contain"
           />

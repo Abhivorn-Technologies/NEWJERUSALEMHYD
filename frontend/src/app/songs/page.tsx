@@ -28,6 +28,30 @@ const englishAlphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N'
 const teluguAlphabet = ['అ','ఆ','ఇ','ఈ','ఉ','ఊ','ఋ','ఎ','ఏ','ఐ','ఒ','ఓ','ఔ','క','ఖ','గ','ఘ','చ','ఛ','జ','ఝ','ట','ఠ','డ','ఢ','ణ','త','థ','ద','ధ','న','ప','ఫ','బ','భ','మ','య','ర','ల','వ','శ','ష','స','హ','ళ','క్ష','ఱ','#'];
 const hindiAlphabet = ['अ','आ','इ','ई','उ','ऊ','ए','ऐ','ओ','औ','क','ख','ग','घ','च','छ','ज','झ','ट','ठ','ड','ढ','ण','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','क्ष','त्र','ज्ञ','#'];
 
+const ALLOWED_CATEGORIES = [
+  'Christmas Songs',
+  'Comfort Songs',
+  'Commitment Songs',
+  'Correction Songs',
+  'Easter Songs',
+  'Encouraging Songs',
+  'English',
+  'Good Friday Songs',
+  'Gospel Songs',
+  'Hindi',
+  'Hope Songs',
+  'Kids Songs',
+  'Marriage Songs',
+  'Offering Songs',
+  'Praise Songs',
+  'Prayer Songs',
+  'Repentance Songs',
+  'Second Coming Songs',
+  'Telugu',
+  'Thanksgiving Songs',
+  'Worship Songs'
+];
+
 const getDynamicFirstLetter = (song: Song, kbLang: 'telugu' | 'english' | 'hindi') => {
   const title = (song.title || '').trim();
   if (!title) return '#';
@@ -137,6 +161,23 @@ const getDynamicFirstLetter = (song: Song, kbLang: 'telugu' | 'english' | 'hindi
   return song.first_letter || '#';
 };
 
+const cleanTeluguTitle = (title: string) => {
+  if (!title) return '';
+  // Split by '/' if it exists
+  let clean = title.split('/')[0].trim();
+  
+  // Find any trailing parenthesis
+  const match = clean.match(/\s*\(([^)]*)\)\s*$/);
+  if (match) {
+    const inside = match[1];
+    // If inside contains any English characters (A-Z or a-z), remove the parentheses
+    if (/[a-zA-Z]/.test(inside)) {
+      clean = clean.replace(/\s*\([^)]*\)\s*$/, '').trim();
+    }
+  }
+  return clean;
+};
+
 function LyricsDashboard() {
   const searchParams = useSearchParams();
   
@@ -169,6 +210,7 @@ function LyricsDashboard() {
 
   // Keyboard language state for 'all' songs page
   const [keyboardLanguage, setKeyboardLanguage] = useState<'telugu' | 'english' | 'hindi'>('telugu');
+  const [viewTab, setViewTab] = useState<'home' | 'telugu-index' | 'english-index'>('home');
 
   const getAlphabetForLang = (lang: string, kbLang: 'telugu' | 'english' | 'hindi') => {
     if (lang === 'sunday_english') {
@@ -205,17 +247,35 @@ function LyricsDashboard() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState<number>(0);
   
   const letterPickerRef = useRef<HTMLDivElement>(null);
+  const categoryDropdownRef = useRef<HTMLDivElement>(null);
+  const lyricsContainerRef = useRef<HTMLDivElement>(null);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState<boolean>(false);
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 
   const getLetterStyle = (l: string) => {
-    if (l && /[\u0C00-\u0C7F]/.test(l)) {
-      return { 
-        fontFamily: 'var(--font-ramabhadra), var(--font-tenali), var(--font-mallanna), var(--font-suranna), sans-serif',
-        fontSize: '22px',
-        lineHeight: '1'
-      };
-    }
-    return undefined;
+    return { 
+      fontFamily: 'var(--font-ramabhadra), sans-serif',
+      fontSize: l && /[\u0C00-\u0C7F]/.test(l) ? '34px' : '22px',
+      lineHeight: '1'
+    };
+  };
+
+  const getHeaderLetterStyle = (l: string) => {
+    return { 
+      fontFamily: 'var(--font-ramabhadra), sans-serif',
+      fontSize: l && /[\u0C00-\u0C7F]/.test(l) ? '52px' : '32px',
+      lineHeight: '1',
+      verticalAlign: 'middle'
+    };
+  };
+
+  const getButtonLetterStyle = (l: string) => {
+    return { 
+      fontFamily: 'var(--font-ramabhadra), sans-serif',
+      fontSize: l && /[\u0C00-\u0C7F]/.test(l) ? '38px' : '24px',
+      lineHeight: '1',
+      paddingTop: l && /[\u0C00-\u0C7F]/.test(l) ? '2px' : '0px'
+    };
   };
 
   const handleSearchChange = (val: string) => {
@@ -233,6 +293,16 @@ function LyricsDashboard() {
       }
     }
   };
+
+  // Scroll to top when active song or tab changes
+  useEffect(() => {
+    if (activeSong) {
+      window.scrollTo(0, 0);
+      if (lyricsContainerRef.current) {
+        lyricsContainerRef.current.scrollTop = 0;
+      }
+    }
+  }, [activeSong, activeLyricsTab]);
 
   // Load favorites from localStorage
   useEffect(() => {
@@ -265,6 +335,9 @@ function LyricsDashboard() {
     function handleClickOutside(event: MouseEvent) {
       if (letterPickerRef.current && !letterPickerRef.current.contains(event.target as Node)) {
         setIsLetterPickerOpen(false);
+      }
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(event.target as Node)) {
+        setIsCategoryDropdownOpen(false);
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
@@ -353,9 +426,23 @@ function LyricsDashboard() {
       setActiveLyricsTab('english');
     } else if (song.hindi_lyrics && song.hindi_lyrics.trim().length > 0) {
       setActiveLyricsTab('hindi');
-    } else if (song.powerpoint_slides && song.powerpoint_slides.trim().length > 0) {
-      setActiveLyricsTab('ppt');
     }
+  };
+
+  const handleSelectSong = (song: Song) => {
+    setActiveSong(song);
+    determineDefaultLyricsTab(song);
+    
+    // Automatically match the sidebar keyboard language and letter filter to the selected song
+    const songLang = (song.language === 'english' || song.language === 'sunday_english') ? 'english' : 
+                     (song.language === 'hindi' || song.language === 'sunday_hindi') ? 'hindi' : 'telugu';
+    setKeyboardLanguage(songLang);
+    
+    const fl = getDynamicFirstLetter(song, songLang);
+    setSelectedLetter(fl);
+    setLastSelectedLetter(fl);
+    
+    setViewState('lyrics');
   };
 
   // Keyboard navigation for Slideshow mode
@@ -385,7 +472,8 @@ function LyricsDashboard() {
   const activeAlphabet = getAlphabetForLang(language, keyboardLanguage);
 
   // Filter songs based on current filters
-  const getFilteredSongs = (): Song[] => {
+  // Base filtered songs (without selectedLetter filter)
+  const getBaseFilteredSongs = (): Song[] => {
     let result = songs;
 
     // ViewMode filters
@@ -406,8 +494,42 @@ function LyricsDashboard() {
       );
     }
 
+    // Tab/Keyboard language separation on main page (when language is 'all')
+    if (language === 'all') {
+      if (viewState === 'index') {
+        if (viewTab === 'home' || viewTab === 'telugu-index') {
+          if (selectedCategorySlug === 'hindi') {
+            result = result.filter(s => s.language === 'hindi' || s.language === 'sunday_hindi');
+          } else {
+            result = result.filter(s => s.language === 'telugu' || s.language === 'sunday_telugu');
+          }
+        } else if (viewTab === 'english-index') {
+          result = result.filter(s => s.language === 'english' || s.language === 'sunday_english');
+        }
+      } else if (viewState === 'lyrics') {
+        if (keyboardLanguage === 'telugu') {
+          if (selectedCategorySlug === 'hindi') {
+            result = result.filter(s => s.language === 'hindi' || s.language === 'sunday_hindi');
+          } else {
+            result = result.filter(s => s.language === 'telugu' || s.language === 'sunday_telugu');
+          }
+        } else if (keyboardLanguage === 'english') {
+          result = result.filter(s => s.language === 'english' || s.language === 'sunday_english');
+        } else if (keyboardLanguage === 'hindi') {
+          result = result.filter(s => s.language === 'hindi' || s.language === 'sunday_hindi');
+        }
+      }
+    }
+
+    return result;
+  };
+
+  // Filter songs based on current filters
+  const getFilteredSongs = (): Song[] => {
+    let result = getBaseFilteredSongs();
+
     // Letter filter
-    if (selectedLetter) {
+    if (selectedLetter && viewState === 'lyrics') {
       result = result.filter(s => getDynamicFirstLetter(s, keyboardLanguage) === selectedLetter);
     }
 
@@ -419,24 +541,7 @@ function LyricsDashboard() {
   // Find letter counts for the active configuration
   const getLetterAvailability = (): Record<string, number> => {
     const avail: Record<string, number> = {};
-    let targetSongs = songs;
-    
-    if (viewMode === 'favorites') {
-      targetSongs = targetSongs.filter(s => favorites.includes(s.slug));
-    } else if (viewMode === 'categories' && selectedCategorySlug) {
-      targetSongs = targetSongs.filter(s => s.categories.some(c => c.slug === selectedCategorySlug));
-    }
-
-    // Include active search text in keyboard availability calculation
-    if (searchVal.trim().length > 0) {
-      const q = searchVal.toLowerCase();
-      targetSongs = targetSongs.filter(s => 
-        (s.title && s.title.toLowerCase().includes(q)) || 
-        (s.telugu_lyrics && s.telugu_lyrics.toLowerCase().includes(q)) || 
-        (s.english_lyrics && s.english_lyrics.toLowerCase().includes(q)) || 
-        (s.hindi_lyrics && s.hindi_lyrics.toLowerCase().includes(q))
-      );
-    }
+    const targetSongs = getBaseFilteredSongs();
 
     targetSongs.forEach(s => {
       const dynamicLetter = getDynamicFirstLetter(s, keyboardLanguage);
@@ -537,6 +642,64 @@ function LyricsDashboard() {
     URL.revokeObjectURL(url);
   };
 
+  // Download Lyrics as .pptx File
+  const downloadPowerPointFile = async () => {
+    if (!activeSong) return;
+    try {
+      const pptxgen = (await import('pptxgenjs')).default;
+      const pptx = new pptxgen();
+
+      // Configure layout (16:9 widescreen)
+      pptx.layout = 'LAYOUT_16x9';
+
+      // 1. Title Slide
+      const titleSlide = pptx.addSlide();
+      titleSlide.background = { color: '173C4E' }; // Dark Teal background
+      
+      const cleanedTitle = activeSong.language === 'telugu' || activeSong.language === 'sunday_telugu' 
+        ? cleanTeluguTitle(activeSong.title) 
+        : activeSong.title;
+
+      titleSlide.addText(cleanedTitle, {
+        x: 0.5,
+        y: 2.2,
+        w: 12.3,
+        h: 2.5,
+        align: 'center',
+        fontFace: 'Arial',
+        fontSize: 44,
+        color: 'FFFFFF',
+        bold: true,
+      });
+
+      // 2. Lyrics Slides
+      const lyricsText = getActiveLyricsContent();
+      const slides = getSlides(lyricsText);
+
+      slides.forEach((stanza) => {
+        const lyricSlide = pptx.addSlide();
+        lyricSlide.background = { color: '173C4E' };
+        lyricSlide.addText(stanza, {
+          x: 0.5,
+          y: 1.0,
+          w: 12.3,
+          h: 5.5,
+          align: 'center',
+          fontFace: 'Arial',
+          fontSize: 32,
+          color: 'FFFFFF',
+          lineSpacing: 44,
+        });
+      });
+
+      // Write / Save File
+      pptx.writeFile({ fileName: `${activeSong.slug}.pptx` });
+    } catch (error) {
+      console.error("Error generating PowerPoint:", error);
+      alert("Failed to generate PowerPoint file.");
+    }
+  };
+
   const getLanguageLabel = (lang: Song['language']) => {
     switch (lang) {
       case 'all': return 'All Songs';
@@ -562,46 +725,117 @@ function LyricsDashboard() {
   // RENDER ALPHABETICAL INDEX VIEW
   if (viewState === 'index') {
     return (
-      <div className="min-h-screen bg-[#EAEFF3] py-8 px-4 md:px-8 font-sans">
-        <div className="max-w-3xl mx-auto space-y-6">
+      <div className="min-h-screen bg-[#e0f2f1] py-8 px-4 md:px-8 font-sans">
+        <div className="max-w-6xl mx-auto space-y-6">
           
           {/* Header Title */}
           <div className="text-center">
-            <h1 className="text-3xl font-extrabold text-blue-800 uppercase tracking-wide">
+            <h1 className="text-3xl font-extrabold text-[#5795A7] uppercase tracking-wide">
               {isSundaySchool 
                 ? getSundaySchoolLabel(language).toUpperCase()
                 : getLanguageLabel(language)}
             </h1>
           </div>
 
-          {/* Search Box */}
-          <div className="flex max-w-2xl mx-auto items-center gap-2">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                placeholder="Search songs by lyrics/title..."
-                value={searchVal}
-                onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full pl-4 pr-10 py-3 rounded-2xl border-2 border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20 text-gray-700 text-sm placeholder-gray-400 bg-white"
-              />
-              {searchVal && (
+          {/* Search Box with Category Dropdown on the right side */}
+          <div id="songs-searchbar" className="flex max-w-2xl mx-auto items-center relative scroll-mt-24" ref={categoryDropdownRef}>
+            <div className="flex flex-1 items-center bg-white rounded-2xl border-2 border-[#5795A7] focus-within:ring-2 focus-within:ring-[#5795A7]/20 transition-all overflow-hidden h-[46px]">
+              
+              {/* Search Icon on the left */}
+              <div className="pl-4 text-gray-400">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+
+              {/* Text Input */}
+              <div className="relative flex-grow h-full flex items-center">
+                <input
+                  type="text"
+                  placeholder={selectedCategorySlug 
+                    ? `Search in ${categories.find(c => c.slug === selectedCategorySlug)?.name || 'Category'}...` 
+                    : "Search songs by lyrics/title..."
+                  }
+                  value={searchVal}
+                  onChange={(e) => handleSearchChange(e.target.value)}
+                  className="w-full pl-3 pr-10 focus:outline-none text-gray-700 text-sm placeholder-gray-400 bg-transparent h-full py-2"
+                />
+                {searchVal && (
+                  <button
+                    type="button"
+                    onClick={() => handleSearchChange('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#5795A7] font-bold p-1 transition-colors"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+
+              {/* Vertical Divider line */}
+              <div className="h-6 w-[1.5px] bg-gray-200"></div>
+
+              {/* Category Dropdown Button on the right side */}
+              <button
+                type="button"
+                onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                className="bg-[#5795A7] text-white px-5 h-full flex items-center gap-2 font-bold text-xs uppercase tracking-wider transition-colors min-w-[170px] justify-between"
+              >
+                <span className="truncate max-w-[130px]">
+                  {selectedCategorySlug 
+                    ? (categories.find(c => c.slug === selectedCategorySlug)?.name || 'Category') 
+                    : 'All Categories'
+                  }
+                </span>
+                <span className="text-[10px]">
+                  {isCategoryDropdownOpen ? '▲' : '▼'}
+                </span>
+              </button>
+            </div>
+
+            {/* Dropdown Options List */}
+            {isCategoryDropdownOpen && (
+              <div className="absolute right-0 top-[50px] w-64 bg-white border border-gray-200 shadow-2xl rounded-2xl py-2 z-50 animate-fade-in max-h-80 overflow-y-auto">
                 <button
                   type="button"
-                  onClick={() => handleSearchChange('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-600 font-bold p-1 transition-colors animate-fade-in"
+                  onClick={() => {
+                    setViewMode('all');
+                    setSelectedCategorySlug('');
+                    setIsCategoryDropdownOpen(false);
+                  }}
+                  className={`w-full text-left px-5 py-2.5 text-xs font-bold transition-colors border-b border-gray-100 ${
+                    !selectedCategorySlug 
+                      ? 'bg-[#e8f1f3] text-[#5795A7]' 
+                      : 'text-gray-700 hover:bg-gray-50'
+                  }`}
                 >
-                  ✕
+                  ALL CATEGORIES
                 </button>
-              )}
-            </div>
-            <button className="bg-blue-600 text-white p-3 rounded-2xl hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20 flex items-center justify-center">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
+                {categories
+                  .filter(cat => ALLOWED_CATEGORIES.some(allowedName => allowedName.toLowerCase() === (cat.name || '').trim().toLowerCase()))
+                  .map((cat) => (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onClick={() => {
+                        setViewMode('categories');
+                        setSelectedCategorySlug(cat.slug);
+                        setIsCategoryDropdownOpen(false);
+                      }}
+                      className={`w-full text-left px-5 py-2.5 text-xs font-semibold transition-colors ${
+                        selectedCategorySlug === cat.slug 
+                          ? 'bg-[#e8f1f3] text-[#5795A7]' 
+                          : 'text-gray-600 hover:bg-gray-50'
+                      }`}
+                    >
+                      {cat.name}
+                    </button>
+                  ))
+                }
+              </div>
+            )}
           </div>
 
-          {/* Main Card (Board size reduced to max-w-3xl) */}
+          {/* Main Card */}
           <div className="bg-white rounded-3xl shadow-xl border border-gray-200/80 p-6 md:p-8">
             
             {/* Tab Bar Selector */}
@@ -621,7 +855,7 @@ function LyricsDashboard() {
                   onClick={() => selectKeyboardLanguage('telugu')}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
                     keyboardLanguage === 'telugu'
-                      ? 'bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-600/20'
+                      ? 'bg-[#5795A7] border-[#5795A7] text-white shadow-md shadow-[#5795A7]/20'
                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -634,7 +868,7 @@ function LyricsDashboard() {
                   onClick={() => selectKeyboardLanguage('english')}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
                     keyboardLanguage === 'english'
-                      ? 'bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-600/20'
+                      ? 'bg-[#5795A7] border-[#5795A7] text-white shadow-md shadow-[#5795A7]/20'
                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -643,155 +877,205 @@ function LyricsDashboard() {
                 </button>
               </div>
             ) : (
-              <div className="flex flex-wrap gap-2 border-b border-gray-200 pb-px mb-6">
+              <div className="flex gap-1 border-b border-gray-200 pb-px mb-6">
                 <button
-                  onClick={() => {
-                    setLanguage('all');
-                    setKeyboardLanguage('telugu');
-                  }}
+                  onClick={() => { setLanguage('all'); setViewTab('home'); selectKeyboardLanguage('telugu'); }}
                   className={`px-6 py-2.5 rounded-t-xl text-sm font-bold transition-colors ${
-                    language === 'all' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    viewTab === 'home' ? 'bg-[#5795A7] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
-                  All Songs
+                  Home
                 </button>
                 <button
-                  onClick={() => {
-                    setLanguage('telugu');
-                    setKeyboardLanguage('telugu');
-                  }}
+                  onClick={() => { setLanguage('all'); setViewTab('telugu-index'); selectKeyboardLanguage('telugu'); }}
                   className={`px-6 py-2.5 rounded-t-xl text-sm font-bold transition-colors ${
-                    language === 'telugu' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    viewTab === 'telugu-index' ? 'bg-[#5795A7] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
-                  Telugu Songs
+                  Telugu Index
                 </button>
                 <button
-                  onClick={() => {
-                    setLanguage('sunday_english');
-                    setKeyboardLanguage('english');
-                  }}
+                  onClick={() => { setLanguage('all'); setViewTab('english-index'); selectKeyboardLanguage('english'); }}
                   className={`px-6 py-2.5 rounded-t-xl text-sm font-bold transition-colors ${
-                    language === 'sunday_english' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    viewTab === 'english-index' ? 'bg-[#5795A7] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                   }`}
                 >
-                  English Songs
-                </button>
-                <button
-                  onClick={() => {
-                    setLanguage('sunday_hindi');
-                    setKeyboardLanguage('hindi');
-                  }}
-                  className={`px-6 py-2.5 rounded-t-xl text-sm font-bold transition-colors ${
-                    language === 'sunday_hindi' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  Hindi Songs
+                  English Index
                 </button>
               </div>
             )}
 
-            {/* Keyboard switcher for all songs page */}
-            {language === 'all' && (
-              <div className="flex justify-start gap-2 mb-4">
-                <button
-                  onClick={() => selectKeyboardLanguage('telugu')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
-                    keyboardLanguage === 'telugu'
-                      ? 'bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-600/20'
-                      : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
-                  }`}
-                >
-                  Telugu Keyboard
-                </button>
-                <button
-                  onClick={() => selectKeyboardLanguage('english')}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all border ${
-                    keyboardLanguage === 'english'
-                      ? 'bg-blue-600 border-blue-600 text-white shadow-md shadow-blue-600/20'
-                      : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
-                  }`}
-                >
-                  English Keyboard
-                </button>
-              </div>
+            {/* HOME VIEW: All songs grouped by Telugu letter, 2 columns, back-to-top, WITH TELUGU KEYBOARD */}
+            {viewTab === 'home' && !isSundaySchool && (
+              loading ? (
+                <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-2">
+                  <div className="w-10 h-10 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin"></div>
+                  <p className="text-sm font-semibold">Loading songs list...</p>
+                </div>
+              ) : (
+                <div id="songs-top">
+                  {/* Premium tactile keyboard for navigation */}
+                  <div className="bg-[#eef5f6] border-2 border-[#bcd3d8] rounded-2xl p-4 mb-8 max-w-3xl mx-auto shadow-inner">
+                    <div className="grid grid-cols-10 sm:grid-cols-11 gap-1.5 keyboard-grid">
+                      {teluguAlphabet.map((letter) => {
+                        const hasSongs = filteredSongsList.some(s => getDynamicFirstLetter(s, 'telugu') === letter);
+                        return (
+                          <button
+                            key={letter}
+                            disabled={!hasSongs}
+                            onClick={() => {
+                              const el = document.getElementById(`letter-${letter}`);
+                              if (el) {
+                                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              }
+                            }}
+                            className={`py-2 text-center rounded-lg text-sm font-semibold transition-all border ${
+                              hasSongs
+                                ? 'border-[#bcd3d8]/40 bg-white shadow-sm hover:border-[#bcd3d8] hover:bg-[#e8f1f3] text-[#3d7685] hover:text-[#1f4251] hover:shadow'
+                                : 'border-transparent bg-transparent text-gray-300 cursor-not-allowed opacity-30'
+                            }`}
+                            style={{ fontFamily: 'var(--font-ramabhadra)', fontSize: '20px' }}
+                          >
+                            {letter}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {teluguAlphabet.map(letter => {
+                    const letterSongs = filteredSongsList.filter(s => getDynamicFirstLetter(s, 'telugu') === letter);
+                    if (letterSongs.length === 0) return null;
+                    return (
+                      <div key={letter} id={`letter-${letter}`} className="mb-8 scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-4 pb-2 border-b border-gray-100">
+                          <span className="text-4xl font-bold text-cyan-500 leading-none" style={{ fontFamily: 'var(--font-ramabhadra)' }}>{letter}</span>
+                          <span className="text-sm font-semibold text-gray-400 translate-y-[4px]">({letterSongs.length} songs)</span>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {letterSongs.map((song, idx) => (
+                            <button
+                              key={song.id}
+                              onClick={() => handleSelectSong(song)}
+                              className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-[#bcd3d8] bg-transparent hover:bg-[#e8f1f3] text-[#5795A7] hover:text-[#2c5a67] transition-all duration-200 flex gap-3 text-base items-center hover:shadow-sm w-full"
+                              style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                            >
+                              <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+                              <span className="leading-tight flex-1 truncate">
+                                {song.title}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                        <div className="text-right mt-4 pt-3 border-t border-gray-100">
+                          <a
+                            href="#songs-searchbar"
+                            className="text-xs font-bold text-gray-400 hover:text-[#5795A7] transition-colors tracking-wider uppercase"
+                          >
+                            Back to Top ↑
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )
             )}
 
-            {/* Letter Grid Selector */}
-            <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 gap-1.5 p-4 bg-gray-50/50 border border-gray-100 rounded-2xl mb-8">
-              {activeAlphabet.map((letter) => {
-                const count = letterAvailability[letter] || 0;
-                const hasSongs = count > 0;
-                return (
-                  <button
-                    key={letter}
-                    disabled={!hasSongs}
-                    onClick={() => {
-                      if (selectedLetter === letter) {
-                        setSelectedLetter('');
-                        setLastSelectedLetter('');
-                      } else {
-                        setSelectedLetter(letter);
-                        setLastSelectedLetter(letter);
-                      }
-                    }}
-                    className={`py-2 text-center rounded-xl text-sm font-normal transition-all border ${
-                      selectedLetter === letter
-                        ? 'bg-blue-600 text-white border-blue-600 scale-105 shadow-md shadow-blue-600/30 font-semibold'
-                        : hasSongs
-                        ? 'bg-white text-blue-600 border-blue-200 hover:bg-blue-50/50 hover:border-blue-300'
-                        : 'bg-white/40 text-gray-300 border-gray-100 cursor-not-allowed opacity-40'
-                    }`}
-                    style={getLetterStyle(letter)}
-                  >
-                    {letter}
-                  </button>
-                );
-              })}
-            </div>
+            {/* TELUGU INDEX VIEW: Without keyboard, grouped by Telugu letter */}
+            {((viewTab === 'telugu-index' && !isSundaySchool) || (isSundaySchool && keyboardLanguage === 'telugu')) && (
+              loading ? (
+                <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-2">
+                  <div className="w-10 h-10 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin"></div>
+                  <p className="text-sm font-semibold">Loading songs list...</p>
+                </div>
+              ) : (
+                <div id="telugu-songs-top">
+                  {teluguAlphabet.map(letter => {
+                    const letterSongs = filteredSongsList.filter(s => getDynamicFirstLetter(s, 'telugu') === letter);
+                    if (letterSongs.length === 0) return null;
+                    return (
+                      <div key={letter} id={`telugu-letter-${letter}`} className="mb-8 scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-4 pb-2 border-b border-gray-100">
+                          <span className="text-4xl font-bold text-cyan-500 leading-none" style={{ fontFamily: 'var(--font-ramabhadra)' }}>{letter}</span>
+                          <span className="text-sm font-semibold text-gray-400 translate-y-[4px]">({letterSongs.length} songs)</span>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {letterSongs.map((song, idx) => (
+                            <button
+                              key={song.id}
+                              onClick={() => handleSelectSong(song)}
+                              className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-[#bcd3d8] bg-transparent hover:bg-[#e8f1f3] text-[#5795A7] hover:text-[#2c5a67] transition-all duration-200 flex gap-3 text-base items-center hover:shadow-sm w-full"
+                              style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                            >
+                              <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+                              <span className="leading-tight flex-1 truncate">
+                                {song.language === 'telugu' || song.language === 'sunday_telugu' ? cleanTeluguTitle(song.title) : song.title}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                        <div className="text-right mt-4 pt-3 border-t border-gray-100">
+                          <a
+                            href="#songs-searchbar"
+                            className="text-xs font-bold text-gray-400 hover:text-[#5795A7] transition-colors tracking-wider uppercase"
+                          >
+                            Back to Top ↑
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )
+            )}
 
-            {/* Selected Letter Sub-Header */}
-            <div className="flex items-center gap-3 mb-6 pb-2 border-b border-gray-200">
-              <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-blue-600/20" style={getLetterStyle(selectedLetter)}>
-                {selectedLetter ? selectedLetter : '🔍'}
-              </div>
-              <span className="text-xl font-semibold text-gray-800">
-                {searchVal.trim().length > 0 
-                  ? `Search: "${searchVal}"` 
-                  : getLanguageLabel(language)}
-              </span>
-              <span className="text-sm font-mono text-gray-400 font-semibold pl-1">
-                ({filteredSongsList.length} Songs found)
-              </span>
-            </div>
-
-            {/* Vertical 1-Column Songs List (Songs do not come side-by-side anymore, they are on a single line) */}
-            {loading ? (
-              <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-2">
-                <div className="w-10 h-10 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                <p className="text-sm font-semibold">Loading songs list...</p>
-              </div>
-            ) : filteredSongsList.length === 0 ? (
-              <div className="text-center py-20 text-gray-400 text-sm">
-                No songs match the selected letter filter.
-              </div>
-            ) : (
-              <div className="flex flex-col gap-2">
-                {filteredSongsList.map((song) => (
-                  <button
-                    key={song.id}
-                    onClick={() => {
-                      setActiveSong(song);
-                      determineDefaultLyricsTab(song);
-                      setViewState('lyrics');
-                    }}
-                    className="text-left py-3 px-4 hover:bg-blue-50/50 hover:text-blue-600 text-gray-700 font-semibold text-sm transition-all duration-200 border-b border-gray-100 flex items-center gap-3 rounded-xl bg-gray-50/20 hover:border-blue-200/40"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0"></span>
-                    <span className="truncate">{song.title}</span>
-                  </button>
-                ))}
-              </div>
+            {/* ENGLISH INDEX VIEW: Without keyboard, grouped by English letter */}
+            {((viewTab === 'english-index' && !isSundaySchool) || (isSundaySchool && keyboardLanguage === 'english')) && (
+              loading ? (
+                <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-2">
+                  <div className="w-10 h-10 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin"></div>
+                  <p className="text-sm font-semibold">Loading songs list...</p>
+                </div>
+              ) : (
+                <div id="english-songs-top">
+                  {englishAlphabet.map(letter => {
+                    const letterSongs = filteredSongsList.filter(s => getDynamicFirstLetter(s, 'english') === letter);
+                    if (letterSongs.length === 0) return null;
+                    return (
+                      <div key={letter} id={`english-letter-${letter}`} className="mb-8 scroll-mt-24">
+                        <div className="flex items-center gap-3 mb-4 pb-2 border-b border-gray-100">
+                          <span className="text-4xl font-bold text-cyan-500 leading-none" style={{ fontFamily: 'var(--font-ramabhadra)' }}>{letter}</span>
+                          <span className="text-sm font-semibold text-gray-400 translate-y-[4px]">({letterSongs.length} songs)</span>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {letterSongs.map((song, idx) => (
+                            <button
+                              key={song.id}
+                              onClick={() => handleSelectSong(song)}
+                              className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-[#bcd3d8] bg-transparent hover:bg-[#e8f1f3] text-[#5795A7] hover:text-[#2c5a67] transition-all duration-200 flex gap-3 text-base items-center hover:shadow-sm w-full"
+                              style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                            >
+                              <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+                              <span className="leading-tight flex-1 truncate">
+                                {song.title}
+                              </span>
+                            </button>
+                          ))}
+                        </div>
+                        <div className="text-right mt-4 pt-3 border-t border-gray-100">
+                          <a
+                            href="#songs-searchbar"
+                            className="text-xs font-bold text-gray-400 hover:text-[#5795A7] transition-colors tracking-wider uppercase"
+                          >
+                            Back to Top ↑
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )
             )}
 
           </div>
@@ -803,7 +1087,7 @@ function LyricsDashboard() {
 
   // RENDER LYRICS VIEW (SIDE-BY-SIDE SIDEBAR-LESS DASHBOARD)
   return (
-    <div className="min-h-screen bg-[#EAEFF3] py-8 px-4 md:px-8 font-sans">
+    <div className="min-h-screen bg-[#e0f2f1] py-8 px-4 md:px-8 font-sans">
       <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
 
         {/* Left column: Songs Index Search & List */}
@@ -813,7 +1097,7 @@ function LyricsDashboard() {
           <div className="mb-4">
             <button
               onClick={() => setViewState('index')}
-              className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold text-xs transition-colors border border-blue-200/40"
+              className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#e8f1f3] hover:bg-[#d8e8eb] text-[#5795A7] font-bold text-xs transition-colors border border-[#bcd3d8]/40"
             >
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
@@ -822,7 +1106,7 @@ function LyricsDashboard() {
             </button>
           </div>
 
-          {/* Blue-bordered Search Bar */}
+          {/* Teal-bordered Search Bar */}
           <div className="flex items-center gap-2 mb-6">
             <div className="relative flex-1">
               <input
@@ -830,19 +1114,19 @@ function LyricsDashboard() {
                 placeholder="Search songs by lyrics/title..."
                 value={searchVal}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="w-full pl-4 pr-10 py-3 rounded-2xl border-2 border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20 text-gray-700 text-sm placeholder-gray-400 bg-white"
+                className="w-full pl-4 pr-10 py-3 rounded-2xl border-2 border-[#5795A7] focus:outline-none focus:ring-2 focus:ring-[#5795A7]/20 text-gray-700 text-sm placeholder-gray-400 bg-white"
               />
               {searchVal && (
                 <button
                   type="button"
                   onClick={() => handleSearchChange('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-600 font-bold p-1 transition-colors animate-fade-in"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#5795A7] font-bold p-1 transition-colors animate-fade-in"
                 >
                   ✕
                 </button>
               )}
             </div>
-            <button className="bg-blue-600 text-white p-3 rounded-2xl hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20 flex items-center justify-center">
+            <button className="bg-[#5795A7] text-white p-3 rounded-2xl hover:bg-[#478597] transition-colors shadow-md shadow-[#5795A7]/20 flex items-center justify-center">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -852,12 +1136,14 @@ function LyricsDashboard() {
           {/* Selection Title & Letter popover trigger */}
           <div className="flex items-center justify-between pb-3 border-b border-gray-100 mb-4">
             <div>
-              <div className="text-[11px] text-blue-600 font-bold uppercase tracking-wider">
+              <div className="text-[11px] text-[#5795A7] font-bold uppercase tracking-wider">
                 {getLanguageLabel(language)}
               </div>
-              <h2 className="text-lg font-bold text-gray-800 flex items-center gap-1">
-                For <span className="text-blue-600" style={getLetterStyle(selectedLetter)}>"{selectedLetter || 'All'}"</span>
-                <span className="text-sm text-gray-500 font-medium font-mono">
+              <h2 className="text-lg font-bold text-gray-800 flex items-center gap-1.5 flex-wrap">
+                For <span className="text-[#5795A7] text-3xl font-light">"</span>
+                <span className="text-[#5795A7]" style={getHeaderLetterStyle(selectedLetter)}>{selectedLetter || 'All'}</span>
+                <span className="text-[#5795A7] text-3xl font-light">"</span>
+                <span className="text-sm text-gray-500 font-medium font-mono ml-0.5">
                   ({filteredSongsList.length} Songs)
                 </span>
               </h2>
@@ -868,14 +1154,14 @@ function LyricsDashboard() {
               {/* Favorites Heart Filter Toggle */}
               <button
                 onClick={() => setViewMode(prev => prev === 'favorites' ? 'all' : 'favorites')}
-                className={`w-9 h-9 rounded-full flex items-center justify-center transition-all border shadow-sm ${
+                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all border shadow-sm ${
                   viewMode === 'favorites'
-                    ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/20'
-                    : 'bg-white text-gray-400 hover:text-blue-600 hover:bg-blue-50 border-gray-200'
+                    ? 'bg-[#5795A7] text-white border-[#5795A7] shadow-md shadow-[#5795A7]/20'
+                    : 'bg-white text-gray-400 hover:text-[#5795A7] hover:bg-[#e8f1f3] border-gray-200'
                 }`}
                 title={viewMode === 'favorites' ? "Show All Songs" : "Show Favorites Only"}
               >
-                <svg className="w-4.5 h-4.5" fill={viewMode === 'favorites' ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" fill={viewMode === 'favorites' ? 'currentColor' : 'none'} stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </button>
@@ -883,16 +1169,16 @@ function LyricsDashboard() {
               {/* Trigger for Alphabet Popover */}
               <button 
                 onClick={() => setIsLetterPickerOpen(!isLetterPickerOpen)}
-                className="w-9 h-9 rounded-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold flex items-center justify-center transition-all border border-blue-200/50 shadow-sm text-sm"
+                className="w-12 h-12 rounded-full bg-[#e8f1f3] hover:bg-[#d8e8eb] text-[#5795A7] font-bold flex items-center justify-center transition-all border border-[#bcd3d8]/50 shadow-sm"
                 title="Select Letter"
-                style={getLetterStyle(selectedLetter)}
+                style={getButtonLetterStyle(selectedLetter)}
               >
                 {selectedLetter || 'A'}
               </button>
 
               {/* Letter Picker Grid Popover */}
               {isLetterPickerOpen && (
-                <div className="absolute right-0 top-11 bg-white shadow-2xl rounded-2xl border border-gray-200 p-4 w-72 z-40 max-h-96 overflow-y-auto">
+                <div className="absolute right-0 top-14 bg-white shadow-2xl rounded-2xl border border-gray-200 p-4 w-72 z-40 max-h-96 overflow-y-auto">
                   <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Choose Letter</h4>
 
                   {(language === 'all' || isSundaySchool) && (
@@ -900,7 +1186,7 @@ function LyricsDashboard() {
                       <button
                         onClick={() => selectKeyboardLanguage('telugu')}
                         className={`flex-1 py-1 rounded-lg text-[10px] font-bold transition-colors ${
-                          keyboardLanguage === 'telugu' ? 'bg-blue-600 text-white shadow-sm' : 'bg-white text-gray-600 hover:bg-gray-100'
+                          keyboardLanguage === 'telugu' ? 'bg-[#5795A7] text-white shadow-sm' : 'bg-white text-gray-600 hover:bg-gray-100'
                         }`}
                       >
                         Telugu
@@ -908,7 +1194,7 @@ function LyricsDashboard() {
                       <button
                         onClick={() => selectKeyboardLanguage('english')}
                         className={`flex-1 py-1 rounded-lg text-[10px] font-bold transition-colors ${
-                          keyboardLanguage === 'english' ? 'bg-blue-600 text-white shadow-sm' : 'bg-white text-gray-600 hover:bg-gray-100'
+                          keyboardLanguage === 'english' ? 'bg-[#5795A7] text-white shadow-sm' : 'bg-white text-gray-600 hover:bg-gray-100'
                         }`}
                       >
                         English
@@ -923,12 +1209,12 @@ function LyricsDashboard() {
                       setLastSelectedLetter('');
                       setIsLetterPickerOpen(false);
                     }}
-                    className="w-full py-2 mb-3 text-center rounded-xl text-xs font-bold bg-gray-100 hover:bg-blue-50 hover:text-blue-600 border border-gray-200/50 transition-all text-gray-700 block"
+                    className="w-full py-2 mb-3 text-center rounded-xl text-xs font-bold bg-gray-100 hover:bg-[#e8f1f3] hover:text-[#5795A7] border border-gray-200/50 transition-all text-gray-700 block"
                   >
                     Clear Filter / Show All
                   </button>
 
-                  <div className="grid grid-cols-6 gap-1.5">
+                  <div className="grid grid-cols-6 gap-1.5 keyboard-grid">
                     {activeAlphabet.map((letter) => {
                       const count = letterAvailability[letter] || 0;
                       const hasSongs = count > 0;
@@ -948,9 +1234,9 @@ function LyricsDashboard() {
                           }}
                           className={`py-1 text-center rounded-lg text-sm font-normal transition-all ${
                             selectedLetter === letter
-                              ? 'bg-blue-600 text-white scale-110 shadow-md shadow-blue-600/30 font-semibold'
+                              ? 'bg-[#5795A7] text-white scale-110 shadow-md shadow-[#5795A7]/30 font-semibold'
                               : hasSongs
-                              ? 'bg-gray-100 text-gray-800 hover:bg-blue-50 hover:text-blue-600 border border-gray-200/50'
+                              ? 'bg-gray-100 text-gray-800 hover:bg-[#e8f1f3] hover:text-[#5795A7] border border-gray-200/50'
                               : 'bg-gray-50 text-gray-300 cursor-not-allowed opacity-40'
                           }`}
                           style={getLetterStyle(letter)}
@@ -968,19 +1254,22 @@ function LyricsDashboard() {
           {/* Sub-Filters: Categories List */}
           {viewMode === 'categories' && (
             <div className="mb-4 flex flex-wrap gap-1.5 max-h-32 overflow-y-auto p-1 bg-gray-50 rounded-xl border border-gray-100">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategorySlug(cat.slug)}
-                  className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
-                    selectedCategorySlug === cat.slug
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
-                  }`}
-                >
-                  {cat.name}
-                </button>
-              ))}
+              {categories
+                .filter(cat => ALLOWED_CATEGORIES.some(allowedName => allowedName.toLowerCase() === (cat.name || '').trim().toLowerCase()))
+                .map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedCategorySlug(cat.slug)}
+                    className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
+                      selectedCategorySlug === cat.slug
+                        ? 'bg-[#5795A7] text-white'
+                        : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    {cat.name}
+                  </button>
+                ))
+              }
             </div>
           )}
 
@@ -988,7 +1277,7 @@ function LyricsDashboard() {
           <div className="flex-1 overflow-y-auto pr-1 space-y-2 max-h-[500px] md:max-h-[none]">
             {loading ? (
               <div className="flex flex-col items-center justify-center py-12 text-gray-400 gap-2">
-                <div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-8 h-8 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin"></div>
                 <p className="text-xs font-semibold">Loading songs...</p>
               </div>
             ) : filteredSongsList.length === 0 ? (
@@ -1003,14 +1292,17 @@ function LyricsDashboard() {
                     setActiveSong(song);
                     determineDefaultLyricsTab(song);
                   }}
-                  className={`w-full text-left p-3.5 rounded-2xl transition-all duration-200 border flex gap-3 text-sm items-start ${
+                  className={`song-btn w-full text-left p-3.5 rounded-2xl transition-all duration-200 border flex gap-3 text-base items-start ${
                     activeSong?.id === song.id
-                      ? 'bg-blue-50 border-blue-200 text-blue-600 font-bold shadow-sm shadow-blue-100/50'
+                      ? 'bg-[#e8f1f3] border-[#bcd3d8] text-[#5795A7] font-bold shadow-sm shadow-[#5795A7]/10'
                       : 'bg-[#FCFDFF] border-gray-100 hover:bg-gray-50 text-gray-700 hover:border-gray-200'
                   }`}
+                  style={{ fontFamily: 'var(--font-ramabhadra)' }}
                 >
                   <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
-                  <span className="leading-tight flex-1">{song.title}</span>
+                  <span className="leading-tight flex-1">
+                    {song.language === 'telugu' || song.language === 'sunday_telugu' ? cleanTeluguTitle(song.title) : song.title}
+                  </span>
                 </button>
               ))
             )}
@@ -1050,38 +1342,6 @@ function LyricsDashboard() {
 
                 {/* Toolbar Buttons */}
                 <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-gray-600">
-                  {/* Chords Toggle */}
-                  <button
-                    onClick={() => {
-                      if (!activeSong.chords) {
-                        alert("Guitar chords are not explicitly loaded for this song.");
-                        return;
-                      }
-                      setShowChords(!showChords);
-                    }}
-                    className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border transition-all ${
-                      showChords
-                        ? 'bg-blue-600 text-white border-blue-600 shadow-md shadow-blue-600/20'
-                        : activeSong.chords
-                        ? 'bg-white hover:bg-gray-50 border-gray-200 text-gray-700 shadow-sm'
-                        : 'bg-gray-50 border-gray-100 text-gray-300 cursor-not-allowed opacity-50'
-                    }`}
-                  >
-                    <span>🎵</span> Chords
-                  </button>
-
-                  {/* Slideshow Presentation */}
-                  <button
-                    onClick={() => {
-                      setCurrentSlideIndex(0);
-                      setIsFullscreenSlideshow(true);
-                    }}
-                    className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 shadow-sm transition-all"
-                  >
-                    <span>Slideshow</span>
-                    <span className="w-3.5 h-3.5 border border-gray-600 rounded-full flex items-center justify-center font-serif text-[10px]">i</span>
-                  </button>
-
                   {/* PDF Print & Text download */}
                   <div className="relative group">
                     <button
@@ -1091,12 +1351,18 @@ function LyricsDashboard() {
                     </button>
                     
                     {/* Hover dropdown for actions */}
-                    <div className="absolute right-0 top-8 bg-white border border-gray-200/80 rounded-xl shadow-xl py-1 w-36 hidden group-hover:block z-40">
+                    <div className="absolute right-0 top-8 bg-white border border-gray-200/80 rounded-xl shadow-xl py-1 w-60 hidden group-hover:block z-40">
                       <button
                         onClick={downloadLyricsFile}
                         className="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700 text-xs transition-colors"
                       >
                         As Text File (.txt)
+                      </button>
+                      <button
+                        onClick={downloadPowerPointFile}
+                        className="w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700 text-xs border-t border-gray-100 transition-colors"
+                      >
+                        As PowerPoint (.pptx)
                       </button>
                       <button
                         onClick={() => window.print()}
@@ -1113,7 +1379,10 @@ function LyricsDashboard() {
               {/* Title Header with Favorite Heart button */}
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
-                  <h1 className="text-2xl md:text-3xl font-extrabold text-gray-800 leading-tight font-tenali">
+                  <h1 
+                    className="text-2xl md:text-3xl font-normal text-gray-800 leading-tight"
+                    style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                  >
                     {activeSong.title}
                   </h1>
                   
@@ -1133,8 +1402,8 @@ function LyricsDashboard() {
                   onClick={() => toggleFavorite(activeSong.slug)}
                   className={`p-2.5 rounded-2xl border transition-all ${
                     favorites.includes(activeSong.slug)
-                      ? 'bg-blue-50 text-blue-600 border-blue-200 shadow-sm'
-                      : 'bg-white text-gray-400 hover:text-blue-50 hover:bg-blue-50 border-gray-200'
+                      ? 'bg-[#e8f1f3] text-[#5795A7] border-[#bcd3d8] shadow-sm'
+                      : 'bg-white text-gray-400 hover:text-[#5795A7] hover:bg-[#e8f1f3] border-gray-200'
                   }`}
                   title={favorites.includes(activeSong.slug) ? "Remove from Favorites" : "Add to Favorites"}
                 >
@@ -1152,7 +1421,7 @@ function LyricsDashboard() {
                       onClick={() => setActiveLyricsTab('telugu')}
                       className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                         activeLyricsTab === 'telugu'
-                          ? 'bg-white text-blue-600 shadow-sm border border-blue-200/10 font-extrabold'
+                          ? 'bg-white text-[#5795A7] shadow-sm border border-[#5795A7]/10 font-extrabold'
                           : 'text-gray-500 hover:text-gray-800'
                       }`}
                     >
@@ -1164,7 +1433,7 @@ function LyricsDashboard() {
                       onClick={() => setActiveLyricsTab('english')}
                       className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                         activeLyricsTab === 'english'
-                          ? 'bg-white text-blue-600 shadow-sm border border-blue-200/10 font-extrabold'
+                          ? 'bg-white text-[#5795A7] shadow-sm border border-[#5795A7]/10 font-extrabold'
                           : 'text-gray-500 hover:text-gray-800'
                       }`}
                     >
@@ -1176,23 +1445,11 @@ function LyricsDashboard() {
                       onClick={() => setActiveLyricsTab('hindi')}
                       className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
                         activeLyricsTab === 'hindi'
-                          ? 'bg-white text-blue-600 shadow-sm border border-blue-200/10 font-extrabold'
+                          ? 'bg-white text-[#5795A7] shadow-sm border border-[#5795A7]/10 font-extrabold'
                           : 'text-gray-500 hover:text-gray-800'
                       }`}
                     >
                       Hindi Lyrics
-                    </button>
-                  )}
-                  {activeSong.powerpoint_slides && (
-                    <button
-                      onClick={() => setActiveLyricsTab('ppt')}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                        activeLyricsTab === 'ppt'
-                          ? 'bg-white text-blue-600 shadow-sm border border-blue-200/10 font-extrabold'
-                          : 'text-gray-500 hover:text-gray-800'
-                      }`}
-                    >
-                      PowerPoint Slides
                     </button>
                   )}
                 </div>
@@ -1200,11 +1457,11 @@ function LyricsDashboard() {
 
               {/* Chords Warning Badge */}
               {showChords && (
-                <div className="mb-4 bg-blue-50 border border-blue-100 text-blue-800 rounded-xl px-4 py-2 text-xs font-medium flex items-center justify-between">
+                <div className="mb-4 bg-[#e8f1f3] border border-[#bcd3d8] text-[#2c5a67] rounded-xl px-4 py-2 text-xs font-medium flex items-center justify-between">
                   <span>Showing Guitar Chords representation</span>
                   <button 
                     onClick={() => setShowChords(false)}
-                    className="text-blue-900 font-bold hover:underline"
+                    className="text-[#1f4251] font-bold hover:underline"
                   >
                     Switch back
                   </button>
@@ -1213,12 +1470,14 @@ function LyricsDashboard() {
 
               {/* Lyrics Render Area (with custom paragraph margins) */}
               <div 
+                ref={lyricsContainerRef}
                 className="flex-1 overflow-y-auto bg-gray-50/30 rounded-2xl p-6 md:p-8 border border-gray-100 print-lyrics"
                 style={{ fontSize: `${fontSize}px` }}
               >
                 {activeContent ? (
                   <div 
-                    className="prose max-w-none text-gray-800 leading-relaxed font-tenali select-text [&_p]:mb-5 [&_p]:leading-normal [&_p_br]:mb-0 [&_br]:mb-0 print:text-black"
+                    className="prose max-w-none text-gray-800 leading-relaxed select-text [&_p]:mb-5 [&_p]:leading-normal [&_p_br]:mb-0 [&_br]:mb-0 print:text-black"
+                    style={{ fontFamily: 'var(--font-mandali)' }}
                     dangerouslySetInnerHTML={{ __html: formatLyrics(activeContent) }}
                   />
                 ) : (
@@ -1251,8 +1510,13 @@ function LyricsDashboard() {
             {/* Header */}
             <div className="flex justify-between items-center border-b border-white/10 pb-4 opacity-50 hover:opacity-100 transition-opacity">
               <div>
-                <h4 className="text-sm font-semibold tracking-wide uppercase text-blue-500">Presentation Mode</h4>
-                <h3 className="text-xl font-bold font-tenali">{activeSong.title}</h3>
+                <h4 className="text-sm font-semibold tracking-wide uppercase text-[#5795A7]">Presentation Mode</h4>
+                <h3 
+                  className="text-xl font-normal"
+                  style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                >
+                  {activeSong.title}
+                </h3>
               </div>
               <button 
                 onClick={() => setIsFullscreenSlideshow(false)}
@@ -1268,7 +1532,7 @@ function LyricsDashboard() {
               {slides.length === 0 ? (
                 <div className="text-white/40 italic text-xl">No presentation slides available.</div>
               ) : (
-                <div className="space-y-6 md:space-y-8 animate-fade-in font-tenali">
+                <div className="space-y-6 md:space-y-8 animate-fade-in" style={{ fontFamily: 'var(--font-mandali)' }}>
                   {(slides[currentSlideIndex] || '').split('\n').map((line, idx) => (
                     <p key={idx} className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-normal tracking-wide text-white drop-shadow-md">
                       {line}
@@ -1342,9 +1606,9 @@ function LyricsDashboard() {
 export default function SongsPage() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-[#EAEFF3] flex items-center justify-center">
+      <div className="min-h-screen bg-[#e0f2f1] flex items-center justify-center">
         <div className="text-center p-8 bg-white rounded-3xl shadow-xl border border-gray-100 w-80">
-          <div className="w-12 h-12 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="w-12 h-12 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 font-semibold">Loading Lyrics Index...</p>
         </div>
       </div>

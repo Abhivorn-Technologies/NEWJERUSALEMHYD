@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Poppins, Suranna, Ramabhadra, Mallanna, Tenali_Ramakrishna } from "next/font/google";
+import { Roboto, Poppins, Suranna, Ramabhadra, Mallanna, Tenali_Ramakrishna, Mandali } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -30,20 +30,26 @@ const suranna = Suranna({
 
 const ramabhadra = Ramabhadra({
   weight: ["400"],
-  subsets: ["latin"],
+  subsets: ["telugu", "latin"],
   variable: "--font-ramabhadra",
 });
 
 const mallanna = Mallanna({
   weight: ["400"],
-  subsets: ["latin"],
+  subsets: ["telugu", "latin"],
   variable: "--font-mallanna",
 });
 
 const tenaliRamakrishna = Tenali_Ramakrishna({
   weight: ["400"],
-  subsets: ["latin"],
+  subsets: ["telugu", "latin"],
   variable: "--font-tenali",
+});
+
+const mandali = Mandali({
+  weight: ["400"],
+  subsets: ["telugu", "latin"],
+  variable: "--font-mandali",
 });
 
 export default function RootLayout({
@@ -52,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${roboto.variable} ${poppins.variable} ${suranna.variable} ${ramabhadra.variable} ${mallanna.variable} ${tenaliRamakrishna.variable}`}>
+    <html lang="en" className={`${roboto.variable} ${poppins.variable} ${suranna.variable} ${ramabhadra.variable} ${mallanna.variable} ${tenaliRamakrishna.variable} ${mandali.variable}`}>
       <body className="bg-white min-h-screen flex flex-col">
         <ScrollObserver />
         <Navbar />

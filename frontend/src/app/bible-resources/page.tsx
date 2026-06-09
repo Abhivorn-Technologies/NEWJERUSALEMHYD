@@ -306,8 +306,8 @@ export default function BibleResourcesPage() {
           ))}
         </div>
 
-        {/* Featured Infographics Images */}
-        <div className="pt-12 border-t border-gray-300/60 space-y-8">
+        {/* Featured Infographics Row List */}
+        <div className="pt-12 border-t border-gray-300/60 space-y-6">
           <div className="text-center">
             <h3 className="text-2xl font-black text-[#173C4E] uppercase tracking-wide">
               Featured Infographics
@@ -315,48 +315,60 @@ export default function BibleResourcesPage() {
             <div className="h-1 w-12 bg-[#AB2423] mx-auto rounded-full mt-2 mb-6"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* John Infographic Card */}
-            <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-200/60 hover:shadow-lg transition-all duration-300 group flex flex-col items-center">
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center border border-gray-100">
-                <img 
-                  src="/wp-content/uploads/2026/03/infographics_john.jpg" 
-                  alt="Infographics John"
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
+          <div className="space-y-3.5 max-w-5xl mx-auto">
+            {/* John Row */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
+              <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+                Gospel of John Infographic
               </div>
-              <div className="mt-4 text-center">
-                <span className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight block">Gospel of John Infographic</span>
-                <a 
-                  href="/wp-content/uploads/2026/03/infographics_john.jpg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3.5 inline-block bg-[#1F6F5A] hover:bg-[#185948] text-white text-[11px] font-bold py-2 px-6 rounded uppercase shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
-                >
-                  View Full Image
-                </a>
+              <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
+                <div className="hidden md:block h-6 w-[1.5px] bg-gray-200 mx-2"></div>
+                <div className="flex flex-wrap gap-2 w-full md:w-auto justify-end">
+                  <a
+                    href="/wp-content/uploads/2026/03/infographics_john.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#1F6F5A] hover:bg-[#185948]"
+                  >
+                    JPEG
+                  </a>
+                  <a
+                    href="/wp-content/uploads/2026/03/infographics_john.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#173C4E] hover:bg-[#12303e]"
+                  >
+                    PDF
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* Matthew Infographic Card */}
-            <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-200/60 hover:shadow-lg transition-all duration-300 group flex flex-col items-center">
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center border border-gray-100">
-                <img 
-                  src="/wp-content/uploads/2026/03/infographics_mathew.jpg" 
-                  alt="Infographics Mathew"
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
+            {/* Matthew Row */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
+              <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+                Gospel of Matthew Infographic
               </div>
-              <div className="mt-4 text-center">
-                <span className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight block">Gospel of Matthew Infographic</span>
-                <a 
-                  href="/wp-content/uploads/2026/03/infographics_mathew.jpg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3.5 inline-block bg-[#1F6F5A] hover:bg-[#185948] text-white text-[11px] font-bold py-2 px-6 rounded uppercase shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
-                >
-                  View Full Image
-                </a>
+              <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
+                <div className="hidden md:block h-6 w-[1.5px] bg-gray-200 mx-2"></div>
+                <div className="flex flex-wrap gap-2 w-full md:w-auto justify-end">
+                  <a
+                    href="/wp-content/uploads/2026/03/infographics_mathew.jpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#1F6F5A] hover:bg-[#185948]"
+                  >
+                    JPEG
+                  </a>
+                  <a
+                    href="/wp-content/uploads/2026/03/infographics_mathew.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#173C4E] hover:bg-[#12303e]"
+                  >
+                    PDF
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -432,61 +444,7 @@ export default function BibleResourcesPage() {
           ))}
         </div>
 
-        {/* Featured Genealogies Images */}
-        <div className="pt-12 border-t border-gray-300/60 space-y-8">
-          <div className="text-center">
-            <h3 className="text-2xl font-black text-[#173C4E] uppercase tracking-wide">
-              Featured Genealogies
-            </h3>
-            <div className="h-1 w-12 bg-[#AB2423] mx-auto rounded-full mt-2 mb-6"></div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* General Genealogy Card */}
-            <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-200/60 hover:shadow-lg transition-all duration-300 group flex flex-col items-center">
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center border border-gray-100">
-                <img 
-                  src="/wp-content/uploads/2026/03/genelogogy.jpg" 
-                  alt="Bible Genealogy"
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <span className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight block">Bible Genealogy</span>
-                <a 
-                  href="/wp-content/uploads/2026/03/genelogogy.jpg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3.5 inline-block bg-[#1F6F5A] hover:bg-[#185948] text-white text-[11px] font-bold py-2 px-6 rounded uppercase shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
-                >
-                  View Full Image
-                </a>
-              </div>
-            </div>
-
-            {/* Jacob Genealogy Card */}
-            <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-200/60 hover:shadow-lg transition-all duration-300 group flex flex-col items-center">
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-gray-50 flex items-center justify-center border border-gray-100">
-                <img 
-                  src="/wp-content/uploads/2026/03/Jacob_Genology.jpg" 
-                  alt="Jacob Genealogy"
-                  className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="mt-4 text-center">
-                <span className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight block">Jacob's Genealogy</span>
-                <a 
-                  href="/wp-content/uploads/2026/03/Jacob_Genology.jpg"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3.5 inline-block bg-[#1F6F5A] hover:bg-[#185948] text-white text-[11px] font-bold py-2 px-6 rounded uppercase shadow-sm hover:scale-105 active:scale-95 transition-all duration-200"
-                >
-                  View Full Image
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   };
@@ -508,15 +466,15 @@ export default function BibleResourcesPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {missionaryData.map((item, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
-              <div className="relative h-60 bg-gray-50 p-4 flex items-center justify-center overflow-hidden">
+              <div className="relative pt-4 pb-0 px-4 flex items-center justify-center overflow-hidden bg-transparent">
                 <img 
                   src={item.image} 
                   alt="Missionary Story" 
-                  className="max-h-full max-w-full object-contain drop-shadow-md rounded transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-auto object-contain drop-shadow-md rounded-xl transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               {item.link ? (
-                <div className="p-5 text-center border-t border-gray-50 mt-auto">
+                <div className="pt-3 pb-4 px-4 text-center mt-auto">
                   <a 
                     href={item.link} 
                     target="_blank" 
@@ -527,9 +485,9 @@ export default function BibleResourcesPage() {
                   </a>
                 </div>
               ) : (
-                <div className="p-5 text-center border-t border-gray-50 mt-auto">
+                <div className="pt-3 pb-4 px-4 text-center mt-auto">
                   <span 
-                    className="inline-block bg-gray-100 text-gray-400 border border-gray-200 px-6 py-2.5 rounded-full text-xs font-bold select-none cursor-not-allowed"
+                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-xs font-bold select-none cursor-not-allowed shadow-sm"
                   >
                     Coming Soon
                   </span>

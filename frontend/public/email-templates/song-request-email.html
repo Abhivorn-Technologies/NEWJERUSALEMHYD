@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Song Request</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #FFF0F5; /* Soft pink background */
+      font-family: 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+      color: #333;
+      -webkit-font-smoothing: antialiased;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background-color: #ffffff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(194, 24, 91, 0.1);
+      border: 1px solid #FADADD;
+    }
+    .header {
+      background: linear-gradient(135deg, #C2185B 0%, #E91E8C 100%);
+      padding: 35px 30px;
+      text-align: center;
+    }
+    .header h1 {
+      margin: 0;
+      color: #ffffff;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .header p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 14px;
+    }
+    .content-body {
+      padding: 35px 40px;
+    }
+    .intro-text {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.5;
+      text-align: center;
+      background-color: #FFF5F8;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .field-group {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #f2f2f2;
+      padding-bottom: 15px;
+    }
+    .field-group:last-child {
+      border-bottom: none;
+    }
+    .field-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #C2185B;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .field-value {
+      font-size: 16px;
+      color: #222;
+      font-weight: 500;
+      word-wrap: break-word;
+    }
+    .notes-box {
+      background-color: #fafafa;
+      border: 1px solid #eaeaea;
+      border-left: 4px solid #FF99BE;
+      padding: 15px;
+      border-radius: 4px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #444;
+      white-space: pre-wrap;
+      margin-top: 8px;
+    }
+    .section-divider {
+      height: 1px;
+      background: #FADADD;
+      margin: 30px 0;
+    }
+    .submitter-grid {
+      display: table;
+      width: 100%;
+    }
+    .submitter-col {
+      display: table-cell;
+      width: 50%;
+      padding-bottom: 15px;
+    }
+    .btn-container {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+    .reply-btn {
+      display: inline-block;
+      background-color: #C2185B;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 4px 10px rgba(194, 24, 91, 0.2);
+    }
+    .footer {
+      background-color: #FFF0F5;
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #888;
+      border-top: 1px solid #FADADD;
+    }
+    @media only screen and (max-width: 600px) {
+      .email-container { margin: 0; border-radius: 0; border: none; }
+      .content-body { padding: 25px 20px; }
+      .submitter-col { display: block; width: 100%; padding-bottom: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+    <tr>
+      <td align="center">
+        
+        <div class="email-container">
+          <!-- HEADER -->
+          <div class="header">
+            <h1>New Song Request</h1>
+            <p>Sunday School Portal</p>
+          </div>
+
+          <!-- BODY -->
+          <div class="content-body">
+            
+            <div class="intro-text">
+              🎵 A new song request has been submitted by <strong>{{requester_name}}</strong>.
+            </div>
+
+            <!-- SONG DETAILS -->
+            <div class="field-group">
+              <div class="field-label">Song Title</div>
+              <div class="field-value">{{song_title}}</div>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">Language</div>
+              <div class="field-value">{{language}}</div>
+            </div>
+
+            <div class="field-group">
+              <div class="field-label">Additional Details / Lyrics / Links</div>
+              <div class="notes-box">{{notes}}</div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- SUBMITTER DETAILS -->
+            <div class="submitter-grid">
+              <div class="submitter-col">
+                <div class="field-label">Name</div>
+                <div class="field-value">{{requester_name}}</div>
+              </div>
+              <div class="submitter-col">
+                <div class="field-label">Email</div>
+                <div class="field-value">
+                  <a href="mailto:{{requester_email}}" style="color: #E91E8C; text-decoration: none;">{{requester_email}}</a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="submitter-grid">
+              <div class="submitter-col">
+                <div class="field-label">Phone</div>
+                <div class="field-value">{{requester_phone}}</div>
+              </div>
+              <div class="submitter-col">
+                <div class="field-label">Submitted At</div>
+                <div class="field-value" style="font-size: 13px; color: #666;">{{submitted_at}}</div>
+              </div>
+            </div>
+
+            <div class="btn-container">
+              <a href="mailto:{{requester_email}}?subject=Re: Your Song Request – {{song_title}}" class="reply-btn">
+                Reply to {{requester_name}}
+              </a>
+            </div>
+
+          </div>
+
+          <!-- FOOTER -->
+          <div class="footer">
+            <strong>New Jerusalem Ministries</strong><br>
+            # 14-22, Grace Nilayam, Kamala Nagar, Medipally, Hyderabad<br>
+            <span style="color:#aaa; display:block; margin-top:8px;">Automated Sunday School Notification</span>
+          </div>
+
+        </div>
+
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

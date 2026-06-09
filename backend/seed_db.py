@@ -22,11 +22,11 @@ def seed():
     NavMenuItem.objects.all().delete()
     
     home = NavMenuItem.objects.create(label="Home", url="/", order=1)
-    about = NavMenuItem.objects.create(label="About Us", url="/about", order=2)
     songs = NavMenuItem.objects.create(label="Telugu Songs", url="/songs", order=3)
     resources = NavMenuItem.objects.create(label="Bible Resources", url="/bible-resources", order=4)
     sunday_school = NavMenuItem.objects.create(label="Sunday School", url="/sunday-school", order=5)
-    prayer = NavMenuItem.objects.create(label="Prayer Request", url="/prayer-request", order=6)
+    prayer = NavMenuItem.objects.create(label="Prayer Request", url="/prayer-request", order=7)
+    about = NavMenuItem.objects.create(label="About Us", url="/about", order=8)
 
     # Sub-menu items for About Us
     NavMenuItem.objects.create(label="Mission & Vision", url="/about", parent=about, order=1)

@@ -300,7 +300,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/the-roman-empire-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/the-roman-empire-bw.pdf"
           }
         ]
@@ -313,7 +313,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/the-division-of-levant-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/the-division-of-levant-bw.pdf"
           }
         ]
@@ -326,7 +326,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/christ-in-galilee-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/christ-in-galilee-bw.pdf"
           }
         ]
@@ -339,7 +339,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/galilee-to-jerusalem-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/galilee-to-jerusalem-bw.pdf"
           }
         ]
@@ -352,7 +352,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/christ-in-judea-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/christ-in-judea-bw.pdf"
           }
         ]
@@ -365,7 +365,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/jerusalem-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/jerusalem-bw.pdf"
           }
         ]
@@ -378,7 +378,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/matthew-2-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/matthew-2-bw.pdf"
           }
         ]
@@ -391,7 +391,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/luke-2-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/luke-2-bw.pdf"
           }
         ]
@@ -404,7 +404,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/luke-24-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/luke-24-bw.pdf"
           }
         ]
@@ -417,7 +417,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/john-1-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/john-1-bw.pdf"
           }
         ]
@@ -430,7 +430,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/john-2-3-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/john-2-3-bw.pdf"
           }
         ]
@@ -443,7 +443,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/john-4-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/john-4-bw.pdf"
           }
         ]
@@ -456,7 +456,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/john-6-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/john-6-bw.pdf"
           }
         ]
@@ -469,7 +469,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/john-7-10-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/john-7-10-bw.pdf"
           }
         ]
@@ -482,7 +482,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/john-11-12-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/john-11-12-bw.pdf"
           }
         ]
@@ -495,7 +495,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/early-christianity-east-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/early-christianity-east-bw.pdf"
           }
         ]
@@ -508,7 +508,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/early-christianity-west-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/early-christianity-west-bw.pdf"
           }
         ]
@@ -521,7 +521,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/pauls-journeys-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/pauls-journeys-bw.pdf"
           }
         ]
@@ -534,7 +534,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/antioch-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/antioch-bw.pdf"
           }
         ]
@@ -547,7 +547,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/athens-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/athens-bw.pdf"
           }
         ]
@@ -560,7 +560,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/corinth-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/corinth-bw.pdf"
           }
         ]
@@ -573,7 +573,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/ephesus-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/ephesus-bw.pdf"
           }
         ]
@@ -586,7 +586,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/caesarea-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/caesarea-bw.pdf"
           }
         ]
@@ -599,7 +599,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/rome-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/rome-bw.pdf"
           }
         ]
@@ -612,7 +612,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-2-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-2-bw.pdf"
           }
         ]
@@ -625,7 +625,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-6-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-6-bw.pdf"
           }
         ]
@@ -638,7 +638,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-7-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-7-bw.pdf"
           }
         ]
@@ -651,7 +651,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-8-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-8-bw.pdf"
           }
         ]
@@ -664,7 +664,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-9-11-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-9-11-bw.pdf"
           }
         ]
@@ -677,7 +677,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-11-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-11-bw.pdf"
           }
         ]
@@ -690,7 +690,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-12-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-12-bw.pdf"
           }
         ]
@@ -703,7 +703,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-13-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-13-bw.pdf"
           }
         ]
@@ -716,7 +716,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-14-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-14-bw.pdf"
           }
         ]
@@ -729,7 +729,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-15-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-15-bw.pdf"
           }
         ]
@@ -742,7 +742,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-16-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-16-bw.pdf"
           }
         ]
@@ -755,7 +755,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-16-18-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-16-18-bw.pdf"
           }
         ]
@@ -768,7 +768,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-18-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-18-bw.pdf"
           }
         ]
@@ -781,7 +781,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-19-20-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-19-20-bw.pdf"
           }
         ]
@@ -794,7 +794,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-21-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-21-bw.pdf"
           }
         ]
@@ -807,7 +807,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-23-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-23-bw.pdf"
           }
         ]
@@ -820,7 +820,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-27-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-27-bw.pdf"
           }
         ]
@@ -833,7 +833,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/acts-28-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/acts-28-bw.pdf"
           }
         ]
@@ -846,7 +846,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/epistles-overview-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/epistles-overview-bw.pdf"
           }
         ]
@@ -859,7 +859,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/romans-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/romans-bw.pdf"
           }
         ]
@@ -872,7 +872,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/corinthians-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/corinthians-bw.pdf"
           }
         ]
@@ -885,7 +885,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/galatians-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/galatians-bw.pdf"
           }
         ]
@@ -898,7 +898,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/philippians-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/philippians-bw.pdf"
           }
         ]
@@ -911,7 +911,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/colossians-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/colossians-bw.pdf"
           }
         ]
@@ -924,7 +924,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/thessalonians-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/thessalonians-bw.pdf"
           }
         ]
@@ -937,7 +937,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/timothy-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/timothy-bw.pdf"
           }
         ]
@@ -950,7 +950,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/titus-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/titus-bw.pdf"
           }
         ]
@@ -963,7 +963,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/peter-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/peter-bw.pdf"
           }
         ]
@@ -976,7 +976,7 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/revelation-color.pdf"
           },
           {
-            "text": "Black &amp; White",
+            "text": "Black & White",
             "url": "/wp-content/uploads/2026/03/revelation-bw.pdf"
           },
           {

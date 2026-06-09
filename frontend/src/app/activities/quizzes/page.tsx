@@ -126,7 +126,7 @@ const ntStories = [
 
 const PDF_URL = '/wp-content/uploads/2026/03/logo.pdf';
 
-export default function PuzzlesPage() {
+export default function QuizzesPage() {
   return (
     <div className="min-h-screen bg-[#FADADD] py-16 px-6">
       <div className="max-w-5xl mx-auto space-y-10">
@@ -139,7 +139,7 @@ export default function PuzzlesPage() {
           >
             <span className="mr-2">&larr;</span> Back to Activities
           </Link>
-          <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">Bible Puzzles</h1>
+          <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">Bible Quizzes</h1>
           <div className="h-1 w-24 bg-[#FF99BE] rounded-full"></div>
         </div>
 
