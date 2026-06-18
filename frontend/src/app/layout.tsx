@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.variable} ${poppins.variable} ${suranna.variable} ${ramabhadra.variable} ${mallanna.variable} ${tenaliRamakrishna.variable} ${mandali.variable}`}>
-      <body className="bg-white min-h-screen flex flex-col">
+      <body className="bg-white min-h-screen flex flex-col" suppressHydrationWarning>
         <ScrollObserver />
         <Navbar />
         <main className="flex-grow">
