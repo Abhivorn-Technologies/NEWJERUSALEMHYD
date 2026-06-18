@@ -18,43 +18,43 @@ export default function PrayerRequestPage() {
             prayer team will intercede faithfully on your behalf.
           </p>
         </div>
+        {/* Scripture Card (Full Width Banner) */}
+        <div className="relative bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-md transition-shadow duration-300 mb-8">
+          {/* Top accent */}
+          <div className="h-1.5 bg-gradient-to-r from-[#8b1e15] to-[#c0392b]" />
+
+          {/* Background watermark cross */}
+          <div
+            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
+            aria-hidden="true"
+          >
+            <span className="text-[160px] font-black text-gray-50 leading-none opacity-50">✝</span>
+          </div>
+
+          <div className="relative z-10 py-6 px-8 md:py-8 md:px-12 text-center max-w-5xl mx-auto">
+            <div className="flex items-center justify-center gap-2 mb-3">
+              <span className="text-2xl">📖</span>
+              <div className="text-left">
+                <p className="text-[10px] uppercase tracking-widest font-bold text-[#8b1e15] leading-none">Daily Scripture</p>
+                <p className="text-xs text-gray-400 font-medium mt-1 leading-none">కొలొస్సయులకు 4:2</p>
+              </div>
+            </div>
+
+            <blockquote
+              className="text-lg md:text-xl lg:text-2xl text-gray-800 leading-snug font-normal italic"
+              style={{ fontFamily: 'var(--font-ramabhadra)' }}
+            >
+              "ప్రార్థన చేయుటయందు నిత్యము నిలకడగా ఉండుడి, ప్రార్థనయందు కృతజ్ఞత గలవారై మెలకువగా ఉండుడి."
+            </blockquote>
+
+            <p className="mt-3 text-xs text-gray-400 font-semibold">— Colossians 4:2</p>
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* ── Left Column ──────────────────────────────── */}
           <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
-
-            {/* Scripture Card */}
-            <div className="relative bg-white rounded-3xl overflow-hidden shadow border border-gray-100 group hover:shadow-md transition-shadow duration-300">
-              {/* Top accent */}
-              <div className="h-1.5 bg-gradient-to-r from-[#8b1e15] to-[#c0392b]" />
-
-              {/* Background watermark cross */}
-              <div
-                className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-                aria-hidden="true"
-              >
-                <span className="text-[140px] font-black text-gray-50 leading-none opacity-60">✝</span>
-              </div>
-
-              <div className="relative z-10 p-8">
-                <div className="flex items-start gap-3 mb-4">
-                  <span className="text-2xl">📖</span>
-                  <div>
-                    <p className="text-[10px] uppercase tracking-widest font-bold text-[#8b1e15]">Daily Scripture</p>
-                    <p className="text-xs text-gray-400 font-medium">కొలొస్సయులకు 4:2</p>
-                  </div>
-                </div>
-
-                <blockquote
-                  className="text-lg md:text-xl text-gray-800 leading-relaxed font-normal italic border-l-4 border-[#8b1e15] pl-4"
-                  style={{ fontFamily: 'var(--font-ramabhadra)' }}
-                >
-                  "ప్రార్థన చేయుటయందు నిత్యము నిలకడగా ఉండుడి, ప్రార్థనయందు కృతజ్ఞత గలవారై మెలకువగా ఉండుడి."
-                </blockquote>
-
-                <p className="mt-4 text-xs text-gray-400 text-right font-semibold">— Colossians 4:2</p>
-              </div>
-            </div>
 
             {/* How We Pray Card */}
             <div className="bg-[#1f4251] text-white rounded-3xl p-8 shadow border border-[#173C4E]">

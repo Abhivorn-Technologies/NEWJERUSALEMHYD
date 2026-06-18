@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ActivitiesTabs from '../ActivitiesTabs';
 
 const otStories = [
   { title: 'The Creation of the Earth', scripture: 'Genesis 1\u20132; Moses 1\u20133; Abraham 3\u20135' },
@@ -131,21 +132,27 @@ export default function PuzzlesPage() {
     <div className="min-h-screen bg-[#FADADD] py-16 px-6">
       <div className="max-w-5xl mx-auto space-y-10">
 
-        {/* Header */}
-        <div>
-          <Link
-            href="/activities"
-            className="inline-flex items-center text-[#4D1C2C]/85 hover:text-[#D81B60] font-semibold transition-colors duration-200 mb-6"
-          >
-            <span className="mr-2">&larr;</span> Back to Activities
-          </Link>
-          <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">Bible Puzzles</h1>
-          <div className="h-1 w-24 bg-[#FF99BE] rounded-full"></div>
+        <div className="mb-6 flex flex-col items-center gap-4">
+          <div className="self-start">
+            <Link
+              href="/sunday-school"
+              className="inline-flex items-center text-[#4D1C2C]/85 hover:text-[#D81B60] font-semibold transition-colors duration-200"
+            >
+              <span className="mr-2">&larr;</span> Back to Sunday School
+            </Link>
+          </div>
         </div>
 
         {/* Single combined card */}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-          <div className="bg-gradient-to-r from-[#C2185B] to-[#E91E8C] text-white grid grid-cols-2 divide-x divide-white/20">
+          <div className="pt-6 px-4 sm:px-8">
+            <ActivitiesTabs />
+          </div>
+          <div className="px-4 sm:px-8 pb-8 pt-4">
+            <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">Bible Puzzles</h1>
+            <div className="h-1 w-24 bg-[#FF99BE] rounded-full"></div>
+          </div>
+          <div className="bg-[#FF99BE] text-white grid grid-cols-2 divide-x divide-white/20">
             <div className="px-6 py-5">
               <h2 className="text-xl font-bold">OT List</h2>
               <p className="text-white/70 text-xs mt-0.5">Old Testament stories</p>

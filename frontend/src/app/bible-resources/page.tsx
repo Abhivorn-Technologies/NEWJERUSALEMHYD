@@ -25,15 +25,18 @@ export default function BibleResourcesPage() {
       url.includes('infographics_john') || 
       url.includes('infographics_mathew') ||
       url.includes('genelogogy') ||
-      url.includes('Jacob_Genology')
+      url.includes('Jacob_Genology') ||
+      url.includes('మూర్తి') ||
+      url.includes('స్కడ్డర్') ||
+      url.includes('వెస్లీ')
     ) {
       return url;
     }
     const ext = url.split('.').pop()?.toLowerCase();
-    if (ext === 'jpg' || ext === 'jpeg' || ext === 'png') {
-      return '/wp-content/uploads/2026/03/logo-pdf.jpg';
+    if (ext === 'docx') {
+      return url;
     }
-    return '/wp-content/uploads/2026/03/logo.pdf';
+    return '/wp-content/uploads/2026/03/coming-soon.jpg';
   };
 
   const categories: ResourceCategory[] = [
@@ -172,7 +175,7 @@ export default function BibleResourcesPage() {
                       className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                     >
                       {/* Left Column: Title */}
-                      <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+                      <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
                         {item.title}
                       </div>
 
@@ -188,7 +191,7 @@ export default function BibleResourcesPage() {
                             // Select color based on button type
                             let btnBg = 'bg-gray-500 hover:bg-gray-600';
                             if (linkText.toUpperCase() === 'ILLUSTRATOR') {
-                              btnBg = 'bg-[#8b1e15] hover:bg-red-800';
+                              btnBg = 'bg-[#1A5C5E] hover:bg-[#114041]';
                             } else if (linkText.toUpperCase() === 'JPEG' || linkText.toUpperCase() === 'COLOR') {
                               btnBg = 'bg-[#1F6F5A] hover:bg-[#185948]';
                             } else if (linkText.toUpperCase() === 'PDF') {
@@ -264,7 +267,7 @@ export default function BibleResourcesPage() {
                     className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                   >
                     {/* Left Column: Title */}
-                    <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+                    <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
                       {item.title}
                     </div>
 
@@ -318,7 +321,7 @@ export default function BibleResourcesPage() {
           <div className="space-y-3.5 max-w-5xl mx-auto">
             {/* John Row */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
-              <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+              <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
                 Gospel of John Infographic
               </div>
               <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
@@ -346,7 +349,7 @@ export default function BibleResourcesPage() {
 
             {/* Matthew Row */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
-              <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+              <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
                 Gospel of Matthew Infographic
               </div>
               <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
@@ -402,7 +405,7 @@ export default function BibleResourcesPage() {
                     className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                   >
                     {/* Left Column: Title */}
-                    <div className="font-bold text-[#8b1e15] text-base md:text-[17px] tracking-tight">
+                    <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
                       {item.title}
                     </div>
 
@@ -476,7 +479,7 @@ export default function BibleResourcesPage() {
               {item.link ? (
                 <div className="pt-3 pb-4 px-4 text-center mt-auto">
                   <a 
-                    href={item.link} 
+                    href={getResourceUrl(item.link)} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-[#16303b] transition-all hover:scale-105 active:scale-95 shadow-sm"
@@ -538,7 +541,7 @@ export default function BibleResourcesPage() {
       </div>
 
       {/* 3D Perspective Grid Container */}
-      <div className="w-full max-w-6xl flex justify-center items-center py-12 md:py-20 overflow-visible">
+      <div className="w-full max-w-6xl flex justify-center items-center py-4 md:py-6 overflow-visible">
         {/* Scaling wrapper to keep layout pixel-perfect on mobile */}
         <div className="flex justify-center items-center w-full scale-55 xs:scale-65 sm:scale-75 md:scale-95 lg:scale-100 origin-center transition-transform duration-300">
           <div className={`perspective-1200 reflect-below flex justify-center items-center py-6 overflow-visible select-none ${activeCategory ? 'has-active' : ''}`}>
@@ -552,10 +555,10 @@ export default function BibleResourcesPage() {
                   onMouseLeave={(e) => handleMouseLeave(e, cat.originalRot, isActive)}
                   style={{ '--original-rot': isActive ? '0deg' : cat.originalRot } as React.CSSProperties}
                   className={`slant-card ${cat.slantClass} ${isActive ? 'active-card' : ''} group relative block rounded-2xl md:rounded-3xl border border-white/20 shadow-xl overflow-hidden cursor-pointer
-                    w-[140px] h-[240px] 
-                    xs:w-[160px] xs:h-[280px]
-                    sm:w-[190px] sm:h-[320px] 
-                    md:w-[225px] md:h-[390px] 
+                    w-[140px] h-[160px] 
+                    xs:w-[160px] xs:h-[190px]
+                    sm:w-[190px] sm:h-[220px] 
+                    md:w-[225px] md:h-[260px] 
                     mx-[-6px] xs:mx-[-10px] sm:mx-[-14px] md:mx-[-18px]
                     bg-gradient-to-br ${cat.gradientClass}
                   `}

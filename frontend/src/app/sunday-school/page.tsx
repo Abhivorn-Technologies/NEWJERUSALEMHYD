@@ -10,13 +10,13 @@ export default function SundaySchoolPage() {
     },
     {
       title: "Stories from Bible",
-      link: "/stories",
+      link: "/stories/old-testament",
       icon: "📖",
       desc: "Explore wonderful Old and New Testament stories."
     },
     {
       title: "Activities",
-      link: "/activities",
+      link: "/activities/coloring",
       icon: "🎨",
       desc: "Coloring pages, Bible quizzes, and word puzzles."
     }
@@ -36,15 +36,15 @@ export default function SundaySchoolPage() {
         <div className="flex flex-wrap justify-center gap-8 max-w-5xl mx-auto">
           {sections.map((section, idx) => (
             <Link key={idx} href={section.link} className="group block w-full sm:w-72 md:w-80">
-              <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full flex flex-col justify-between cursor-pointer">
+              <div className="bg-white group-hover:bg-[#D04A73] p-8 rounded-2xl shadow-sm border border-gray-100 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 h-full flex flex-col justify-between cursor-pointer">
                 <div>
                   <div className="text-5xl mb-4 transform group-hover:scale-110 transition-transform">
                     {section.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-[#4D1C2C] mb-2 group-hover:text-[#FF99BE] transition-colors">
+                  <h3 className="text-xl font-bold text-[#4D1C2C] mb-2 group-hover:text-white transition-colors">
                     {section.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{section.desc}</p>
+                  <p className="text-gray-600 group-hover:text-white/90 text-sm leading-relaxed transition-colors">{section.desc}</p>
                 </div>
               </div>
             </Link>
