@@ -42,7 +42,7 @@ export default function BibleResourcesPage() {
       title: "BIBLE",
       subTitle: "INFOGRAPHICS",
       url: "/bible-resources/infographics",
-      gradientClass: "from-[#917524] to-[#5C4D11]",
+      gradientClass: "from-[#00A6CB] to-[#007B96]",
       slantClass: "slant-left-far z-10",
       originalRot: "28deg",
     },
@@ -51,7 +51,7 @@ export default function BibleResourcesPage() {
       title: "BIBLE",
       subTitle: "MAPS",
       url: "/bible-resources/maps",
-      gradientClass: "from-[#1A5C5E] to-[#00383B]",
+      gradientClass: "from-[#173C4E] to-[#0A1D27]",
       slantClass: "slant-left-near z-20",
       originalRot: "22deg",
     },
@@ -60,7 +60,7 @@ export default function BibleResourcesPage() {
       title: "MISSIONARY",
       subTitle: "STORIES",
       url: "/bible-resources/missionary-story",
-      gradientClass: "from-[#C23130] via-[#AB2423] to-[#731312]",
+      gradientClass: "from-[#C23130] via-[#AB2423] to-[#7A1918]",
       slantClass: "slant-flat-center z-30",
       originalRot: "0deg",
     },
@@ -69,7 +69,7 @@ export default function BibleResourcesPage() {
       title: "BIBLE",
       subTitle: "DOWNLOADS",
       url: "/bible-resources/downloads",
-      gradientClass: "from-[#16384A] to-[#0A1A23]",
+      gradientClass: "from-[#1A5C5E] to-[#0D3031]",
       slantClass: "slant-right-near z-20",
       originalRot: "-22deg",
     },
@@ -78,7 +78,7 @@ export default function BibleResourcesPage() {
       title: "BIBLE",
       subTitle: "GENEALOGIES",
       url: "/bible-resources/genealogies",
-      gradientClass: "from-[#1A5C4A] to-[#0D382B]",
+      gradientClass: "from-[#29566B] to-[#142F3D]",
       slantClass: "slant-right-far z-10",
       originalRot: "-28deg",
     },
@@ -225,7 +225,7 @@ export default function BibleResourcesPage() {
                       href={getResourceUrl((downloadAllLink as any).url)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#8b1e15] hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider px-8 py-3.5 rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
+                      className="bg-[#8b1e15] hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all duration-200 text-center w-[90%] sm:w-[400px] md:w-[500px]"
                     >
                       {(downloadAllLink as any).text.replace(/\u200b/g, '').trim()}
                     </a>
@@ -449,6 +449,106 @@ export default function BibleResourcesPage() {
     );
   };
 
+  // Render Bible Downloads
+  const renderBibleDownloads = () => {
+    const dummySoftwareLinks = [
+      { text: "JPEG", url: "#" },
+      { text: "PDF", url: "#" }
+    ];
+
+    const dummyPptLinks = [
+      { text: "JPEG", url: "#" },
+      { text: "PPT", url: "#" }
+    ];
+
+    const downloadsData = [
+      {
+        title: "Softwares",
+        items: [
+          { title: "1", links: dummySoftwareLinks },
+          { title: "2", links: dummySoftwareLinks },
+          { title: "3", links: dummySoftwareLinks },
+          { title: "4", links: dummySoftwareLinks }
+        ]
+      },
+      {
+        title: "PPTs",
+        items: [
+          { title: "1", links: dummyPptLinks },
+          { title: "2", links: dummyPptLinks },
+          { title: "3", links: dummyPptLinks },
+          { title: "4", links: dummyPptLinks }
+        ]
+      }
+    ];
+
+    return (
+      <div className="space-y-12">
+        <div className="text-center">
+          <h2 className="text-3xl font-extrabold text-[#173C4E] mb-2 tracking-tight uppercase">
+            Bible Downloads Collection
+          </h2>
+          <div className="h-1.5 w-16 bg-[#AB2423] mx-auto rounded-full mb-8"></div>
+        </div>
+
+        <div className="space-y-16">
+          {downloadsData.map((section, si) => (
+            <div key={si} className="space-y-6">
+              <h3 className="text-xl md:text-2xl font-black text-[#173C4E] text-center uppercase tracking-wide border-b border-gray-300 pb-3">
+                {section.title}
+              </h3>
+              
+              <div className="space-y-3.5">
+                {section.items.map((item, ii) => (
+                  <div 
+                    key={ii} 
+                    className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
+                  >
+                    {/* Left Column: Title */}
+                    <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+                      {item.title}
+                    </div>
+
+                    {/* Right Column: Divider & Buttons */}
+                    <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
+                      <div className="hidden md:block h-6 w-[1.5px] bg-gray-200 mx-2"></div>
+                      <div className="flex flex-wrap gap-2 w-full md:w-auto justify-end">
+                        {item.links.map((link, li) => {
+                          const linkText = link.text.replace(/\u200b/g, '').trim();
+                          
+                          let btnBg = 'bg-gray-500 hover:bg-gray-600';
+                          if (linkText.toUpperCase() === 'JPEG') {
+                            btnBg = 'bg-[#1F6F5A] hover:bg-[#185948]';
+                          } else if (linkText.toUpperCase() === 'PDF') {
+                            btnBg = 'bg-[#173C4E] hover:bg-[#12303e]';
+                          } else if (linkText.toUpperCase() === 'PPT' || linkText.toUpperCase() === 'POWERPOINT') {
+                            btnBg = 'bg-[#d24726] hover:bg-[#b03a1e]';
+                          }
+
+                          return (
+                            <a
+                              key={li}
+                              href={getResourceUrl(link.url)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
+                            >
+                              {linkText}
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   // Render Missionary Stories (Matching standalone page logic)
   const renderMissionaryStories = () => {
     return (
@@ -625,7 +725,7 @@ export default function BibleResourcesPage() {
             {activeCategory === 'maps' && renderBibleMaps()}
             {activeCategory === 'missionary-story' && renderMissionaryStories()}
             {activeCategory === 'infographics' && renderBibleInfographics()}
-            {activeCategory === 'downloads' && renderPlaceholder("Bible Downloads", "Download high-quality study materials, booklets, and worksheets for personal or ministry use.")}
+            {activeCategory === 'downloads' && renderBibleDownloads()}
             {activeCategory === 'genealogies' && renderBibleGenealogies()}
           </div>
         </div>

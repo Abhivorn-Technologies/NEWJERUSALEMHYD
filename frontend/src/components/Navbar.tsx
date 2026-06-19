@@ -26,18 +26,27 @@ export default function Navbar() {
   useEffect(() => {
     fetch(`${BASE_URL}/nav-menu/`)
       .then(r => r.json())
-      .then(setNavItems)
+      .then((data: NavItem[]) => {
+        // Remove children from "About Us" so it acts as a direct link without a dropdown
+        const processedData = data.map(item => {
+          if (item.label.toLowerCase() === 'about us') {
+            return { ...item, children: [] };
+          }
+          return item;
+        });
+        setNavItems(processedData);
+      })
       .catch(() => {});
   }, []);
 
   return (
     <nav className="bg-[#F9F9F9] text-gray-800 shadow-sm border-b border-gray-200/50 sticky top-0 z-50" style={{ fontFamily: 'var(--font-poppins)' }}>
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6">
-        <Link href="/" className="flex items-center py-2">
+        <Link href="/" className="flex items-center py-2 ml-2 sm:ml-4 md:ml-6 lg:ml-8">
           <img
             src="/images/navbar_logo.png"
             alt="New Jerusalem Ministries Logo"
-            className="h-14 w-auto object-contain"
+            className="h-16 sm:h-20 md:h-[85px] w-auto object-contain"
           />
         </Link>
         

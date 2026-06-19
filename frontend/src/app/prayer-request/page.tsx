@@ -1,6 +1,21 @@
 'use client';
+import { useState } from 'react';
 
 export default function PrayerRequestPage() {
+  const [formData, setFormData] = useState({ name: '', phone: '', email: '', address: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      setFormData({ name: '', phone: '', email: '', address: '', message: '' });
+    }, 1500);
+  };
   return (
     <div className="min-h-screen bg-[#f0f6f9]" style={{ fontFamily: 'var(--font-poppins)' }}>
 
@@ -129,20 +144,116 @@ export default function PrayerRequestPage() {
                 </span>
               </div>
 
-              {/* iframe wrapper */}
-              <div className="bg-gray-50/60 px-4 py-4">
-                <iframe
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSc0mNx0e_dMFTu8guF-G3olGg6w43XOoHmOtHcdFkBwZxxY0g/viewform?embedded=true"
-                  width="100%"
-                  height="900"
-                  frameBorder={0}
-                  marginHeight={0}
-                  marginWidth={0}
-                  className="w-full rounded-2xl bg-white border border-gray-100 shadow-sm"
-                  title="Prayer Request Form"
-                >
-                  Loading…
-                </iframe>
+              {/* Form Container */}
+              <div className="bg-gray-50/60 px-6 py-8">
+                {isSubmitted ? (
+                  <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center animate-fade-in">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl">✨</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-green-800 mb-2">Prayer Request Received</h3>
+                    <p className="text-green-700 text-sm">
+                      Thank you for sharing your heart with us. Our prayer team will begin interceding for you.
+                    </p>
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="mt-6 px-6 py-2 bg-green-600 text-white rounded-xl text-sm font-semibold hover:bg-green-700 transition-colors"
+                    >
+                      Submit Another Request
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                          Phone Number <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
+                          placeholder="Enter your mobile number"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
+                          placeholder="Optional"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                        Address / Location
+                      </label>
+                      <input
+                        type="text"
+                        value={formData.address}
+                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
+                        placeholder="Enter your city or address"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                        Your Prayer Request <span className="text-red-500">*</span>
+                      </label>
+                      <textarea
+                        required
+                        rows={5}
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white resize-y"
+                        placeholder="Share your prayer request here..."
+                      />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full py-4 rounded-xl bg-[#1f4251] hover:bg-[#173C4E] text-white font-bold text-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          Submitting...
+                        </>
+                      ) : (
+                        <>
+                          <span>✉</span> Send Prayer Request
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
               </div>
 
               {/* Privacy footer */}

@@ -262,8 +262,13 @@ function LyricsDashboard() {
 
   const getHeaderLetterStyle = (l: string) => {
     return { 
+<<<<<<< Updated upstream
       fontFamily: 'var(--font-ramabhadra), sans-serif',
       fontSize: l && /[\u0C00-\u0C7F]/.test(l) ? '52px' : '32px',
+=======
+      fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
+      fontSize: (isTelugu || isHindi) ? '64px' : '50px',
+>>>>>>> Stashed changes
       lineHeight: '1',
       verticalAlign: 'middle'
     };
@@ -700,6 +705,7 @@ function LyricsDashboard() {
     }
   };
 
+<<<<<<< Updated upstream
   const getLanguageLabel = (lang: Song['language']) => {
     switch (lang) {
       case 'all': return 'All Songs';
@@ -718,6 +724,22 @@ function LyricsDashboard() {
       case 'sunday_hindi': return 'Hindi Songs';
       default: return 'Songs';
     }
+=======
+  const getResourceUrl = (url: string) => {
+    if (!url) return '#';
+    if (url.startsWith('http')) return url;
+    const baseUrlStr = baseUrl.endsWith('/api') ? baseUrl.slice(0, -4) : baseUrl;
+    return `${baseUrlStr}${url.startsWith('/') ? '' : '/'}${url}`;
+  };
+
+  const downloadAudio = () => {
+    if (!activeSong || !activeSong.audio_video) {
+      alert("Audio not available for this song.");
+      return;
+    }
+    const url = getResourceUrl(activeSong.audio_video);
+    window.open(url, '_blank');
+>>>>>>> Stashed changes
   };
 
   const activeContent = getActiveLyricsContent();
@@ -737,6 +759,7 @@ function LyricsDashboard() {
             </h1>
           </div>
 
+<<<<<<< Updated upstream
           {/* Search Box with Category Dropdown on the right side */}
           <div id="songs-searchbar" className="flex max-w-2xl mx-auto items-center relative scroll-mt-24" ref={categoryDropdownRef}>
             <div className="flex flex-1 items-center bg-white rounded-2xl border-2 border-[#5795A7] focus-within:ring-2 focus-within:ring-[#5795A7]/20 transition-all overflow-hidden h-[46px]">
@@ -745,6 +768,14 @@ function LyricsDashboard() {
               <div className="pl-4 text-gray-400">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+=======
+          {/* Search and Category Bar - Attached style */}
+          <div className="flex flex-col sm:flex-row w-full max-w-5xl mx-auto shadow-sm rounded-2xl border-2 border-[#bcd3d8]/50 focus-within:border-[#5795A7] transition-all bg-white hover:shadow-md">
+            <div className="relative flex-1 border-b sm:border-b-0 sm:border-r border-[#bcd3d8]/50 focus-within:bg-[#f4f8f9] rounded-t-[14px] sm:rounded-t-none sm:rounded-l-[14px]">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg className="w-5 h-5 text-[#5795A7]/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+>>>>>>> Stashed changes
                 </svg>
               </div>
 
@@ -838,6 +869,7 @@ function LyricsDashboard() {
           {/* Main Card */}
           <div className="bg-white rounded-3xl shadow-xl border border-gray-200/80 p-6 md:p-8">
             
+<<<<<<< Updated upstream
             {/* Tab Bar Selector */}
             {isSundaySchool ? (
               <div className="flex flex-wrap gap-2 border-b border-gray-200 pb-px mb-6 items-end">
@@ -857,6 +889,16 @@ function LyricsDashboard() {
                     keyboardLanguage === 'telugu'
                       ? 'bg-[#5795A7] border-[#5795A7] text-white shadow-md shadow-[#5795A7]/20'
                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
+=======
+            {/* Top Navigation Tabs (2 Rows) */}
+            <div className="flex flex-col gap-5 border-b border-gray-200 pb-6 mb-8">
+              {/* Row 1: Content Tabs */}
+              <div className="flex flex-row justify-center flex-wrap gap-5 items-center">
+                <button
+                  onClick={() => { setViewTab('home'); }}
+                  className={`px-10 py-4 rounded-2xl text-sm sm:text-lg font-bold transition-colors shadow-sm border ${
+                    viewTab === 'home' ? 'bg-[#5795A7] text-white border-transparent' : 'bg-[#e8f1f3] text-[#5795A7] border-[#bcd3d8] hover:bg-[#d8e8eb]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -865,16 +907,189 @@ function LyricsDashboard() {
 
                 {/* English Index Button */}
                 <button
+<<<<<<< Updated upstream
                   onClick={() => selectKeyboardLanguage('english')}
                   className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
                     keyboardLanguage === 'english'
                       ? 'bg-[#5795A7] border-[#5795A7] text-white shadow-md shadow-[#5795A7]/20'
                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
+=======
+                  onClick={() => { setViewTab('telugu-songs'); }}
+                  className={`px-10 py-4 rounded-2xl text-sm sm:text-lg font-bold transition-colors shadow-sm border ${
+                    viewTab === 'telugu-songs' ? 'bg-[#5795A7] text-white border-transparent' : 'bg-[#e8f1f3] text-[#5795A7] border-[#bcd3d8] hover:bg-[#d8e8eb]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
                   English Index
                 </button>
+<<<<<<< Updated upstream
+=======
+                <button
+                  onClick={() => { setViewTab('english-songs'); }}
+                  className={`px-10 py-4 rounded-2xl text-sm sm:text-lg font-bold transition-colors shadow-sm border ${
+                    viewTab === 'english-songs' ? 'bg-[#5795A7] text-white border-transparent' : 'bg-[#e8f1f3] text-[#5795A7] border-[#bcd3d8] hover:bg-[#d8e8eb]'
+                  }`}
+                  style={{ fontFamily: 'var(--font-poppins)' }}
+                >
+                  English Songs
+                </button>
+              </div>
+            </div>
+
+            {loading ? (
+              <div className="flex flex-col items-center justify-center py-20 text-gray-400 gap-2">
+                <div className="w-10 h-10 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin"></div>
+                <p className="text-sm font-semibold">Loading All songs...</p>
+              </div>
+            ) : viewTab === 'song-request' ? (
+              <div className="max-w-2xl mx-auto py-4 animate-fade-in">
+                <div className="bg-[#e8f1f3] border border-[#bcd3d8]/60 rounded-3xl p-6 md:p-8 shadow-sm">
+                  <div className="text-center mb-6">
+                    <h2 className="text-2xl font-bold text-[#1f4251] mb-2">Request a Song</h2>
+                    <p className="text-gray-500 text-sm mt-1">
+                      Let us know if there is a song you would like to see added to the All Songs index.
+                    </p>
+                  </div>
+
+                  {requestSubmitted ? (
+                    <div className="text-center py-8 space-y-4 animate-fade-in text-gray-800">
+                      <div className="w-16 h-16 bg-[#e8f1f3] border-2 border-[#5795A7] rounded-full flex items-center justify-center mx-auto text-3xl">
+                        🎉
+                      </div>
+                      <h3 className="text-xl font-bold text-[#1f4251]">Thank You!</h3>
+                      <p className="text-sm text-gray-600 max-w-md mx-auto">
+                        Your song request has been submitted successfully. Our team will review and add it soon.
+                      </p>
+                      <button
+                        onClick={() => setRequestSubmitted(false)}
+                        className="px-6 py-2 bg-[#5795A7] hover:bg-[#478597] text-white font-bold rounded-xl transition-all shadow-sm shadow-[#5795A7]/20 active:scale-95 text-sm"
+                      >
+                        Submit Another Request
+                      </button>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleRequestSubmit} className="space-y-4 text-sm text-gray-800">
+                      {requestErrors.submit && (
+                        <div className="p-3.5 bg-red-50 border border-red-200 text-red-700 rounded-xl text-xs font-semibold">
+                          ⚠️ {requestErrors.submit}
+                        </div>
+                      )}
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <label className="block text-xs font-bold text-[#1f4251] uppercase tracking-wider">Your Name <span className="text-red-500">*</span></label>
+                          <input
+                            type="text"
+                            required
+                            placeholder="Enter your name"
+                            value={requestForm.name}
+                            onChange={e => {
+                              setRequestForm(prev => ({ ...prev, name: e.target.value }));
+                              if (requestErrors.name) setRequestErrors(prev => ({ ...prev, name: '' }));
+                            }}
+                            className={`w-full px-4 py-2.5 rounded-xl border focus:outline-none focus:ring-1 bg-white text-gray-800 transition-colors ${
+                              requestErrors.name
+                                ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                                : 'border-gray-200 focus:border-[#5795A7] focus:ring-[#5795A7]'
+                            }`}
+                          />
+                          {requestErrors.name && (
+                            <p className="text-xs text-red-500 font-semibold mt-1">{requestErrors.name}</p>
+                          )}
+                        </div>
+                        <div className="space-y-1">
+                          <label className="block text-xs font-bold text-[#1f4251] uppercase tracking-wider">Song Title <span className="text-red-500">*</span></label>
+                          <input
+                            type="text"
+                            required
+                            placeholder="Enter song title"
+                            value={requestForm.songTitle}
+                            onChange={e => setRequestForm(prev => ({ ...prev, songTitle: e.target.value }))}
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-[#5795A7] focus:ring-1 focus:ring-[#5795A7] transition-colors bg-white text-gray-800"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="space-y-1">
+                          <label className="block text-xs font-bold text-[#1f4251] uppercase tracking-wider">Your Email <span className="text-red-500">*</span></label>
+                          <input
+                            type="email"
+                            required
+                            placeholder="yourname@example.com"
+                            value={requestForm.email}
+                            onChange={e => {
+                              setRequestForm(prev => ({ ...prev, email: e.target.value }));
+                              if (requestErrors.email) setRequestErrors(prev => ({ ...prev, email: '' }));
+                            }}
+                            className={`w-full px-4 py-2.5 rounded-xl border focus:outline-none focus:ring-1 bg-white text-gray-800 transition-colors ${
+                              requestErrors.email
+                                ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20'
+                                : 'border-gray-200 focus:border-[#5795A7] focus:ring-[#5795A7]'
+                            }`}
+                          />
+                          {requestErrors.email && (
+                            <p className="text-xs text-red-500 font-semibold mt-1">{requestErrors.email}</p>
+                          )}
+                        </div>
+                        <div className="space-y-1">
+                          <label className="block text-xs font-bold text-[#1f4251] uppercase tracking-wider">Language <span className="text-red-500">*</span></label>
+                          <select
+                            value={requestForm.language}
+                            onChange={e => setRequestForm(prev => ({ ...prev, language: e.target.value }))}
+                            className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-white focus:outline-none focus:border-[#5795A7] focus:ring-1 focus:ring-[#5795A7] transition-colors text-gray-800"
+                          >
+                            <option value="telugu">Telugu</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="english">English</option>
+                            <option value="others">Others</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="block text-xs font-bold text-[#1f4251] uppercase tracking-wider">Phone Number (Optional)</label>
+                        <input
+                          type="tel"
+                          placeholder="Enter your phone number"
+                          value={requestForm.phone}
+                          onChange={e => setRequestForm(prev => ({ ...prev, phone: e.target.value }))}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-[#5795A7] focus:ring-1 focus:ring-[#5795A7] transition-colors bg-white text-gray-800"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="block text-xs font-bold text-[#1f4251] uppercase tracking-wider">Song Details / Lyrics / YouTube Link (Optional)</label>
+                        <textarea
+                          rows={4}
+                          placeholder="Provide any details, lyrics or links to help us find the song..."
+                          value={requestForm.details}
+                          onChange={e => setRequestForm(prev => ({ ...prev, details: e.target.value }))}
+                          className="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:outline-none focus:border-[#5795A7] focus:ring-1 focus:ring-[#5795A7] transition-colors resize-none bg-white text-gray-800"
+                        />
+                      </div>
+
+                      <div className="pt-2">
+                        <button
+                          type="submit"
+                          disabled={submittingRequest}
+                          className="w-full py-3 bg-[#5795A7] hover:bg-[#478597] text-white font-bold rounded-xl transition-all shadow-md shadow-[#5795A7]/25 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none flex items-center justify-center gap-2 text-sm"
+                        >
+                          {submittingRequest ? (
+                            <>
+                              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                              Submitting...
+                            </>
+                          ) : (
+                            "Submit Request"
+                          )}
+                        </button>
+                      </div>
+                    </form>
+                  )}
+                </div>
+>>>>>>> Stashed changes
               </div>
             ) : (
               <div className="flex gap-1 border-b border-gray-200 pb-px mb-6">
@@ -1087,11 +1302,16 @@ function LyricsDashboard() {
 
   // RENDER LYRICS VIEW (SIDE-BY-SIDE SIDEBAR-LESS DASHBOARD)
   return (
+<<<<<<< Updated upstream
     <div className="min-h-screen bg-[#e0f2f1] py-8 px-4 md:px-8 font-sans">
       <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
+=======
+    <div className="min-h-screen bg-[#e8f1f3] py-8 px-4 md:px-8 font-sans">
+      <div className="w-full max-w-[1500px] mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
+>>>>>>> Stashed changes
 
         {/* Left column: Songs Index Search & List */}
-        <div className="w-full md:w-[380px] border-r border-gray-200 p-6 flex flex-col flex-shrink-0 bg-[#FFFFFF]">
+        <div className="w-full md:w-[500px] border-r border-gray-200 p-6 flex flex-col flex-shrink-0 bg-[#FFFFFF]">
           
           {/* Back to alphabetical index button */}
           <div className="mb-4">
@@ -1139,10 +1359,10 @@ function LyricsDashboard() {
               <div className="text-[11px] text-[#5795A7] font-bold uppercase tracking-wider">
                 {getLanguageLabel(language)}
               </div>
-              <h2 className="text-lg font-bold text-gray-800 flex items-center gap-1.5 flex-wrap">
-                For <span className="text-[#5795A7] text-3xl font-light">"</span>
+              <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-1.5 flex-wrap">
+                For <span className="text-[#5795A7] text-5xl font-light">"</span>
                 <span className="text-[#5795A7]" style={getHeaderLetterStyle(selectedLetter)}>{selectedLetter || 'All'}</span>
-                <span className="text-[#5795A7] text-3xl font-light">"</span>
+                <span className="text-[#5795A7] text-5xl font-light">"</span>
                 <span className="text-sm text-gray-500 font-medium font-mono ml-0.5">
                   ({filteredSongsList.length} Songs)
                 </span>
@@ -1292,14 +1512,22 @@ function LyricsDashboard() {
                     setActiveSong(song);
                     determineDefaultLyricsTab(song);
                   }}
+<<<<<<< Updated upstream
                   className={`song-btn w-full text-left p-3.5 rounded-2xl transition-all duration-200 border flex gap-3 text-base items-start ${
+=======
+                  className={`song-btn w-full text-left p-4 rounded-2xl transition-all duration-200 border flex gap-4 text-xl md:text-2xl items-center ${
+>>>>>>> Stashed changes
                     activeSong?.id === song.id
                       ? 'bg-[#e8f1f3] border-[#bcd3d8] text-[#5795A7] font-bold shadow-sm shadow-[#5795A7]/10'
                       : 'bg-[#FCFDFF] border-gray-100 hover:bg-gray-50 text-gray-700 hover:border-gray-200'
                   }`}
                   style={{ fontFamily: 'var(--font-ramabhadra)' }}
                 >
+<<<<<<< Updated upstream
                   <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+=======
+                  <span className="text-lg md:text-xl font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+>>>>>>> Stashed changes
                   <span className="leading-tight flex-1">
                     {song.language === 'telugu' || song.language === 'sunday_telugu' ? cleanTeluguTitle(song.title) : song.title}
                   </span>
@@ -1347,7 +1575,7 @@ function LyricsDashboard() {
                     <button
                       className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 shadow-sm transition-all"
                     >
-                      <span>☁</span> Download
+                      <span>☁</span> Lyrics Download
                     </button>
                     
                     {/* Hover dropdown for actions */}
@@ -1372,6 +1600,13 @@ function LyricsDashboard() {
                       </button>
                     </div>
                   </div>
+
+                  <button
+                    onClick={downloadAudio}
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 shadow-sm transition-all"
+                  >
+                    <span>🎵</span> Audio Download
+                  </button>
                 </div>
 
               </div>

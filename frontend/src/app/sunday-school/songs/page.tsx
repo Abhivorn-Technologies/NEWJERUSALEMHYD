@@ -286,7 +286,7 @@ ${requestForm.details || 'N/A'}
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return { 
       fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
-      fontSize: (isTelugu || isHindi) ? '34px' : '22px',
+      fontSize: (isTelugu || isHindi) ? '44px' : '32px',
       lineHeight: '1'
     };
   };
@@ -296,7 +296,11 @@ ${requestForm.details || 'N/A'}
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return { 
       fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
+<<<<<<< Updated upstream
       fontSize: (isTelugu || isHindi) ? '52px' : '32px',
+=======
+      fontSize: (isTelugu || isHindi) ? '64px' : '50px',
+>>>>>>> Stashed changes
       lineHeight: '1',
       verticalAlign: 'middle'
     };
@@ -673,6 +677,22 @@ ${requestForm.details || 'N/A'}
     }
   };
 
+  const getResourceUrl = (url: string) => {
+    if (!url) return '#';
+    if (url.startsWith('http')) return url;
+    const baseUrlStr = baseUrl.endsWith('/api') ? baseUrl.slice(0, -4) : baseUrl;
+    return `${baseUrlStr}${url.startsWith('/') ? '' : '/'}${url}`;
+  };
+
+  const downloadAudio = () => {
+    if (!activeSong || !activeSong.audio_video) {
+      alert("Audio not available for this song.");
+      return;
+    }
+    const url = getResourceUrl(activeSong.audio_video);
+    window.open(url, '_blank');
+  };
+
   const activeContent = getActiveLyricsContent();
 
   // RENDER INDEX VIEW
@@ -706,11 +726,16 @@ ${requestForm.details || 'N/A'}
             {/* Top Navigation Tabs (2 Rows) */}
             <div className="flex flex-col gap-3 border-b border-gray-200 pb-4 mb-6">
               {/* Row 1: Content Tabs */}
-              <div className="flex flex-wrap gap-1 items-end">
+              <div className="flex flex-wrap gap-3 md:gap-4 items-end">
                 <button
                   onClick={() => { setViewTab('home'); }}
+<<<<<<< Updated upstream
                   className={`px-5 py-2.5 rounded-t-xl text-xs font-bold transition-colors ${
                     viewTab === 'home' ? 'bg-[#FF99BE] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+=======
+                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                    viewTab === 'home' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -718,8 +743,13 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('telugu-songs'); }}
+<<<<<<< Updated upstream
                   className={`px-5 py-2.5 rounded-t-xl text-xs font-bold transition-colors ${
                     viewTab === 'telugu-songs' ? 'bg-[#FF99BE] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+=======
+                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                    viewTab === 'telugu-songs' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -727,8 +757,13 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('hindi-songs'); }}
+<<<<<<< Updated upstream
                   className={`px-5 py-2.5 rounded-t-xl text-xs font-bold transition-colors ${
                     viewTab === 'hindi-songs' ? 'bg-[#FF99BE] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+=======
+                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                    viewTab === 'hindi-songs' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -736,8 +771,13 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('english-songs'); }}
+<<<<<<< Updated upstream
                   className={`px-5 py-2.5 rounded-t-xl text-xs font-bold transition-colors ${
                     viewTab === 'english-songs' ? 'bg-[#FF99BE] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+=======
+                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                    viewTab === 'english-songs' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -745,8 +785,13 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('song-request'); }}
+<<<<<<< Updated upstream
                   className={`px-5 py-2.5 rounded-t-xl text-xs font-bold transition-colors ${
                     viewTab === 'song-request' ? 'bg-[#FF99BE] text-white shadow-sm' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+=======
+                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                    viewTab === 'song-request' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -933,10 +978,42 @@ ${requestForm.details || 'N/A'}
               </div>
             ) : (
               <div id="songs-top">
+<<<<<<< Updated upstream
                 {/* 1. Show Telugu Keyboard if Telugu Index is active */}
                 {viewTab === 'telugu-index' && (
                   <div className="bg-[#FFF0F3] border-2 border-[#FFC2D9] rounded-2xl p-4 mb-8 max-w-3xl mx-auto shadow-inner">
                     <div className="grid grid-cols-10 sm:grid-cols-11 gap-1.5 keyboard-grid">
+=======
+                {/* Index Tabs above keyboard */}
+                {viewTab === 'home' && (
+                  <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6 max-w-5xl mx-auto">
+                    <button
+                      onClick={() => { selectKeyboardLanguage('telugu'); }}
+                      className={`px-8 py-3.5 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm ${
+                        keyboardLanguage === 'telugu' ? 'bg-[#FF99BE] text-white' : 'bg-[#FFF0F3] text-[#A04A65] border border-[#FFC2D9] hover:bg-[#FFE0E9]'
+                      }`}
+                      style={{ fontFamily: 'var(--font-poppins)' }}
+                    >
+                      Telugu Index
+                    </button>
+
+                    <button
+                      onClick={() => { selectKeyboardLanguage('english'); }}
+                      className={`px-8 py-3.5 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm ${
+                        keyboardLanguage === 'english' ? 'bg-[#FF99BE] text-white' : 'bg-[#FFF0F3] text-[#A04A65] border border-[#FFC2D9] hover:bg-[#FFE0E9]'
+                      }`}
+                      style={{ fontFamily: 'var(--font-poppins)' }}
+                    >
+                      English Index
+                    </button>
+                  </div>
+                )}
+
+                {/* Show Telugu Keyboard */}
+                {viewTab === 'home' && keyboardLanguage === 'telugu' && (
+                  <div className="bg-[#FFF0F3] border-2 border-[#FFC2D9] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner">
+                    <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 keyboard-grid">
+>>>>>>> Stashed changes
                       {teluguAlphabet.map((letter) => {
                         const hasSongs = filteredSongsList.some(s => getDynamicFirstLetter(s, 'telugu') === letter);
                         return (
@@ -1088,13 +1165,21 @@ ${requestForm.details || 'N/A'}
                                   <button
                                     key={song.id}
                                     onClick={() => handleSelectSong(song)}
+<<<<<<< Updated upstream
                                     className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-[#FFC2D9] bg-transparent hover:bg-[#FFF0F3] text-[#D04A73] hover:text-[#A02C4E] transition-all duration-200 flex gap-3 text-base items-center hover:shadow-sm w-full"
+=======
+                                    className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-transparent bg-transparent hover:bg-[#FFE2EC] text-[#4D1C2C] hover:text-black transition-all duration-200 flex gap-3 text-xl md:text-2xl items-center hover:shadow-sm w-full font-bold"
+>>>>>>> Stashed changes
                                     style={{ 
                                       fontFamily: currentLang === 'telugu' ? 'var(--font-ramabhadra)' : 
                                                   currentLang === 'hindi' ? 'sans-serif' : 'inherit' 
                                     }}
                                   >
+<<<<<<< Updated upstream
                                     <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+=======
+                                    <span className="text-lg md:text-xl font-mono font-bold opacity-80 pt-0.5">{idx + 1}.</span>
+>>>>>>> Stashed changes
                                     <span className="leading-tight flex-1 truncate">
                                       {/* Only clean Title if it's the Telugu list and NOT the Home view */}
                                       {isHomeTab ? song.title : (song.language === 'sunday_telugu' ? cleanTeluguTitle(song.title) : song.title)}
@@ -1131,7 +1216,7 @@ ${requestForm.details || 'N/A'}
   // RENDER LYRICS VIEW
   return (
     <div className="min-h-screen bg-[#FADADD] py-8 px-4 md:px-8 font-sans">
-      <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
+      <div className="w-full max-w-[1500px] mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
 
         {/* Left column: Songs Index Search & List */}
         <div className="w-full md:w-[380px] border-r border-gray-200 p-6 flex flex-col flex-shrink-0 bg-[#FFFFFF]">
@@ -1154,10 +1239,10 @@ ${requestForm.details || 'N/A'}
               <div className="text-[11px] text-[#D04A73] font-bold uppercase tracking-wider">
                 Sunday School
               </div>
-              <h2 className="text-lg font-bold text-gray-800 flex items-center gap-1.5 flex-wrap">
-                For <span className="text-[#D04A73] text-3xl font-light">"</span>
+              <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-1.5 flex-wrap">
+                For <span className="text-[#D04A73] text-5xl font-light">"</span>
                 <span className="text-[#D04A73]" style={getHeaderLetterStyle(selectedLetter)}>{selectedLetter || 'All'}</span>
-                <span className="text-[#D04A73] text-3xl font-light">"</span>
+                <span className="text-[#D04A73] text-5xl font-light">"</span>
                 <span className="text-sm text-gray-500 font-medium font-mono ml-0.5">
                   ({filteredSongsList.length} Songs)
                 </span>
@@ -1308,14 +1393,25 @@ ${requestForm.details || 'N/A'}
                     setActiveSong(song);
                     determineDefaultLyricsTab(song);
                   }}
+<<<<<<< Updated upstream
                   className={`song-btn w-full text-left p-3.5 rounded-2xl transition-all duration-200 border flex gap-3 text-base items-start ${
                     activeSong?.id === song.id
                       ? 'bg-[#FFF0F3] border-[#FFC2D9] text-[#D04A73] font-bold shadow-sm shadow-[#FF99BE]/10'
                       : 'bg-[#FCFDFF] border-gray-100 hover:bg-gray-50 text-gray-700 hover:border-gray-200'
+=======
+                  className={`song-btn w-full text-left p-4 rounded-2xl transition-all duration-200 border flex gap-4 text-xl md:text-2xl items-center font-bold ${
+                    activeSong?.id === song.id
+                      ? 'bg-[#FFE2EC] border-transparent text-[#A02C4E] shadow-sm font-bold'
+                      : 'bg-[#FCFDFF] border-transparent hover:bg-white hover:shadow-[0_4px_12px_rgba(208,74,115,0.12)] hover:border-[#FFC2D9]/50 hover:text-[#D04A73] hover:-translate-y-0.5 text-gray-800'
+>>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-ramabhadra)' }}
                 >
+<<<<<<< Updated upstream
                   <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
+=======
+                  <span className="text-lg md:text-xl font-mono font-bold opacity-80 pt-0.5">{idx + 1}.</span>
+>>>>>>> Stashed changes
                   <span className="leading-tight flex-1">
                     {song.language === 'sunday_telugu' ? cleanTeluguTitle(song.title) : song.title}
                   </span>
@@ -1362,7 +1458,7 @@ ${requestForm.details || 'N/A'}
                     <button
                       className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 shadow-sm transition-all"
                     >
-                      <span>☁</span> Download
+                      <span>☁</span> Lyrics Download
                     </button>
                     
                     <div className="absolute right-0 top-8 bg-white border border-gray-200/80 rounded-xl shadow-xl py-1 w-60 hidden group-hover:block z-40">
@@ -1386,6 +1482,13 @@ ${requestForm.details || 'N/A'}
                       </button>
                     </div>
                   </div>
+
+                  <button
+                    onClick={downloadAudio}
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white hover:bg-gray-50 border border-gray-200 text-gray-700 shadow-sm transition-all"
+                  >
+                    <span>🎵</span> Audio Download
+                  </button>
                 </div>
 
               </div>

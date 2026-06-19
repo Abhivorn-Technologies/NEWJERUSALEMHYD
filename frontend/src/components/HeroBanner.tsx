@@ -139,7 +139,11 @@ export default function HeroBanner() {
       <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[460px] lg:max-w-[520px] z-30 flex flex-row md:flex-col items-center justify-around md:justify-end md:items-end gap-2.5 sm:gap-10 md:gap-0 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
         
         {/* Slanted Folded Ribbon: "పూర్తిగా ఉచితము" designed exactly like the reference image */}
+<<<<<<< Updated upstream
         <div className="relative w-[135px] sm:w-[215px] md:w-[300px] lg:w-[360px] aspect-[400/180] select-none mb-0 md:mb-8 md:translate-x-[20px] lg:translate-x-[30px] flex-shrink-0">
+=======
+        <div className="relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform translate-x-[40px] sm:translate-x-[60px] md:translate-x-[80px] lg:translate-x-[100px] -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
+>>>>>>> Stashed changes
           <svg viewBox="0 0 400 180" className="w-full h-full overflow-visible">
             <defs>
               {/* Top Banner Gradient */}
@@ -221,28 +225,46 @@ export default function HeroBanner() {
           </svg>
         </div>
 
+<<<<<<< Updated upstream
         <div className="w-auto max-w-[180px] sm:max-w-full transform -translate-x-1 md:translate-x-0" style={{ fontFamily: 'var(--font-mandali)' }}>
           {/* Two-column layout for the bullet points */}
           <div className="flex justify-between gap-2.5 sm:gap-8 md:gap-12 text-[#102E44]">
             {/* Left Column */}
             <div className="space-y-2.5 md:space-y-4">
+=======
+        <div className="w-auto transform self-start mt-0 md:mt-[-10px] ml-auto translate-x-[40px] sm:translate-x-[60px] md:translate-x-[100px] lg:translate-x-[130px]" style={{ fontFamily: 'var(--font-mandali)' }}>
+          {/* Two columns layout for the bullet points */}
+          <div className="flex gap-1 sm:gap-2 md:gap-3 text-[#102E44]">
+            {/* First Column */}
+            <div className="flex flex-col items-start gap-1.5 sm:gap-2 md:gap-2.5">
+>>>>>>> Stashed changes
               {[
                 "బైబిల్ కథలు",
                 "మిషనరీ కథలు",
                 "కంఠతావాక్యములు"
               ].map((text, idx) => (
+<<<<<<< Updated upstream
                 <div key={idx} className="text-left font-semibold text-[11px] sm:text-base md:text-lg lg:text-[21px] whitespace-nowrap">
+=======
+                <div key={idx} className="text-left font-semibold text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
+>>>>>>> Stashed changes
                   {text}
                 </div>
               ))}
             </div>
+<<<<<<< Updated upstream
             {/* Right Column */}
             <div className="space-y-2.5 md:space-y-4">
+=======
+            {/* Second Column */}
+            <div className="flex flex-col items-start gap-1.5 sm:gap-2 md:gap-2.5">
+>>>>>>> Stashed changes
               {[
                 "ప్రార్థనలు",
                 "పదవినోదాలు",
                 "క్రాఫ్ట్ వర్క్ గేమ్స్"
               ].map((text, idx) => (
+<<<<<<< Updated upstream
                 <div key={idx} className="text-left font-semibold text-[11px] sm:text-base md:text-lg lg:text-[21px] whitespace-nowrap">
                   {text}
                 </div>
@@ -254,6 +276,16 @@ export default function HeroBanner() {
             <span className="text-[#102E44] font-extrabold text-[11px] sm:text-base md:text-lg lg:text-[22px] tracking-wide">
               ఇంకా మరెన్నో ...
             </span>
+=======
+                <div key={idx} className="text-left font-semibold text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
+                  {text}
+                </div>
+              ))}
+              <div className="text-left font-extrabold text-[10px] sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-nowrap mt-1">
+                ఇంకా మరెన్నో ...
+              </div>
+            </div>
+>>>>>>> Stashed changes
           </div>
         </div>
       </div>
@@ -261,7 +293,7 @@ export default function HeroBanner() {
       {/* Combined Book Cover & Stylized Title Image */}
       <div className="relative md:absolute md:left-[3%] sm:left-[5%] md:left-[6%] lg:left-[8%] md:top-[3%] sm:top-[4%] md:top-[4%] lg:top-[5%] z-30 flex items-center justify-center md:justify-start gap-2.5 md:gap-3 lg:gap-4 py-2 w-full md:w-auto mt-[-32px] md:mt-0">
         {/* Book Cover Image */}
-        <div className="w-[90px] sm:w-[145px] md:w-[185px] lg:w-[225px] origin-bottom-left flex-shrink-0 -translate-y-10 md:-translate-y-18">
+        <div className="w-[90px] sm:w-[145px] md:w-[185px] lg:w-[225px] origin-bottom-left flex-shrink-0 -translate-y-10 md:-translate-y-18 transform translate-x-3 md:translate-x-8">
           <img
             src="/wp-content/uploads/2026/03/book-image.png"
             alt="Book Cover"
@@ -277,7 +309,11 @@ export default function HeroBanner() {
           <img
             src="/wp-content/2026/03/text-image.png"
             alt="చిన్నారుల జాలరి"
+<<<<<<< Updated upstream
             className="w-[58%] h-auto object-contain absolute top-[12%] left-[-4%] z-10"
+=======
+            className="w-[58%] h-auto object-contain absolute top-[-5%] left-[1%] md:-left-[3%] z-10"
+>>>>>>> Stashed changes
             style={{ filter: 'drop-shadow(0 2px 8px rgba(16,46,68,0.15))' }}
           />
           {/* Boat Image - top right, larger size */}
@@ -308,16 +344,24 @@ export default function HeroBanner() {
         {/* Paragraph + Fish side by side after స్వాగతం — fish never touches text */}
         <div className="relative">
           <p 
+<<<<<<< Updated upstream
             className="text-[12px] sm:text-sm md:text-[15px] lg:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[200px] text-justify"
+=======
+            className="text-[12px] sm:text-sm md:text-[15px] lg:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[220px] text-justify"
+>>>>>>> Stashed changes
             style={{ fontFamily: 'var(--font-mandali)' }}
           >
             నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.
           </p>
-          {/* Fish — larger size, gap guaranteed by increased pr above */}
+          {/* Fish — smaller size */}
           <img
             src="/wp-content/2026/03/fish.png"
             alt="Fish"
+<<<<<<< Updated upstream
             className="hidden md:block absolute right-0 top-[45%] w-[150px] lg:w-[180px] h-auto object-contain pointer-events-none"
+=======
+            className="hidden md:block absolute right-0 top-[15%] w-[140px] lg:w-[190px] h-auto object-contain pointer-events-none -z-10"
+>>>>>>> Stashed changes
             style={{
               filter: 'drop-shadow(0 4px 12px rgba(16,46,68,0.2))',
               transform: 'translateY(-50%) rotate(10deg)'
