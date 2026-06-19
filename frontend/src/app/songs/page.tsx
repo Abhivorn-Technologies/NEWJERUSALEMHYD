@@ -262,13 +262,8 @@ function LyricsDashboard() {
 
   const getHeaderLetterStyle = (l: string) => {
     return { 
-<<<<<<< Updated upstream
-      fontFamily: 'var(--font-ramabhadra), sans-serif',
-      fontSize: l && /[\u0C00-\u0C7F]/.test(l) ? '52px' : '32px',
-=======
       fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
       fontSize: (isTelugu || isHindi) ? '64px' : '50px',
->>>>>>> Stashed changes
       lineHeight: '1',
       verticalAlign: 'middle'
     };
@@ -705,26 +700,6 @@ function LyricsDashboard() {
     }
   };
 
-<<<<<<< Updated upstream
-  const getLanguageLabel = (lang: Song['language']) => {
-    switch (lang) {
-      case 'all': return 'All Songs';
-      case 'telugu': return 'Telugu Songs';
-      case 'sunday_telugu': return 'Sunday School Telugu Songs';
-      case 'sunday_english': return 'Sunday School English Songs';
-      case 'sunday_hindi': return 'Sunday School Hindi Songs';
-      default: return 'Songs';
-    }
-  };
-
-  const getSundaySchoolLabel = (lang: Song['language']) => {
-    switch (lang) {
-      case 'sunday_telugu': return 'Telugu Songs';
-      case 'sunday_english': return 'English Songs';
-      case 'sunday_hindi': return 'Hindi Songs';
-      default: return 'Songs';
-    }
-=======
   const getResourceUrl = (url: string) => {
     if (!url) return '#';
     if (url.startsWith('http')) return url;
@@ -739,7 +714,6 @@ function LyricsDashboard() {
     }
     const url = getResourceUrl(activeSong.audio_video);
     window.open(url, '_blank');
->>>>>>> Stashed changes
   };
 
   const activeContent = getActiveLyricsContent();
@@ -759,23 +733,12 @@ function LyricsDashboard() {
             </h1>
           </div>
 
-<<<<<<< Updated upstream
-          {/* Search Box with Category Dropdown on the right side */}
-          <div id="songs-searchbar" className="flex max-w-2xl mx-auto items-center relative scroll-mt-24" ref={categoryDropdownRef}>
-            <div className="flex flex-1 items-center bg-white rounded-2xl border-2 border-[#5795A7] focus-within:ring-2 focus-within:ring-[#5795A7]/20 transition-all overflow-hidden h-[46px]">
-              
-              {/* Search Icon on the left */}
-              <div className="pl-4 text-gray-400">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-=======
           {/* Search and Category Bar - Attached style */}
           <div className="flex flex-col sm:flex-row w-full max-w-5xl mx-auto shadow-sm rounded-2xl border-2 border-[#bcd3d8]/50 focus-within:border-[#5795A7] transition-all bg-white hover:shadow-md">
             <div className="relative flex-1 border-b sm:border-b-0 sm:border-r border-[#bcd3d8]/50 focus-within:bg-[#f4f8f9] rounded-t-[14px] sm:rounded-t-none sm:rounded-l-[14px]">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <svg className="w-5 h-5 text-[#5795A7]/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
->>>>>>> Stashed changes
                 </svg>
               </div>
 
@@ -869,27 +832,6 @@ function LyricsDashboard() {
           {/* Main Card */}
           <div className="bg-white rounded-3xl shadow-xl border border-gray-200/80 p-6 md:p-8">
             
-<<<<<<< Updated upstream
-            {/* Tab Bar Selector */}
-            {isSundaySchool ? (
-              <div className="flex flex-wrap gap-2 border-b border-gray-200 pb-px mb-6 items-end">
-                {/* HOME Tab */}
-                <Link
-                  href="/sunday-school/songs"
-                  className="px-6 py-2.5 bg-white border-t border-x border-gray-200 text-gray-800 font-bold rounded-t-xl text-sm z-10 relative -mb-[2px] shadow-sm uppercase tracking-wider transition-colors hover:bg-gray-50"
-                  style={{ fontFamily: 'var(--font-poppins)' }}
-                >
-                  HOME
-                </Link>
-                
-                {/* Telugu Index Button */}
-                <button
-                  onClick={() => selectKeyboardLanguage('telugu')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
-                    keyboardLanguage === 'telugu'
-                      ? 'bg-[#5795A7] border-[#5795A7] text-white shadow-md shadow-[#5795A7]/20'
-                      : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
-=======
             {/* Top Navigation Tabs (2 Rows) */}
             <div className="flex flex-col gap-5 border-b border-gray-200 pb-6 mb-8">
               {/* Row 1: Content Tabs */}
@@ -898,7 +840,6 @@ function LyricsDashboard() {
                   onClick={() => { setViewTab('home'); }}
                   className={`px-10 py-4 rounded-2xl text-sm sm:text-lg font-bold transition-colors shadow-sm border ${
                     viewTab === 'home' ? 'bg-[#5795A7] text-white border-transparent' : 'bg-[#e8f1f3] text-[#5795A7] border-[#bcd3d8] hover:bg-[#d8e8eb]'
->>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
@@ -907,24 +848,14 @@ function LyricsDashboard() {
 
                 {/* English Index Button */}
                 <button
-<<<<<<< Updated upstream
-                  onClick={() => selectKeyboardLanguage('english')}
-                  className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all border ${
-                    keyboardLanguage === 'english'
-                      ? 'bg-[#5795A7] border-[#5795A7] text-white shadow-md shadow-[#5795A7]/20'
-                      : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50 shadow-sm'
-=======
                   onClick={() => { setViewTab('telugu-songs'); }}
                   className={`px-10 py-4 rounded-2xl text-sm sm:text-lg font-bold transition-colors shadow-sm border ${
                     viewTab === 'telugu-songs' ? 'bg-[#5795A7] text-white border-transparent' : 'bg-[#e8f1f3] text-[#5795A7] border-[#bcd3d8] hover:bg-[#d8e8eb]'
->>>>>>> Stashed changes
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
                 >
                   English Index
                 </button>
-<<<<<<< Updated upstream
-=======
                 <button
                   onClick={() => { setViewTab('english-songs'); }}
                   className={`px-10 py-4 rounded-2xl text-sm sm:text-lg font-bold transition-colors shadow-sm border ${
@@ -1089,7 +1020,6 @@ function LyricsDashboard() {
                     </form>
                   )}
                 </div>
->>>>>>> Stashed changes
               </div>
             ) : (
               <div className="flex gap-1 border-b border-gray-200 pb-px mb-6">
@@ -1302,13 +1232,8 @@ function LyricsDashboard() {
 
   // RENDER LYRICS VIEW (SIDE-BY-SIDE SIDEBAR-LESS DASHBOARD)
   return (
-<<<<<<< Updated upstream
-    <div className="min-h-screen bg-[#e0f2f1] py-8 px-4 md:px-8 font-sans">
-      <div className="max-w-7xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
-=======
     <div className="min-h-screen bg-[#e8f1f3] py-8 px-4 md:px-8 font-sans">
       <div className="w-full max-w-[1500px] mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
->>>>>>> Stashed changes
 
         {/* Left column: Songs Index Search & List */}
         <div className="w-full md:w-[500px] border-r border-gray-200 p-6 flex flex-col flex-shrink-0 bg-[#FFFFFF]">
@@ -1512,22 +1437,14 @@ function LyricsDashboard() {
                     setActiveSong(song);
                     determineDefaultLyricsTab(song);
                   }}
-<<<<<<< Updated upstream
-                  className={`song-btn w-full text-left p-3.5 rounded-2xl transition-all duration-200 border flex gap-3 text-base items-start ${
-=======
                   className={`song-btn w-full text-left p-4 rounded-2xl transition-all duration-200 border flex gap-4 text-xl md:text-2xl items-center ${
->>>>>>> Stashed changes
                     activeSong?.id === song.id
                       ? 'bg-[#e8f1f3] border-[#bcd3d8] text-[#5795A7] font-bold shadow-sm shadow-[#5795A7]/10'
                       : 'bg-[#FCFDFF] border-gray-100 hover:bg-gray-50 text-gray-700 hover:border-gray-200'
                   }`}
                   style={{ fontFamily: 'var(--font-ramabhadra)' }}
                 >
-<<<<<<< Updated upstream
-                  <span className="text-xs font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
-=======
                   <span className="text-lg md:text-xl font-mono font-medium opacity-65 pt-0.5">{idx + 1}.</span>
->>>>>>> Stashed changes
                   <span className="leading-tight flex-1">
                     {song.language === 'telugu' || song.language === 'sunday_telugu' ? cleanTeluguTitle(song.title) : song.title}
                   </span>
