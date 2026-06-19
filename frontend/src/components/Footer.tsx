@@ -48,7 +48,7 @@ export default function Footer() {
 
   let footerBgClass = 'bg-[#003138]';
   if (isSongsPage) {
-    footerBgClass = 'bg-[#5795A7]';
+    footerBgClass = 'bg-[#3B7586]';
   } else if (isSundaySchool) {
     footerBgClass = 'bg-[#D04A73]';
   }

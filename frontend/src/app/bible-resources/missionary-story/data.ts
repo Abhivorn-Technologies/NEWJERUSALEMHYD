@@ -21,7 +21,7 @@ export const missionaryData = [
   },
   {
     "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM-1.jpeg",
-    "link": "/wp-content/uploads/2026/03/ఆర్.ఆర్.కె.మూర్తి-గారు.docx"
+    "link": "/wp-content/uploads/2026/03/ఆర్.ఆర్.కె.మూర్తి-గారు.pdf"
   },
   {
     "image": "/wp-content/uploads/2026/04/ఎలెన్-ఆర్నాల్డ్-scaled.jpg",
@@ -29,7 +29,7 @@ export const missionaryData = [
   },
   {
     "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM-2.jpeg",
-    "link": "/wp-content/uploads/2026/03/ఐడా-స్కడ్డర్-జీవితచరిత్ర.docx"
+    "link": "/wp-content/uploads/2026/03/ఐడా-స్కడ్డర్-జీవితచరిత్ర.pdf"
   },
   {
     "image": "/wp-content/uploads/2026/04/గ్రీన్-లారెన్స్-వార్టన్--scaled.jpg",
@@ -49,7 +49,7 @@ export const missionaryData = [
   },
   {
     "image": "/wp-content/uploads/2026/03/WhatsApp-Image-2026-03-18-at-11.11.44-AM.jpeg",
-    "link": "/wp-content/uploads/2026/03/జాన్-వెస్లీ-1.docx"
+    "link": "/wp-content/uploads/2026/03/జాన్-వెస్లీ-1.pdf"
   },
   {
     "image": "/wp-content/uploads/2026/04/జాన్-హైడ్--scaled.jpg",

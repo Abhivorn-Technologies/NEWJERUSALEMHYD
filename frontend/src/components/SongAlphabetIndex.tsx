@@ -84,9 +84,9 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
       alphaBtn: (isActive: boolean, hasSongs: boolean): React.CSSProperties => ({
         width: '100%',
         padding: '5px 1px',
-        border: isActive ? '1px solid #4a6cf7' : '1px solid #e0e0e0',
+        border: isActive ? '1px solid #5795A7' : '1px solid #e0e0e0',
         borderRadius: '5px',
-        background: isActive ? '#4a6cf7' : '#fff',
+        background: isActive ? '#5795A7' : '#fff',
         color: isActive ? '#fff' : '#333',
         fontSize: '11px',
         fontWeight: 600,
@@ -116,14 +116,14 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
         borderBottom: '2px solid #eee',
         marginBottom: '12px',
       },
-      countText: { fontSize: '15px', color: '#4a6cf7', fontWeight: 600 },
+      countText: { fontSize: '15px', color: '#5795A7', fontWeight: 600 },
       letterBadge: {
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
         width: '36px',
         height: '36px',
-        background: '#4a6cf7',
+        background: '#5795A7',
         color: '#fff',
         fontSize: '16px',
         fontWeight: 700,
@@ -134,7 +134,7 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
       letterCount: { fontSize: '13px', color: '#888', fontWeight: 500 },
       letterLine: { flex: 1, height: '1px', background: '#e8e8e8' },
       table: { width: '100%', borderCollapse: 'collapse' as const, marginTop: '8px' },
-      th: { background: '#4a6cf7', color: '#fff', padding: '10px 14px', textAlign: 'left' as const, fontSize: '13px', fontWeight: 600 },
+      th: { background: '#5795A7', color: '#fff', padding: '10px 14px', textAlign: 'left' as const, fontSize: '13px', fontWeight: 600 },
       thFirst: { width: '60px', textAlign: 'center' as const, borderRadius: '6px 0 0 0' },
       thLast: { borderRadius: '0 6px 0 0' },
       td: { padding: '10px 14px', borderBottom: '1px solid #eee', fontSize: '14px' },
@@ -150,7 +150,7 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
             id="sse-search"
             placeholder="Search songs by title..."
             style={styles.searchInput}
-            onFocus={e => { e.target.style.borderColor = '#4a6cf7'; e.target.style.background = '#fff'; }}
+            onFocus={e => { e.target.style.borderColor = '#5795A7'; e.target.style.background = '#fff'; }}
             onBlur={e => { e.target.style.borderColor = '#ddd'; e.target.style.background = '#fafafa'; }}
             value={searchVal}
             onChange={e => setSearchVal(e.target.value)}
@@ -171,7 +171,7 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
                           className="sse-alpha"
                           data-letter={letter === '#' ? '%23' : letter}
                           style={styles.alphaBtn(isActive, !!hasSongs)}
-                          onMouseEnter={e => { if (hasSongs && !isActive) { e.currentTarget.style.background = '#4a6cf7'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#4a6cf7'; }}}
+                          onMouseEnter={e => { if (hasSongs && !isActive) { e.currentTarget.style.background = '#5795A7'; e.currentTarget.style.color = '#fff'; e.currentTarget.style.borderColor = '#5795A7'; }}}
                           onMouseLeave={e => { if (hasSongs && !isActive) { e.currentTarget.style.background = '#fff'; e.currentTarget.style.color = '#333'; e.currentTarget.style.borderColor = '#e0e0e0'; }}}
                           onClick={() => {
                             if (!hasSongs) return;
@@ -249,16 +249,16 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
 
         <style>{`
           #sse-songs .sse-songs-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-          #sse-songs .sse-songs-table th { background: #4a6cf7; color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 600; }
+          #sse-songs .sse-songs-table th { background: #5795A7; color: #fff; padding: 10px 14px; text-align: left; font-size: 13px; font-weight: 600; }
           #sse-songs .sse-songs-table th:first-child { width: 60px; text-align: center; border-radius: 6px 0 0 0; }
           #sse-songs .sse-songs-table th:last-child { border-radius: 0 6px 0 0; }
           #sse-songs .sse-songs-table td { padding: 10px 14px; border-bottom: 1px solid #eee; font-size: 14px; }
           #sse-songs .sse-songs-table td:first-child { text-align: center; color: #999; font-weight: 500; font-size: 13px; width: 60px; }
-          #sse-songs .sse-songs-table tr:hover td { background: #f0f4ff; }
+          #sse-songs .sse-songs-table tr:hover td { background: #f0f8fa; }
           #sse-songs .sse-songs-table tr:nth-child(even) td { background: #fafbfc; }
-          #sse-songs .sse-songs-table tr:nth-child(even):hover td { background: #f0f4ff; }
+          #sse-songs .sse-songs-table tr:nth-child(even):hover td { background: #f0f8fa; }
           #sse-songs .sse-songs-table a { color: #333; text-decoration: none; line-height: 1.6; }
-          #sse-songs .sse-songs-table a:hover { color: #4a6cf7; }
+          #sse-songs .sse-songs-table a:hover { color: #5795A7; }
           @media (max-width:600px) {
             #sse-songs .sse-alpha { font-size: 11px !important; padding: 4px 1px !important; min-width: 22px !important; }
             #sse-songs table.sse-alpha-table { border-spacing: 2px !important; }

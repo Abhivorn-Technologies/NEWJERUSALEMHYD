@@ -128,15 +128,15 @@ export default function HeroBanner() {
       {/* Subtitle (Chinna Pillala...) centered slightly to the left */}
       <div className="relative md:absolute md:left-[42%] md:-translate-x-1/2 top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] z-30 w-full md:w-[90%] max-w-4xl flex justify-center pointer-events-none pt-2 pb-1 px-4">
         <span 
-          className="text-[#102E44] text-[15px] sm:text-[16px] md:text-[20px] lg:text-[25px] font-normal text-center select-none leading-normal font-sans"
-          style={{ fontFamily: 'var(--font-ramabhadra)' }}
+          className="text-[#102E44] text-[13px] sm:text-[14px] md:text-[17px] lg:text-[21px] font-normal text-center select-none leading-normal font-sans"
+          style={{ fontFamily: 'var(--font-mandali)' }}
         >
           చిన్న పిల్లల ఆధ్యాత్మికమైన ఎదుగుదల కొరకు
         </span>
       </div>
 
       {/* Menu List Items & Ribbon (Right - placed near the top to reduce spacing) */}
-      <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[460px] lg:max-w-[520px] z-30 flex flex-row md:flex-col items-center justify-around md:justify-end md:items-end gap-2.5 sm:gap-10 md:gap-0 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
+      <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[700px] lg:max-w-[900px] z-30 flex flex-row items-center justify-around md:justify-end gap-2.5 sm:gap-10 md:gap-8 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
         
         {/* Slanted Folded Ribbon: "పూర్తిగా ఉచితము" designed exactly like the reference image */}
         <div className="relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform translate-x-[40px] sm:translate-x-[60px] md:translate-x-[80px] lg:translate-x-[100px] -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
@@ -294,7 +294,7 @@ export default function HeroBanner() {
       </div>
 
       {/* Welcome Message overlaying the bottom waves */}
-      <div className="relative md:absolute bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-7xl px-6 pb-2 z-30 text-slate-800 text-center space-y-3 sm:space-y-4 select-none mt-3 md:mt-0">
+      <div className="relative md:absolute bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-7xl px-6 pb-2 z-30 text-slate-800 text-left space-y-3 sm:space-y-4 select-none mt-3 md:mt-0">
         <h2 
           className="text-base sm:text-lg md:text-xl lg:text-[23px] font-normal text-[#102E44] tracking-wide"
           style={{ fontFamily: 'var(--font-ramabhadra)' }}
@@ -317,7 +317,7 @@ export default function HeroBanner() {
             className="hidden md:block absolute right-0 top-[15%] w-[140px] lg:w-[190px] h-auto object-contain pointer-events-none -z-10"
             style={{
               filter: 'drop-shadow(0 4px 12px rgba(16,46,68,0.2))',
-              transform: 'translateY(-50%) rotate(10deg)'
+              transform: 'translateY(-50%) rotate(45deg)'
             }}
           />
         </div>

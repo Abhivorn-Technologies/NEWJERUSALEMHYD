@@ -20,6 +20,12 @@ class SongSerializer(serializers.ModelSerializer):
         model = Song
         fields = '__all__'
 
+class SongListSerializer(serializers.ModelSerializer):
+    categories = SongCategorySerializer(many=True, read_only=True)
+    class Meta:
+        model = Song
+        fields = ['id', 'title', 'slug', 'language', 'first_letter', 'categories', 'thumbnail', 'is_published', 'created_at']
+
 # ── Page Serializers ──────────────────────────────────────────────────────────
 
 class PageSerializer(serializers.ModelSerializer):
@@ -71,8 +77,12 @@ class ActivitySerializer(serializers.ModelSerializer):
 # ── Song ViewSets ─────────────────────────────────────────────────────────────
 
 class SongViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Song.objects.filter(is_published=True)
-    serializer_class = SongSerializer
+    queryset = Song.objects.filter(is_published=True).prefetch_related('categories')
+    
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return SongListSerializer
+        return SongSerializer
 
     def get_queryset(self):
         queryset = super().get_queryset()
