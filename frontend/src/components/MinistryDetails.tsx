@@ -23,7 +23,7 @@ export default function MinistryDetails() {
     <div className="w-full select-none">
       
 
-      <section className="bg-[#003138] pt-12 pb-10 text-white">
+      <section className="bg-[#003138] pt-12 pb-2 text-white">
         <div className="max-w-7xl mx-auto px-6 space-y-4">
           
 
@@ -44,7 +44,6 @@ export default function MinistryDetails() {
             </div>
           </div>
 
-          <ScrollDivider />
 
           {/* Ministry History Paragraphs */}
           <div 
@@ -78,18 +77,7 @@ export default function MinistryDetails() {
             </div>
           </div>
 
-          {/* Section divider after Nishchayamuga card - no padding/margin */}
-          <div className="flex justify-center py-0 mb-0 select-none pointer-events-none">
-            <svg width="220" height="24" viewBox="0 0 220 24" fill="none" className="text-[#FFEBB3] opacity-60">
-              <path d="M110 12 C115 8, 118 4, 120 4 C123 4, 125 8, 122 12 C119 16, 115 16, 110 12 Z" stroke="currentColor" strokeWidth="1.2" fill="none" />
-              <path d="M110 12 C105 8, 102 4, 100 4 C97 4, 95 8, 98 12 C101 16, 105 16, 110 12 Z" stroke="currentColor" strokeWidth="1.2" fill="none" />
-              <circle cx="110" cy="12" r="2.5" fill="currentColor" />
-              <path d="M90 12 C75 12, 65 8, 50 12 C35 16, 20 12, 10 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              <path d="M130 12 C145 12, 155 8, 170 12 C185 16, 195 12, 210 12" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
-              <circle cx="70" cy="12" r="1.5" fill="currentColor" />
-              <circle cx="150" cy="12" r="1.5" fill="currentColor" />
-            </svg>
-          </div>
+
         </div>
       </section>
     </div>
