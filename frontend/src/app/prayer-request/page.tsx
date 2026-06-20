@@ -1,8 +1,14 @@
-'use client';
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
 
 export default function PrayerRequestPage() {
-  const [formData, setFormData] = useState({ name: '', phone: '', email: '', address: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    message: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -13,15 +19,16 @@ export default function PrayerRequestPage() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormData({ name: '', phone: '', email: '', address: '', message: '' });
+      setFormData({ name: "", phone: "", email: "", address: "", message: "" });
     }, 1500);
   };
   return (
-    <div className="min-h-screen bg-[#f0f6f9]" style={{ fontFamily: 'var(--font-poppins)' }}>
-
+    <div
+      className="min-h-screen bg-[#f0f6f9]"
+      style={{ fontFamily: "var(--font-poppins)" }}
+    >
       {/* ── Main Content ────────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 md:px-8 py-14">
-
         {/* Page Header */}
         <div className="text-center mb-10 reveal">
           <h1 className="text-4xl font-extrabold text-[#1f4251] mb-4 tracking-tight">
@@ -29,131 +36,148 @@ export default function PrayerRequestPage() {
           </h1>
           <div className="h-1 w-24 bg-[#8b1e15] mx-auto rounded-full" />
           <p className="mt-5 text-gray-600 font-medium max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-            We believe in the power of prayer. Share your heart with us and our dedicated
-            prayer team will intercede faithfully on your behalf.
+            We believe in the power of prayer. Share your heart with us and our
+            dedicated prayer team will intercede faithfully on your behalf.
           </p>
         </div>
-        {/* Scripture Card (Full Width Banner) */}
-        <div className="relative bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 group hover:shadow-md transition-shadow duration-300 mb-8">
-          {/* Top accent */}
-          <div className="h-1.5 bg-gradient-to-r from-[#8b1e15] to-[#c0392b]" />
 
-          {/* Background watermark cross */}
-          <div
-            className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-            aria-hidden="true"
-          >
-            <span className="text-[160px] font-black text-gray-50 leading-none opacity-50">✝</span>
-          </div>
-
-          <div className="relative z-10 py-6 px-8 md:py-8 md:px-12 text-center max-w-5xl mx-auto">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <span className="text-2xl">📖</span>
-              <div className="text-left">
-                <p className="text-[10px] uppercase tracking-widest font-bold text-[#8b1e15] leading-none">Daily Scripture</p>
-                <p className="text-xs text-gray-400 font-medium mt-1 leading-none">కొలొస్సయులకు 4:2</p>
-              </div>
-            </div>
-
-            <blockquote
-              className="text-lg md:text-xl lg:text-2xl text-gray-800 leading-snug font-normal italic"
-              style={{ fontFamily: 'var(--font-ramabhadra)' }}
-            >
-              "ప్రార్థన చేయుటయందు నిత్యము నిలకడగా ఉండుడి, ప్రార్థనయందు కృతజ్ఞత గలవారై మెలకువగా ఉండుడి."
-            </blockquote>
-
-            <p className="mt-3 text-xs text-gray-400 font-semibold">— Colossians 4:2</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* ── Left Column ──────────────────────────────── */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-24">
+          <div className="lg:col-span-5 space-y-6">
+            {/* Beautiful Trending Contact Details Card */}
+            <div className="rounded-3xl p-8 md:p-10 shadow-sm border border-gray-100 relative overflow-hidden group bg-white h-full">
+              {/* Modern Ambient Glows */}
+              <div className="absolute top-0 right-0 -mr-10 -mt-10 w-48 h-48 bg-[#f0f6f9] rounded-full blur-[60px] opacity-60 pointer-events-none transition-transform duration-700 group-hover:scale-110"></div>
+              <div className="absolute bottom-0 left-0 -ml-10 -mb-10 w-48 h-48 bg-gray-50 rounded-full blur-[60px] opacity-60 pointer-events-none"></div>
 
-            {/* How We Pray Card */}
-            <div className="bg-[#1f4251] text-white rounded-3xl p-8 shadow border border-[#173C4E]">
-              <h3 className="text-lg font-bold tracking-tight border-b border-white/10 pb-3 mb-6 flex items-center gap-2">
-                <span className="w-6 h-6 rounded-md bg-[#8b1e15] flex items-center justify-center text-xs">✦</span>
-                How We Pray For You
-              </h3>
+              <div className="relative z-10 flex flex-col h-full">
+                <h3 className="text-[22px] font-bold text-[#1f4251] mb-2 tracking-tight">
+                  New Jerusalem Ministries
+                </h3>
+                <div className="h-1 w-12 bg-[#8b1e15] rounded-full mb-10"></div>
 
-              <div className="space-y-5">
-                {[
-                  {
-                    icon: '🔒',
-                    title: 'Strictly Confidential',
-                    desc: 'Your prayer requests are handled with absolute privacy and care by our dedicated prayer team.',
-                  },
-                  {
-                    icon: '🙏',
-                    title: 'Daily Intercession',
-                    desc: 'Our pastors and prayer partners gather every day to bring your request before the Lord.',
-                  },
-                  {
-                    icon: '✨',
-                    title: 'Faithful & Hopeful',
-                    desc: 'We trust in a God who hears, cares, and answers prayers according to His perfect will.',
-                  },
-                  {
-                    icon: '📞',
-                    title: 'Follow-Up Support',
-                    desc: 'If you need further counsel or encouragement, our team is always here to support you.',
-                  },
-                ].map(({ icon, title, desc }) => (
-                  <div key={title} className="flex gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-lg">
-                      {icon}
+                <div className="space-y-8 flex-grow">
+                  {/* Address */}
+                  <div className="flex gap-5 items-start">
+                    <div className="w-12 h-12 rounded-2xl bg-[#f0f6f9] border border-gray-100 text-[#1f4251] flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                        />
+                      </svg>
                     </div>
                     <div>
-                      <h4 className="font-bold text-sm text-white">{title}</h4>
-                      <p className="text-xs text-white/70 mt-1 leading-relaxed">{desc}</p>
+                      <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                        Our Location
+                      </p>
+                      <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                        # 14-22, Grace Nilayam, Kamala Nagar,
+                        <br /> Near Anitha Residency, Medipally,
+                        <br /> Hyderabad, Telangana 500039.
+                      </p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Encouragement strip */}
-            <div className="rounded-2xl bg-gradient-to-br from-[#8b1e15]/10 to-[#1f4251]/10 border border-[#8b1e15]/20 p-5 flex gap-3 items-start">
-              <span className="text-2xl mt-0.5">💌</span>
-              <p className="text-sm text-gray-700 leading-relaxed">
-                <span className="font-semibold text-[#1f4251]">You are not alone.</span> Whatever you're
-                going through, our church family stands with you in prayer and love.
-              </p>
+                  {/* Phone */}
+                  <div className="flex gap-5 items-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[#f0f6f9] border border-gray-100 text-[#1f4251] flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.896-1.596-5.54-4.24-7.136-7.136l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                        Call Us
+                      </p>
+                      <div className="flex flex-col sm:flex-row sm:gap-4 text-sm">
+                        <p className="font-semibold text-[#1f4251] tracking-wide">
+                          +91 95812 34563
+                        </p>
+                        <span className="hidden sm:inline text-gray-300">
+                          |
+                        </span>
+                        <p className="font-semibold text-[#1f4251] tracking-wide">
+                          +91 40 3558 5579
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex gap-5 items-center">
+                    <div className="w-12 h-12 rounded-2xl bg-[#f0f6f9] border border-gray-100 text-[#1f4251] flex items-center justify-center flex-shrink-0">
+                      <svg
+                        className="w-6 h-6"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-1.5">
+                        Email Us
+                      </p>
+                      <p className="font-semibold text-[#1f4251] tracking-wide break-all text-sm">
+                        INFO@NEWJERUSALEMMINISTRIES.COM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* ── Right Column — Google Form ─────────────────── */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl overflow-hidden shadow-md border border-gray-100">
-              {/* Colorful top bar */}
-              <div className="h-2 bg-gradient-to-r from-[#1f4251] via-[#8b1e15] to-[#1f4251]" />
-
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 p-8 h-full flex flex-col">
               {/* Form header */}
-              <div className="px-6 pt-5 pb-2 flex items-center gap-3 border-b border-gray-100">
-                <div className="w-9 h-9 rounded-xl bg-[#8b1e15]/10 flex items-center justify-center text-base flex-shrink-0">
-                  📝
-                </div>
-                <div>
-                  <h2 className="text-base font-bold text-[#1f4251]">Submit Your Prayer Request</h2>
-                  <p className="text-xs text-gray-400">Fill in the form below — we'll pray for you.</p>
-                </div>
-                <span className="ml-auto text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold uppercase tracking-wide">
-                  Secure
-                </span>
-              </div>
+              <h2 className="text-[22px] font-bold text-[#1f4251] mb-8 tracking-tight">
+                Send Prayer Request
+              </h2>
 
               {/* Form Container */}
-              <div className="bg-gray-50/60 px-6 py-8">
+              <div className="bg-white">
                 {isSubmitted ? (
                   <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center animate-fade-in">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-3xl">✨</span>
                     </div>
-                    <h3 className="text-xl font-bold text-green-800 mb-2">Prayer Request Received</h3>
+                    <h3 className="text-xl font-bold text-green-800 mb-2">
+                      Prayer Request Received
+                    </h3>
                     <p className="text-green-700 text-sm">
-                      Thank you for sharing your heart with us. Our prayer team will begin interceding for you.
+                      Thank you for sharing your heart with us. Our prayer team
+                      will begin interceding for you.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
@@ -164,111 +188,126 @@ export default function PrayerRequestPage() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    <div>
-                      <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
-                        Full Name <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
-                        placeholder="Enter your full name"
-                      />
-                    </div>
-                    
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
-                          Phone Number <span className="text-red-500">*</span>
+                          Name
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={(e) =>
+                            setFormData({ ...formData, name: e.target.value })
+                          }
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          value={formData.email}
+                          onChange={(e) =>
+                            setFormData({ ...formData, email: e.target.value })
+                          }
+                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
+                          Phone
                         </label>
                         <input
                           type="tel"
                           required
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, phone: e.target.value })
+                          }
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
-                          placeholder="Enter your mobile number"
                         />
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
-                          Email Address
+                          Subject
                         </label>
                         <input
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          type="text"
+                          value={formData.address}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              address: e.target.value,
+                            })
+                          }
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
-                          placeholder="Optional"
                         />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
-                        Address / Location
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.address}
-                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white"
-                        placeholder="Enter your city or address"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-semibold text-[#1f4251] mb-1.5">
-                        Your Prayer Request <span className="text-red-500">*</span>
+                        Prayer Request / Message
                       </label>
                       <textarea
                         required
                         rows={5}
                         value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[#8b1e15] focus:ring-2 focus:ring-[#8b1e15]/20 outline-none transition-all bg-white resize-y"
-                        placeholder="Share your prayer request here..."
                       />
                     </div>
 
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-4 rounded-xl bg-[#1f4251] hover:bg-[#173C4E] text-white font-bold text-lg transition-all shadow-md hover:shadow-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                          </svg>
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <span>✉</span> Send Prayer Request
-                        </>
-                      )}
-                    </button>
+                    <div>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="py-3 px-8 rounded-full bg-[#1f4251] hover:bg-[#173C4E] text-white font-bold text-sm transition-all shadow-sm hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <svg
+                              className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              ></circle>
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              ></path>
+                            </svg>
+                            Submitting...
+                          </>
+                        ) : (
+                          "Submit Request"
+                        )}
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>
-
-              {/* Privacy footer */}
-              <div className="px-6 py-3 border-t border-gray-100 flex items-center gap-2">
-                <span className="text-gray-400 text-xs">🔐</span>
-                <p className="text-[11px] text-gray-400">
-                  Your response is private and only shared with our prayer team.
-                </p>
-              </div>
             </div>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 }
