@@ -225,12 +225,12 @@ export default function BibleResourcesPage() {
                 {downloadAllLink && (
                   <div className="flex justify-center pt-4">
                     <a
-                      href={getResourceUrl((downloadAllLink as any).url)}
+                      href={getResourceUrl((downloadAllLink as { url: string }).url)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-[#8b1e15] hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all duration-200 text-center w-[90%] sm:w-[400px] md:w-[500px]"
                     >
-                      {(downloadAllLink as any).text.replace(/\u200b/g, '').trim()}
+                      {(downloadAllLink as { text: string }).text.replace(/\u200b/g, '').trim()}
                     </a>
                   </div>
                 )}

@@ -22,15 +22,18 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
   const activeAlphabet = alphabet === 'english' ? englishAlphabet : alphabet === 'hindi' ? hindiAlphabet : teluguAlphabet;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedLetter('');
+     
     setSearchVal('');
+     
     setLoading(true);
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 
     fetch(`${baseUrl}/songs/?language=${language}`)
       .then(res => res.json())
       .then(data => {
-        const normalizedData = data.map((song: any) => {
+        const normalizedData = data.map((song: Song) => {
           let fl = song.first_letter;
           if (!fl || fl === '#') {
             const title = song.title || '';
@@ -47,36 +50,42 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
       .catch(() => setLoading(false));
   }, [language, alphabet]);
 
-  try {
-    const filtered = searchVal
-      ? songs.filter(s => s.title.toLowerCase().includes(searchVal.toLowerCase()))
-      : songs;
+  const filtered = searchVal
+    ? songs.filter(s => s.title.toLowerCase().includes(searchVal.toLowerCase()))
+    : songs;
 
-    const avail: Record<string, boolean> = {};
-    filtered.forEach(s => { avail[s.first_letter] = true; });
+  const avail: Record<string, boolean> = {};
+  filtered.forEach(s => { avail[s.first_letter] = true; });
 
-    const displaySongs = selectedLetter
-      ? filtered.filter(s => s.first_letter === selectedLetter)
-      : filtered;
+  const displaySongs = selectedLetter
+    ? filtered.filter(s => s.first_letter === selectedLetter)
+    : filtered;
 
-    const groups: Record<string, Song[]> = {};
-    displaySongs.forEach(s => {
-      if (!groups[s.first_letter]) groups[s.first_letter] = [];
-      groups[s.first_letter].push(s);
-    });
+  const groups: Record<string, Song[]> = {};
+  displaySongs.forEach(s => {
+    if (!groups[s.first_letter]) groups[s.first_letter] = [];
+    groups[s.first_letter].push(s);
+  });
 
-    const sortedLetters = Object.keys(groups).sort((a, b) => {
-      const ia = activeAlphabet.indexOf(a);
-      const ib = activeAlphabet.indexOf(b);
-      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
-    });
+  const sortedLetters = Object.keys(groups).sort((a, b) => {
+    const ia = activeAlphabet.indexOf(a);
+    const ib = activeAlphabet.indexOf(b);
+    return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+  });
 
-    const alphaRows: string[][] = [];
-    for (let i = 0; i < activeAlphabet.length; i += 9) {
-      alphaRows.push(activeAlphabet.slice(i, i + 9));
-    }
+  const alphaRows: string[][] = [];
+  for (let i = 0; i < activeAlphabet.length; i += 9) {
+    alphaRows.push(activeAlphabet.slice(i, i + 9));
+  }
 
-    let globalSno = 0;
+  let currentSno = 0;
+  const letterData: { letter: string; sectionSongs: Song[]; startSno: number }[] = [];
+  for (const letter of sortedLetters) {
+    const sectionSongs = groups[letter];
+    const startSno = currentSno + 1;
+    letterData.push({ letter, sectionSongs, startSno });
+    currentSno += sectionSongs.length;
+  }
 
     const styles = {
       container: { background: '#f5f6f8', borderRadius: '10px', padding: '6px', marginBottom: '8px' },
@@ -206,11 +215,7 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
         ) : (
           <>
             <div id="sse-songs-list">
-              {sortedLetters.map(letter => {
-                const sectionSongs = groups[letter];
-                const startSno = globalSno + 1;
-                globalSno += sectionSongs.length;
-                return (
+              {letterData.map(({ letter, sectionSongs, startSno }) => (
                 <div key={letter}>
                   <div style={styles.letterRow}>
                     <span style={styles.letterBadge}>{letter}</span>
@@ -238,8 +243,7 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
                     </tbody>
                   </table>
                 </div>
-                );
-              })}
+              ))}
             </div>
             <div id="sse-empty" style={{ display: displaySongs.length === 0 ? 'block' : 'none', textAlign: 'center', padding: '40px', color: '#bbb', fontSize: '15px' }}>
               No songs found for this selection.
@@ -268,13 +272,4 @@ export default function SongAlphabetIndex({ language = 'telugu', alphabet }: { l
         `}</style>
       </div>
     );
-  } catch (error: any) {
-    console.error("Error rendering SongAlphabetIndex:", error);
-    return (
-      <div className="p-6 bg-red-50 text-red-700 border border-red-200 rounded-2xl">
-        <h3 className="font-bold text-lg mb-2">Failed to render songs</h3>
-        <p className="text-sm">{error?.message || String(error)}</p>
-      </div>
-    );
-  }
 }

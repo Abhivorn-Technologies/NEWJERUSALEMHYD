@@ -346,6 +346,7 @@ ${requestForm.details || 'N/A'}
       const saved = localStorage.getItem('njm_favorite_sunday_songs');
       if (saved) {
         try {
+          // eslint-disable-next-line react-hooks/set-state-in-effect
           setFavorites(JSON.parse(saved));
         } catch (e) {
           console.error(e);
@@ -381,9 +382,13 @@ ${requestForm.details || 'N/A'}
 
   // Fetch all songs and filter client-side for Sunday School songs only
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLoading(true);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSelectedLetter('');
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLastSelectedLetter('');
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setSearchVal('');
     setKeyboardLanguage('telugu');
     
@@ -578,8 +583,8 @@ ${requestForm.details || 'N/A'}
 
   const getSlides = (htmlContent: string): string[] => {
     if (!htmlContent) return [];
-    let cleanText = htmlContent;
-    let rawSlides = cleanText.split(/<\/p>/i);
+    const cleanText = htmlContent;
+    const rawSlides = cleanText.split(/<\/p>/i);
     let slides = rawSlides
       .map(slide => {
         let text = slide.replace(/<p>/i, '').trim();
@@ -597,7 +602,7 @@ ${requestForm.details || 'N/A'}
       .filter(slide => slide.length > 0);
       
     if (slides.length === 0) {
-      let textContent = htmlContent
+      const textContent = htmlContent
         .replace(/<br\s*\/?>/gi, '\n')
         .replace(/<[^>]*>/g, '');
       slides = textContent
@@ -634,7 +639,7 @@ ${requestForm.details || 'N/A'}
       titleSlide.background = { color: '173C4E' };
       
       const cleanedTitle = activeSong.language === 'sunday_telugu' 
-        ? cleanTeluguTitle(activeSong.title) 
+        ? cleanNonEnglishTitle(activeSong.title) 
         : activeSong.title;
 
       titleSlide.addText(cleanedTitle, {
@@ -1141,9 +1146,9 @@ ${requestForm.details || 'N/A'}
                 Sunday School
               </div>
               <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-1.5 flex-wrap">
-                For <span className="text-[#D04A73] text-5xl font-light">"</span>
+                For <span className="text-[#D04A73] text-5xl font-light">&quot;</span>
                 <span className="text-[#D04A73]" style={getHeaderLetterStyle(selectedLetter)}>{selectedLetter || 'All'}</span>
-                <span className="text-[#D04A73] text-5xl font-light">"</span>
+                <span className="text-[#D04A73] text-5xl font-light">&quot;</span>
                 <span className="text-sm text-gray-500 font-medium font-mono ml-0.5">
                   ({filteredSongsList.length} Songs)
                 </span>

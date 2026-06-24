@@ -12,7 +12,7 @@ async function getSong(slug: string) {
   if (!res.ok) return null;
   const songs = await res.json();
   const decodedParam = decodeURIComponent(slug);
-  return songs.find((s: any) => {
+  return songs.find((s: { slug: string }) => {
     try {
       return s.slug === slug || decodeURIComponent(s.slug) === decodedParam;
     } catch {
@@ -40,7 +40,7 @@ export default async function SongPage({ params }: { params: Promise<{ slug: str
           <header className="mb-6 pb-6 border-b border-gray-100">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{song.title}</h1>
             <div className="flex gap-2 flex-wrap">
-              {song.categories?.map((cat: any) => (
+              {song.categories?.map((cat: { id: number; name: string }) => (
                 <span key={cat.id} className="bg-blue-50 text-blue-700 text-xs px-3 py-1 rounded-full font-medium">
                   {cat.name}
                 </span>
