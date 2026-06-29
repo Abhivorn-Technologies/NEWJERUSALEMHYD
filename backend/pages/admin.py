@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import (
     Page, SiteSettings, NavMenuItem, HeroItem,
-    Belief, BibleResource, StoryCategory, Activity
+    Belief, BibleResource, StoryCategory, Activity, ResourceDownload, Magazine
 )
 
 
@@ -67,3 +67,15 @@ class PageAdmin(admin.ModelAdmin):
     search_fields = ('title', 'slug')
     prepopulated_fields = {'slug': ('title',)}
 
+
+@admin.register(ResourceDownload)
+class ResourceDownloadAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'file', 'order')
+    list_filter = ('category',)
+    list_editable = ('order',)
+
+@admin.register(Magazine)
+class MagazineAdmin(admin.ModelAdmin):
+    list_display = ('title', 'month_year', 'language', 'order', 'created_at')
+    list_filter = ('language',)
+    list_editable = ('order',)

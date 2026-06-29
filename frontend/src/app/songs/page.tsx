@@ -151,6 +151,26 @@ const hindiAlphabet = [
   "#",
 ];
 
+const DESIRED_CATEGORIES = [
+  { name: "Praise", slug: "praise-songs", match: "praise" },
+  { name: "Worship", slug: "worship-songs", match: "worship" },
+  { name: "Prayer", slug: "prayer-songs", match: "prayer" },
+  { name: "Christmas", slug: "christmas-songs", match: "christmas" },
+  { name: "Encouraging", slug: "encouraging-songs", match: "encouraging" },
+  { name: "Correction", slug: "correction-songs", match: "correction" },
+  { name: "Repentance", slug: "repentance-songs", match: "repentance" },
+  { name: "Good Friday", slug: "good-friday-songs", match: "good friday" },
+  { name: "Gospel", slug: "gospel-songs", match: "gospel" },
+  { name: "Comfort", slug: "comfort-songs", match: "comfort" },
+  { name: "Commitment", slug: "commitment-songs", match: "commitment" },
+  { name: "Hope", slug: "hope-songs", match: "hope" },
+  { name: "Thanksgiving", slug: "thanksgiving-songs", match: "thanksgiving" },
+  { name: "Marriage", slug: "marriage-songs", match: "marriage" },
+  { name: "Easter", slug: "easter-songs", match: "easter" },
+  { name: "Offering", slug: "offering-song", match: "offering" },
+  { name: "Second Coming", slug: "second-coming-songs", match: "second coming" },
+];
+
 const ALLOWED_CATEGORIES = [
   "Christmas Songs",
   "Comfort Songs",
@@ -184,16 +204,10 @@ const getDynamicFirstLetter = (
 
   // 1. English letter index
   if (kbLang === "english") {
-    const parenMatch = title.match(/\(([^)]+)\)/);
-    if (parenMatch && parenMatch[1]) {
-      const engText = parenMatch[1].trim();
-      const firstChar = engText.charAt(0).toUpperCase();
-      if (/[A-Z]/.test(firstChar)) return firstChar;
+    const match = title.match(/[A-Za-z]/);
+    if (match) {
+      return match[0].toUpperCase();
     }
-    const cleanTitle = title.replace(/^[🎵📖⛪🙏\s\-\/\(\)]+/, "");
-    const firstChar = cleanTitle.charAt(0).toUpperCase();
-    if (/[A-Z]/.test(firstChar)) return firstChar;
-
     return "#";
   }
 
@@ -425,6 +439,8 @@ ${requestForm.details || "N/A"}
   // Interaction states
   const [favorites, setFavorites] = useState<string[]>([]);
   const [fontSize, setFontSize] = useState<number>(24);
+  const [fontFamily, setFontFamily] = useState<string>("var(--font-mallanna)");
+  const [lineHeight, setLineHeight] = useState<number>(2.0);
   const [activeLyricsTab, setActiveLyricsTab] = useState<
     "telugu" | "english" | "hindi" | "ppt"
   >("telugu");
@@ -695,9 +711,12 @@ ${requestForm.details || "N/A"}
     if (viewMode === "favorites") {
       result = result.filter((s) => favorites.includes(s.slug));
     } else if (viewMode === "categories" && selectedCategorySlug) {
-      result = result.filter((s) =>
-        s.categories.some((c) => c.slug === selectedCategorySlug),
-      );
+      const catObj = DESIRED_CATEGORIES.find((d) => d.slug === selectedCategorySlug);
+      if (catObj) {
+        result = result.filter((s) =>
+          s.categories && s.categories.some((c) => c.name.toLowerCase().includes(catObj.match)),
+        );
+      }
     }
 
     // Search filter
@@ -849,7 +868,7 @@ ${requestForm.details || "N/A"}
 
       const cleanedTitle =
         activeSong.language === "all"
-          ? cleanTeluguTitle(activeSong.title)
+          ? extractTeluguTitle(activeSong.title)
           : activeSong.title;
 
       titleSlide.addText(cleanedTitle, {
@@ -998,9 +1017,12 @@ ${requestForm.details || "N/A"}
                 </div>
                 <span className="truncate">
                   {selectedCategorySlug
-                    ? categories.find((c) => c.slug === selectedCategorySlug)
-                        ?.name
-                    : "All Categories"}
+                    ? (() => {
+                        const catObj = DESIRED_CATEGORIES.find((c) => c.slug === selectedCategorySlug);
+                        const count = catObj ? songs.filter((s) => s.categories && s.categories.some((c) => c.name.toLowerCase().includes(catObj.match))).length : 0;
+                        return `${catObj?.name || 'Category'} (${count})`;
+                      })()
+                    : `All Songs (${songs.length})`}
                 </span>
                 <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-white/90">
                   <svg
@@ -1034,29 +1056,25 @@ ${requestForm.details || "N/A"}
                     }}
                     className={`w-full text-left px-5 py-2.5 text-sm transition-colors ${!selectedCategorySlug ? "bg-[#5795A7] text-white font-bold" : "text-gray-800 hover:bg-[#e8f1f3] hover:text-[#3B7586]"}`}
                   >
-                    All Categories
+                    All Songs ({songs.length})
                   </button>
-                  {categories
-                    .filter((cat) =>
-                      ALLOWED_CATEGORIES.some(
-                        (allowedName) =>
-                          allowedName.toLowerCase() ===
-                          (cat.name || "").trim().toLowerCase(),
-                      ),
-                    )
-                    .map((cat) => (
+                  {DESIRED_CATEGORIES.map((cat) => {
+                    const count = songs.filter((s) => s.categories && s.categories.some((c) => c.name.toLowerCase().includes(cat.match))).length;
+                    return (
                       <button
-                        key={cat.id}
+                        key={cat.slug}
+                        disabled={count === 0}
                         onClick={() => {
                           setSelectedCategorySlug(cat.slug);
                           setViewMode("categories");
                           setIsCategoryDropdownOpen(false);
                         }}
-                        className={`w-full text-left px-5 py-2.5 text-sm transition-colors ${selectedCategorySlug === cat.slug ? "bg-[#5795A7] text-white font-bold" : "text-gray-800 hover:bg-[#e8f1f3] hover:text-[#3B7586]"}`}
+                        className={`w-full text-left px-5 py-2.5 text-sm transition-colors ${count === 0 ? "text-gray-400 cursor-not-allowed" : selectedCategorySlug === cat.slug ? "bg-[#5795A7] text-white font-bold" : "text-gray-800 hover:bg-[#e8f1f3] hover:text-[#3B7586]"}`}
                       >
-                        {cat.name}
+                        {cat.name} ({count})
                       </button>
-                    ))}
+                    );
+                  })}
                 </div>
               )}
             </div>
@@ -1341,7 +1359,7 @@ ${requestForm.details || "N/A"}
 
                 {/* Show Telugu Keyboard */}
                 {viewTab === "home" && keyboardLanguage === "telugu" && (
-                  <div className="bg-[#e8f1f3] border-2 border-[#bcd3d8] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner">
+                  <div className="bg-[#e8f1f3] border-2 border-[#bcd3d8] rounded-2xl py-3 px-2 sm:px-3 mb-8 max-w-5xl mx-auto shadow-inner">
                     <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 keyboard-grid">
                       {teluguAlphabet.map((letter) => {
                         const hasSongs = filteredSongsList.some(
@@ -1369,7 +1387,7 @@ ${requestForm.details || "N/A"}
                             }`}
                             style={{
                               fontFamily: "var(--font-ramabhadra)",
-                              fontSize: "26px",
+                              fontSize: "40px",
                             }}
                           >
                             {letter}
@@ -1382,7 +1400,7 @@ ${requestForm.details || "N/A"}
 
                 {/* Show English Keyboard */}
                 {viewTab === "home" && keyboardLanguage === "english" && (
-                  <div className="bg-[#e8f1f3] border-2 border-[#bcd3d8] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner">
+                  <div className="bg-[#e8f1f3] border-2 border-[#bcd3d8] rounded-2xl py-3 px-2 sm:px-3 mb-8 max-w-5xl mx-auto shadow-inner">
                     <div className="grid grid-cols-6 sm:grid-cols-7 gap-1.5 keyboard-grid">
                       {englishAlphabet.map((letter) => {
                         const hasSongs = filteredSongsList.some(
@@ -1408,7 +1426,7 @@ ${requestForm.details || "N/A"}
                                 ? "border-[#bcd3d8]/40 bg-white shadow-sm hover:border-[#bcd3d8] hover:bg-[#e8f1f3] text-[#5795A7] hover:text-[#1f4251] hover:shadow"
                                 : "border-transparent bg-transparent text-gray-300 cursor-not-allowed opacity-30"
                             }`}
-                            style={{ fontSize: "24px" }}
+                            style={{ fontSize: "32px" }}
                           >
                             {letter}
                           </button>
@@ -1501,7 +1519,7 @@ ${requestForm.details || "N/A"}
                             >
                               <div className="flex items-center gap-4 mb-6">
                                 <span
-                                  className="text-4xl font-normal text-[#5795A7] leading-none shrink-0"
+                                  className="text-5xl md:text-6xl font-normal text-[#5795A7] leading-none shrink-0"
                                   style={{
                                     fontFamily:
                                       currentLang === "telugu"
@@ -1514,7 +1532,7 @@ ${requestForm.details || "N/A"}
                                   {letter}
                                 </span>
                                 <div className="flex-1 border-b border-gray-500 mt-2"></div>
-                                <span className="text-base font-bold text-[#1f4251] shrink-0 mt-2">
+                                <span className="text-lg md:text-xl font-bold text-[#1f4251] shrink-0 mt-2">
                                   {letterSongs.length} songs
                                 </span>
                               </div>
@@ -1542,12 +1560,12 @@ ${requestForm.details || "N/A"}
                                     <button
                                       key={song.id}
                                       onClick={() => handleSelectSong(song)}
-                                      className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-transparent bg-transparent hover:bg-[#d1e3e8] text-[#3B7586] hover:text-[#1f4251] transition-all duration-200 flex gap-3 text-xl md:text-2xl items-center hover:shadow-sm w-full"
+                                      className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-transparent bg-transparent hover:bg-[#d1e3e8] text-[#3B7586] hover:text-[#1f4251] transition-all duration-200 flex gap-3 text-2xl md:text-[28px] items-center hover:shadow-sm w-full"
                                       style={{
                                         fontFamily: "var(--font-mandali)",
                                       }}
                                     >
-                                      <span className="text-lg md:text-xl font-mono font-medium opacity-65 pt-0.5">
+                                      <span className="text-xl md:text-2xl font-mono font-medium opacity-65 pt-0.5">
                                         {idx + 1}.
                                       </span>
                                       <span className="leading-tight flex-1 truncate">
@@ -1765,17 +1783,12 @@ ${requestForm.details || "N/A"}
 
           {viewMode === "categories" && (
             <div className="mb-4 flex flex-wrap gap-1.5 max-h-32 overflow-y-auto p-1 bg-gray-50 rounded-xl border border-gray-100">
-              {categories
-                .filter((cat) =>
-                  ALLOWED_CATEGORIES.some(
-                    (allowedName) =>
-                      allowedName.toLowerCase() ===
-                      (cat.name || "").trim().toLowerCase(),
-                  ),
-                )
-                .map((cat) => (
+              {DESIRED_CATEGORIES.map((cat) => {
+                const count = songs.filter((s) => s.categories && s.categories.some((c) => c.name.toLowerCase().includes(cat.match))).length;
+                if (count === 0) return null;
+                return (
                   <button
-                    key={cat.id}
+                    key={cat.slug}
                     onClick={() => setSelectedCategorySlug(cat.slug)}
                     className={`px-3 py-1 rounded-lg text-xs font-semibold transition-all ${
                       selectedCategorySlug === cat.slug
@@ -1783,11 +1796,60 @@ ${requestForm.details || "N/A"}
                         : "bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
                     }`}
                   >
-                    {cat.name}
+                    {cat.name} ({count})
                   </button>
-                ))}
+                );
+              })}
             </div>
           )}
+
+          {/* Search Bar for sidebar */}
+          <div className="mb-4">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <svg
+                  className="w-4 h-4 text-[#5795A7]/70"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Search in this list..."
+                value={searchVal}
+                onChange={(e) => setSearchVal(e.target.value)}
+                className="w-full pl-9 pr-8 py-2 bg-gray-50 border border-gray-200 rounded-xl outline-none text-sm text-[#1f4251] placeholder-[#5795A7]/50 focus:border-[#5795A7] focus:ring-1 focus:ring-[#5795A7]/50 transition-all"
+              />
+              {searchVal && (
+                <button
+                  onClick={() => setSearchVal("")}
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#5795A7] hover:text-[#1f4251] transition-colors"
+                >
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
 
           {/* Sidebar song list */}
           <div className="flex-1 overflow-y-auto pr-1 space-y-2 max-h-[500px] md:max-h-[none]">
@@ -1849,10 +1911,15 @@ ${requestForm.details || "N/A"}
                     &mdash;
                   </button>
                   <button
-                    onClick={() => setFontSize(24)}
-                    className="px-2.5 h-7 rounded-lg bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-gray-50 active:scale-95 transition-all text-[11px]"
+                    onClick={() => {
+                      setFontSize(24);
+                      setLineHeight(2.0);
+                      setFontFamily("var(--font-mallanna)");
+                    }}
+                    className="px-3 h-7 rounded-lg bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-gray-50 active:scale-95 transition-all text-[11px] font-bold"
+                    title="Reset Font Size, Font Family, and Spacing"
                   >
-                    Reset
+                    Reset All
                   </button>
                   <button
                     onClick={() =>
@@ -1862,6 +1929,44 @@ ${requestForm.details || "N/A"}
                   >
                     +
                   </button>
+                </div>
+
+                {/* Font Family Adjuster */}
+                <div className="flex items-center gap-1.5 text-xs text-gray-500 font-bold bg-gray-100 rounded-xl p-1 shadow-inner border border-gray-200/50">
+                  <span className="pl-2 pr-1">Font :</span>
+                  <select
+                    value={fontFamily}
+                    onChange={(e) => setFontFamily(e.target.value)}
+                    className="bg-white border border-gray-200 rounded-lg text-gray-700 text-xs px-2 py-1 outline-none shadow-sm hover:bg-gray-50 transition-all cursor-pointer"
+                  >
+                    <option value="var(--font-mallanna)">Mallanna</option>
+                    <option value="var(--font-ramabhadra)">Ramabhadra</option>
+                    <option value="var(--font-suranna)">Suranna</option>
+                    <option value="var(--font-poppins)">Poppins</option>
+                    <option value="Arial, sans-serif">Arial</option>
+                    <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                    <option value="Verdana, sans-serif">Verdana</option>
+                    <option value="Georgia, serif">Georgia</option>
+                    <option value="'Times New Roman', serif">Times New Roman</option>
+                    <option value="'Nirmala UI', sans-serif">Nirmala UI</option>
+                    <option value="'Segoe UI', sans-serif">Segoe UI</option>
+                    <option value="'Courier New', monospace">Courier New</option>
+                  </select>
+                </div>
+
+                {/* Line Height Slider */}
+                <div className="flex items-center gap-2 text-xs text-gray-500 font-bold bg-gray-100 rounded-xl px-3 py-1 shadow-inner border border-gray-200/50">
+                  <span>Spacing :</span>
+                  <input
+                    type="range"
+                    min="1"
+                    max="4"
+                    step="0.1"
+                    value={lineHeight}
+                    onChange={(e) => setLineHeight(parseFloat(e.target.value))}
+                    className="w-20 md:w-24 accent-[#5795A7] cursor-pointer"
+                  />
+                  <span className="w-6 text-right">{lineHeight.toFixed(1)}</span>
                 </div>
 
                 {/* Toolbar Buttons */}
@@ -2012,8 +2117,11 @@ ${requestForm.details || "N/A"}
               >
                 {activeContent ? (
                   <div
-                    className="prose max-w-none text-gray-800 leading-relaxed select-text [&_p]:mb-5 [&_p]:leading-normal [&_p_br]:mb-0 [&_br]:mb-0 print:text-black"
-                    style={{ fontFamily: "var(--font-mandali)" }}
+                    className="prose max-w-none text-gray-800 leading-[var(--lyrics-line-height)] select-text [&_p]:mb-5 [&_p]:leading-[var(--lyrics-line-height)] [&_p_br]:mb-0 [&_br]:mb-0 print:text-black"
+                    style={{ 
+                      fontFamily, 
+                      "--lyrics-line-height": lineHeight 
+                    } as React.CSSProperties}
                     dangerouslySetInnerHTML={{
                       __html: formatLyrics(activeContent),
                     }}

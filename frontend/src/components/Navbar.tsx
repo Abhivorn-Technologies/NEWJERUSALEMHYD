@@ -30,7 +30,14 @@ export default function Navbar() {
         // Remove children from "About Us" so it acts as a direct link without a dropdown
         const processedData = data.map(item => {
           if (item.label.toLowerCase() === 'about us') {
-            return { ...item, children: [] };
+            return { 
+              ...item, 
+              label: 'Magazine',
+              url: '/magazine',
+              children: [
+                { id: 9999, label: 'About Us', url: '/about' }
+              ] 
+            };
           }
           return item;
         });
@@ -75,12 +82,12 @@ export default function Navbar() {
             
             return item.children.length > 0 ? (
               <div key={item.id} className="relative group cursor-pointer">
-                <div className={`px-4 py-6 text-sm font-[500] transition-colors flex items-center gap-1 ${linkColorClass}`}>
+                <Link href={item.url} className={`px-4 py-6 text-sm font-[500] transition-colors flex items-center gap-1 ${linkColorClass}`}>
                   {item.label}
                   <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-                </div>
+                </Link>
                 <div className="absolute hidden group-hover:block bg-white text-gray-800 py-1 shadow-lg min-w-[220px] border border-gray-200/80 rounded-b-lg">
                   {item.children.map((child, idx) => {
                     const isChildActive = pathname === child.url;
@@ -122,9 +129,9 @@ export default function Navbar() {
               <div key={item.id} className="py-1">
                 {item.children.length > 0 ? (
                   <div className="space-y-1">
-                    <div className={`px-3 py-2 text-sm font-[500] flex items-center justify-between ${linkColorClass}`}>
+                    <Link href={item.url} onClick={() => setIsOpen(false)} className={`px-3 py-2 text-sm font-[500] flex items-center justify-between ${linkColorClass}`}>
                       {item.label}
-                    </div>
+                    </Link>
                     <div className="pl-4 border-l border-gray-200 space-y-1">
                       {item.children.map(child => {
                         const isChildActive = pathname === child.url;

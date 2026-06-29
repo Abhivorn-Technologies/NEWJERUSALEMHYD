@@ -15,6 +15,9 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <Link href="/dashboard/songs" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition">
             Manage Songs
           </Link>
+          <Link href="/dashboard/magazines" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition">
+            Magazines
+          </Link>
           <Link href="/dashboard/pages" className="block px-4 py-2 rounded-lg hover:bg-gray-800 transition">
             Static Pages
           </Link>

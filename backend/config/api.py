@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from songs.models import Song, SongCategory
 from pages.models import (
     Page, SiteSettings, NavMenuItem, HeroItem,
-    Belief, BibleResource, StoryCategory, Activity
+    Belief, BibleResource, StoryCategory, Activity, ResourceDownload, Magazine
 )
 
 # ── Song Serializers ──────────────────────────────────────────────────────────
@@ -24,7 +24,7 @@ class SongListSerializer(serializers.ModelSerializer):
     categories = SongCategorySerializer(many=True, read_only=True)
     class Meta:
         model = Song
-        fields = ['id', 'title', 'slug', 'language', 'first_letter', 'categories', 'thumbnail', 'is_published', 'created_at']
+        fields = ['id', 'title', 'slug', 'language', 'first_letter', 'categories', 'thumbnail', 'is_published', 'created_at', 'telugu_lyrics', 'english_lyrics', 'hindi_lyrics', 'powerpoint_slides', 'audio_video', 'chords']
 
 # ── Page Serializers ──────────────────────────────────────────────────────────
 
@@ -72,6 +72,16 @@ class StoryCategorySerializer(serializers.ModelSerializer):
 class ActivitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Activity
+        fields = '__all__'
+
+class ResourceDownloadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ResourceDownload
+        fields = '__all__'
+
+class MagazineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Magazine
         fields = '__all__'
 
 # ── Song ViewSets ─────────────────────────────────────────────────────────────
@@ -137,6 +147,14 @@ class ActivityViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Activity.objects.all()
     serializer_class = ActivitySerializer
 
+class ResourceDownloadViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = ResourceDownload.objects.all()
+    serializer_class = ResourceDownloadSerializer
+
+class MagazineViewSet(viewsets.ModelViewSet):
+    queryset = Magazine.objects.all()
+    serializer_class = MagazineSerializer
+
 # ── Router ────────────────────────────────────────────────────────────────────
 
 router = routers.DefaultRouter()
@@ -150,3 +168,5 @@ router.register(r'beliefs', BeliefViewSet)
 router.register(r'bible-resources', BibleResourceViewSet)
 router.register(r'story-categories', StoryCategoryViewSet)
 router.register(r'activities', ActivityViewSet)
+router.register(r'resource-downloads', ResourceDownloadViewSet)
+router.register(r'magazines', MagazineViewSet)

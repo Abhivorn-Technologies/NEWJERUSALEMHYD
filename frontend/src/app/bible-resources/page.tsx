@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { bibleMapsData } from './maps/data';
 import { bibleInfographicsData } from './infographics/data';
 import { bibleGenealogiesData } from './genealogies/data';
@@ -16,9 +16,44 @@ interface ResourceCategory {
   originalRot: string;
 }
 
+export const getButtonColor = (linkText: string) => {
+  const text = linkText.toUpperCase();
+  const baseClasses = "shadow-md hover:shadow-lg transition-all duration-300";
+  
+  if (text === 'ILLUSTRATOR') return `${baseClasses} bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-amber-500/30`;
+  
+  if (text === 'COLOR') return `${baseClasses} bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 shadow-pink-500/30`;
+  
+  if (text === 'JPEG') return `${baseClasses} bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 shadow-purple-500/30`;
+  
+  if (text === 'PDF') return `${baseClasses} bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 shadow-red-600/30`;
+  
+  if (text === 'PPT' || text === 'POWERPOINT') return `${baseClasses} bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-orange-500/30`;
+  
+  if (text === 'KEYNOTE') return `${baseClasses} bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 shadow-cyan-500/30`;
+  
+  if (text === 'DOWNLOAD' || text === 'DOWNLOAD DOCUMENT') return `${baseClasses} bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-emerald-500/30`;
+  
+  if (linkText.toLowerCase().includes('black')) return `${baseClasses} bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black shadow-gray-500/30`;
+  
+  return `${baseClasses} bg-gradient-to-r from-slate-500 to-slate-600 hover:from-slate-600 hover:to-slate-700 shadow-slate-500/30`;
+};
+
 export default function BibleResourcesPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [resourceDownloads, setResourceDownloads] = useState<any[]>([]);
   const detailsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+    fetch(`${baseUrl}/resource-downloads/`)
+      .then(res => res.json())
+      .then(data => {
+        setResourceDownloads(data);
+      })
+      .catch(err => console.error('Error fetching resource downloads:', err));
+  }, []);
+
 
   const getResourceUrl = (url: string) => {
     if (
@@ -175,7 +210,7 @@ export default function BibleResourcesPage() {
                       className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                     >
                       {/* Left Column: Title */}
-                      <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+                      <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
                         {item.title}
                       </div>
 
@@ -188,21 +223,7 @@ export default function BibleResourcesPage() {
                           {item.links.map((link, li) => {
                             const linkText = link.text.replace(/\u200b/g, '').trim();
                             
-                            // Select color based on button type
-                            let btnBg = 'bg-gray-500 hover:bg-gray-600';
-                            if (linkText.toUpperCase() === 'ILLUSTRATOR') {
-                              btnBg = 'bg-[#1A5C5E] hover:bg-[#114041]';
-                            } else if (linkText.toUpperCase() === 'JPEG' || linkText.toUpperCase() === 'COLOR') {
-                              btnBg = 'bg-[#1F6F5A] hover:bg-[#185948]';
-                            } else if (linkText.toUpperCase() === 'PDF') {
-                              btnBg = 'bg-[#173C4E] hover:bg-[#12303e]';
-                            } else if (linkText.toUpperCase() === 'POWERPOINT') {
-                              btnBg = 'bg-[#d24726] hover:bg-[#b03a1e]';
-                            } else if (linkText.toUpperCase() === 'KEYNOTE') {
-                              btnBg = 'bg-[#106ebe] hover:bg-[#0d5a9c]';
-                            } else if (linkText.toLowerCase().includes('black')) {
-                              btnBg = 'bg-[#333333] hover:bg-[#222222]';
-                            }
+                            const btnBg = getButtonColor(linkText);
 
                             return (
                               <a
@@ -210,7 +231,7 @@ export default function BibleResourcesPage() {
                                 href={getResourceUrl(link.url)}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
+                                className={`text-center transition-all duration-200 select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
                               >
                                 {linkText}
                               </a>
@@ -228,7 +249,7 @@ export default function BibleResourcesPage() {
                       href={getResourceUrl((downloadAllLink as any).url)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-[#8b1e15] hover:bg-red-800 text-white font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all duration-200 text-center w-[90%] sm:w-[400px] md:w-[500px]"
+                      className="bg-[#8b1e15] hover:bg-red-800 text-white font-medium text-[13px] tracking-wide uppercase tracking-wider py-3.5 rounded-xl shadow-md hover:scale-105 active:scale-95 transition-all duration-200 text-center w-[90%] sm:w-[400px] md:w-[500px]"
                     >
                       {(downloadAllLink as any).text.replace(/\u200b/g, '').trim()}
                     </a>
@@ -267,7 +288,7 @@ export default function BibleResourcesPage() {
                     className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                   >
                     {/* Left Column: Title */}
-                    <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+                    <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
                       {item.title}
                     </div>
 
@@ -280,13 +301,7 @@ export default function BibleResourcesPage() {
                         {item.links.map((link, li) => {
                           const linkText = link.text.replace(/\u200b/g, '').trim();
                           
-                          // Select color based on button type
-                          let btnBg = 'bg-gray-500 hover:bg-gray-600';
-                          if (linkText.toUpperCase() === 'JPEG') {
-                            btnBg = 'bg-[#1F6F5A] hover:bg-[#185948]';
-                          } else if (linkText.toUpperCase() === 'PDF') {
-                            btnBg = 'bg-[#173C4E] hover:bg-[#12303e]';
-                          }
+                          const btnBg = getButtonColor(linkText);
 
                           return (
                             <a
@@ -294,7 +309,7 @@ export default function BibleResourcesPage() {
                               href={getResourceUrl(link.url)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
+                              className={`text-center transition-all duration-200 select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
                             >
                               {linkText}
                             </a>
@@ -321,7 +336,7 @@ export default function BibleResourcesPage() {
           <div className="space-y-3.5 max-w-5xl mx-auto">
             {/* John Row */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
-              <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+              <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
                 Gospel of John Infographic
               </div>
               <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
@@ -331,7 +346,7 @@ export default function BibleResourcesPage() {
                     href="/wp-content/uploads/2026/03/infographics_john.jpg"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#1F6F5A] hover:bg-[#185948]"
+                    className={`text-center select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white hover:scale-105 active:scale-95 ${getButtonColor('JPEG')}`}
                   >
                     JPEG
                   </a>
@@ -339,7 +354,7 @@ export default function BibleResourcesPage() {
                     href="/wp-content/uploads/2026/03/infographics_john.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#173C4E] hover:bg-[#12303e]"
+                    className={`text-center select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white hover:scale-105 active:scale-95 ${getButtonColor('PDF')}`}
                   >
                     PDF
                   </a>
@@ -349,7 +364,7 @@ export default function BibleResourcesPage() {
 
             {/* Matthew Row */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
-              <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+              <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
                 Gospel of Matthew Infographic
               </div>
               <div className="flex items-center gap-3 w-full md:w-auto justify-between md:justify-end flex-wrap md:flex-nowrap">
@@ -359,7 +374,7 @@ export default function BibleResourcesPage() {
                     href="/wp-content/uploads/2026/03/infographics_mathew.jpg"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#1F6F5A] hover:bg-[#185948]"
+                    className={`text-center select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white hover:scale-105 active:scale-95 ${getButtonColor('JPEG')}`}
                   >
                     JPEG
                   </a>
@@ -367,7 +382,7 @@ export default function BibleResourcesPage() {
                     href="/wp-content/uploads/2026/03/infographics_mathew.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 bg-[#173C4E] hover:bg-[#12303e]"
+                    className={`text-center select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white hover:scale-105 active:scale-95 ${getButtonColor('PDF')}`}
                   >
                     PDF
                   </a>
@@ -405,7 +420,7 @@ export default function BibleResourcesPage() {
                     className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                   >
                     {/* Left Column: Title */}
-                    <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+                    <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
                       {item.title}
                     </div>
 
@@ -418,13 +433,7 @@ export default function BibleResourcesPage() {
                         {item.links.map((link, li) => {
                           const linkText = link.text.replace(/\u200b/g, '').trim();
                           
-                          // Select color based on button type
-                          let btnBg = 'bg-gray-500 hover:bg-gray-600';
-                          if (linkText.toUpperCase() === 'JPEG') {
-                            btnBg = 'bg-[#1F6F5A] hover:bg-[#185948]';
-                          } else if (linkText.toUpperCase() === 'PDF') {
-                            btnBg = 'bg-[#173C4E] hover:bg-[#12303e]';
-                          }
+                          const btnBg = getButtonColor(linkText);
 
                           return (
                             <a
@@ -432,7 +441,7 @@ export default function BibleResourcesPage() {
                               href={getResourceUrl(link.url)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
+                              className={`text-center transition-all duration-200 select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
                             >
                               {linkText}
                             </a>
@@ -454,34 +463,44 @@ export default function BibleResourcesPage() {
 
   // Render Bible Downloads
   const renderBibleDownloads = () => {
-    const dummySoftwareLinks = [
-      { text: "JPEG", url: "#" },
-      { text: "PDF", url: "#" }
+    // Group resource downloads by category
+    const softwareItems = resourceDownloads
+      .filter(item => item.category === 'Software')
+      .map(item => ({
+        title: item.title,
+        links: [{ text: "Download", url: item.file }]
+      }));
+
+    const pptItems = resourceDownloads
+      .filter(item => item.category === 'PPT')
+      .map(item => ({
+        title: item.title,
+        links: [{ text: "PPT", url: item.file }]
+      }));
+
+    // Fallback placeholders if DB is empty
+    const dummySoftwareItems = [
+      { title: "1", links: [{ text: "Download", url: "#" }] },
+      { title: "2", links: [{ text: "Download", url: "#" }] },
+      { title: "3", links: [{ text: "Download", url: "#" }] },
+      { title: "4", links: [{ text: "Download", url: "#" }] }
     ];
 
-    const dummyPptLinks = [
-      { text: "JPEG", url: "#" },
-      { text: "PPT", url: "#" }
+    const dummyPptItems = [
+      { title: "1", links: [{ text: "PPT", url: "#" }] },
+      { title: "2", links: [{ text: "PPT", url: "#" }] },
+      { title: "3", links: [{ text: "PPT", url: "#" }] },
+      { title: "4", links: [{ text: "PPT", url: "#" }] }
     ];
 
     const downloadsData = [
       {
         title: "Softwares",
-        items: [
-          { title: "1", links: dummySoftwareLinks },
-          { title: "2", links: dummySoftwareLinks },
-          { title: "3", links: dummySoftwareLinks },
-          { title: "4", links: dummySoftwareLinks }
-        ]
+        items: softwareItems.length > 0 ? softwareItems : dummySoftwareItems
       },
       {
         title: "PPTs",
-        items: [
-          { title: "1", links: dummyPptLinks },
-          { title: "2", links: dummyPptLinks },
-          { title: "3", links: dummyPptLinks },
-          { title: "4", links: dummyPptLinks }
-        ]
+        items: pptItems.length > 0 ? pptItems : dummyPptItems
       }
     ];
 
@@ -508,7 +527,7 @@ export default function BibleResourcesPage() {
                     className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md"
                   >
                     {/* Left Column: Title */}
-                    <div className="font-bold text-[#173C4E] text-base md:text-[17px] tracking-tight">
+                    <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
                       {item.title}
                     </div>
 
@@ -519,14 +538,7 @@ export default function BibleResourcesPage() {
                         {item.links.map((link, li) => {
                           const linkText = link.text.replace(/\u200b/g, '').trim();
                           
-                          let btnBg = 'bg-gray-500 hover:bg-gray-600';
-                          if (linkText.toUpperCase() === 'JPEG') {
-                            btnBg = 'bg-[#1F6F5A] hover:bg-[#185948]';
-                          } else if (linkText.toUpperCase() === 'PDF') {
-                            btnBg = 'bg-[#173C4E] hover:bg-[#12303e]';
-                          } else if (linkText.toUpperCase() === 'PPT' || linkText.toUpperCase() === 'POWERPOINT') {
-                            btnBg = 'bg-[#d24726] hover:bg-[#b03a1e]';
-                          }
+                          const btnBg = getButtonColor(linkText);
 
                           return (
                             <a
@@ -534,7 +546,7 @@ export default function BibleResourcesPage() {
                               href={getResourceUrl(link.url)}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className={`text-center transition-all duration-200 select-none text-[11px] font-bold py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
+                              className={`text-center transition-all duration-200 select-none text-[12.5px] font-medium tracking-wide py-2 px-4 rounded uppercase text-white shadow-sm hover:scale-105 active:scale-95 ${btnBg}`}
                             >
                               {linkText}
                             </a>
@@ -582,7 +594,7 @@ export default function BibleResourcesPage() {
                     href={getResourceUrl(item.link)} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-[#16303b] transition-all hover:scale-105 active:scale-95 shadow-sm"
+                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide hover:bg-[#16303b] transition-all hover:scale-105 active:scale-95 shadow-sm"
                   >
                     Download Document
                   </a>
@@ -590,7 +602,7 @@ export default function BibleResourcesPage() {
               ) : (
                 <div className="pt-3 pb-4 px-4 text-center mt-auto">
                   <span 
-                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-xs font-bold select-none cursor-not-allowed shadow-sm"
+                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide select-none cursor-not-allowed shadow-sm"
                   >
                     Coming Soon
                   </span>
@@ -620,7 +632,7 @@ export default function BibleResourcesPage() {
             {description}
           </p>
         </div>
-        <div className="inline-block bg-[#173C4E] text-white text-xs font-bold px-6 py-2.5 rounded-full opacity-60">
+        <div className="inline-block bg-[#173C4E] text-white text-[13px] font-medium tracking-wide px-6 py-2.5 rounded-full opacity-60">
           Coming Soon
         </div>
       </div>

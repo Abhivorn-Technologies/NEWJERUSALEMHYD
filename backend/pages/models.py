@@ -136,3 +136,42 @@ class Activity(models.Model):
     def __str__(self):
         return self.title
 
+
+class ResourceDownload(models.Model):
+    """Functional downloads for Software and PPTs."""
+    CATEGORY_CHOICES = (
+        ('Software', 'Software'),
+        ('PPT', 'PPT'),
+    )
+    title = models.CharField(max_length=200)
+    category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='Software')
+    file = models.FileField(upload_to='downloads/')
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order']
+        verbose_name = 'Resource Download'
+        verbose_name_plural = 'Resource Downloads'
+
+    def __str__(self):
+        return f"{self.title} ({self.category})"
+
+
+class Magazine(models.Model):
+    """Digital Magazines for download."""
+    title = models.CharField(max_length=200)
+    month_year = models.CharField(max_length=100, help_text="e.g. May 2026")
+    language = models.CharField(max_length=100, default="Telugu")
+    cover_image = models.FileField(upload_to='magazines/covers/')
+    file = models.FileField(upload_to='magazines/files/')
+    order = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['order', '-created_at']
+        verbose_name = 'Magazine'
+        verbose_name_plural = 'Magazines'
+
+    def __str__(self):
+        return f"{self.title} - {self.month_year}"
+

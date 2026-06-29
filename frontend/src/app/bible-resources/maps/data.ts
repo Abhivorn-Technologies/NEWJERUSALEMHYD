@@ -998,16 +998,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/journeys-from-eden-to-egypt.key"
           }
         ]
       },
@@ -1019,16 +1015,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/journeys-from-egypt-to-canaan.key"
           }
         ]
       },
@@ -1040,16 +1032,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/journeys-of-the-kings-and-prophets.key"
           }
         ]
       },
@@ -1061,16 +1049,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/the-world-of-the-old-testament.key"
           }
         ]
       },
@@ -1082,16 +1066,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/world-of-the-new-testament.key"
           }
         ]
       },
@@ -1103,16 +1083,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-11-maps.key"
           }
         ]
       },
@@ -1124,16 +1100,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/the-journeys-of-jesus-47-maps.key"
           }
         ]
       },
@@ -1145,16 +1117,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/journeys-of-the-early-church.key"
           }
         ]
       },
@@ -1166,16 +1134,12 @@ export const bibleMapsData = [
             "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.pptx"
           },
           {
-            "text": "JPEG",
-            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.jpg"
+            "text": "Keynote",
+            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.key"
           },
           {
             "text": "PDF",
             "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.pdf"
-          },
-          {
-            "text": "Keynote",
-            "url": "/wp-content/uploads/2026/03/the-journeys-of-paul.key"
           }
         ]
       }

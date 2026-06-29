@@ -153,6 +153,39 @@ export default function PrayerRequestPage() {
                     </div>
                   </div>
                 </div>
+
+                {/* Social Media Links (based on user reference) */}
+                <div className="pt-8 mt-6 border-t border-gray-100">
+                  <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-4">
+                    Connect With Us
+                  </p>
+                  <div className="space-y-3">
+                    <a href="#" className="flex items-center gap-4 w-full px-5 py-3.5 bg-[#f0f6f9] hover:bg-[#e2eef2] text-[#1f4251] rounded-full transition-colors font-medium text-[15px]">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" /></svg>
+                      Facebook
+                    </a>
+                    
+                    <a href="#" className="flex items-center gap-4 w-full px-5 py-3.5 bg-[#f0f6f9] hover:bg-[#e2eef2] text-[#1f4251] rounded-full transition-colors font-medium text-[15px]">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                      Instagram
+                    </a>
+
+                    <a href="#" className="flex items-center gap-4 w-full px-5 py-3.5 bg-[#f0f6f9] hover:bg-[#e2eef2] text-[#1f4251] rounded-full transition-colors font-medium text-[15px]">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M21.582 6.186a2.68 2.68 0 0 0-1.884-1.888C17.98 3.8 12 3.8 12 3.8s-5.98 0-7.698.498A2.68 2.68 0 0 0 2.418 6.186C1.92 7.91 1.92 12 1.92 12s0 4.09.498 5.814a2.68 2.68 0 0 0 1.884 1.888c1.718.498 7.698.498 7.698.498s5.98 0 7.698-.498a2.68 2.68 0 0 0 1.884-1.888C22.08 16.09 22.08 12 22.08 12s0-4.09-.498-5.814zM9.912 15.228V8.772L15.654 12l-5.742 3.228z"/></svg>
+                      YouTube
+                    </a>
+
+                    <a href="#" className="flex items-center gap-4 w-full px-5 py-3.5 bg-[#f0f6f9] hover:bg-[#e2eef2] text-[#1f4251] rounded-full transition-colors font-medium text-[15px]">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                      WhatsApp
+                    </a>
+
+                    <a href="#" className="flex items-center gap-4 w-full px-5 py-3.5 bg-[#f0f6f9] hover:bg-[#e2eef2] text-[#1f4251] rounded-full transition-colors font-medium text-[15px]">
+                      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                      Twitter / X
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
