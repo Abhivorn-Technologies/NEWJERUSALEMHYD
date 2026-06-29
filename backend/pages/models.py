@@ -136,3 +136,41 @@ class Activity(models.Model):
     def __str__(self):
         return self.title
 
+
+class ContentItem(models.Model):
+    """Unified model for various content sections like stories, infographics, maps, etc."""
+    SECTION_CHOICES = [
+        # Bible Resources
+        ('Infographics', 'Infographics'),
+        ('Maps', 'Maps'),
+        ('Resource Stories', 'Resource Stories'),
+        ('Downloads', 'Downloads'),
+        ('Genealogies', 'Genealogies'),
+        # Missionary Stories
+        ('Missionary Stories', 'Missionary Stories'),
+        # Bible Stories & Activities
+        ('Old Testament', 'Old Testament Stories'),
+        ('New Testament', 'New Testament Stories'),
+        ('Topical', 'Topical Lessons'),
+        ('Biographical', 'Biographical Stories'),
+        ('Pre School', 'Pre School Lessons'),
+        ('Coloring', 'Coloring Activities'),
+        ('Puzzles', 'Bible Puzzles'),
+        ('Quizzes', 'Bible Quizzes'),
+    ]
+
+    title = models.CharField(max_length=255)
+    section = models.CharField(max_length=50, choices=SECTION_CHOICES)
+    link = models.CharField(max_length=500, blank=True, help_text='URL or file path')
+    second_link = models.CharField(max_length=500, blank=True, help_text='Secondary URL or file path (optional)')
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Content Item'
+        verbose_name_plural = 'Content Items'
+
+    def __str__(self):
+        return f"{self.title} ({self.section})"
+
