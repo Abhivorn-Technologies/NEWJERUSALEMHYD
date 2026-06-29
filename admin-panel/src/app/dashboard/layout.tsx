@@ -83,6 +83,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
       ]
     },
     { href: '/dashboard/pages', label: 'Page Content' },
+    { href: '/dashboard/magazines', label: 'Digital Magazines' },
     { href: '/dashboard/prayer-requests', label: 'Prayer Requests' },
     { href: '/dashboard/magazine-subscriptions', label: 'Magazine Subscriptions' },
     { href: '/dashboard/contact', label: 'Contact Inbox' },

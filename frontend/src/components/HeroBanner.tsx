@@ -139,7 +139,7 @@ export default function HeroBanner() {
       <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[700px] lg:max-w-[900px] z-30 flex flex-row items-center justify-around md:justify-end gap-2.5 sm:gap-10 md:gap-8 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
         
         {/* Slanted Folded Ribbon: "పూర్తిగా ఉచితము" designed exactly like the reference image */}
-        <div className="relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform translate-x-[40px] sm:translate-x-[60px] md:translate-x-[80px] lg:translate-x-[100px] -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
+        <div className="hidden relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform translate-x-[40px] sm:translate-x-[60px] md:translate-x-[80px] lg:translate-x-[100px] -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
           <svg viewBox="0 0 400 180" className="w-full h-full overflow-visible">
             <defs>
               {/* Top Banner Gradient */}
@@ -221,7 +221,7 @@ export default function HeroBanner() {
           </svg>
         </div>
 
-        <div className="w-auto transform self-start mt-0 md:mt-[-10px] ml-auto translate-x-[40px] sm:translate-x-[60px] md:translate-x-[100px] lg:translate-x-[130px]" style={{ fontFamily: 'var(--font-mandali)' }}>
+        <div className="w-auto transform self-start mt-4 md:mt-[40px] lg:mt-[50px] ml-auto translate-x-[40px] sm:translate-x-[60px] md:translate-x-[100px] lg:translate-x-[130px]" style={{ fontFamily: 'var(--font-mandali)' }}>
           {/* Two columns layout for the bullet points */}
           <div className="flex gap-1 sm:gap-2 md:gap-3 text-[#102E44]">
             {/* First Column */}
@@ -231,7 +231,7 @@ export default function HeroBanner() {
                 "మిషనరీ కథలు",
                 "కంఠతావాక్యములు"
               ].map((text, idx) => (
-                <div key={idx} className="text-left font-semibold text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
+                <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
                   {text}
                 </div>
               ))}
@@ -243,11 +243,11 @@ export default function HeroBanner() {
                 "పదవినోదాలు",
                 "క్రాఫ్ట్ వర్క్ గేమ్స్"
               ].map((text, idx) => (
-                <div key={idx} className="text-left font-semibold text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
+                <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
                   {text}
                 </div>
               ))}
-              <div className="text-left font-extrabold text-[10px] sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-nowrap mt-1">
+              <div className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-nowrap mt-1">
                 ఇంకా మరెన్నో ...
               </div>
             </div>
@@ -277,6 +277,39 @@ export default function HeroBanner() {
             className="w-[58%] h-auto object-contain absolute top-[-5%] left-[1%] md:-left-[3%] z-10"
             style={{ filter: 'drop-shadow(0 2px 8px rgba(16,46,68,0.15))' }}
           />
+          
+          {/* Custom Ribbon Shape Button */}
+          <div className="absolute top-[40%] sm:top-[45%] md:top-[45%] lg:top-[48%] left-[3%] md:left-[0%] lg:-left-[1%] z-30 group cursor-pointer inline-block">
+            {/* Ribbon 3D Shadow/Fold behind */}
+            <div 
+              className="absolute top-[4px] left-[4px] w-full h-full bg-[#003138] z-0 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1 shadow-lg"
+              style={{ transform: 'skewX(-15deg)' }}
+            ></div>
+            
+            {/* Main Ribbon Body */}
+            <button
+              className="relative z-10 flex items-center justify-center px-4 py-1.5 sm:px-5 sm:py-2 md:px-6 md:py-2 bg-gradient-to-r from-[#00A6CB] to-[#008CA8] border border-[#00B5DA] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:-translate-x-0.5 overflow-hidden"
+              style={{ transform: 'skewX(-15deg)' }}
+              onClick={(e) => {
+                e.preventDefault();
+                // Link will be added here later
+              }}
+            >
+              {/* Glossy reflection effect */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-white/20 to-transparent pointer-events-none"></div>
+
+              <span 
+                className="relative z-20 inline-flex items-center gap-1.5 text-[9px] sm:text-[10px] md:text-[11px] lg:text-[12px] font-[800] text-white uppercase tracking-wider drop-shadow-md"
+                style={{ fontFamily: 'var(--font-poppins)', transform: 'skewX(15deg)' }}
+              >
+                Click here to Subscribe
+                <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </button>
+          </div>
+
           {/* Boat Image - top right, larger size */}
           <img
             src="/wp-content/2026/03/boat.png"

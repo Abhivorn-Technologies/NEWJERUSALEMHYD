@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe to Magazine | New Jerusalem Ministries</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Mallanna&family=Ramabhadra&family=Suranna&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1782391350">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.php">
+                    <img src="images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+            <nav class="nav-menu">
+                                        <a href="index.php" class="">
+        Home            </a>
+                                                <div class="nav-dropdown">
+            <a href="#" class="dropdown-toggle active" aria-expanded="false">
+                Magazine                <span class="arrow">&#9662;</span>
+            </a>
+            <div class="dropdown-menu">
+                                        <a href="subscribe.php" class="">
+        Subscribe            </a>
+                                            <a href="about-us.php" class="">
+        About us            </a>
+                                </div>
+        </div>
+                                                <a href="bible-resources.php" class="">
+        Bible Resources            </a>
+                                                <div class="nav-dropdown">
+            <a href="#" class="dropdown-toggle " aria-expanded="false">
+                Sunday School                <span class="arrow">&#9662;</span>
+            </a>
+            <div class="dropdown-menu">
+                                        <a href="sunday-school-telugu-songs.php" class="">
+        Telugu Songs            </a>
+                                            <a href="sunday-school-english-songs.php" class="">
+        English Songs            </a>
+                                            <a href="sunday-school-hindi-songs.php" class="">
+        Hindi Songs            </a>
+                                                <div class="nav-dropdown nested-dropdown">
+            <a href="#" class="dropdown-toggle " aria-expanded="false">
+                Stories                <span class="arrow">&#9662;</span>
+            </a>
+            <div class="dropdown-menu nested-menu">
+                                        <a href="stories.php" class="">
+        Old Testaments            </a>
+                                            <a href="new-testaments.php" class="">
+        New Testaments            </a>
+                                            <a href="topical.php" class="">
+        Topical            </a>
+                                            <a href="biographical.php" class="">
+        Biographical            </a>
+                                            <a href="pre-school.php" class="">
+        Pre School            </a>
+                                </div>
+        </div>
+                                                    <div class="nav-dropdown nested-dropdown">
+            <a href="#" class="dropdown-toggle " aria-expanded="false">
+                Activities                <span class="arrow">&#9662;</span>
+            </a>
+            <div class="dropdown-menu nested-menu">
+                                        <a href="coloring.php" class="">
+        Coloring            </a>
+                                            <a href="quizzes.php" class="">
+        Quizzes            </a>
+                                            <a href="puzzles.php" class="">
+        Puzzles            </a>
+                                </div>
+        </div>
+                                    </div>
+        </div>
+                                                <a href="songs-lyrics.php" class="">
+        Songs Lyrics            </a>
+                                            <a href="contact.php" class="">
+        Contact us            </a>
+                                </nav>
+            <!-- <div class="search-box">
+                <input type="text" placeholder="Type & Hit Enter...">
+            </div> -->
+        </div>
+    </header>
+
+    <div class="main-wrapper">
+
+<style>
+:root {
+    --c-pri: #0170B9;
+    --c-head: #173C4E;
+    --c-txt: #4B4F58;
+}
+/* Optional specific overrides for the subscribe page if needed, but mainly relying on style.css */
+.subscribe-page {
+    margin-top: 40px;
+    margin-bottom: 80px;
+}
+.subscribe-layout {
+    width: min(100% - 40px, 1400px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.subscribe-intro {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+.subscribe-intro h2 {
+    font-size: 24px;
+    color: var(--c-pri);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+.subscribe-intro p, .subscribe-intro ul {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--c-txt);
+    margin-bottom: 16px;
+}
+.subscribe-intro ul {
+    padding-left: 20px;
+}
+.subscribe-intro ul li {
+    margin-bottom: 8px;
+    list-style-type: disc;
+}
+.subscribe-form-card {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+@media(max-width: 768px){
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.form-group.full {
+    grid-column: 1 / -1;
+}
+.subscribe-form-card label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--c-head);
+    font-size: 14px;
+}
+.subscribe-form-card input, .subscribe-form-card select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 15px;
+    background: #fdfdfd;
+    transition: all 0.2s ease;
+}
+.subscribe-form-card input:focus, .subscribe-form-card select:focus {
+    border-color: var(--c-pri);
+    box-shadow: 0 0 0 4px rgba(1,112,185,0.1);
+    outline: none;
+    background: #fff;
+}
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+.input-group select {
+    width: 110px;
+    flex-shrink: 0;
+}
+.subscribe-form-card button[type="submit"] {
+    background: var(--c-pri);
+    color: #fff;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    margin-top: 24px;
+}
+.subscribe-form-card button[type="submit"]:hover {
+    background: #005a96;
+}
+.form-alert {
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+.form-alert.success { background: #e6f7eb; color: #27ae60; border: 1px solid #c3ebd2; }
+.form-alert.error { background: #fdf3f2; color: #e74c3c; border: 1px solid #fadcd9; }
+.form-alert p { margin: 0 0 5px 0; }
+.form-alert p:last-child { margin: 0; }
+.section-title {
+    font-size: 18px;
+    color: var(--c-pri);
+    margin: 30px 0 16px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eef0f2;
+    font-weight: 700;
+}
+.child-details {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e1e4e8;
+    margin-bottom: 16px;
+}
+</style>
+
+<main class="subscribe-page">
+        <section class="contact-hero" style="--page-hero-bg: url('uploads/resources/resource_6a3d3735e04d30.59057062.png');">
+        <div>
+            <span>Magazine</span>
+            <h1>&quot;Chinnaarula Jaalaree&quot; Kids Magazine</h1>
+            <p>Subscribe to our magazine and receive it regularly.</p>
+        </div>
+    </section>
+
+    <div class="subscribe-layout">
+        <aside class="subscribe-intro">
+            <h2>SUBSCRIBE</h2>
+            <div style="display:flex; gap: 40px; align-items:center; flex-wrap:wrap;">
+                <div style="flex:1; min-width:300px;">
+                    <p>&quot;Chinnaarula Jaalaree&quot; is a kid&#039;s magazine, which comprises of daily bible reading portions along with memory verses. More than 3,000 copies are sent to kids all over the world each month. Through this magazine, many kids are offering prayers for their country, their community, and the wellbeing of the kids nearby. It contains,</p>
+                    <ul>
+                                                    <li>Bible Lessons</li>
+                                                    <li>Missionary Stories</li>
+                                                    <li>Bible reading Portions</li>
+                                                    <li>Memory Verses</li>
+                                                    <li>Prayer Points</li>
+                                                    <li>Global News</li>
+                                                    <li>Exciting Activities</li>
+                                                    <li>Puzzles And much more...</li>
+                                            </ul>
+                </div>
+                <div style="flex:1; min-width:300px; text-align:center;">
+                    <img src="uploads/resources/resource_6a3d3735e1fbb9.34693331.png" alt="Kids Magazine" style="max-width:100%; border-radius:10px;">
+                </div>
+            </div>
+            
+            <h2 style="margin-top:40px;">DO YOU KNOW?</h2>
+            <ul>
+                                    <li>&quot;చిన్నారుల జాలరీ&quot; అనేది పిల్లల కోసం రూపొందించిన ఒక ప్రత్యేక ప్రచురణ. మేము ఈ పుస్తకాన్ని ప్రత్యేకంగా 3 నుండి 14 సంవత్సరాల వయస్సు గల పిల్లలకు మాత్రమే పంపుతాము; కాబట్టి, దయచేసి ఈ ఫారమ్‌ను పూరించి సమర్పించండి.</li>
+                                    <li>ఈ దరఖాస్తు ఫారమ్‌ను పూర్తి చేసి సమర్పించిన వారికి మాత్రమే &quot;చిన్నారుల జాలరీ&quot; పంపబడుతుంది.</li>
+                                    <li>15 సంవత్సరాల కంటే ఎక్కువ వయస్సు ఉన్నవారు రూ. 100/- వార్షిక చందా రుసుము చెల్లించి &quot;చిన్నారుల జాలరీ&quot; పత్రికకు చందా కట్టాలని మేము ప్రోత్సహిస్తున్నాము.</li>
+                                    <li>ప్రస్తుతం, &quot;చిన్నారుల జాలరీ&quot; తెలుగు, కన్నడ మరియు తమిళంలో  మాత్రమే పంపిణీ చేయబడుతోంది.</li>
+                            </ul>
+            <ul>
+                                    <li>The &quot;Chinnaarula Jaalaree&quot; magazine is published exclusively for children each month in an effort to support their spiritual development.</li>
+                                    <li>Children between the ages of 3 and 18 can read this magazine. Please complete the form and submit it to us.</li>
+                                    <li>This magazine will only be sent to subscribers.</li>
+                            </ul>
+        </aside>
+
+        <div class="subscribe-form-card">
+                                    
+            <form method="post" id="subscribeForm">
+                
+                <!-- 1. Parent / Guardian Details -->
+                <h3 class="section-title" style="margin-top:0;">Parent / Guardian Information</h3>
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Relationship *</label>
+                        <select name="relationship" id="relationship" onchange="toggleSecondaryParent()">
+                            <option value="Parent" selected>Parent</option>
+                            <option value="Guardian" >Guardian</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label id="primary_name_label">Primary Parent / Guardian Name *</label>
+                        <div class="input-group">
+                            <select name="guardian_title">
+                                <option value="Mr." selected>Mr.</option>
+                                <option value="Mrs." >Mrs.</option>
+                                <option value="Rev." >Rev.</option>
+                                <option value="Dr." >Dr.</option>
+                            </select>
+                            <input type="text" name="guardian_name" required value="">
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="secondary_parent_group" style="display:none;">
+                        <label>Secondary Parent Name</label>
+                        <div class="input-group">
+                            <select name="secondary_guardian_title">
+                                <option value="Mrs." selected>Mrs.</option>
+                                <option value="Mr." >Mr.</option>
+                                <option value="Rev." >Rev.</option>
+                                <option value="Dr." >Dr.</option>
+                            </select>
+                            <input type="text" name="secondary_guardian_name" value="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email ID</label>
+                        <input type="email" name="email" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Country *</label>
+                        <select name="country" id="country" onchange="loadStates()">
+                            <option value="India">India</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 2. Address Details -->
+                <div id="address_section">
+                    <h3 class="section-title">Contact & Address Details</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Mobile Number *</label>
+                            <input type="tel" name="mobile_number" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp Number</label>
+                            <input type="tel" name="whatsapp_number" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Door / Building No. *</label>
+                            <input type="text" name="door_number" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Street Name *</label>
+                            <input type="text" name="street_name" value="">
+                        </div>
+                        <div class="form-group full">
+                            <label>Area / Locality *</label>
+                            <input type="text" name="area" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>Pincode / Zipcode *</label>
+                            <input type="text" name="pincode" id="pincode" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>City / Post *</label>
+                            <input type="text" name="city" id="city_fallback" value="">
+                        </div>
+                        <div class="form-group">
+                            <label>State *</label>
+                            <select name="state" id="state">
+                                <option value="">Select State</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>District *</label>
+                            <input type="text" name="district" id="district" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Children Details -->
+                <h3 class="section-title">Children Details</h3>
+                <div class="form-group" style="margin-bottom: 20px; max-width: 300px;">
+                    <label>Number of Children *</label>
+                    <select name="num_children" id="num_children" onchange="updateChildrenFields()">
+                        <option value="1" selected>1</option>
+                        <option value="2" >2</option>
+                        <option value="3" >3</option>
+                        <option value="4" >4</option>
+                    </select>
+                </div>
+                
+                <div id="children_container">
+                                            <div class="child-details" id="child_1" style="display:block;">
+                            <label style="font-weight:600; color:#0170B9;">Child 1</label>
+                            <div class="form-grid" style="margin-top:10px;">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <select name="child_honorific_1">
+                                            <option value="Master" selected>Master</option>
+                                            <option value="Miss" >Miss</option>
+                                        </select>
+                                        <input type="text" name="child_name_1" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" name="child_dob_1" value="">
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="child-details" id="child_2" style="display:none;">
+                            <label style="font-weight:600; color:#0170B9;">Child 2</label>
+                            <div class="form-grid" style="margin-top:10px;">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <select name="child_honorific_2">
+                                            <option value="Master" selected>Master</option>
+                                            <option value="Miss" >Miss</option>
+                                        </select>
+                                        <input type="text" name="child_name_2" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" name="child_dob_2" value="">
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="child-details" id="child_3" style="display:none;">
+                            <label style="font-weight:600; color:#0170B9;">Child 3</label>
+                            <div class="form-grid" style="margin-top:10px;">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <select name="child_honorific_3">
+                                            <option value="Master" selected>Master</option>
+                                            <option value="Miss" >Miss</option>
+                                        </select>
+                                        <input type="text" name="child_name_3" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" name="child_dob_3" value="">
+                                </div>
+                            </div>
+                        </div>
+                                            <div class="child-details" id="child_4" style="display:none;">
+                            <label style="font-weight:600; color:#0170B9;">Child 4</label>
+                            <div class="form-grid" style="margin-top:10px;">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <div class="input-group">
+                                        <select name="child_honorific_4">
+                                            <option value="Master" selected>Master</option>
+                                            <option value="Miss" >Miss</option>
+                                        </select>
+                                        <input type="text" name="child_name_4" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Date of Birth</label>
+                                    <input type="date" name="child_dob_4" value="">
+                                </div>
+                            </div>
+                        </div>
+                                    </div>
+
+                <!-- 4. Magazine Preferences -->
+                <h3 class="section-title">Magazine Preferences</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Magazine Language *</label>
+                        <select name="magazine_language" required>
+                            <option value="">Select Language</option>
+                            <option value="Tamil" >Tamil (Printed)</option>
+                            <option value="Telugu" >Telugu (e-Magazine)</option>
+                            <option value="English" >English (e-Magazine)</option>
+                            <option value="Hindi" >Hindi (e-Magazine)</option>
+                            <option value="Kannada" >Kannada (e-Magazine)</option>
+                            <option value="Malayalam" >Malayalam (e-Magazine)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Mode of Receiving Data *</label>
+                        <select name="receiving_mode" required>
+                            <option value="">Select Mode</option>
+                            <option value="Post" >Post (Printed Copy - Tamil Only)</option>
+                            <option value="WhatsApp" >WhatsApp</option>
+                            <option value="Email" >Email</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit">Submit Subscription</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script>
+function toggleSecondaryParent() {
+    var rel = document.getElementById('relationship').value;
+    var secGroup = document.getElementById('secondary_parent_group');
+    var primaryLabel = document.getElementById('primary_name_label');
+    if (rel === 'Parent') {
+        secGroup.style.display = 'block';
+        if (primaryLabel) primaryLabel.textContent = 'Primary Parent Name *';
+    } else {
+        secGroup.style.display = 'none';
+        if (primaryLabel) primaryLabel.textContent = 'Guardian Name *';
+        var secInput = secGroup.querySelector('input[name="secondary_guardian_name"]');
+        if (secInput) secInput.value = '';
+    }
+}
+
+function toggleCountryFields() {
+    // Address section is now always visible for all countries
+}
+
+function updateChildrenFields() {
+    var num = parseInt(document.getElementById('num_children').value) || 1;
+    for (var i = 1; i <= 4; i++) {
+        var el = document.getElementById('child_' + i);
+        if (i <= num) {
+            el.style.display = 'block';
+        } else {
+            el.style.display = 'none';
+        }
+    }
+}
+
+// Fetch all countries and states
+let countriesData = [];
+
+fetch('https://countriesnow.space/api/v0.1/countries/states')
+    .then(response => response.json())
+    .then(data => {
+        if (!data.error) {
+            countriesData = data.data;
+            let countrySelect = document.getElementById('country');
+            countrySelect.innerHTML = '<option value="">Select Country</option>';
+            
+            countriesData.forEach(c => {
+                let option = document.createElement('option');
+                option.value = c.name;
+                option.textContent = c.name;
+                if (c.name === 'India') option.selected = true;
+                countrySelect.appendChild(option);
+            });
+            
+            // Trigger loadStates for default 'India'
+            loadStates();
+        }
+    })
+    .catch(err => console.error('Error fetching countries:', err));
+
+function loadStates() {
+    let countrySelect = document.getElementById('country');
+    let stateSelect = document.getElementById('state');
+    let selectedCountry = countrySelect.value;
+    
+    stateSelect.innerHTML = '<option value="">Select State</option>';
+    
+    let countryData = countriesData.find(c => c.name === selectedCountry);
+    if (countryData && countryData.states) {
+        countryData.states.forEach(s => {
+            let option = document.createElement('option');
+            option.value = s.name;
+            option.textContent = s.name;
+            stateSelect.appendChild(option);
+        });
+    }
+}
+
+// Initialize views
+updateChildrenFields();
+toggleSecondaryParent();
+</script>
+
+        <footer class="site-footer">
+            <p class="footer-prayer-heading">మీ ప్రార్థన అవసరతకై స్పందించవలసిన చిరునామా :</p>
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="images/logo_oldd.png" class="footer-logo" alt="New Jerusalem Ministries">
+                </div>
+                <div class="footer-contact">
+                    <div class="footer-contact-row">
+                        <span class="footer-icon location" aria-hidden="true">
+                            <svg class="footer-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </span>
+                        <p># 14-22, Grace Nilayam, Kamala Nagar,<br>Near Anitha Residency, MEDIPALLY,<br>HYDERABAD, TELANGANA 500039.</p>
+                    </div>
+                    <div class="footer-contact-row">
+                        <span class="footer-icon phone" aria-hidden="true">
+                            <svg class="footer-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </span>
+                        <a href="tel:+919581234563">+91 958 1234563</a>
+                        <span>,&nbsp;</span>
+                        <a href="tel:+914035585579">+91-40-35585579</a>
+                    </div>
+                    <div class="footer-contact-row">
+                        <span class="footer-icon email" aria-hidden="true">
+                            <svg class="footer-icon-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </span>
+                        <a href="mailto:info@newjerusalemminiseries.com">info@newjerusalemminiseries.com</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="footer-legal">
+            <h3 class="footer-legal-title">ఈ వెబ్ సైట్ యొక్క సర్వ హక్కులు నూతన యెరూషలేము పరిచర్యలు నకు చెందినవి.</h3>
+            <p class="footer-legal-notice">
+                ముఖ్య గమనిక : నూతన యెరూషలేము పరిచర్యలు ఎప్పుడూ, ఎవరినీ ఆర్థిక సహాయం కోరదు; ఒకవేళ నూతన యెరూషలేము పరిచర్యలు పేరుతో ఎవరైనా ఆర్థిక సహాయం అడిగితే, వారి వివరాలు మాకు తప్పక తెలియజేయండి. ఈ హెచ్చరికను ఖాతరు చేయకుండా ఎవరైనా నూతన యెరూషలేము పరిచర్యలకు అనుకని ఆర్థిక సహాయం అందిస్తే అందుకు నూతన యెరూషలేము పరిచర్యలు ఎలాంటి బాధ్యత వహించదు.
+            </p>
+            <div class="footer-legal-bottom">
+                <span>&copy; 2026 New Jerusalem Ministries. All rights reserved.</span>
+                <span>Developed by Scioon Digital</span>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+(function () {
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.querySelector('.nav-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', function () {
+        var isOpen = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!menu.classList.contains('open')) return;
+        if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+            menu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+
+document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
+    toggle.addEventListener('click', function (event) {
+        var href = toggle.getAttribute('href') || '';
+        if (href && href !== '#') {
+            return;
+        }
+        event.preventDefault();
+        var dropdown = toggle.closest('.nav-dropdown');
+        if (!dropdown) {
+            return;
+        }
+        Array.prototype.forEach.call(dropdown.parentElement ? dropdown.parentElement.children : [], function (sibling) {
+            if (sibling !== dropdown && sibling.classList && sibling.classList.contains('nav-dropdown')) {
+                sibling.classList.remove('open');
+                var siblingToggle = sibling.querySelector(':scope > .dropdown-toggle');
+                if (siblingToggle) {
+                    siblingToggle.setAttribute('aria-expanded', 'false');
+                }
+            }
+        });
+        var isOpen = dropdown.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+});
+
+document.addEventListener('click', function (event) {
+    document.querySelectorAll('.nav-dropdown.open').forEach(function (dropdown) {
+        if (!dropdown.contains(event.target)) {
+            dropdown.classList.remove('open');
+            var toggle = dropdown.querySelector(':scope > .dropdown-toggle');
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        }
+    });
+});
+
+document.querySelectorAll('[data-song-directory]').forEach(function (directory) {
+    var search = directory.querySelector('[data-song-search]');
+    var count = directory.querySelector('[data-song-count]');
+    var empty = directory.querySelector('[data-song-empty]');
+    var rows = Array.prototype.slice.call(directory.querySelectorAll('[data-song-row]'));
+    var groups = Array.prototype.slice.call(directory.querySelectorAll('[data-letter-group]'));
+    var buttons = Array.prototype.slice.call(directory.querySelectorAll('[data-song-letter]'));
+    var categoryButtons = Array.prototype.slice.call(directory.querySelectorAll('[data-song-category-button]'));
+    var categorySelect = directory.querySelector('[data-song-category-select]');
+    var letterToggles = Array.prototype.slice.call(directory.querySelectorAll('[data-song-letter-toggle]'));
+    var selectedLetter = '';
+    var selectedCategory = '';
+
+    function updateAvailableLetters(filteredRows) {
+        var available = {};
+        filteredRows.forEach(function (row) {
+            available[row.getAttribute('data-song-letter')] = true;
+        });
+
+        buttons.forEach(function (button) {
+            var letter = button.getAttribute('data-song-letter');
+            button.classList.toggle('disabled', !available[letter]);
+            button.disabled = !available[letter];
+            button.classList.toggle('active', selectedLetter === letter);
+        });
+    }
+
+    function updateAvailableCategories(filteredRows) {
+        var available = {'': true};
+        filteredRows.forEach(function (row) {
+            var category = row.getAttribute('data-song-category') || '';
+            if (category) {
+                available[category] = true;
+            }
+        });
+
+        categoryButtons.forEach(function (button) {
+            var category = button.getAttribute('data-song-category') || '';
+            button.classList.toggle('disabled', !available[category]);
+            button.disabled = !available[category];
+            button.classList.toggle('active', selectedCategory === category);
+        });
+        if (categorySelect) {
+            Array.prototype.forEach.call(categorySelect.options, function (option) {
+                option.disabled = option.value !== '' && !available[option.value];
+            });
+        }
+    }
+
+    function renderSongs() {
+        var term = (search ? search.value : '').trim().toLowerCase();
+        var matchingSearchRows = rows.filter(function (row) {
+            return !term || row.getAttribute('data-song-title').indexOf(term) !== -1;
+        });
+
+        var matchingCategoryRows = matchingSearchRows.filter(function (row) {
+            return !selectedCategory || row.getAttribute('data-song-category') === selectedCategory;
+        });
+
+        updateAvailableCategories(matchingSearchRows);
+        updateAvailableLetters(matchingCategoryRows);
+
+        var visibleCount = 0;
+        rows.forEach(function (row) {
+            var titleMatch = matchingSearchRows.indexOf(row) !== -1;
+            var letterMatch = !selectedLetter || row.getAttribute('data-song-letter') === selectedLetter;
+            var categoryMatch = !selectedCategory || row.getAttribute('data-song-category') === selectedCategory;
+            var visible = titleMatch && letterMatch && categoryMatch;
+            row.style.display = visible ? '' : 'none';
+            if (visible) {
+                visibleCount++;
+            }
+        });
+
+        groups.forEach(function (group) {
+            var hasVisibleRows = Array.prototype.some.call(group.querySelectorAll('[data-song-row]'), function (row) {
+                return row.style.display !== 'none';
+            });
+            group.style.display = hasVisibleRows ? '' : 'none';
+        });
+
+        if (count) {
+            count.textContent = visibleCount + (visibleCount === 1 ? ' song' : ' songs');
+        }
+        if (empty) {
+            empty.style.display = visibleCount ? 'none' : 'block';
+        }
+    }
+
+    if (search) {
+        search.addEventListener('input', renderSongs);
+    }
+
+    letterToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function () {
+            var group = toggle.closest('[data-letter-group]');
+            if (!group) {
+                return;
+            }
+            var isCollapsed = group.classList.toggle('is-collapsed');
+            toggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+        });
+    });
+
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            if (button.disabled || button.classList.contains('disabled')) {
+                return;
+            }
+            var letter = button.getAttribute('data-song-letter');
+            selectedLetter = selectedLetter === letter ? '' : letter;
+            renderSongs();
+        });
+    });
+
+    categoryButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            if (button.disabled || button.classList.contains('disabled')) {
+                return;
+            }
+            selectedCategory = button.getAttribute('data-song-category') || '';
+            selectedLetter = '';
+            renderSongs();
+        });
+    });
+
+    if (categorySelect) {
+        categorySelect.addEventListener('change', function () {
+            selectedCategory = categorySelect.value || '';
+            selectedLetter = '';
+            renderSongs();
+        });
+    }
+
+    renderSongs();
+});
+
+document.querySelectorAll('[data-song-tools]').forEach(function (tools) {
+    try {
+        var decodedLocation = decodeURI(window.location.href);
+        if (decodedLocation !== window.location.href && window.history && window.history.replaceState) {
+            window.history.replaceState(null, document.title, decodedLocation);
+        }
+    } catch (error) {
+    }
+
+    var lyrics = document.querySelector('[data-song-lyrics]');
+    var baseSize = lyrics ? parseFloat(window.getComputedStyle(lyrics).fontSize) : 22;
+    var baseLineHeight = lyrics ? parseFloat(window.getComputedStyle(lyrics).lineHeight) / baseSize : 1;
+    var fontSelect = tools.querySelector('[data-font-family]');
+    var fontSlider = tools.querySelector('[data-font-slider]');
+    var lineSlider = tools.querySelector('[data-line-slider]');
+    var fontOutput = tools.querySelector('[data-font-size-output]');
+    var lineOutput = tools.querySelector('[data-line-height-output]');
+    var sliderModal = document.querySelector('[data-lyrics-slider-modal]');
+    var sliderStage = sliderModal ? sliderModal.querySelector('.lyrics-slider-stage') : null;
+    var slideEl = document.querySelector('[data-lyrics-slide]');
+    var slideCountEl = document.querySelector('[data-lyrics-slide-count]');
+    var sliderBackground = document.querySelector('[data-slider-background]');
+    var sliderColor = document.querySelector('[data-slider-color]');
+    var downloadSlidesButton = document.querySelector('[data-download-lyrics-slides]');
+    var downloadPptButton = document.querySelector('[data-download-ppt]');
+    var slides = [];
+    var activeSlide = 0;
+
+    if (fontSlider && lyrics) {
+        fontSlider.value = Math.round(baseSize);
+        if (fontOutput) {
+            fontOutput.value = fontSlider.value;
+            fontOutput.textContent = fontSlider.value;
+        }
+        fontSlider.addEventListener('input', function () {
+            lyrics.style.fontSize = fontSlider.value + 'px';
+            if (fontOutput) {
+                fontOutput.value = fontSlider.value;
+                fontOutput.textContent = fontSlider.value;
+            }
+        });
+    }
+
+    if (lineSlider && lyrics) {
+        lineSlider.value = Number.isFinite(baseLineHeight) ? baseLineHeight.toFixed(1) : '1';
+        if (lineOutput) {
+            lineOutput.value = lineSlider.value;
+            lineOutput.textContent = Number(lineSlider.value).toFixed(1);
+        }
+        lineSlider.addEventListener('input', function () {
+            lyrics.style.lineHeight = lineSlider.value;
+            if (lineOutput) {
+                lineOutput.value = lineSlider.value;
+                lineOutput.textContent = Number(lineSlider.value).toFixed(1);
+            }
+        });
+    }
+
+    if (fontSelect && lyrics) {
+        fontSelect.addEventListener('change', function () {
+            lyrics.style.fontFamily = fontSelect.value;
+        });
+    }
+
+    tools.querySelectorAll('[data-font-size]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            if (!lyrics) {
+                return;
+            }
+            var action = button.getAttribute('data-font-size');
+            if (action === 'reset') {
+                lyrics.style.fontSize = baseSize + 'px';
+                lyrics.style.lineHeight = '1';
+                lyrics.style.fontFamily = '';
+                if (fontSlider) {
+                    fontSlider.value = Math.round(baseSize);
+                }
+                if (lineSlider) {
+                    lineSlider.value = '1';
+                }
+                if (fontOutput) {
+                    fontOutput.value = Math.round(baseSize);
+                    fontOutput.textContent = Math.round(baseSize);
+                }
+                if (lineOutput) {
+                    lineOutput.value = '1.0';
+                    lineOutput.textContent = '1.0';
+                }
+                if (fontSelect) {
+                    fontSelect.selectedIndex = 0;
+                }
+            }
+        });
+    });
+
+    var downloadButton = tools.querySelector('[data-download-lyrics]');
+    if (downloadButton && lyrics) {
+        downloadButton.addEventListener('click', function () {
+            var title = downloadButton.getAttribute('data-download-lyrics') || 'song-lyrics';
+            var blob = new Blob([lyrics.innerText.trim()], { type: 'text/plain;charset=utf-8' });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = title.replace(/[\\/:*?"<>|]+/g, '-').trim() + '.txt';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(link.href);
+        });
+    }
+
+    var copyButton = tools.querySelector('[data-copy-song-link]');
+    if (copyButton) {
+        copyButton.addEventListener('click', function () {
+            var readableUrl = decodeURI(window.location.href);
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(readableUrl);
+            }
+            copyButton.textContent = 'Copied';
+            setTimeout(function () {
+                copyButton.textContent = 'Copy Link';
+            }, 1400);
+        });
+    }
+
+    function buildSlides() {
+        if (!lyrics) {
+            return [];
+        }
+        var text = lyrics.innerText.trim();
+        var chunks = text.split(/\n\s*\n+/).map(function (chunk) {
+            return chunk.trim();
+        }).filter(Boolean);
+        if (!chunks.length && text) {
+            chunks = text.split(/\n+/).map(function (chunk) {
+                return chunk.trim();
+            }).filter(Boolean);
+        }
+        return chunks.length ? chunks : ['Lyrics not available'];
+    }
+
+    function renderSlide() {
+        if (!slideEl || !slideCountEl || !slides.length) {
+            return;
+        }
+        slideEl.textContent = slides[activeSlide];
+        slideEl.style.fontFamily = lyrics ? window.getComputedStyle(lyrics).fontFamily : '';
+        slideCountEl.textContent = (activeSlide + 1) + ' / ' + slides.length;
+    }
+
+    function openSlider() {
+        if (!sliderModal) {
+            return;
+        }
+        slides = buildSlides();
+        activeSlide = 0;
+        if (sliderStage && sliderBackground) {
+            applySliderBackground();
+        }
+        renderSlide();
+        sliderModal.classList.add('open');
+        sliderModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeSlider() {
+        if (!sliderModal) {
+            return;
+        }
+        sliderModal.classList.remove('open');
+        sliderModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+    }
+
+    function moveSlide(direction) {
+        if (!slides.length) {
+            return;
+        }
+        activeSlide = (activeSlide + direction + slides.length) % slides.length;
+        renderSlide();
+    }
+
+    var openSliderButton = tools.querySelector('[data-open-lyrics-slider]');
+    if (openSliderButton) {
+        openSliderButton.addEventListener('click', openSlider);
+    }
+
+    function selectedPptBackground() {
+        if (sliderBackground && sliderBackground.value === 'custom' && sliderColor) {
+            return sliderColor.value;
+        }
+        return sliderBackground ? sliderBackground.value : 'light';
+    }
+
+    function updatePptHref() {
+        if (!downloadPptButton) {
+            return;
+        }
+        var url = new URL(downloadPptButton.href, window.location.href);
+        url.searchParams.set('bg', selectedPptBackground());
+        downloadPptButton.href = url.toString();
+    }
+
+    function applySliderBackground() {
+        if (!sliderStage || !sliderBackground) {
+            return;
+        }
+        sliderStage.classList.remove('theme-light', 'theme-maroon', 'theme-teal', 'theme-dark', 'theme-gold');
+        sliderStage.style.background = '';
+        if (sliderBackground.value === 'custom' && sliderColor) {
+            sliderStage.style.background = sliderColor.value;
+            if (slideEl) {
+                slideEl.style.color = '#fff';
+            }
+        } else {
+            sliderStage.classList.add('theme-' + sliderBackground.value);
+            if (slideEl) {
+                slideEl.style.color = '';
+            }
+        }
+        updatePptHref();
+    }
+
+    if (sliderBackground && sliderStage) {
+        sliderBackground.addEventListener('change', applySliderBackground);
+    }
+
+    if (sliderColor && sliderStage) {
+        sliderColor.addEventListener('input', function () {
+            if (sliderBackground) {
+                sliderBackground.value = 'custom';
+            }
+            applySliderBackground();
+        });
+    }
+
+    updatePptHref();
+
+    if (downloadSlidesButton) {
+        downloadSlidesButton.addEventListener('click', function () {
+            if (!slides.length) {
+                slides = buildSlides();
+            }
+            var text = slides.map(function (slide, index) {
+                return 'Slide ' + (index + 1) + '\n' + slide;
+            }).join('\n\n---\n\n');
+            var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+            var link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = (document.title || 'lyrics-slides').replace(/[\\/:*?"<>|]+/g, '-').trim() + '-slides.txt';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(link.href);
+        });
+    }
+
+    document.querySelectorAll('[data-close-lyrics-slider]').forEach(function (button) {
+        button.addEventListener('click', closeSlider);
+    });
+
+    document.querySelectorAll('[data-prev-lyrics-slide]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            moveSlide(-1);
+        });
+    });
+
+    document.querySelectorAll('[data-next-lyrics-slide]').forEach(function (button) {
+        button.addEventListener('click', function () {
+            moveSlide(1);
+        });
+    });
+
+    if (sliderModal) {
+        sliderModal.addEventListener('click', function (event) {
+            if (event.target === sliderModal) {
+                closeSlider();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function (event) {
+        if (!sliderModal || !sliderModal.classList.contains('open')) {
+            return;
+        }
+        if (event.key === 'Escape') {
+            closeSlider();
+        } else if (event.key === 'ArrowRight' || event.key === ' ') {
+            event.preventDefault();
+            moveSlide(1);
+        } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            moveSlide(-1);
+        }
+    });
+});
+
+document.querySelectorAll('[data-reader-list]').forEach(function (list) {
+    var search = document.querySelector('[data-reader-search]');
+    var items = Array.prototype.slice.call(list.querySelectorAll('[data-reader-list-item]'));
+    if (!search) {
+        return;
+    }
+
+    search.addEventListener('input', function () {
+        var term = search.value.trim().toLowerCase();
+        items.forEach(function (item) {
+            item.style.display = !term || item.getAttribute('data-reader-title').indexOf(term) !== -1 ? 'grid' : 'none';
+        });
+    });
+});
+
+document.querySelectorAll('[data-lyrics-tabs]').forEach(function (tabs) {
+    var buttons = tabs.querySelectorAll('[data-lyrics-tab]');
+    var panels = document.querySelectorAll('[data-lyrics-panel]');
+
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var target = button.getAttribute('data-lyrics-tab');
+            buttons.forEach(function (b) {
+                b.classList.toggle('active', b === button);
+            });
+            panels.forEach(function (panel) {
+                panel.classList.toggle('active', panel.getAttribute('data-lyrics-panel') === target);
+            });
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>

@@ -15,9 +15,6 @@
   --medium-teal: #7ACED4;
   --card-bg: #F3F3F3;
   
-  /* Override old Telugu fonts to point directly to Mandali */
-  --font-tenali: var(--font-mandali) !important;
-  --font-mallanna: var(--font-mandali) !important;
 }
 
 @theme inline {

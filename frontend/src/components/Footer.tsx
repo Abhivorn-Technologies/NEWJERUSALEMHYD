@@ -114,11 +114,11 @@ export default function Footer() {
 
         {/* Copyright Disclaimer Block */}
         <div 
-          className="text-center space-y-4 text-gray-300 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-7xl mx-auto pt-2"
+          className="text-center space-y-4 text-gray-300 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-[90%] md:max-w-[800px] lg:max-w-[980px] mx-auto pt-2"
         >
           <p 
             className="font-normal text-white tracking-wide text-[13px] sm:text-base md:text-lg lg:text-[20px]"
-            style={{ fontFamily: 'var(--font-ramabhadra)' }}
+            style={{ fontFamily: 'var(--font-mandali)' }}
           >
             ఈ వెబ్ సైట్ యొక్క సర్వ హక్కులు నూతన యెరూషలేము పరిచర్యలు నకు చెందినవి.
           </p>

@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from songs.models import Song, SongCategory
 from pages.models import (
     Page, SiteSettings, NavMenuItem, HeroItem,
-    Belief, BibleResource, StoryCategory, Activity, ContentItem
+    Belief, BibleResource, StoryCategory, Activity, ContentItem,
+    ResourceDownload, Magazine
 )
 from contact.models import ContactSubmission, PrayerRequest, MagazineSubscription
 from reviews.models import Review
@@ -99,6 +100,16 @@ class MagazineSubscriptionSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = Review
+        fields = '__all__'
+
+class ResourceDownloadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ResourceDownload
+        fields = '__all__'
+
+class MagazineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Magazine
         fields = '__all__'
 
 # ── Song ViewSets ─────────────────────────────────────────────────────────────
@@ -197,6 +208,14 @@ class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all().order_by('-created_at')
     serializer_class = ReviewSerializer
 
+class ResourceDownloadViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = ResourceDownload.objects.all()
+    serializer_class = ResourceDownloadSerializer
+
+class MagazineViewSet(viewsets.ModelViewSet):
+    queryset = Magazine.objects.all()
+    serializer_class = MagazineSerializer
+
 # ── Router ────────────────────────────────────────────────────────────────────
 
 router = routers.DefaultRouter()
@@ -215,3 +234,5 @@ router.register(r'contact-submissions', ContactSubmissionViewSet)
 router.register(r'prayer-requests', PrayerRequestViewSet)
 router.register(r'magazine-subscriptions', MagazineSubscriptionViewSet)
 router.register(r'reviews', ReviewViewSet)
+router.register(r'resource-downloads', ResourceDownloadViewSet)
+router.register(r'magazines', MagazineViewSet)
