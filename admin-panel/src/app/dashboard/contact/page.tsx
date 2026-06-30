@@ -9,7 +9,7 @@ export default function ContactInboxPage() {
     fetch('http://127.0.0.1:8000/api/contact-submissions/')
       .then(res => res.json())
       .then(data => {
-        setMessages(data);
+        setMessages(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };

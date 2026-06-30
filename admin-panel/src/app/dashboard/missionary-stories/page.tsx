@@ -29,7 +29,7 @@ export default function MissionaryStoriesPage() {
     fetch('http://127.0.0.1:8000/api/content-items/?page_category=Missionary+Stories')
       .then(res => res.json())
       .then(data => {
-        setItems(data);
+        setItems(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       })
       .catch(err => {

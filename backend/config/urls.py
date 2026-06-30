@@ -20,11 +20,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.authtoken.views import obtain_auth_token
 from .api import router
-from .views import DashboardSummaryView
+from .views import DashboardSummaryView, ChangePasswordView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/summary/', DashboardSummaryView.as_view(), name='dashboard_summary'),
+    path('api/change-password/', ChangePasswordView.as_view(), name='change_password'),
     path('api/', include(router.urls)),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
 ]

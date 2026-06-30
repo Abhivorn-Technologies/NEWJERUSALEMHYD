@@ -23,7 +23,7 @@ export default function HeroItemsManagement() {
     fetch(`${BASE_URL}/hero-items/`, { headers })
       .then(res => res.json())
       .then(data => {
-        setItems(data);
+        setItems(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };

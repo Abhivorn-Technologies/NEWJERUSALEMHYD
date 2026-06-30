@@ -27,7 +27,7 @@ export default function MagazinesAdminPage() {
       const res = await fetch("http://127.0.0.1:8000/api/magazines/");
       if (res.ok) {
         const data = await res.json();
-        setMagazines(data);
+        setMagazines(Array.isArray(data) ? data : (data?.results || []));
       }
     } catch (err) {
       console.error("Error fetching magazines:", err);

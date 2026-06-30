@@ -80,7 +80,7 @@ export default function BibleResourcesPage() {
     fetch('http://127.0.0.1:8000/api/content-items/')
       .then(res => res.json())
       .then(data => {
-        setItems(data);
+        setItems(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       })
       .catch(err => {

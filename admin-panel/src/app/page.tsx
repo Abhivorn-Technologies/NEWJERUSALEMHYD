@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "./login.module.css";
+import Image from "next/image";
+import { User, KeyRound, ChevronRight, AlertCircle, Loader2, ShieldCheck } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
@@ -28,55 +29,105 @@ export default function Home() {
         localStorage.setItem("admin_token", data.token);
         router.push("/dashboard");
       } else {
-        setError("Invalid credentials. Please try again.");
+        setError("Invalid credentials. Please check your username and password.");
       }
     } catch (err) {
-      setError("Network error. Is the backend running?");
+      setError("Network error. Could not connect to the authentication server.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.loginBox}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>Admin Access</h1>
-          <p className={styles.subtitle}>Sign in to access your dashboard</p>
-        </div>
-        
-        <form className={styles.formGroup} onSubmit={handleLogin}>
-          {error && <div style={{ color: '#ef4444', fontSize: '0.875rem', textAlign: 'center' }}>{error}</div>}
-          <div className={styles.formGroup}>
-            <label htmlFor="username" className={styles.label}>Email / Username</label>
-            <input 
-              type="text" 
-              id="username" 
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className={styles.input} 
-              placeholder="Enter your admin credentials" 
-              required 
-            />
-          </div>
+    <div className="min-h-screen w-full flex items-center justify-center bg-[#f1f4f6] relative overflow-hidden">
+      {/* Decorative Background Shapes */}
+      <div className="absolute top-0 left-0 w-full h-[40vh] bg-gradient-to-b from-[#FADADD]/40 to-transparent pointer-events-none"></div>
+      
+      <div className="w-full max-w-md px-4 relative z-10">
+        <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
           
-          <div className={styles.formGroup} style={{ marginTop: '0.5rem' }}>
-            <label htmlFor="password" className={styles.label}>Password</label>
-            <input 
-              type="password" 
-              id="password" 
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={styles.input} 
-              placeholder="••••••••" 
-              required 
-            />
+          <div className="pt-8 pb-4 px-8 flex flex-col items-center border-b border-gray-50 bg-gray-50/50">
+            {/* Logo */}
+            <div className="w-40 h-16 relative mb-4">
+              <Image 
+                src="/images/logo.png" 
+                alt="New Jerusalem Ministries Logo" 
+                fill 
+                className="object-contain"
+                priority
+              />
+            </div>
+            <h1 className="text-xl font-bold text-[#4D1C2C]">Admin Portal</h1>
+            <p className="text-gray-500 text-xs mt-1 font-medium">Secure Access Dashboard</p>
           </div>
 
-          <button type="submit" disabled={loading} className={styles.submitBtn} style={{ marginTop: '1.5rem', opacity: loading ? 0.7 : 1 }}>
-            {loading ? "Authenticating..." : "Secure Sign In"}
-          </button>
-        </form>
+          <form onSubmit={handleLogin} className="p-8 space-y-4">
+            {error && (
+              <div className="bg-red-50 border border-red-100 rounded-lg p-3 flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                <p className="text-sm text-red-700">{error}</p>
+              </div>
+            )}
+
+            <div>
+              <label className="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1.5 ml-1">Username</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <User className="h-4 w-4 text-gray-400 group-focus-within:text-[#D04A73] transition-colors" />
+                </div>
+                <input
+                  type="text"
+                  required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="block w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D04A73]/20 focus:border-[#D04A73] transition-all text-sm font-medium"
+                  placeholder="Enter your username"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-gray-600 uppercase tracking-wide mb-1.5 ml-1">Password</label>
+              <div className="relative group">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+                  <KeyRound className="h-4 w-4 text-gray-400 group-focus-within:text-[#D04A73] transition-colors" />
+                </div>
+                <input
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="block w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#D04A73]/20 focus:border-[#D04A73] transition-all text-sm font-medium"
+                  placeholder="••••••••"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full mt-6 group relative flex items-center justify-center gap-2 px-4 py-3 bg-[#D04A73] hover:bg-[#b03a5d] text-white rounded-lg transition-colors font-semibold shadow-md shadow-[#D04A73]/20 disabled:opacity-70 disabled:cursor-not-allowed text-sm"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  <span>Authenticating...</span>
+                </>
+              ) : (
+                <>
+                  <span>Sign In to Dashboard</span>
+                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </>
+              )}
+            </button>
+          </form>
+          
+          <div className="bg-gray-50 py-3 text-center border-t border-gray-100">
+            <p className="text-[10px] text-gray-400 flex items-center justify-center gap-1.5 font-medium uppercase tracking-wider">
+              <ShieldCheck className="w-3.5 h-3.5 text-green-500" /> Secure Connection
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

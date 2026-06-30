@@ -106,7 +106,6 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
         { href: '/dashboard/content?section=Quizzes', label: 'Quizzes' },
       ]
     },
-    { href: '/dashboard/pages', label: 'Page Content', icon: FileText },
     { href: '/dashboard/magazines', label: 'Digital Magazines', icon: BookType },
     { href: '/dashboard/prayer-requests', label: 'Prayer Requests', icon: MessageSquare },
     { href: '/dashboard/magazine-subscriptions', label: 'Magazine Subscriptions', icon: Mail },
@@ -120,6 +119,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
         { href: '/dashboard/hero-items', label: 'Hero Banner' },
         { href: '/dashboard/beliefs', label: 'What We Believe' },
         { href: '/dashboard/settings', label: 'Site Settings' },
+        { href: '/dashboard/change-password', label: 'Change Password' },
       ]
     },
   ];

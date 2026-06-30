@@ -27,7 +27,7 @@ export default function PagesManagement() {
     fetch('http://127.0.0.1:8000/api/pages/', { headers })
       .then(res => res.json())
       .then(data => {
-        setPages(data);
+        setPages(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };

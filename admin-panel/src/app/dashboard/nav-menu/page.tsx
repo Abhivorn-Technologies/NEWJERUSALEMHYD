@@ -25,7 +25,7 @@ export default function NavMenuManagement() {
     fetch(`${BASE_URL}/nav-menu/`, { headers })
       .then(res => res.json())
       .then(data => {
-        setItems(data);
+        setItems(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };

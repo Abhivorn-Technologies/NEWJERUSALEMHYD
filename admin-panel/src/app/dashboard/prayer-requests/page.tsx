@@ -10,7 +10,7 @@ export default function PrayerRequestsPage() {
     fetch('http://127.0.0.1:8000/api/prayer-requests/')
       .then(res => res.json())
       .then(data => {
-        setRequests(data);
+        setRequests(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       })
       .catch(err => {

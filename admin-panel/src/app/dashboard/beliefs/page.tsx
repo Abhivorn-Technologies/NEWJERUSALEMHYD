@@ -28,7 +28,7 @@ export default function BeliefsManagement() {
     fetch(`${BASE_URL}/beliefs/`, { headers })
       .then(res => res.json())
       .then(data => {
-        setBeliefs(data);
+        setBeliefs(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };
