@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -27,7 +27,21 @@ export default function Navbar() {
     fetch(`${BASE_URL}/nav-menu/`)
       .then(r => r.json())
       .then((data: NavItem[]) => {
-        setNavItems(data);
+        // Remove children from "About Us" so it acts as a direct link without a dropdown
+        const processedData = data.map(item => {
+          if (item.label.toLowerCase() === 'about us') {
+            return { 
+              ...item, 
+              label: 'Magazine',
+              url: '/magazine',
+              children: [
+                { id: 9999, label: 'About Us', url: '/about' }
+              ] 
+            };
+          }
+          return item;
+        });
+        setNavItems(processedData);
       })
       .catch(() => {});
   }, []);

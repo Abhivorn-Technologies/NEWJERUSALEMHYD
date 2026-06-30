@@ -116,10 +116,8 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
       href: '/dashboard/settings',
       icon: Settings,
       children: [
-        { href: '/dashboard/nav-menu', label: 'Navigation Menu' },
-        { href: '/dashboard/hero-items', label: 'Hero Banner' },
-        { href: '/dashboard/beliefs', label: 'What We Believe' },
         { href: '/dashboard/settings', label: 'Site Settings' },
+        { href: '/dashboard/change-password', label: 'Change Password' },
       ]
     },
   ];
