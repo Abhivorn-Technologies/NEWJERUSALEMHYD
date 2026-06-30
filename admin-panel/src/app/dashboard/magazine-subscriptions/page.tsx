@@ -24,9 +24,13 @@ export default function MagazineSubscriptionsPage() {
   }, []);
 
   const toggleStatus = (item: any) => {
+    const token = localStorage.getItem('admin_token');
     fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${item.id}/`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
+      },
       body: JSON.stringify({ ...item, is_active: !item.is_active })
     }).then(res => {
       if (res.ok) fetchSubscriptions();
@@ -35,7 +39,11 @@ export default function MagazineSubscriptionsPage() {
 
   const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete this subscription?')) {
-      fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${id}/`, { method: 'DELETE' })
+      const token = localStorage.getItem('admin_token');
+      fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${id}/`, { 
+        method: 'DELETE',
+        headers: { 'Authorization': `Token ${token}` }
+      })
         .then(res => {
           if (res.ok) fetchSubscriptions();
         });

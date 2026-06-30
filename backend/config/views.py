@@ -40,9 +40,9 @@ class DashboardSummaryView(APIView):
         # We need to join SongCategory with Songs.
         # A category might have active and inactive songs.
         category_breakdown = list(SongCategory.objects.values('name').annotate(
-            total=Count('songs'),
-            active=Count('songs', filter=Q(songs__is_published=True)),
-            inactive=Count('songs', filter=Q(songs__is_published=False))
+            total=Count('song'),
+            active=Count('song', filter=Q(song__is_published=True)),
+            inactive=Count('song', filter=Q(song__is_published=False))
         ))
         
         # Letter Wise Breakdown

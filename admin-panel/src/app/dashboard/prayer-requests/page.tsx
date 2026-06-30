@@ -24,9 +24,13 @@ export default function PrayerRequestsPage() {
   }, []);
 
   const toggleReadStatus = (item: any) => {
+    const token = localStorage.getItem('admin_token');
     fetch(`http://127.0.0.1:8000/api/prayer-requests/${item.id}/`, {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
+      },
       body: JSON.stringify({ ...item, is_read: !item.is_read })
     }).then(res => {
       if (res.ok) fetchRequests();
@@ -35,7 +39,11 @@ export default function PrayerRequestsPage() {
 
   const handleDelete = (id: number) => {
     if (confirm('Are you sure you want to delete this prayer request?')) {
-      fetch(`http://127.0.0.1:8000/api/prayer-requests/${id}/`, { method: 'DELETE' })
+      const token = localStorage.getItem('admin_token');
+      fetch(`http://127.0.0.1:8000/api/prayer-requests/${id}/`, { 
+        method: 'DELETE',
+        headers: { 'Authorization': `Token ${token}` }
+      })
         .then(res => {
           if (res.ok) fetchRequests();
         });

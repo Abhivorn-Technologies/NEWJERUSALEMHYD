@@ -1,8 +1,14 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useState, Suspense } from 'react';
+import { 
+  LayoutDashboard, Music, BookOpen, Globe, Layers, 
+  FileText, BookType, MessageSquare, Mail, Star, Settings,
+  ChevronDown, ChevronRight
+} from 'lucide-react';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,7 +23,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isAuth, setIsAuth] = useState(false);
-  const [expandedMenus, setExpandedMenus] = useState<string[]>(['Songs', 'Bible Resources', 'Bible Stories & Activities']);
+  const [expandedMenus, setExpandedMenus] = useState<string[]>([]);
 
   useEffect(() => {
     const token = localStorage.getItem('admin_token');
@@ -28,6 +34,17 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
     }
   }, [router]);
 
+  useEffect(() => {
+    // Automatically expand the menu that matches the current pathname
+    if (pathname.includes('/dashboard/songs')) {
+      setExpandedMenus(prev => prev.includes('Songs') ? prev : [...prev, 'Songs']);
+    } else if (pathname.includes('/dashboard/resources')) {
+      setExpandedMenus(prev => prev.includes('Bible Resources') ? prev : [...prev, 'Bible Resources']);
+    } else if (pathname.includes('/dashboard/content')) {
+      setExpandedMenus(prev => prev.includes('Bible Stories & Activities') ? prev : [...prev, 'Bible Stories & Activities']);
+    }
+  }, [pathname]);
+
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
     router.push('/');
@@ -35,7 +52,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
 
   const toggleMenu = (label: string) => {
     setExpandedMenus(prev => 
-      prev.includes(label) ? prev.filter(m => m !== label) : [...prev, label]
+      prev.includes(label) ? [] : [label]
     );
   };
 
@@ -50,27 +67,34 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
   }
 
   const navStructure = [
-    { href: '/dashboard', label: 'Dashboard' },
+    { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     {
       label: 'Songs',
+      href: '/dashboard/songs',
+      icon: Music,
       children: [
         { href: '/dashboard/songs', label: 'All Songs' },
+        { href: '/dashboard/songs/add', label: 'Add Song' },
         { href: '/dashboard/songs/categories', label: 'Categories' },
       ]
     },
     {
       label: 'Bible Resources',
+      href: '/dashboard/resources',
+      icon: BookOpen,
       children: [
-        { href: '/dashboard/content?section=Infographics', label: 'Infographics' },
-        { href: '/dashboard/content?section=Maps', label: 'Maps' },
-        { href: '/dashboard/content?section=Resource Stories', label: 'Resource Stories' },
-        { href: '/dashboard/content?section=Downloads', label: 'Downloads' },
-        { href: '/dashboard/content?section=Genealogies', label: 'Genealogies' },
+        { href: '/dashboard/resources', label: 'All Resources' },
+        { href: '/dashboard/resources?category=Bible Infographics', label: 'Infographics' },
+        { href: '/dashboard/resources?category=Bible Maps', label: 'Maps' },
+        { href: '/dashboard/resources?category=Bible Downloads', label: 'Downloads' },
+        { href: '/dashboard/resources?category=Bible Genealogies', label: 'Genealogies' },
       ]
     },
-    { href: '/dashboard/content?section=Missionary Stories', label: 'Missionary Stories' },
+    { href: '/dashboard/missionary-stories', label: 'Missionary Stories', icon: Globe },
     {
       label: 'Bible Stories & Activities',
+      href: '/dashboard/content',
+      icon: Layers,
       children: [
         { href: '/dashboard/content?section=Old Testament', label: 'Old Testament' },
         { href: '/dashboard/content?section=New Testament', label: 'New Testament' },
@@ -82,45 +106,66 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
         { href: '/dashboard/content?section=Quizzes', label: 'Quizzes' },
       ]
     },
-    { href: '/dashboard/pages', label: 'Page Content' },
-    { href: '/dashboard/magazines', label: 'Digital Magazines' },
-    { href: '/dashboard/prayer-requests', label: 'Prayer Requests' },
-    { href: '/dashboard/magazine-subscriptions', label: 'Magazine Subscriptions' },
-    { href: '/dashboard/contact', label: 'Contact Inbox' },
-    { href: '/dashboard/reviews', label: 'Reviews' },
-    { href: '/dashboard/settings', label: 'Site Settings' },
+    { href: '/dashboard/pages', label: 'Page Content', icon: FileText },
+    { href: '/dashboard/magazines', label: 'Digital Magazines', icon: BookType },
+    { href: '/dashboard/prayer-requests', label: 'Prayer Requests', icon: MessageSquare },
+    { href: '/dashboard/magazine-subscriptions', label: 'Magazine Subscriptions', icon: Mail },
+    { href: '/dashboard/contact', label: 'Contact Inbox', icon: Mail },
+    {
+      label: 'Site Configuration',
+      href: '/dashboard/settings',
+      icon: Settings,
+      children: [
+        { href: '/dashboard/nav-menu', label: 'Navigation Menu' },
+        { href: '/dashboard/hero-items', label: 'Hero Banner' },
+        { href: '/dashboard/beliefs', label: 'What We Believe' },
+        { href: '/dashboard/settings', label: 'Site Settings' },
+      ]
+    },
   ];
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-[#f1f4f6]">
       {/* Sidebar */}
-      <aside className="w-64 bg-[#111827] text-white flex flex-col overflow-y-auto">
-        <div className="p-6">
-          <h2 className="text-2xl font-bold text-blue-400">NJM Admin</h2>
+      <aside className="w-[280px] bg-[#FADADD] text-[#4D1C2C] flex flex-col overflow-y-auto">
+        <div className="p-6 flex flex-col">
+          <div className="bg-white rounded-[20px] p-2 mb-4 shadow-sm inline-flex items-center justify-center relative w-full h-[70px]">
+             <Image src="/images/logo.png" alt="Logo" fill className="object-contain p-2" />
+          </div>
+          <h2 className="text-[#D04A73] text-xs font-black tracking-widest uppercase">Site Admin</h2>
         </div>
-        <nav className="flex-1 px-4 space-y-1 pb-4">
+        
+        <nav className="flex-1 space-y-1 pb-4 scrollbar-thin scrollbar-thumb-black/10">
           {navStructure.map((item, idx) => {
+            const Icon = item.icon;
+            
             if (item.children) {
               const isExpanded = expandedMenus.includes(item.label);
               return (
                 <div key={idx} className="mb-1">
                   <button 
-                    onClick={() => toggleMenu(item.label)}
-                    className="w-full text-left px-4 py-2 rounded-lg transition hover:bg-gray-800 flex justify-between items-center font-medium"
+                    onClick={() => {
+                      if (item.href) router.push(item.href);
+                      toggleMenu(item.label);
+                    }}
+                    className="w-full text-left px-6 py-3 transition hover:bg-white/40 flex justify-between items-center font-medium border-l-[3px] border-transparent hover:text-[#D04A73]"
                   >
-                    {item.label}
-                    <span className="text-xs">{isExpanded ? '▼' : '▶'}</span>
+                    <div className="flex items-center gap-3">
+                      {Icon && <Icon size={20} className="opacity-90" />}
+                      <span className="text-[15px] font-semibold">{item.label}</span>
+                    </div>
+                    {isExpanded ? <ChevronDown size={18} className="opacity-70" /> : <ChevronRight size={18} className="opacity-70" />}
                   </button>
                   {isExpanded && (
-                    <div className="ml-4 mt-1 space-y-1 border-l border-gray-700 pl-2">
+                    <div className="bg-black/5 py-2">
                       {item.children.map(child => {
                         const isActive = currentUrl.replace(/\+/g, '%20') === child.href.replace(/ /g, '%20');
                         return (
                           <Link 
                             key={child.href} 
                             href={child.href} 
-                            className={`block px-4 py-1.5 rounded-lg transition text-sm ${
-                              isActive ? 'bg-blue-600 text-white font-medium' : 'text-gray-400 hover:text-white hover:bg-gray-800'
+                            className={`block px-6 py-2 pl-14 transition text-sm ${
+                              isActive ? 'text-[#D04A73] font-bold' : 'text-[#4D1C2C]/80 hover:text-[#D04A73] hover:bg-white/40'
                             }`}
                           >
                             {child.label}
@@ -138,22 +183,23 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
               <Link 
                 key={idx} 
                 href={item.href!} 
-                className={`block px-4 py-2 rounded-lg transition font-medium ${
-                  isActive ? 'bg-blue-600 text-white' : 'hover:bg-gray-800 text-gray-300 hover:text-white'
+                className={`flex items-center gap-3 px-6 py-3 transition font-medium border-l-[3px] ${
+                  isActive ? 'bg-white/60 text-[#D04A73] border-[#D04A73]' : 'border-transparent hover:bg-white/40 text-[#4D1C2C]/90 hover:text-[#D04A73] hover:border-transparent'
                 }`}
               >
-                {item.label}
+                {Icon && <Icon size={20} className={isActive ? 'opacity-100' : 'opacity-80'} />}
+                <span className="text-[15px] font-semibold">{item.label}</span>
               </Link>
             );
           })}
         </nav>
-        <div className="p-4 border-t border-gray-800 space-y-2">
-          <Link href="/" target="_blank" className="block text-center w-full px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition text-sm font-medium">
+        <div className="p-4 border-t border-black/5 space-y-2 pb-6">
+          <Link href="/" target="_blank" className="block text-center w-full px-4 py-2 bg-white/50 hover:bg-white/80 rounded-lg transition text-sm font-semibold text-[#4D1C2C]">
             View Site
           </Link>
           <button 
             onClick={handleLogout}
-            className="w-full px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition text-sm font-medium"
+            className="w-full px-4 py-2 bg-red-500 hover:bg-red-600 rounded-lg transition text-sm font-semibold text-white"
           >
             Logout
           </button>
@@ -161,17 +207,11 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col overflow-hidden">
-        <header className="bg-white shadow-sm border-b border-gray-200 px-8 py-4 flex items-center justify-between z-10">
-          <h1 className="text-xl font-semibold text-gray-800">
-            {navStructure.flatMap(n => n.children || n).find(l => currentUrl.replace(/\+/g, '%20') === l.href?.replace(/ /g, '%20'))?.label || 'Admin Panel'}
-          </h1>
-          <div className="flex items-center gap-4">
-            <span className="text-sm font-medium text-gray-500">Welcome, Admin</span>
+      <main className="flex-1 flex flex-col overflow-y-auto">
+        <div className="p-6 md:p-10 mx-auto w-full max-w-7xl">
+          <div className="flex-1">
+            {children}
           </div>
-        </header>
-        <div className="p-8 overflow-y-auto flex-1">
-          {children}
         </div>
       </main>
     </div>

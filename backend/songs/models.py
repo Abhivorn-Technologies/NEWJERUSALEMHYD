@@ -3,6 +3,7 @@ from django.db import models
 class SongCategory(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -26,6 +27,7 @@ class Song(models.Model):
     english_lyrics = models.TextField(blank=True)
     powerpoint_slides = models.TextField(blank=True)
     audio_video = models.TextField(blank=True)
+    audio_file = models.FileField(upload_to='songs/audio/', blank=True, null=True)
     chords = models.TextField(blank=True)
     
     thumbnail = models.ImageField(upload_to='songs/', blank=True, null=True)

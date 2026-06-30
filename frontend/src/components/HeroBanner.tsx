@@ -226,28 +226,20 @@ export default function HeroBanner() {
           <div className="flex gap-1 sm:gap-2 md:gap-3 text-[#102E44]">
             {/* First Column */}
             <div className="flex flex-col items-start gap-1.5 sm:gap-2 md:gap-2.5">
-              {[
-                "బైబిల్ కథలు",
-                "మిషనరీ కథలు",
-                "కంఠతావాక్యములు"
-              ].map((text, idx) => (
-                <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
-                  {text}
+              {heroItems.slice(0, Math.ceil(heroItems.length / 2)).map((item, idx) => (
+                <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap flex items-center gap-2">
+                  <span className="text-[12px] sm:text-base lg:text-xl">{item.icon}</span> {item.text}
                 </div>
               ))}
             </div>
             {/* Second Column */}
             <div className="flex flex-col items-start gap-1.5 sm:gap-2 md:gap-2.5">
-              {[
-                "ప్రార్థనలు",
-                "పదవినోదాలు",
-                "క్రాఫ్ట్ వర్క్ గేమ్స్"
-              ].map((text, idx) => (
-                <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
-                  {text}
+              {heroItems.slice(Math.ceil(heroItems.length / 2)).map((item, idx) => (
+                <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap flex items-center gap-2">
+                  <span className="text-[12px] sm:text-base lg:text-xl">{item.icon}</span> {item.text}
                 </div>
               ))}
-              <div className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-nowrap mt-1">
+              <div className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-nowrap mt-1 pl-1">
                 ఇంకా మరెన్నో ...
               </div>
             </div>

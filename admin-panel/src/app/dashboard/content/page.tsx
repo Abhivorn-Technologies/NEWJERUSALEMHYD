@@ -1,208 +1,400 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 function ContentItemsPageInner() {
   const searchParams = useSearchParams();
-  const sectionQuery = searchParams.get('section') || 'all';
-
+  const sectionQuery = searchParams.get('section');
+  
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
-  const initialFormState = {
-    id: null,
-    title: '',
-    section: sectionQuery !== 'all' ? sectionQuery : 'Old Testament',
-    link: '',
-    second_link: '',
-    is_active: true
-  };
-  
-  const [formData, setFormData] = useState<any>(initialFormState);
 
-  const fetchItems = () => {
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+
+  // Form states
+  const [editId, setEditId] = useState<number | null>(null);
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
+  const [section, setSection] = useState("Old Testament");
+  const [pdfLink, setPdfLink] = useState("");
+  const [isActive, setIsActive] = useState(true);
+  const [uploading, setUploading] = useState(false);
+
+  const sectionsMap: Record<string, string> = {
+    "All Sections": "All Sections",
+    "Old Testament": "Old Testament Stories",
+    "New Testament": "New Testament Stories",
+    "Topical": "Topical Lessons",
+    "Biographical": "Biographical Stories",
+    "Pre School": "Pre School Lessons",
+    "Coloring": "Coloring Activities",
+    "Quizzes": "Bible Quizzes",
+    "Puzzles": "Bible Puzzles"
+  };
+
+  const sectionsList = Object.keys(sectionsMap);
+
+  const [activeSectionFilter, setActiveSectionFilter] = useState(
+    sectionQuery && sectionsList.includes(sectionQuery) ? sectionQuery : "All Sections"
+  );
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const fetchItems = async () => {
     setLoading(true);
-    let url = 'http://127.0.0.1:8000/api/content-items/';
-    if (sectionQuery !== 'all') {
-      url += `?section=${encodeURIComponent(sectionQuery)}`;
-    }
-    
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
+    try {
+      const res = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Bible+Stories+%26+Activities");
+      if (res.ok) {
+        const data = await res.json();
         setItems(data);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error('Failed to fetch items:', err);
-        setLoading(false);
-      });
+      }
+    } catch (err) {
+      console.error("Error fetching items:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     fetchItems();
-  }, [sectionQuery]);
+  }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const url = formData.id 
-      ? `http://127.0.0.1:8000/api/content-items/${formData.id}/`
-      : 'http://127.0.0.1:8000/api/content-items/';
-    
-    const method = formData.id ? 'PUT' : 'POST';
-    
-    fetch(url, {
-      method,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    })
-    .then(res => {
-      if (res.ok) {
-        setIsModalOpen(false);
-        fetchItems();
-      } else {
-        alert('Failed to save item');
-      }
-    });
+  const handleOpenAdd = () => {
+    setIsEditing(false);
+    setEditId(null);
+    setTitle("");
+    setSubtitle("");
+    setSection(activeSectionFilter !== "All Sections" ? activeSectionFilter : "Old Testament");
+    setPdfLink("");
+    setIsActive(true);
+    setShowAddForm(true);
   };
 
-  const handleDelete = (id: number) => {
-    if (confirm('Are you sure you want to delete this item?')) {
-      fetch(`http://127.0.0.1:8000/api/content-items/${id}/`, { method: 'DELETE' })
-        .then(res => {
-          if (res.ok) fetchItems();
-        });
+  const handleOpenEdit = (item: any) => {
+    setIsEditing(true);
+    setEditId(item.id);
+    setTitle(item.title);
+    setSubtitle(item.subtitle || "");
+    setSection(item.section);
+    setIsActive(item.is_active);
+    
+    let pdf = "";
+    if (item.links && Array.isArray(item.links) && item.links.length > 0) {
+      pdf = item.links[0].url || "";
+    } else if (item.link) {
+      pdf = item.link;
+    }
+    setPdfLink(pdf);
+    
+    setShowAddForm(true);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setUploading(true);
+
+    const token = localStorage.getItem('admin_token');
+    
+    const links = pdfLink ? [{ text: 'PDF', url: pdfLink }] : [];
+
+    const payload = {
+      title,
+      subtitle,
+      section,
+      is_active: isActive,
+      links,
+      page_category: 'Bible Stories & Activities'
+    };
+
+    const url = isEditing 
+      ? `http://127.0.0.1:8000/api/content-items/${editId}/` 
+      : `http://127.0.0.1:8000/api/content-items/`;
+    const method = isEditing ? 'PUT' : 'POST';
+
+    try {
+      const res = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Token ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        setShowAddForm(false);
+        fetchItems();
+      } else {
+        alert("Failed to save item. Check console.");
+        console.error(await res.text());
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error saving item.");
+    } finally {
+      setUploading(false);
     }
   };
 
-  const openAddModal = () => {
-    setFormData({ ...initialFormState, section: sectionQuery !== 'all' ? sectionQuery : 'Old Testament' });
-    setIsModalOpen(true);
+  const handleToggleStatus = async (item: any) => {
+    const token = localStorage.getItem('admin_token');
+    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${item.id}/`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
+      },
+      body: JSON.stringify({ is_active: !item.is_active })
+    });
+    if (res.ok) {
+      fetchItems();
+    }
   };
 
-  const openEditModal = (item: any) => {
-    setFormData(item);
-    setIsModalOpen(true);
+  const handleDelete = async (id: number) => {
+    if (!confirm("Are you sure you want to delete this item?")) return;
+    const token = localStorage.getItem('admin_token');
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/api/content-items/${id}/`, {
+        method: "DELETE",
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      });
+      if (res.ok) {
+        setItems((prev) => prev.filter((m) => m.id !== id));
+      }
+    } catch (err) {
+      console.error(err);
+    }
   };
 
-  const SECTION_CHOICES = [
-    'Infographics', 'Maps', 'Resource Stories', 'Downloads', 'Genealogies',
-    'Missionary Stories', 'Old Testament', 'New Testament', 'Topical', 
-    'Biographical', 'Pre School', 'Coloring', 'Puzzles', 'Quizzes'
-  ];
-
-  if (loading) return <div className="animate-pulse">Loading items...</div>;
+  const filteredItems = items.filter((m) => {
+    const matchesSection = activeSectionFilter === "All Sections" || m.section === activeSectionFilter;
+    const matchesSearch = m.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const isRelevantSection = sectionsList.includes(m.section) && m.section !== "All Sections";
+    return matchesSection && matchesSearch && isRelevantSection;
+  });
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="text-2xl font-bold text-gray-800">
-            {sectionQuery !== 'all' ? `${sectionQuery}` : 'All Content Items'}
-          </h2>
-          <p className="text-gray-500 text-sm mt-1">Manage content links and sections.</p>
+    <div className="space-y-6 text-[#1A4B5C]">
+      {/* Top Header */}
+      <div className="bg-white rounded-[20px] shadow-sm py-5 px-8 flex items-center justify-between">
+        <h2 className="text-[28px] font-extrabold text-[#053245]">Manage Content Items</h2>
+        <span className="text-[#0B7A8A] font-medium text-sm">admin</span>
+      </div>
+
+      {/* Main Content Card */}
+      <div className="bg-white rounded-[30px] shadow-sm p-8 pb-16">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+          <h3 className="text-[22px] font-bold text-[#053245] invisible">Manage Content Items</h3>
+          <button
+            onClick={showAddForm ? () => setShowAddForm(false) : handleOpenAdd}
+            className="px-6 py-2.5 bg-[#0B7A8A] text-white font-semibold rounded-full hover:bg-[#09626e] transition-colors shadow-sm text-sm"
+          >
+            {showAddForm ? "Cancel" : "Add Item"}
+          </button>
         </div>
-        <button 
-          onClick={openAddModal}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition"
-        >
-          Add Item
-        </button>
-      </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider border-b border-gray-200">
-              <th className="p-4 font-semibold">Title</th>
-              <th className="p-4 font-semibold">Section</th>
-              <th className="p-4 font-semibold">Links</th>
-              <th className="p-4 font-semibold">Status</th>
-              <th className="p-4 font-semibold text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {items.map(item => (
-              <tr key={item.id} className="hover:bg-gray-50 transition">
-                <td className="p-4 font-medium text-gray-800">{item.title}</td>
-                <td className="p-4 text-gray-600">{item.section}</td>
-                <td className="p-4 text-blue-600 space-y-1">
-                  {item.link && <a href={item.link} target="_blank" className="block hover:underline truncate max-w-[200px] text-sm">Link 1</a>}
-                  {item.second_link && <a href={item.second_link} target="_blank" className="block hover:underline truncate max-w-[200px] text-sm">Link 2</a>}
-                </td>
-                <td className="p-4">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium ${item.is_active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
-                    {item.is_active ? 'Active' : 'Inactive'}
-                  </span>
-                </td>
-                <td className="p-4 text-right space-x-3">
-                  <button onClick={() => openEditModal(item)} className="text-blue-600 hover:text-blue-800 font-medium text-sm">Edit</button>
-                  <button onClick={() => handleDelete(item.id)} className="text-red-600 hover:text-red-800 font-medium text-sm">Delete</button>
-                </td>
-              </tr>
-            ))}
-            {items.length === 0 && (
-              <tr>
-                <td colSpan={5} className="p-8 text-center text-gray-500">No items found for this section.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+        {showAddForm && (
+          <div className="bg-[#EAF5F8] p-6 rounded-2xl mb-8 border border-[#BDE0E8]">
+            <h4 className="font-bold text-[#053245] mb-4">{isEditing ? "Edit Item" : "Add New Item"}</h4>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="md:col-span-2">
+                <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">Title</label>
+                <input
+                  type="text"
+                  required
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full border-0 focus:ring-2 focus:ring-[#0B7A8A] rounded-xl px-4 py-2.5 shadow-sm text-sm"
+                  placeholder="e.g. The Creation of the Earth"
+                />
+              </div>
+              <div className="md:col-span-2">
+                <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">Subtitle / Scripture Reference</label>
+                <input
+                  type="text"
+                  value={subtitle}
+                  onChange={(e) => setSubtitle(e.target.value)}
+                  className="w-full border-0 focus:ring-2 focus:ring-[#0B7A8A] rounded-xl px-4 py-2.5 shadow-sm text-sm"
+                  placeholder="e.g. Genesis 1-2"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">Section</label>
+                <select
+                  value={section}
+                  onChange={(e) => setSection(e.target.value)}
+                  className="w-full border-0 focus:ring-2 focus:ring-[#0B7A8A] rounded-xl px-4 py-2.5 shadow-sm text-sm bg-white"
+                >
+                  {sectionsList.filter(s => s !== "All Sections").map(s => (
+                    <option key={s} value={s}>{sectionsMap[s]}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">PDF Link (URL)</label>
+                <input
+                  type="text"
+                  value={pdfLink}
+                  onChange={(e) => setPdfLink(e.target.value)}
+                  className="w-full border-0 focus:ring-2 focus:ring-[#0B7A8A] rounded-xl px-4 py-2.5 shadow-sm text-sm"
+                  placeholder="e.g. /wp-content/uploads/file.pdf"
+                />
+              </div>
+              <div className="md:col-span-2">
+                 <label className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm cursor-pointer hover:bg-gray-50 transition w-max">
+                   <input type="checkbox" checked={isActive} onChange={e => setIsActive(e.target.checked)} className="w-5 h-5 accent-[#0B7A8A] cursor-pointer" />
+                   <span className="text-sm font-bold text-gray-700">Active</span>
+                 </label>
+              </div>
+              <div className="md:col-span-2 pt-2">
+                <button
+                  type="submit"
+                  disabled={uploading}
+                  className="px-6 py-2.5 bg-[#871936] text-white font-semibold rounded-full hover:bg-[#6c142b] transition disabled:opacity-50 disabled:cursor-not-allowed shadow-sm text-sm"
+                >
+                  {uploading ? "Saving..." : "Save Item"}
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
 
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex justify-end">
-          <div className="bg-white w-full max-w-xl h-full shadow-2xl animate-in slide-in-from-right duration-200 flex flex-col">
-            <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-              <h3 className="text-xl font-bold text-gray-800">{formData.id ? 'Edit Item' : 'Add Item'}</h3>
-              <button onClick={() => setIsModalOpen(false)} className="text-gray-400 hover:text-gray-600 p-2">✕</button>
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap gap-2.5 mb-6">
+          {sectionsList.map((sec) => (
+            <button
+              key={sec}
+              onClick={() => setActiveSectionFilter(sec)}
+              className={`px-5 py-2 rounded-full text-sm font-bold transition-colors ${
+                activeSectionFilter === sec
+                  ? "bg-[#871936] text-white shadow-sm"
+                  : "bg-[#EAF5F8] text-[#0B7A8A] hover:bg-[#D5EBEF]"
+              }`}
+            >
+              {sectionsMap[sec]}
+            </button>
+          ))}
+        </div>
+
+        {/* Filter Inputs */}
+        <div className="flex flex-wrap gap-4 mb-10 items-center">
+          <input
+            type="text"
+            placeholder="Search items"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="px-5 py-2.5 rounded-full border border-gray-200 focus:outline-none focus:border-[#0B7A8A] text-sm w-64 placeholder-gray-400"
+          />
+          <div className="relative">
+            <select 
+              value={activeSectionFilter}
+              onChange={(e) => setActiveSectionFilter(e.target.value)}
+              className="appearance-none px-5 py-2.5 pr-10 rounded-full border border-gray-200 focus:outline-none focus:border-[#0B7A8A] text-sm text-gray-700 bg-white min-w-[200px] cursor-pointer"
+            >
+              {sectionsList.map(sec => (
+                <option key={sec} value={sec}>{sectionsMap[sec]}</option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
             </div>
-            
-            <div className="p-6 overflow-y-auto flex-1">
-              <form id="itemForm" onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
-                  <input type="text" required value={formData.title} onChange={e => setFormData({...formData, title: e.target.value})} className="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Section</label>
-                  <select required value={formData.section} onChange={e => setFormData({...formData, section: e.target.value})} className="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition bg-white">
-                    {SECTION_CHOICES.map(sec => <option key={sec} value={sec}>{sec}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Primary Link (URL or Path)</label>
-                  <input type="text" value={formData.link} onChange={e => setFormData({...formData, link: e.target.value})} className="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="https://..." />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Secondary Link (Optional)</label>
-                  <input type="text" value={formData.second_link} onChange={e => setFormData({...formData, second_link: e.target.value})} className="w-full p-2.5 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="https://..." />
-                </div>
-                
-                <div className="flex items-center gap-2 pt-2">
-                  <input type="checkbox" id="is_active" checked={formData.is_active} onChange={e => setFormData({...formData, is_active: e.target.checked})} className="w-4 h-4 text-blue-600 rounded" />
-                  <label htmlFor="is_active" className="text-sm font-medium text-gray-700">Active (Visible on site)</label>
-                </div>
-              </form>
-            </div>
-            
-            <div className="p-6 border-t border-gray-100 bg-gray-50 flex justify-end gap-3">
-              <button type="button" onClick={() => setIsModalOpen(false)} className="px-5 py-2.5 text-gray-600 hover:bg-gray-200 rounded-lg font-medium transition">Cancel</button>
-              <button type="submit" form="itemForm" className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition shadow-sm">Save Item</button>
+          </div>
+          <div className="relative">
+            <select className="appearance-none px-5 py-2.5 pr-10 rounded-full border border-gray-200 focus:outline-none focus:border-[#0B7A8A] text-sm text-gray-700 bg-white min-w-[140px] cursor-pointer">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
+              <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+              </svg>
             </div>
           </div>
         </div>
-      )}
+
+        {/* Table */}
+        {loading ? (
+          <div className="py-12 text-center text-[#0B7A8A] font-medium">Loading items...</div>
+        ) : filteredItems.length === 0 ? (
+          <div className="py-12 text-center text-gray-500 font-medium">No items found.</div>
+        ) : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-left">
+              <thead>
+                <tr className="border-b border-gray-100">
+                  <th className="pb-4 text-[11px] font-bold text-[#053245] uppercase tracking-wider pl-2 w-12">#</th>
+                  <th className="pb-4 text-[11px] font-bold text-[#053245] uppercase tracking-wider">Title</th>
+                  <th className="pb-4 text-[11px] font-bold text-[#053245] uppercase tracking-wider">Section</th>
+                  <th className="pb-4 text-[11px] font-bold text-[#053245] uppercase tracking-wider">Links</th>
+                  <th className="pb-4 text-[11px] font-bold text-[#053245] uppercase tracking-wider">Status</th>
+                  <th className="pb-4 text-[11px] font-bold text-[#053245] uppercase tracking-wider">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="text-sm">
+                {filteredItems.map((item, i) => {
+                  let pdfLinkStr = "";
+                  if (item.links && Array.isArray(item.links) && item.links.length > 0) {
+                    pdfLinkStr = item.links[0].url || "";
+                  } else if (item.link) {
+                    pdfLinkStr = item.link; // fallback for older data
+                  }
+
+                  return (
+                    <tr key={item.id} className="border-b border-gray-50 hover:bg-gray-50/50 transition-colors">
+                      <td className="py-5 pl-2 text-gray-500 font-medium text-[14px]">{(i + 1) * 10}</td>
+                      <td className="py-5 text-[#053245] font-bold text-[14px] max-w-[300px] pr-4">{item.title}</td>
+                      <td className="py-5 text-gray-600 font-medium text-[13px]">{sectionsMap[item.section] || item.section}</td>
+                      <td className="py-5">
+                        {pdfLinkStr ? (
+                          <a href={pdfLinkStr} target="_blank" rel="noreferrer" className="text-[#053245] underline font-medium text-[13px] hover:text-[#0B7A8A]">
+                            PDF
+                          </a>
+                        ) : (
+                          <span className="text-gray-400 text-[13px]">-</span>
+                        )}
+                      </td>
+                      <td className="py-5">
+                        <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${item.is_active ? 'bg-[#E8F5E9] text-[#2E7D32]' : 'bg-[#FFEBEE] text-[#C62828]'}`}>
+                          {item.is_active ? 'Active' : 'Inactive'}
+                        </span>
+                      </td>
+                      <td className="py-5 space-x-2 whitespace-nowrap">
+                        <button onClick={() => handleOpenEdit(item)} className="px-4 py-1.5 bg-[#0B7A8A] text-white text-xs font-bold rounded-full hover:bg-[#09626e] transition-colors">
+                          Edit
+                        </button>
+                        <button onClick={() => handleToggleStatus(item)} className="px-4 py-1.5 bg-[#EAF5F8] text-[#0B7A8A] text-xs font-bold rounded-full hover:bg-[#D5EBEF] transition-colors">
+                          {item.is_active ? 'Deactivate' : 'Activate'}
+                        </button>
+                        <button
+                          onClick={() => handleDelete(item.id)}
+                          className="px-4 py-1.5 bg-[#B32625] text-white text-xs font-bold rounded-full hover:bg-[#921f1e] transition-colors shadow-sm"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
 
 export default function ContentItemsPage() {
   return (
-    <Suspense fallback={<div>Loading content...</div>}>
+    <Suspense fallback={<div className="py-12 text-center text-[#0B7A8A] font-medium">Loading content...</div>}>
       <ContentItemsPageInner />
     </Suspense>
-  )
+  );
 }

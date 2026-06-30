@@ -97,11 +97,19 @@ export default function PagesManagement() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold text-gray-900">Static Pages</h1>
         <button onClick={() => openModal()} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
           + Add New Page
         </button>
+      </div>
+
+      <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg mb-8 shadow-sm">
+        <h3 className="font-semibold text-blue-800 text-sm mb-1">💡 How do pages work?</h3>
+        <p className="text-sm text-blue-700">
+          The <strong>Slug</strong> determines where this content appears on your website. 
+          For example, a page with the slug <code className="bg-white px-1 py-0.5 rounded text-blue-900">about</code> will automatically replace the introductory text at the top of the <strong>About Us</strong> page!
+        </p>
       </div>
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">

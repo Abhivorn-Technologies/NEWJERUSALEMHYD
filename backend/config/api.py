@@ -1,4 +1,4 @@
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers, serializers, viewsets, permissions
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from songs.models import Song, SongCategory
@@ -9,6 +9,13 @@ from pages.models import (
 )
 from contact.models import ContactSubmission, PrayerRequest, MagazineSubscription
 from reviews.models import Review
+
+class AllowPostOrIsAuthenticated(permissions.BasePermission):
+    def has_permission(self, request, view):
+        if request.method == 'POST':
+            return True
+        return request.user and request.user.is_authenticated
+
 
 # ── Song Serializers ──────────────────────────────────────────────────────────
 
@@ -46,11 +53,15 @@ class NavMenuItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = NavMenuItem
-        fields = ['id', 'label', 'url', 'order', 'is_active', 'children']
+        fields = ['id', 'label', 'url', 'order', 'is_active', 'parent', 'children']
 
     def get_children(self, obj):
-        children = obj.children.filter(is_active=True)
-        return NavMenuItemSerializer(children, many=True).data
+        request = self.context.get('request')
+        if request and request.user and request.user.is_authenticated:
+            children = obj.children.all()
+        else:
+            children = obj.children.filter(is_active=True)
+        return NavMenuItemSerializer(children, many=True, context=self.context).data
 
 class HeroItemSerializer(serializers.ModelSerializer):
     class Meta:
@@ -80,7 +91,7 @@ class ActivitySerializer(serializers.ModelSerializer):
 class ContentItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContentItem
-        fields = '__all__'
+        fields = ['id', 'title', 'subtitle', 'page_category', 'section', 'image_url', 'cover_image', 'links', 'is_active', 'created_at']
 
 class ContactSubmissionSerializer(serializers.ModelSerializer):
     class Meta:
@@ -157,9 +168,14 @@ class SiteSettingsViewSet(viewsets.ModelViewSet):
     serializer_class = SiteSettingsSerializer
 
 class NavMenuViewSet(viewsets.ModelViewSet):
-    # Only return top-level items (children are nested inside)
-    queryset = NavMenuItem.objects.filter(is_active=True, parent=None)
+    queryset = NavMenuItem.objects.all()
     serializer_class = NavMenuItemSerializer
+
+    def get_queryset(self):
+        # Admin gets everything top-level, public gets active top-level
+        if self.request.user and self.request.user.is_authenticated:
+            return NavMenuItem.objects.filter(parent=None)
+        return NavMenuItem.objects.filter(is_active=True, parent=None)
 
 class HeroItemViewSet(viewsets.ModelViewSet):
     queryset = HeroItem.objects.all()
@@ -195,14 +211,17 @@ class ContentItemViewSet(viewsets.ModelViewSet):
 class ContactSubmissionViewSet(viewsets.ModelViewSet):
     queryset = ContactSubmission.objects.all().order_by('-submitted_at')
     serializer_class = ContactSubmissionSerializer
+    permission_classes = [AllowPostOrIsAuthenticated]
 
 class PrayerRequestViewSet(viewsets.ModelViewSet):
     queryset = PrayerRequest.objects.all().order_by('-submitted_at')
     serializer_class = PrayerRequestSerializer
+    permission_classes = [AllowPostOrIsAuthenticated]
 
 class MagazineSubscriptionViewSet(viewsets.ModelViewSet):
     queryset = MagazineSubscription.objects.all().order_by('-subscribed_at')
     serializer_class = MagazineSubscriptionSerializer
+    permission_classes = [AllowPostOrIsAuthenticated]
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all().order_by('-created_at')

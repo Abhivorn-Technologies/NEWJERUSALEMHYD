@@ -130,7 +130,7 @@ const PDF_URL = '/wp-content/uploads/2026/03/logo.pdf';
 export default function QuizzesPage() {
   return (
     <div className="min-h-screen bg-[#FADADD] py-16 px-6">
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="max-w-7xl mx-auto space-y-10">
 
         <div className="mb-6 flex flex-col items-center gap-4">
           <div className="self-start">
@@ -179,12 +179,12 @@ export default function QuizzesPage() {
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 px-5 py-3 hover:bg-[#FFF0F5] transition-colors group"
                     >
-                      <span className="text-xs font-bold text-[#8b1e15] w-6 shrink-0 pt-0.5">{i + 1}</span>
+                      <span className="text-base font-bold text-[#8b1e15] w-8 shrink-0 pt-0.5">{i + 1}</span>
                       <div>
-                        <span className="block text-sm text-gray-800 font-semibold group-hover:text-[#8b1e15] transition-colors line-clamp-1">
+                        <span className="block text-lg text-gray-800 font-semibold group-hover:text-[#8b1e15] transition-colors line-clamp-1">
                           {story.title}
                         </span>
-                        <span className="block text-[11px] text-gray-400 font-normal mt-0.5 line-clamp-2">
+                        <span className="block text-sm text-gray-500 font-normal mt-0.5 line-clamp-2">
                           {story.scripture}
                         </span>
                       </div>
@@ -208,12 +208,12 @@ export default function QuizzesPage() {
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 px-5 py-3 hover:bg-[#fdf2f2] transition-colors group"
                     >
-                      <span className="text-xs font-bold text-[#8b1e15] w-6 shrink-0 pt-0.5">{i + 1}</span>
+                      <span className="text-base font-bold text-[#8b1e15] w-8 shrink-0 pt-0.5">{i + 1}</span>
                       <div>
-                        <span className="block text-sm text-gray-800 font-semibold group-hover:text-[#8b1e15] transition-colors line-clamp-1">
+                        <span className="block text-lg text-gray-800 font-semibold group-hover:text-[#8b1e15] transition-colors line-clamp-1">
                           {story.title}
                         </span>
-                        <span className="block text-[11px] text-gray-400 font-normal mt-0.5 line-clamp-2">
+                        <span className="block text-sm text-gray-500 font-normal mt-0.5 line-clamp-2">
                           {story.scripture}
                         </span>
                       </div>

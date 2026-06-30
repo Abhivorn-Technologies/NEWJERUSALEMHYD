@@ -160,9 +160,12 @@ class ContentItem(models.Model):
     ]
 
     title = models.CharField(max_length=255)
-    section = models.CharField(max_length=50, choices=SECTION_CHOICES)
-    link = models.CharField(max_length=500, blank=True, help_text='URL or file path')
-    second_link = models.CharField(max_length=500, blank=True, help_text='Secondary URL or file path (optional)')
+    subtitle = models.CharField(max_length=255, blank=True, help_text='E.g. Scripture Reference')
+    page_category = models.CharField(max_length=100, blank=True, null=True, help_text='Top level category like Bible Maps, Bible Infographics, etc.')
+    section = models.CharField(max_length=100, help_text='Sub-section name, e.g. New Testament Maps')
+    image_url = models.CharField(max_length=500, blank=True, help_text='Path to image or external URL')
+    cover_image = models.FileField(upload_to='resources/covers/', blank=True, null=True, help_text='Direct image upload')
+    links = models.JSONField(default=list, blank=True, help_text='Array of links, e.g. [{"text": "PDF", "url": "/path"}]')
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

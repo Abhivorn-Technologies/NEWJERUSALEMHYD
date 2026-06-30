@@ -1,28 +1,56 @@
-import { bibleMapsData } from './data';
+import Link from 'next/link';
 
-export default function BibleMapsPage() {
+async function fetchBibleMaps() {
+  try {
+    const res = await fetch('http://127.0.0.1:8000/api/content-items/?page_category=Bible+Maps', {
+      cache: 'no-store'
+    });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching Bible Maps:', error);
+    return [];
+  }
+}
+
+export default async function BibleMapsPage() {
+  const allItems = await fetchBibleMaps();
+  const activeItems = allItems.filter((item: any) => item.is_active);
+
+  // Group items by section
+  const groupedSections: Record<string, any[]> = {};
+  activeItems.forEach((item: any) => {
+    if (!groupedSections[item.section]) {
+      groupedSections[item.section] = [];
+    }
+    groupedSections[item.section].push(item);
+  });
+
   return (
     <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
+          <Link href="/bible-resources" className="text-sm text-[#8b1e15] font-semibold hover:underline mb-4 inline-block">
+            &larr; Back to Bible Resources
+          </Link>
           <h1 className="text-4xl md:text-5xl font-extrabold text-[#1f4251] mb-4">BIBLE MAPS</h1>
           <div className="h-1 w-24 bg-[#8b1e15] mx-auto rounded-full"></div>
         </div>
 
         <div className="space-y-14">
-          {bibleMapsData.map((section, si) => (
+          {Object.entries(groupedSections).map(([sectionTitle, items], si) => (
             <div key={si}>
               <h2 className="text-2xl font-bold text-[#1f4251] mb-6 pb-3 border-b border-gray-300">
-                {section.title}
+                {sectionTitle}
               </h2>
               <div className="space-y-0">
-                {section.items.map((item, ii) => (
+                {items.map((item: any, ii: number) => (
                   <div key={ii} className="py-5 border-b border-gray-200 last:border-b-0 flex flex-col sm:flex-row sm:items-center gap-3">
                     <div className="font-semibold text-[#1f4251] sm:w-1/2 md:w-2/5 text-base">
                       {item.title}
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {item.links.map((link, li) => {
+                      {item.links && Array.isArray(item.links) && item.links.map((link: any, li: number) => {
                         const isDownloadAll = link.text.includes('Download All');
                         return (
                           <a
@@ -46,6 +74,9 @@ export default function BibleMapsPage() {
               </div>
             </div>
           ))}
+          {activeItems.length === 0 && (
+            <p className="text-center text-gray-500">No maps found.</p>
+          )}
         </div>
       </div>
     </div>

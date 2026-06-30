@@ -1,7 +1,22 @@
-import { missionaryData } from './data';
 import Link from 'next/link';
 
-export default function MissionaryStoryPage() {
+async function fetchMissionaryStories() {
+  try {
+    const res = await fetch('http://127.0.0.1:8000/api/content-items/?page_category=Missionary+Stories', {
+      cache: 'no-store'
+    });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch (error) {
+    console.error('Error fetching Missionary Stories:', error);
+    return [];
+  }
+}
+
+export default async function MissionaryStoryPage() {
+  const allItems = await fetchMissionaryStories();
+  const activeItems = allItems.filter((item: any) => item.is_active);
+
   return (
     <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
       <div className="max-w-6xl mx-auto space-y-12">
@@ -18,31 +33,38 @@ export default function MissionaryStoryPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {missionaryData.map((item, idx) => (
-            <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-              <div className="relative h-64 bg-gray-100 p-4 flex items-center justify-center">
-                <img 
-                  src={item.image} 
-                  alt="Missionary Story" 
-                  className="max-h-full max-w-full object-contain drop-shadow-md rounded"
-                />
-              </div>
-              {item.link && (
-                <div className="p-6 text-center border-t border-gray-50 mt-auto">
-                  <a 
-                    href={item.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-block bg-[#1f4251] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-[#16303b] transition-colors"
-                  >
-                    Download Document
-                  </a>
+          {activeItems.map((item: any, idx: number) => {
+             // Missionary stories have an array of links, we just take the first one if it exists
+             const pdfLink = item.links && item.links.length > 0 ? item.links[0].url : null;
+             
+             return (
+              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                <div className="relative h-64 bg-gray-100 p-4 flex items-center justify-center">
+                  <img 
+                    src={item.image_url} 
+                    alt={item.title || "Missionary Story"} 
+                    className="max-h-full max-w-full object-contain drop-shadow-md rounded"
+                  />
                 </div>
-              )}
-            </div>
-          ))}
+                {pdfLink && (
+                  <div className="p-6 text-center border-t border-gray-50 mt-auto">
+                    <a 
+                      href={pdfLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block bg-[#1f4251] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-[#16303b] transition-colors"
+                    >
+                      Download Document
+                    </a>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
-
+        {activeItems.length === 0 && (
+          <p className="text-center text-gray-500">No missionary stories found.</p>
+        )}
       </div>
     </div>
   );
