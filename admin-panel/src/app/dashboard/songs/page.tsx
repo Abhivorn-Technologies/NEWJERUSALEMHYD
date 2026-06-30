@@ -24,7 +24,7 @@ export default function ManageSongsPage() {
     fetch('http://127.0.0.1:8000/api/songs/', { headers })
       .then(res => res.json())
       .then(data => {
-        setSongs(data);
+        setSongs(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };
@@ -32,7 +32,7 @@ export default function ManageSongsPage() {
   const fetchCategories = () => {
     fetch('http://127.0.0.1:8000/api/categories/')
       .then(res => res.json())
-      .then(data => setCategoriesList(data))
+      .then(data => setCategoriesList(Array.isArray(data) ? data : (data?.results || [])))
       .catch(() => setCategoriesList([]));
   };
 

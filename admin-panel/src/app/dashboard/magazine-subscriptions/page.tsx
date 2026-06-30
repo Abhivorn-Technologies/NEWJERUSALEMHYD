@@ -10,7 +10,7 @@ export default function MagazineSubscriptionsPage() {
     fetch('http://127.0.0.1:8000/api/magazine-subscriptions/')
       .then(res => res.json())
       .then(data => {
-        setSubscriptions(data);
+        setSubscriptions(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       })
       .catch(err => {

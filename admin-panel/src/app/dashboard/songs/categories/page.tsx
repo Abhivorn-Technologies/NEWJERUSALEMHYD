@@ -14,7 +14,7 @@ export default function ManageCategoriesPage() {
     fetch('http://127.0.0.1:8000/api/categories/')
       .then(res => res.json())
       .then(data => {
-        setCategories(data);
+        setCategories(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       })
       .catch(err => {

@@ -114,16 +114,28 @@ export default function DashboardPage() {
               View All
             </Link>
           </div>
-          <div className="divide-y divide-gray-100">
-            {storiesSections.map(sec => {
-              const counts = getSectionCounts(sec);
-              return (
-                <div key={sec} className="px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition">
-                  <span className="text-[15px] font-semibold text-[#1a3845]">{sec}</span>
-                  <span className="text-[13px] font-medium text-gray-500">{counts.active} active / {counts.total} total</span>
-                </div>
-              );
-            })}
+          <div className="p-6 bg-[#f8fafc]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {storiesSections.map(sec => {
+                const counts = getSectionCounts(sec);
+                const titleMap: Record<string, string> = {
+                  'Old Testament': 'Old Testament Stories',
+                  'New Testament': 'New Testament Stories',
+                  'Topical': 'Topical Lessons',
+                  'Biographical': 'Biographical Stories',
+                  'Pre School': 'Pre School Lessons',
+                  'Coloring': 'Coloring Activities',
+                  'Puzzles': 'Bible Puzzles',
+                  'Quizzes': 'Bible Quizzes'
+                };
+                return (
+                  <Link href={`/dashboard/content?section=${sec}`} key={sec} className="bg-white rounded-[16px] p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#128a95]/30 transition group flex flex-col justify-between">
+                    <h4 className="text-[15px] font-bold text-[#1a3845] mb-4 leading-snug group-hover:text-[#128a95] transition-colors">{titleMap[sec] || sec}</h4>
+                    <span className="text-[12px] font-medium text-gray-400">{counts.active} active / {counts.total} total</span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -131,20 +143,34 @@ export default function DashboardPage() {
         <div className="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden animate-fade-up" style={{ animationDelay: '900ms' }}>
           <div className="px-6 py-5 border-b border-gray-100 bg-white flex justify-between items-center">
             <h3 className="text-[20px] font-bold text-[#1a3845]">Manage Bible Resources</h3>
-            <Link href="/dashboard/content?section=Infographics" className="bg-[#128a95] hover:bg-[#0f717a] text-white text-[13px] font-medium px-5 py-2 rounded-full transition-colors">
+            <Link href="/dashboard/resources?category=Bible Infographics" className="bg-[#128a95] hover:bg-[#0f717a] text-white text-[13px] font-medium px-5 py-2 rounded-full transition-colors">
               View All
             </Link>
           </div>
-          <div className="divide-y divide-gray-100">
-            {resourcesSections.map(sec => {
-              const counts = getSectionCounts(sec);
-              return (
-                <div key={sec} className="px-6 py-4 flex justify-between items-center hover:bg-gray-50 transition">
-                  <span className="text-[15px] font-semibold text-[#1a3845]">{sec}</span>
-                  <span className="text-[13px] font-medium text-gray-500">{counts.active} active / {counts.total} total</span>
-                </div>
-              );
-            })}
+          <div className="p-6 bg-[#f8fafc]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {resourcesSections.map(sec => {
+                const counts = getSectionCounts(sec);
+                const titleMap: Record<string, string> = {
+                  'Infographics': 'Bible Infographics',
+                  'Maps': 'Bible Maps',
+                  'Resource Stories': 'Missionary Stories',
+                  'Downloads': 'Bible Downloads',
+                  'Genealogies': 'Bible Genealogies',
+                  'Missionary Stories': 'Missionary Stories'
+                };
+                return (
+                  <Link 
+                    href={sec === 'Missionary Stories' ? '/dashboard/missionary-stories' : `/dashboard/resources?category=${titleMap[sec] || sec}`} 
+                    key={sec} 
+                    className="bg-white rounded-[16px] p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#128a95]/30 transition group flex flex-col justify-between"
+                  >
+                    <h4 className="text-[15px] font-bold text-[#1a3845] mb-4 leading-snug group-hover:text-[#128a95] transition-colors">{titleMap[sec] || sec}</h4>
+                    <span className="text-[12px] font-medium text-gray-400">{counts.active} active / {counts.total} total</span>
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
 

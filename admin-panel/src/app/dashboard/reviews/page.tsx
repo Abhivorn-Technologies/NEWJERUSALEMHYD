@@ -9,7 +9,7 @@ export default function ReviewsPage() {
     fetch('http://127.0.0.1:8000/api/reviews/')
       .then(res => res.json())
       .then(data => {
-        setReviews(data);
+        setReviews(Array.isArray(data) ? data : (data?.results || []));
         setLoading(false);
       });
   };

@@ -106,7 +106,6 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
         { href: '/dashboard/content?section=Quizzes', label: 'Quizzes' },
       ]
     },
-    { href: '/dashboard/pages', label: 'Page Content', icon: FileText },
     { href: '/dashboard/magazines', label: 'Digital Magazines', icon: BookType },
     { href: '/dashboard/prayer-requests', label: 'Prayer Requests', icon: MessageSquare },
     { href: '/dashboard/magazine-subscriptions', label: 'Magazine Subscriptions', icon: Mail },
