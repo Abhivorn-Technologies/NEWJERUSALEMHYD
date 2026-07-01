@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { Search, Filter, X, Plus, Trash2, Eye } from 'lucide-react';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 export default function MissionaryStoriesPage() {
   const [items, setItems] = useState<any[]>([]);
@@ -14,6 +16,8 @@ export default function MissionaryStoriesPage() {
   const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState<number | null>(null);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
   const [formData, setFormData] = useState({
     title: '',
     subtitle: '', // Stored in section
@@ -76,15 +80,21 @@ export default function MissionaryStoriesPage() {
     setShowModal(true);
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Delete this story?')) return;
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${id}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
     if (res.ok) {
       fetchItems();
+      setDeleteId(null);
+    } else {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete story.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -147,10 +157,11 @@ export default function MissionaryStoriesPage() {
     if (res.ok) {
       setShowModal(false);
       fetchItems();
+      setAlertConfig({ isOpen: true, title: 'Success', message: 'Story saved successfully!', type: 'success' });
     } else {
       const errorData = await res.json();
       console.error('Submit failed:', errorData);
-      alert('Error submitting form: ' + JSON.stringify(errorData));
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Error submitting form', type: 'error' });
     }
   };
 
@@ -179,9 +190,6 @@ export default function MissionaryStoriesPage() {
               className="w-full p-2.5 pl-4 bg-white border border-gray-200 rounded-full focus:border-[#007B83] outline-none text-[15px] text-gray-900 placeholder:text-gray-400" 
             />
           </div>
-          <button className="px-6 py-2.5 bg-[#f0f7f7] text-[#007B83] rounded-full font-semibold hover:bg-[#e0f0f0] transition">
-            Filter
-          </button>
         </div>
 
         <div className="overflow-x-auto">
@@ -229,16 +237,16 @@ export default function MissionaryStoriesPage() {
                         </span>
                       </td>
                       <td className="py-4 px-4 text-right space-x-2">
-                        <button className="px-4 py-1.5 bg-[#e6f4f1] text-[#007B83] rounded-full text-[13px] font-bold hover:bg-[#cde9e3] transition">
+                        <a href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/missionary-stories/${item.slug || item.id}`} target="_blank" rel="noreferrer" className="inline-block px-4 py-1.5 bg-[#e6f4f1] text-[#007B83] rounded-full text-[13px] font-bold hover:bg-[#cde9e3] transition">
                           View
-                        </button>
+                        </a>
                         <button onClick={() => openEditModal(item)} className="px-4 py-1.5 bg-[#007B83] text-white rounded-full text-[13px] font-bold hover:bg-[#00636a] transition">
                           Edit
                         </button>
                         <button onClick={() => handleToggleStatus(item)} className="px-4 py-1.5 bg-[#f0f7f7] text-[#007B83] rounded-full text-[13px] font-bold hover:bg-[#e0f0f0] transition">
                           {item.is_active ? 'Inactive' : 'Active'}
                         </button>
-                        <button onClick={() => handleDelete(item.id)} className="px-4 py-1.5 bg-[#b22222] text-white rounded-full text-[13px] font-bold hover:bg-[#8e1b1b] transition">
+                        <button onClick={() => confirmDelete(item.id)} className="px-4 py-1.5 bg-[#b22222] text-white rounded-full text-[13px] font-bold hover:bg-[#8e1b1b] transition">
                           Delete
                         </button>
                       </td>
@@ -306,6 +314,22 @@ export default function MissionaryStoriesPage() {
           </div>
         </div>
       )}
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Story"
+        message="Are you sure you want to permanently delete this story? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

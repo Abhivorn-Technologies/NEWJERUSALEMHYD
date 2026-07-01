@@ -1,10 +1,11 @@
 'use client';
 import { useState, useEffect } from 'react';
+import AlertModal from '../../../components/AlertModal';
 
 export default function SettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [successMsg, setSuccessMsg] = useState('');
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
   
   const [formData, setFormData] = useState({
     id: 1,
@@ -39,11 +40,10 @@ export default function SettingsPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    setSuccessMsg('');
     const token = localStorage.getItem('admin_token');
     
     if (!token) {
-      alert('Not logged in');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Not logged in', type: 'error' });
       setSaving(false);
       return;
     }
@@ -60,10 +60,9 @@ export default function SettingsPage() {
     setSaving(false);
 
     if (res.ok) {
-      setSuccessMsg('Settings saved successfully!');
-      setTimeout(() => setSuccessMsg(''), 3000);
+      setAlertConfig({ isOpen: true, title: 'Success', message: 'Settings saved successfully!', type: 'success' });
     } else {
-      alert('Failed to save settings.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to save settings.', type: 'error' });
     }
   };
 
@@ -74,12 +73,6 @@ export default function SettingsPage() {
   return (
     <div className="max-w-3xl">
       <h1 className="text-3xl font-bold text-gray-900 mb-8">Site Settings</h1>
-
-      {successMsg && (
-        <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg font-medium border border-green-200">
-          {successMsg}
-        </div>
-      )}
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         <form onSubmit={handleSubmit} className="p-8 space-y-6">
@@ -158,6 +151,14 @@ export default function SettingsPage() {
           
         </form>
       </div>
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

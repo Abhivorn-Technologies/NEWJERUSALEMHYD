@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter, useSearchParams } from 'next/navigation';
+import AlertModal from '../../../../components/AlertModal';
 import { ArrowLeft } from 'lucide-react';
 import 'react-quill-new/dist/quill.snow.css';
 
@@ -14,6 +15,7 @@ export default function AddOrEditSongPage() {
 
   const [categoriesList, setCategoriesList] = useState<any[]>([]);
   const [loading, setLoading] = useState(editId ? true : false);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
   
   const [formData, setFormData] = useState({
     title: '',
@@ -71,7 +73,7 @@ export default function AddOrEditSongPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('admin_token');
-    if (!token) return alert('Not logged in');
+    if (!token) return setAlertConfig({ isOpen: true, title: 'Error', message: 'Not logged in', type: 'error' });
 
     let languageField = formData.uiLanguage;
     if (formData.uiSongList === 'sunday_school' && languageField !== 'others') {
@@ -110,7 +112,7 @@ export default function AddOrEditSongPage() {
     if (res.ok) {
       router.push('/dashboard/songs');
     } else {
-      alert('Failed to save song. Check console for details.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to save song. Check console for details.', type: 'error' });
       console.error(await res.text());
     }
   };
@@ -246,6 +248,14 @@ export default function AddOrEditSongPage() {
           <button type="submit" className="px-10 py-3 bg-[#128a95] text-white rounded-full hover:bg-[#0f717a] font-bold shadow-md transition">Save Song</button>
         </div>
       </form>
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

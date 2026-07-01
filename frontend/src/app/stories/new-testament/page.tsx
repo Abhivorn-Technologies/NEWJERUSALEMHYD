@@ -62,7 +62,7 @@ export default async function NewTestamentStoriesPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                  {storiesList.map((story, index) => (
+                  {storiesList.map((story: any, index: number) => (
                     <tr key={index} className="hover:bg-pink-50/50 transition-colors">
                       <td className="px-2 py-3 sm:px-8 sm:py-4">
                         <img

@@ -83,6 +83,7 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
       href: '/dashboard/resources',
       icon: BookOpen,
       children: [
+        { href: '/dashboard/bible-resource-cards', label: 'Resource Cards' },
         { href: '/dashboard/resources', label: 'All Resources' },
         { href: '/dashboard/resources?category=Bible Infographics', label: 'Infographics' },
         { href: '/dashboard/resources?category=Bible Maps', label: 'Maps' },
@@ -109,7 +110,6 @@ function DashboardLayoutInner({ children }: { children: React.ReactNode }) {
     { href: '/dashboard/magazines', label: 'Digital Magazines', icon: BookType },
     { href: '/dashboard/prayer-requests', label: 'Prayer Requests', icon: MessageSquare },
     { href: '/dashboard/magazine-subscriptions', label: 'Magazine Subscriptions', icon: Mail },
-    { href: '/dashboard/contact', label: 'Contact Inbox', icon: Mail },
     {
       label: 'Site Configuration',
       href: '/dashboard/settings',

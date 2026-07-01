@@ -44,16 +44,52 @@ export default function BibleResourcesPage() {
   const [resourceDownloads, setResourceDownloads] = useState<any[]>([]);
   const detailsRef = useRef<HTMLDivElement>(null);
 
+  const [categories, setCategories] = useState<ResourceCategory[]>([]);
+
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+    
+    // Fetch resource downloads
     fetch(`${baseUrl}/resource-downloads/`)
       .then(res => res.json())
       .then(data => {
         setResourceDownloads(data);
       })
       .catch(err => console.error('Error fetching resource downloads:', err));
-  }, []);
 
+    // Fetch resource cards dynamically
+    fetch(`${baseUrl}/bible-resources/`)
+      .then(res => res.json())
+      .then(data => {
+        const sorted = (Array.isArray(data) ? data : (data.results || [])).sort((a: any, b: any) => a.order - b.order);
+        
+        const visualStyles = [
+          { gradientClass: "from-[#00A6CB] to-[#007B96]", slantClass: "slant-left-far z-10", originalRot: "28deg" },
+          { gradientClass: "from-[#173C4E] to-[#0A1D27]", slantClass: "slant-left-near z-20", originalRot: "22deg" },
+          { gradientClass: "from-[#C23130] via-[#AB2423] to-[#7A1918]", slantClass: "slant-flat-center z-30", originalRot: "0deg" },
+          { gradientClass: "from-[#1A5C5E] to-[#0D3031]", slantClass: "slant-right-near z-20", originalRot: "-22deg" },
+          { gradientClass: "from-[#29566B] to-[#142F3D]", slantClass: "slant-right-far z-10", originalRot: "-28deg" },
+        ];
+
+        const mapped = sorted.map((item: any, index: number) => {
+          const style = visualStyles[index % visualStyles.length];
+          const parts = item.title.trim().split(' ');
+          const title = parts[0] || '';
+          const subTitle = parts.slice(1).join(' ') || '';
+          const id = item.link ? item.link.split('/').filter(Boolean).pop() || item.id.toString() : item.id.toString();
+
+          return {
+            id,
+            title,
+            subTitle,
+            url: item.link || '#',
+            ...style
+          };
+        });
+        setCategories(mapped);
+      })
+      .catch(err => console.error('Error fetching bible resources:', err));
+  }, []);
 
   const getResourceUrl = (url: string) => {
     if (
@@ -73,54 +109,6 @@ export default function BibleResourcesPage() {
     }
     return '/wp-content/uploads/2026/03/coming-soon.jpg';
   };
-
-  const categories: ResourceCategory[] = [
-    {
-      id: "infographics",
-      title: "BIBLE",
-      subTitle: "INFOGRAPHICS",
-      url: "/bible-resources/infographics",
-      gradientClass: "from-[#00A6CB] to-[#007B96]",
-      slantClass: "slant-left-far z-10",
-      originalRot: "28deg",
-    },
-    {
-      id: "maps",
-      title: "BIBLE",
-      subTitle: "MAPS",
-      url: "/bible-resources/maps",
-      gradientClass: "from-[#173C4E] to-[#0A1D27]",
-      slantClass: "slant-left-near z-20",
-      originalRot: "22deg",
-    },
-    {
-      id: "missionary-story",
-      title: "MISSIONARY",
-      subTitle: "STORIES",
-      url: "/bible-resources/missionary-story",
-      gradientClass: "from-[#C23130] via-[#AB2423] to-[#7A1918]",
-      slantClass: "slant-flat-center z-30",
-      originalRot: "0deg",
-    },
-    {
-      id: "downloads",
-      title: "BIBLE",
-      subTitle: "DOWNLOADS",
-      url: "/bible-resources/downloads",
-      gradientClass: "from-[#1A5C5E] to-[#0D3031]",
-      slantClass: "slant-right-near z-20",
-      originalRot: "-22deg",
-    },
-    {
-      id: "genealogies",
-      title: "BIBLE",
-      subTitle: "GENEALOGIES",
-      url: "/bible-resources/genealogies",
-      gradientClass: "from-[#29566B] to-[#142F3D]",
-      slantClass: "slant-right-far z-10",
-      originalRot: "-28deg",
-    },
-  ];
 
   // Mouse Move: Calculate coordinate delta and update CSS variables in real time
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {

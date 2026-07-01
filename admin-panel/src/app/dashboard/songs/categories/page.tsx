@@ -1,5 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
+import ConfirmModal from '../../../../components/ConfirmModal';
+import AlertModal from '../../../../components/AlertModal';
 
 export default function ManageCategoriesPage() {
   const [categories, setCategories] = useState<any[]>([]);
@@ -9,6 +11,8 @@ export default function ManageCategoriesPage() {
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState<number | null>(null);
   const [formData, setFormData] = useState({ name: '', slug: '', is_active: true });
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   const fetchCategories = () => {
     fetch('http://127.0.0.1:8000/api/categories/')
@@ -39,26 +43,29 @@ export default function ManageCategoriesPage() {
     setFormData({ name: '', slug: '', is_active: true });
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this category?')) return;
-    
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/categories/${id}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/categories/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
     
     if (res.ok) {
-      setCategories(categories.filter(c => c.id !== id));
+      setCategories(categories.filter(c => c.id !== deleteId));
+      setDeleteId(null);
     } else {
-      alert('Failed to delete category.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete category.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('admin_token');
-    if (!token) return alert('Not logged in');
+    if (!token) return setAlertConfig({ isOpen: true, title: 'Error', message: 'Not logged in', type: 'error' });
 
     const url = isEditing ? `http://127.0.0.1:8000/api/categories/${editingId}/` : 'http://127.0.0.1:8000/api/categories/';
     const method = isEditing ? 'PUT' : 'POST';
@@ -75,8 +82,9 @@ export default function ManageCategoriesPage() {
     if (res.ok) {
       handleCancel();
       fetchCategories();
+      setAlertConfig({ isOpen: true, title: 'Success', message: 'Category saved successfully!', type: 'success' });
     } else {
-      alert('Failed to save category. Check console for details.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to save category. Check console for details.', type: 'error' });
       console.error(await res.text());
     }
   };
@@ -95,7 +103,11 @@ export default function ManageCategoriesPage() {
             <h2 className="text-[22px] font-extrabold text-[#1a3845]">
               {isEditing ? 'Edit Category' : 'Add Category'}
             </h2>
-            <button type="button" className="px-5 py-2 bg-[#e8f3f4] text-[#128a95] rounded-full text-[14px] font-bold hover:bg-[#d1eaeb] transition">
+            <button 
+              type="button" 
+              onClick={() => setAlertConfig({ isOpen: true, title: 'Info', message: 'Auto assignment logic is not yet implemented on the backend.', type: 'info' })}
+              className="px-5 py-2 bg-[#e8f3f4] text-[#128a95] rounded-full text-[14px] font-bold hover:bg-[#d1eaeb] transition"
+            >
               Auto Assign Songs
             </button>
           </div>
@@ -179,7 +191,7 @@ export default function ManageCategoriesPage() {
                     </td>
                     <td className="py-4 px-6 text-right space-x-2">
                       <button onClick={() => handleEdit(cat)} className="px-4 py-2 bg-[#e8f3f4] text-[#128a95] rounded-full text-[13px] font-bold hover:bg-[#d1eaeb] transition">Edit</button>
-                      <button onClick={() => handleDelete(cat.id)} className="px-4 py-2 bg-[#fef2f2] text-[#ef4444] rounded-full text-[13px] font-bold hover:bg-[#fee2e2] transition">Delete</button>
+                      <button onClick={() => confirmDelete(cat.id)} className="px-4 py-2 bg-[#fef2f2] text-[#ef4444] rounded-full text-[13px] font-bold hover:bg-[#fee2e2] transition">Delete</button>
                     </td>
                   </tr>
                 ))}
@@ -192,6 +204,22 @@ export default function ManageCategoriesPage() {
         </div>
 
       </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Category"
+        message="Are you sure you want to permanently delete this category? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

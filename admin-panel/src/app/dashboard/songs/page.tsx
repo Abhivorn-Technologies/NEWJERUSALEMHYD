@@ -2,12 +2,16 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 export default function ManageSongsPage() {
   const router = useRouter();
   const [songs, setSongs] = useState<any[]>([]);
   const [categoriesList, setCategoriesList] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
   
   // Filters
   const [search, setSearch] = useState('');
@@ -41,17 +45,21 @@ export default function ManageSongsPage() {
     fetchCategories();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this song?')) return;
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/songs/${id}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/songs/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
     if (res.ok) {
-      setSongs(songs.filter(s => s.id !== id));
+      setSongs(songs.filter(s => s.id !== deleteId));
+      setDeleteId(null);
     } else {
-      alert('Failed to delete song.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete song.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -71,7 +79,7 @@ export default function ManageSongsPage() {
     if (res.ok) {
       setSongs(songs.map(s => s.id === song.id ? { ...s, is_published: !s.is_published } : s));
     } else {
-      alert('Failed to change status.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to change status.', type: 'error' });
     }
   };
 
@@ -146,9 +154,6 @@ export default function ManageSongsPage() {
           <option value="inactive">Inactive</option>
         </select>
 
-        <button className="px-6 py-2.5 bg-[#e8f3f4] text-[#128a95] rounded-[12px] hover:bg-[#d8eff0] transition font-semibold">
-          Filter
-        </button>
       </div>
 
       <div className="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
@@ -195,12 +200,12 @@ export default function ManageSongsPage() {
                       )}
                     </td>
                     <td className="py-4 px-6 text-right space-x-2 whitespace-nowrap">
-                      <a href={`http://localhost:3000/songs/${song.slug}`} target="_blank" rel="noreferrer" className="inline-block px-4 py-2 bg-[#e8f3f4] text-[#128a95] rounded-full text-[13px] font-bold hover:bg-[#d1eaeb] transition">View</a>
+                      <a href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/songs/${song.slug}`} target="_blank" rel="noreferrer" className="inline-block px-4 py-2 bg-[#e8f3f4] text-[#128a95] rounded-full text-[13px] font-bold hover:bg-[#d1eaeb] transition">View</a>
                       <button onClick={() => router.push(`/dashboard/songs/add?id=${song.id}`)} className="px-4 py-2 bg-[#128a95] text-white rounded-full text-[13px] font-bold hover:bg-[#0f717a] transition">Edit</button>
                       <button onClick={() => toggleStatus(song)} className="px-4 py-2 bg-[#e5e7eb] text-[#128a95] rounded-full text-[13px] font-bold hover:bg-gray-300 transition">
                         Inactive
                       </button>
-                      <button onClick={() => handleDelete(song.id)} className="px-4 py-2 bg-[#a31a1a] text-white rounded-full text-[13px] font-bold hover:bg-[#861414] transition">Delete</button>
+                      <button onClick={() => confirmDelete(song.id)} className="px-4 py-2 bg-[#a31a1a] text-white rounded-full text-[13px] font-bold hover:bg-[#861414] transition">Delete</button>
                     </td>
                   </tr>
                 ))}
@@ -212,6 +217,22 @@ export default function ManageSongsPage() {
           </div>
         )}
       </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Song"
+        message="Are you sure you want to permanently delete this song? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

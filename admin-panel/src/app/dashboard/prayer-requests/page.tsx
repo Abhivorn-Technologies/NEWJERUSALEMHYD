@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 export default function PrayerRequestsPage() {
   const [requests, setRequests] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
 
   const fetchRequests = () => {
     const token = localStorage.getItem('admin_token');
@@ -40,17 +41,21 @@ export default function PrayerRequestsPage() {
     });
   };
 
-  const handleDelete = (id: number) => {
-    if (confirm('Are you sure you want to delete this prayer request?')) {
-      const token = localStorage.getItem('admin_token');
-      fetch(`http://127.0.0.1:8000/api/prayer-requests/${id}/`, { 
-        method: 'DELETE',
-        headers: { 'Authorization': `Token ${token}` }
-      })
-        .then(res => {
-          if (res.ok) fetchRequests();
-        });
-    }
+  const confirmDelete = (id: number) => {
+    setDeleteId(id);
+  };
+
+  const executeDelete = () => {
+    if (!deleteId) return;
+    const token = localStorage.getItem('admin_token');
+    fetch(`http://127.0.0.1:8000/api/prayer-requests/${deleteId}/`, { 
+      method: 'DELETE',
+      headers: { 'Authorization': `Token ${token}` }
+    })
+      .then(res => {
+        if (res.ok) fetchRequests();
+        setDeleteId(null);
+      });
   };
 
   if (loading) return <div className="animate-pulse">Loading prayer requests...</div>;
@@ -87,7 +92,7 @@ export default function PrayerRequestsPage() {
                   <button onClick={() => toggleReadStatus(req)} className="text-blue-600 hover:text-blue-800 font-medium text-sm">
                     Mark {req.is_read ? 'Unread' : 'Read'}
                   </button>
-                  <button onClick={() => handleDelete(req.id)} className="text-red-600 hover:text-red-800 font-medium text-sm">Delete</button>
+                  <button onClick={() => confirmDelete(req.id)} className="text-red-600 hover:text-red-800 font-medium text-sm">Delete</button>
                 </td>
               </tr>
             ))}
@@ -99,6 +104,30 @@ export default function PrayerRequestsPage() {
           </tbody>
         </table>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {deleteId && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Delete Prayer Request</h3>
+            <p className="text-gray-600 mb-6">Are you sure you want to permanently delete this prayer request? This action cannot be undone.</p>
+            <div className="flex justify-end gap-3">
+              <button 
+                onClick={() => setDeleteId(null)}
+                className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition font-medium"
+              >
+                Cancel
+              </button>
+              <button 
+                onClick={executeDelete}
+                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

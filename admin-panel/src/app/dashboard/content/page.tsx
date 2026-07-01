@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 function ContentItemsPageInner() {
   const searchParams = useSearchParams();
@@ -12,6 +14,8 @@ function ContentItemsPageInner() {
 
   const [showAddForm, setShowAddForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   // Form states
   const [editId, setEditId] = useState<number | null>(null);
@@ -125,13 +129,14 @@ function ContentItemsPageInner() {
       if (res.ok) {
         setShowAddForm(false);
         fetchItems();
+        setAlertConfig({ isOpen: true, title: 'Success', message: 'Item saved successfully!', type: 'success' });
       } else {
-        alert("Failed to save item. Check console.");
+        setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to save item. Check console.', type: 'error' });
         console.error(await res.text());
       }
     } catch (err) {
       console.error(err);
-      alert("Error saving item.");
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Error saving item.', type: 'error' });
     } finally {
       setUploading(false);
     }
@@ -152,21 +157,29 @@ function ContentItemsPageInner() {
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm("Are you sure you want to delete this item?")) return;
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/content-items/${id}/`, {
+      const res = await fetch(`http://127.0.0.1:8000/api/content-items/${deleteId}/`, {
         method: "DELETE",
         headers: {
           'Authorization': `Token ${token}`
         }
       });
       if (res.ok) {
-        setItems((prev) => prev.filter((m) => m.id !== id));
+        setItems((prev) => prev.filter((m) => m.id !== deleteId));
+        setDeleteId(null);
+      } else {
+        setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete item.', type: 'error' });
+        setDeleteId(null);
       }
     } catch (err) {
       console.error(err);
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Error deleting item.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -373,7 +386,7 @@ function ContentItemsPageInner() {
                           {item.is_active ? 'Deactivate' : 'Activate'}
                         </button>
                         <button
-                          onClick={() => handleDelete(item.id)}
+                          onClick={() => confirmDelete(item.id)}
                           className="px-4 py-1.5 bg-[#B32625] text-white text-xs font-bold rounded-full hover:bg-[#921f1e] transition-colors shadow-sm"
                         >
                           Delete
@@ -387,6 +400,22 @@ function ContentItemsPageInner() {
           </div>
         )}
       </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Item"
+        message="Are you sure you want to permanently delete this item? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

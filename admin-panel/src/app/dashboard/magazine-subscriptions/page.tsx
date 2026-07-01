@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 export default function MagazineSubscriptionsPage() {
   const [subscriptions, setSubscriptions] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
 
   const fetchSubscriptions = () => {
     const token = localStorage.getItem('admin_token');
@@ -40,17 +41,21 @@ export default function MagazineSubscriptionsPage() {
     });
   };
 
-  const handleDelete = (id: number) => {
-    if (confirm('Are you sure you want to delete this subscription?')) {
-      const token = localStorage.getItem('admin_token');
-      fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${id}/`, { 
-        method: 'DELETE',
-        headers: { 'Authorization': `Token ${token}` }
-      })
-        .then(res => {
-          if (res.ok) fetchSubscriptions();
-        });
-    }
+  const confirmDelete = (id: number) => {
+    setDeleteId(id);
+  };
+
+  const executeDelete = () => {
+    if (!deleteId) return;
+    const token = localStorage.getItem('admin_token');
+    fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${deleteId}/`, { 
+      method: 'DELETE',
+      headers: { 'Authorization': `Token ${token}` }
+    })
+      .then(res => {
+        if (res.ok) fetchSubscriptions();
+        setDeleteId(null);
+      });
   };
 
   if (loading) return <div className="animate-pulse">Loading subscriptions...</div>;
@@ -92,7 +97,7 @@ export default function MagazineSubscriptionsPage() {
                   <button onClick={() => toggleStatus(sub)} className="text-blue-600 hover:text-blue-800 font-medium text-sm">
                     Toggle Status
                   </button>
-                  <button onClick={() => handleDelete(sub.id)} className="text-red-600 hover:text-red-800 font-medium text-sm">Delete</button>
+                  <button onClick={() => confirmDelete(sub.id)} className="text-red-600 hover:text-red-800 font-medium text-sm">Delete</button>
                 </td>
               </tr>
             ))}
@@ -104,6 +109,30 @@ export default function MagazineSubscriptionsPage() {
           </tbody>
         </table>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {deleteId && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 w-full max-w-md shadow-2xl">
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Delete Subscription</h3>
+            <p className="text-gray-600 mb-6">Are you sure you want to permanently delete this subscription? This action cannot be undone.</p>
+            <div className="flex justify-end gap-3">
+              <button 
+                onClick={() => setDeleteId(null)}
+                className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition font-medium"
+              >
+                Cancel
+              </button>
+              <button 
+                onClick={executeDelete}
+                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

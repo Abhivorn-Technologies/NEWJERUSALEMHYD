@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react';
 import { Search, Filter, X, Plus, Trash2 } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 const PAGE_SECTIONS_MAP: Record<string, string[]> = {
   'Bible Infographics': [
@@ -65,6 +67,8 @@ export default function BibleResourcesPage() {
   const [showModal, setShowModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState<number | null>(null);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
   const [formData, setFormData] = useState({
     title: '',
     page_category: 'Bible Maps',
@@ -147,15 +151,21 @@ export default function BibleResourcesPage() {
     setShowModal(true);
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Delete this resource?')) return;
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${id}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
     if (res.ok) {
       fetchItems();
+      setDeleteId(null);
+    } else {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete resource.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -220,10 +230,11 @@ export default function BibleResourcesPage() {
     if (res.ok) {
       setShowModal(false);
       fetchItems();
+      setAlertConfig({ isOpen: true, title: 'Success', message: 'Resource saved successfully!', type: 'success' });
     } else {
       const errorData = await res.json();
       console.error('Submit failed:', errorData);
-      alert('Error submitting form: ' + JSON.stringify(errorData));
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Error submitting form', type: 'error' });
     }
   };
 
@@ -357,7 +368,7 @@ export default function BibleResourcesPage() {
                       <button onClick={() => handleToggleStatus(item)} className="px-4 py-1.5 bg-[#FADADD]/30 text-[#4D1C2C] rounded-full text-[13px] font-bold hover:bg-[#FADADD]/60 transition">
                         {item.is_active ? 'Inactive' : 'Active'}
                       </button>
-                      <button onClick={() => handleDelete(item.id)} className="px-4 py-1.5 bg-[#b22222] text-white rounded-full text-[13px] font-bold hover:bg-[#8e1b1b] transition">Delete</button>
+                      <button onClick={() => confirmDelete(item.id)} className="px-4 py-1.5 bg-[#b22222] text-white rounded-full text-[13px] font-bold hover:bg-[#8e1b1b] transition">Delete</button>
                     </td>
                   </tr>
                 ))
@@ -488,6 +499,21 @@ export default function BibleResourcesPage() {
         </div>
       )}
 
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Resource"
+        message="Are you sure you want to permanently delete this resource? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

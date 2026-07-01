@@ -1,9 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 export default function ReviewsPage() {
   const [reviews, setReviews] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   const fetchReviews = () => {
     fetch('http://127.0.0.1:8000/api/reviews/')
@@ -21,7 +25,7 @@ export default function ReviewsPage() {
   const handleToggleApproval = async (id: number, currentStatus: boolean) => {
     const token = localStorage.getItem('admin_token');
     if (!token) {
-      alert('You must be logged in.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'You must be logged in.', type: 'error' });
       return;
     }
 
@@ -37,15 +41,16 @@ export default function ReviewsPage() {
     if (res.ok) {
       fetchReviews();
     } else {
-      alert('Failed to update review status.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to update review status.', type: 'error' });
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this review?')) return;
-    
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/reviews/${id}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/reviews/${deleteId}/`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Token ${token}`
@@ -54,8 +59,10 @@ export default function ReviewsPage() {
     
     if (res.ok) {
       fetchReviews();
+      setDeleteId(null);
     } else {
-      alert('Failed to delete review.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete review.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -99,7 +106,7 @@ export default function ReviewsPage() {
                       {review.is_approved ? 'Revoke' : 'Approve'}
                     </button>
                     <button 
-                      onClick={() => handleDelete(review.id)}
+                      onClick={() => confirmDelete(review.id)}
                       className="text-red-600 hover:underline text-sm font-medium"
                     >
                       Delete
@@ -111,6 +118,22 @@ export default function ReviewsPage() {
           </table>
         )}
       </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Review"
+        message="Are you sure you want to permanently delete this review? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

@@ -205,6 +205,7 @@ class Magazine(models.Model):
     cover_image = models.FileField(upload_to='magazines/covers/')
     file = models.FileField(upload_to='magazines/files/')
     order = models.PositiveIntegerField(default=0)
+    is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -1,5 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 import dynamic from 'next/dynamic';
 import 'react-quill-new/dist/quill.snow.css';
 
@@ -10,6 +12,8 @@ export default function PagesManagement() {
   const [loading, setLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPage, setEditingPage] = useState<any>(null);
+  const [deleteId, setDeleteId] = useState<string | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
   
   const [formData, setFormData] = useState({
     title: '',
@@ -58,7 +62,10 @@ export default function PagesManagement() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('admin_token');
-    if (!token) return alert('Not logged in');
+    if (!token) {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Not logged in', type: 'error' });
+      return;
+    }
 
     const url = editingPage ? `http://127.0.0.1:8000/api/pages/${editingPage.slug}/` : 'http://127.0.0.1:8000/api/pages/';
     const method = editingPage ? 'PUT' : 'POST';
@@ -75,23 +82,28 @@ export default function PagesManagement() {
     if (res.ok) {
       setIsModalOpen(false);
       fetchPages();
+      setAlertConfig({ isOpen: true, title: 'Success', message: 'Page saved successfully!', type: 'success' });
     } else {
-      alert('Failed to save page. Check console for details.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to save page. Check console for details.', type: 'error' });
       console.error(await res.text());
     }
   };
 
-  const handleDelete = async (slug: string) => {
-    if (!confirm('Are you sure you want to delete this page?')) return;
+  const confirmDelete = (slug: string) => setDeleteId(slug);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/pages/${slug}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/pages/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
     if (res.ok) {
       fetchPages();
+      setDeleteId(null);
     } else {
-      alert('Failed to delete page.');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete page.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -140,7 +152,7 @@ export default function PagesManagement() {
                   <td className="py-4 px-6 text-right">
                     <button onClick={() => openModal(page)} className="text-blue-600 hover:underline text-sm font-medium mr-4">Edit</button>
                     <button 
-                      onClick={() => handleDelete(page.slug)}
+                      onClick={() => confirmDelete(page.slug)}
                       className="text-red-600 hover:underline text-sm font-medium"
                     >
                       Delete
@@ -193,6 +205,22 @@ export default function PagesManagement() {
           </div>
         </div>
       )}
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Page"
+        message="Are you sure you want to permanently delete this page? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

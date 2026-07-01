@@ -1,12 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 export default function MagazinesAdminPage() {
   const [magazines, setMagazines] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [showAddForm, setShowAddForm] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editId, setEditId] = useState<number | null>(null);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   // Form states
   const [title, setTitle] = useState("");
@@ -24,7 +30,10 @@ export default function MagazinesAdminPage() {
 
   const fetchMagazines = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/magazines/");
+      const token = localStorage.getItem('admin_token');
+      const headers: any = {};
+      if (token) headers['Authorization'] = `Token ${token}`;
+      const res = await fetch("http://127.0.0.1:8000/api/magazines/", { headers });
       if (res.ok) {
         const data = await res.json();
         setMagazines(Array.isArray(data) ? data : (data?.results || []));
@@ -40,10 +49,43 @@ export default function MagazinesAdminPage() {
     fetchMagazines();
   }, []);
 
-  const handleUpload = async (e: React.FormEvent) => {
+  const handleOpenEdit = (mag: any) => {
+    setIsEditing(true);
+    setEditId(mag.id);
+    setTitle(mag.title);
+    setMonthYear(mag.month_year || "");
+    setLanguage(mag.language || "Telugu");
+    setCoverImage(null);
+    setPdfFile(null);
+    setShowAddForm(true);
+  };
+
+  const handleToggleStatus = async (mag: any) => {
+    const token = localStorage.getItem('admin_token');
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/api/magazines/${mag.id}/`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { 'Authorization': `Token ${token}` } : {})
+        },
+        body: JSON.stringify({ is_active: mag.is_active === undefined ? false : !mag.is_active })
+      });
+      if (res.ok) {
+        fetchMagazines();
+      } else {
+        setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to update status.', type: 'error' });
+      }
+    } catch (err) {
+      console.error(err);
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Error updating status.', type: 'error' });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!coverImage || !pdfFile) {
-      alert("Please select both a cover image and a PDF file.");
+    if (!isEditing && (!coverImage || !pdfFile)) {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Please select both a cover image and a PDF file.', type: 'error' });
       return;
     }
 
@@ -52,48 +94,71 @@ export default function MagazinesAdminPage() {
     formData.append("title", title);
     formData.append("month_year", monthYear);
     formData.append("language", language);
-    formData.append("cover_image", coverImage);
-    formData.append("file", pdfFile);
+    if (coverImage) formData.append("cover_image", coverImage);
+    if (pdfFile) formData.append("file", pdfFile);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/magazines/", {
-        method: "POST",
+      const token = localStorage.getItem('admin_token');
+      const url = isEditing 
+        ? `http://127.0.0.1:8000/api/magazines/${editId}/` 
+        : "http://127.0.0.1:8000/api/magazines/";
+      const method = isEditing ? "PATCH" : "POST";
+
+      const res = await fetch(url, {
+        method,
+        headers: {
+          ...(token ? { 'Authorization': `Token ${token}` } : {})
+        },
         body: formData,
       });
 
       if (res.ok) {
-        alert("Magazine uploaded successfully!");
         setTitle("");
         setMonthYear("");
         setCoverImage(null);
         setPdfFile(null);
+        setIsEditing(false);
+        setEditId(null);
         setShowAddForm(false);
         const fileInputs = document.querySelectorAll('input[type="file"]');
         fileInputs.forEach((input: any) => (input.value = ""));
         fetchMagazines();
+        setAlertConfig({ isOpen: true, title: 'Success', message: isEditing ? 'Magazine updated successfully!' : 'Magazine uploaded successfully!', type: 'success' });
       } else {
-        alert("Upload failed. Check console.");
+        setAlertConfig({ isOpen: true, title: 'Error', message: isEditing ? 'Update failed. Check console.' : 'Upload failed. Check console.', type: 'error' });
         console.error(await res.text());
       }
     } catch (err) {
       console.error(err);
-      alert("Error uploading magazine.");
+      setAlertConfig({ isOpen: true, title: 'Error', message: isEditing ? 'Error updating magazine.' : 'Error uploading magazine.', type: 'error' });
     } finally {
       setUploading(false);
     }
   };
 
-  const handleDelete = async (id: number) => {
-    if (!confirm("Are you sure you want to delete this magazine?")) return;
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/magazines/${id}/`, {
+      const token = localStorage.getItem('admin_token');
+      const res = await fetch(`http://127.0.0.1:8000/api/magazines/${deleteId}/`, {
         method: "DELETE",
+        headers: {
+          ...(token ? { 'Authorization': `Token ${token}` } : {})
+        }
       });
       if (res.ok) {
-        setMagazines((prev) => prev.filter((m) => m.id !== id));
+        setMagazines((prev) => prev.filter((m) => m.id !== deleteId));
+        setDeleteId(null);
+      } else {
+        setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete magazine.', type: 'error' });
+        setDeleteId(null);
       }
     } catch (err) {
       console.error(err);
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Error deleting magazine.', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -116,7 +181,18 @@ export default function MagazinesAdminPage() {
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
           <h3 className="text-[22px] font-bold text-[#053245]">Manage Magazine Downloads</h3>
           <button
-            onClick={() => setShowAddForm(!showAddForm)}
+            onClick={() => {
+              if (showAddForm) {
+                setShowAddForm(false);
+                setIsEditing(false);
+                setEditId(null);
+                setTitle("");
+                setMonthYear("");
+                setLanguage("Telugu");
+              } else {
+                setShowAddForm(true);
+              }
+            }}
             className="px-6 py-2.5 bg-[#0B7A8A] text-white font-semibold rounded-full hover:bg-[#09626e] transition-colors shadow-sm text-sm"
           >
             {showAddForm ? "Cancel" : "Add Magazine"}
@@ -125,8 +201,8 @@ export default function MagazinesAdminPage() {
 
         {showAddForm && (
           <div className="bg-[#EAF5F8] p-6 rounded-2xl mb-8 border border-[#BDE0E8]">
-            <h4 className="font-bold text-[#053245] mb-4">Upload New Magazine</h4>
-            <form onSubmit={handleUpload} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <h4 className="font-bold text-[#053245] mb-4">{isEditing ? "Edit Magazine" : "Upload New Magazine"}</h4>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">Title</label>
                 <input
@@ -169,21 +245,23 @@ export default function MagazinesAdminPage() {
                   <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">Cover Image</label>
                   <input
                     type="file"
-                    required
+                    required={!isEditing}
                     accept="image/*"
                     onChange={(e) => setCoverImage(e.target.files?.[0] || null)}
                     className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-white file:text-[#0B7A8A] hover:file:bg-gray-50"
                   />
+                  {isEditing && <p className="text-xs text-gray-500 mt-1">Leave blank to keep current cover.</p>}
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-[#0B7A8A] mb-1">Magazine PDF</label>
                   <input
                     type="file"
-                    required
+                    required={!isEditing}
                     accept="application/pdf"
                     onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
                     className="w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-white file:text-[#0B7A8A] hover:file:bg-gray-50"
                   />
+                  {isEditing && <p className="text-xs text-gray-500 mt-1">Leave blank to keep current PDF.</p>}
                 </div>
               </div>
               <div className="md:col-span-2 pt-2">
@@ -284,19 +362,25 @@ export default function MagazinesAdminPage() {
                     <td className="py-5 text-[#053245] font-medium text-[13px]">15.35 KB</td>
                     <td className="py-5 text-[#053245] font-medium text-[14px]">2</td>
                     <td className="py-5">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#E8F5E9] text-[#2E7D32]">
-                        Active
+                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-[11px] font-bold ${mag.is_active !== false ? 'bg-[#E8F5E9] text-[#2E7D32]' : 'bg-[#FFEBEE] text-[#C62828]'}`}>
+                        {mag.is_active !== false ? 'Active' : 'Inactive'}
                       </span>
                     </td>
                     <td className="py-5 space-x-2">
-                      <button className="px-4 py-1.5 bg-[#0B7A8A] text-white text-xs font-bold rounded-full hover:bg-[#09626e] transition-colors">
+                      <button 
+                        onClick={() => handleOpenEdit(mag)}
+                        className="px-4 py-1.5 bg-[#0B7A8A] text-white text-xs font-bold rounded-full hover:bg-[#09626e] transition-colors"
+                      >
                         Edit
                       </button>
-                      <button className="px-4 py-1.5 bg-[#EAF5F8] text-[#0B7A8A] text-xs font-bold rounded-full hover:bg-[#D5EBEF] transition-colors">
-                        Inactive
+                      <button 
+                        onClick={() => handleToggleStatus(mag)}
+                        className="px-4 py-1.5 bg-[#EAF5F8] text-[#0B7A8A] text-xs font-bold rounded-full hover:bg-[#D5EBEF] transition-colors"
+                      >
+                        {mag.is_active !== false ? 'Deactivate' : 'Activate'}
                       </button>
                       <button
-                        onClick={() => handleDelete(mag.id)}
+                        onClick={() => confirmDelete(mag.id)}
                         className="px-4 py-1.5 bg-[#B32625] text-white text-xs font-bold rounded-full hover:bg-[#921f1e] transition-colors shadow-sm"
                       >
                         Delete
@@ -309,6 +393,22 @@ export default function MagazinesAdminPage() {
           </div>
         )}
       </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Magazine"
+        message="Are you sure you want to permanently delete this magazine? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }

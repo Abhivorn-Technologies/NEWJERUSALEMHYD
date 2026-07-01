@@ -1,9 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
+import ConfirmModal from '../../../components/ConfirmModal';
+import AlertModal from '../../../components/AlertModal';
 
 export default function ContactInboxPage() {
   const [messages, setMessages] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   const fetchMessages = () => {
     const token = localStorage.getItem('admin_token');
@@ -21,11 +25,14 @@ export default function ContactInboxPage() {
     fetchMessages();
   }, []);
 
-  const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this message?')) return;
-    
+  const confirmDelete = (id: number) => {
+    setDeleteId(id);
+  };
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/contact-submissions/${id}/`, {
+    const res = await fetch(`http://127.0.0.1:8000/api/contact-submissions/${deleteId}/`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Token ${token}`
@@ -34,8 +41,10 @@ export default function ContactInboxPage() {
     
     if (res.ok) {
       fetchMessages();
+      setDeleteId(null);
     } else {
-      alert('Failed to delete message. Are you logged in?');
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete message. Are you logged in?', type: 'error' });
+      setDeleteId(null);
     }
   };
 
@@ -62,7 +71,7 @@ export default function ContactInboxPage() {
                       {new Date(msg.submitted_at).toLocaleDateString()}
                     </span>
                     <button 
-                      onClick={() => handleDelete(msg.id)}
+                      onClick={() => confirmDelete(msg.id)}
                       className="text-red-500 hover:text-red-700 text-sm font-medium"
                     >
                       Delete
@@ -80,6 +89,22 @@ export default function ContactInboxPage() {
           </div>
         )}
       </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Message"
+        message="Are you sure you want to permanently delete this message? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
     </div>
   );
 }
