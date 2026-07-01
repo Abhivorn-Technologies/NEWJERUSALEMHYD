@@ -7,7 +7,10 @@ export default function MagazineSubscriptionsPage() {
   const [loading, setLoading] = useState(true);
 
   const fetchSubscriptions = () => {
-    fetch('http://127.0.0.1:8000/api/magazine-subscriptions/')
+    const token = localStorage.getItem('admin_token');
+    fetch('http://127.0.0.1:8000/api/magazine-subscriptions/', {
+      headers: { 'Authorization': `Token ${token}` }
+    })
       .then(res => res.json())
       .then(data => {
         setSubscriptions(Array.isArray(data) ? data : (data?.results || []));

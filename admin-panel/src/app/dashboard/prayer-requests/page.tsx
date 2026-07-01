@@ -7,7 +7,10 @@ export default function PrayerRequestsPage() {
   const [loading, setLoading] = useState(true);
 
   const fetchRequests = () => {
-    fetch('http://127.0.0.1:8000/api/prayer-requests/')
+    const token = localStorage.getItem('admin_token');
+    fetch('http://127.0.0.1:8000/api/prayer-requests/', {
+      headers: { 'Authorization': `Token ${token}` }
+    })
       .then(res => res.json())
       .then(data => {
         setRequests(Array.isArray(data) ? data : (data?.results || []));

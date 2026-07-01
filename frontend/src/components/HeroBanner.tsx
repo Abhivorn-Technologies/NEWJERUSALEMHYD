@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useEffect, useState } from 'react';
 
 interface HeroItem {
@@ -19,7 +19,7 @@ export default function HeroBanner() {
       .then(data => {
         const filtered = data.filter((item: HeroItem) => 
           !item.text.toLowerCase().includes('worship timings') && 
-          !item.text.includes('α░åα░░α░╛α░ºα░¿ α░╕α░«α░»α░╛α░▓α▒ü')
+          !item.text.includes('ఆరాధన సమయాలు')
         );
         setHeroItems(filtered);
       })
@@ -131,14 +131,14 @@ export default function HeroBanner() {
           className="text-[#102E44] text-[13px] sm:text-[14px] md:text-[17px] lg:text-[21px] font-normal text-center select-none leading-normal font-sans"
           style={{ fontFamily: 'var(--font-mandali)' }}
         >
-          α░Üα░┐α░¿α▒ìα░¿ α░¬α░┐α░▓α▒ìα░▓α░▓ α░åα░ºα▒ìα░»α░╛α░ñα▒ìα░«α░┐α░òα░«α▒êα░¿ α░Äα░ªα▒üα░ùα▒üα░ªα░▓ α░òα▒èα░░α░òα▒ü
+          చిన్న పిల్లల ఆధ్యాత్మికమైన ఎదుగుదల కొరకు
         </span>
       </div>
 
       {/* Menu List Items & Ribbon (Right - placed near the top to reduce spacing) */}
       <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[700px] lg:max-w-[900px] z-30 flex flex-row items-center justify-around md:justify-end gap-2.5 sm:gap-10 md:gap-8 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
         
-        {/* Slanted Folded Ribbon: "α░¬α▒éα░░α▒ìα░ñα░┐α░ùα░╛ α░ëα░Üα░┐α░ñα░«α▒ü" designed exactly like the reference image */}
+        {/* Slanted Folded Ribbon: "పూర్తిగా ఉచితము" designed exactly like the reference image */}
         <div className="hidden relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform translate-x-[40px] sm:translate-x-[60px] md:translate-x-[80px] lg:translate-x-[100px] -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
           <svg viewBox="0 0 400 180" className="w-full h-full overflow-visible">
             <defs>
@@ -178,7 +178,7 @@ export default function HeroBanner() {
                 fill="url(#foldGrad)" 
               />
 
-              {/* Top Banner: "α░¬α▒éα░░α▒ìα░ñα░┐α░ùα░╛" */}
+              {/* Top Banner: "పూర్తిగా" */}
               <path 
                 d="M 60 30 L 260 30 L 240 90 L 40 90 Z" 
                 fill="url(#topGrad)" 
@@ -193,10 +193,10 @@ export default function HeroBanner() {
                 textAnchor="middle" 
                 style={{ fontFamily: 'var(--font-poppins)', letterSpacing: '0.05em' }}
               >
-                α░¬α▒éα░░α▒ìα░ñα░┐α░ùα░╛
+                పూర్తిగా
               </text>
 
-              {/* Bottom Banner: "α░ëα░Üα░┐α░ñα░«α▒ü" */}
+              {/* Bottom Banner: "ఉచితము" */}
               <path 
                 d="M 100 90 L 300 90 L 280 150 L 80 150 Z" 
                 fill="url(#bottomGrad)" 
@@ -211,7 +211,7 @@ export default function HeroBanner() {
                 textAnchor="middle" 
                 style={{ fontFamily: 'var(--font-ramabhadra)', letterSpacing: '0.05em' }}
               >
-                α░ëα░Üα░┐α░ñα░«α▒ü
+                ఉచితము
               </text>
               
               {/* Speed lines below bottom banner */}
@@ -227,9 +227,9 @@ export default function HeroBanner() {
             {/* First Column */}
             <div className="flex flex-col items-start gap-1.5 sm:gap-2 md:gap-2.5">
               {[
-                "α░¼α▒êα░¼α░┐α░▓α▒ì α░òα░Ñα░▓α▒ü",
-                "α░«α░┐α░╖α░¿α░░α▒Ç α░òα░Ñα░▓α▒ü",
-                "α░òα░éα░áα░ñα░╛α░╡α░╛α░òα▒ìα░»α░«α▒üα░▓α▒ü"
+                "బైబిల్ కథలు",
+                "మిషనరీ కథలు",
+                "కంఠతావాక్యములు"
               ].map((text, idx) => (
                 <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
                   {text}
@@ -239,16 +239,16 @@ export default function HeroBanner() {
             {/* Second Column */}
             <div className="flex flex-col items-start gap-1.5 sm:gap-2 md:gap-2.5">
               {[
-                "α░¬α▒ìα░░α░╛α░░α▒ìα░Ñα░¿α░▓α▒ü",
-                "α░¬α░ªα░╡α░┐α░¿α▒ïα░ªα░╛α░▓α▒ü",
-                "α░òα▒ìα░░α░╛α░½α▒ìα░ƒα▒ì α░╡α░░α▒ìα░òα▒ì α░ùα▒çα░«α▒ìα░╕α▒ì"
+                "ప్రార్థనలు",
+                "పదవినోదాలు",
+                "క్రాఫ్ట్ వర్క్ గేమ్స్"
               ].map((text, idx) => (
                 <div key={idx} className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg whitespace-nowrap">
                   {text}
                 </div>
               ))}
               <div className="text-left font-normal text-[10px] sm:text-sm md:text-base lg:text-lg tracking-wide whitespace-nowrap mt-1">
-                α░çα░éα░òα░╛ α░«α░░α▒åα░¿α▒ìα░¿α▒ï ...
+                ఇంకా మరెన్నో ...
               </div>
             </div>
           </div>
@@ -273,7 +273,7 @@ export default function HeroBanner() {
           {/* Chinnarula Jalari Title Text Image - top left */}
           <img
             src="/wp-content/2026/03/text-image.png"
-            alt="α░Üα░┐α░¿α▒ìα░¿α░╛α░░α▒üα░▓ α░£α░╛α░▓α░░α░┐"
+            alt="చిన్నారుల జాలరి"
             className="w-[58%] h-auto object-contain absolute top-[-5%] left-[1%] md:-left-[3%] z-10"
             style={{ filter: 'drop-shadow(0 2px 8px rgba(16,46,68,0.15))' }}
           />
@@ -332,18 +332,18 @@ export default function HeroBanner() {
           className="text-base sm:text-lg md:text-xl lg:text-[23px] font-normal text-[#102E44] tracking-wide"
           style={{ fontFamily: 'var(--font-ramabhadra)' }}
         >
-          α░¿α▒éα░ñα░¿ α░»α▒åα░░α▒éα░╖α░▓α▒çα░«α▒ü α░¬α░░α░┐α░Üα░░α▒ìα░»α░▓ α░╡α▒åα░¼α▒ì α░╕α▒êα░ƒα▒ì α░òα▒ü α░╕α▒ìα░╡α░╛α░ùα░ñα░é!
+          నూతన యెరూషలేము పరిచర్యల వెబ్ సైట్ కు స్వాగతం!
         </h2>
 
-        {/* Paragraph + Fish side by side after α░╕α▒ìα░╡α░╛α░ùα░ñα░é ΓÇö fish never touches text */}
+        {/* Paragraph + Fish side by side after స్వాగతం — fish never touches text */}
         <div className="relative">
           <p 
             className="text-[12px] sm:text-sm md:text-[15px] lg:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[220px] text-justify"
             style={{ fontFamily: 'var(--font-mandali)' }}
           >
-            α░¿α▒éα░ñα░¿ α░»α▒åα░░α▒éα░╖α░▓α▒çα░«α▒ü α░¬α░░α░┐α░Üα░░α▒ìα░»α░▓α▒ü α░àα░¿α▒ç α░ê α░╡α▒åα░¼α▒ìα░╕α▒êα░ƒα▒ì α░ñα▒åα░▓α▒üα░ùα▒ü α░òα▒ìα░░α▒êα░╕α▒ìα░ñα░╡ α░╕α░éα░ÿα░╛α░¿α░┐α░òα░┐ α░åα░ºα▒ìα░»α░╛α░ñα▒ìα░«α░┐α░ò, α░àα░¿α▒üα░╕α░░α░úα▒Çα░», α░╕α░ñα▒ìα░»α░╡α▒çα░ª α░╡α░╛α░òα▒ìα░»α░╛α░▓α░¿α▒ü α░ñα▒åα░▓α▒üα░ùα▒üα░▓α▒ï α░àα░éα░ªα░┐α░╕α▒ìα░ñα▒üα░éα░ªα░┐. α░çα░éα░ªα▒üα░▓α▒ï α░Äα░¿α▒ìα░¿α▒ï α░¬α▒ìα░░α░ñα▒ìα░»α▒çα░òα░«α▒êα░¿ α░òα▒ìα░░α▒êα░╕α▒ìα░ñα░╡ α░¬α▒üα░╕α▒ìα░ñα░òα░╛α░▓α▒ü, α░¼α▒êα░¼α░┐α░▓α▒üα░¿α▒ü α░▓α▒ïα░ñα▒üα░ùα░╛ α░àα░ºα▒ìα░»α░»α░¿α░é α░Üα▒çα░»α░íα░╛α░¿α░┐α░òα░┐ α░╕α░╣α░╛α░»α░¬α░íα▒ç α░╡α▒ìα░»α░╛α░ûα▒ìα░»α░╛α░¿α░╛α░▓α▒ü, α░çα░éα░òα░╛ α░«α░░α▒åα░¿α▒ìα░¿α▒ï α░╡α░¿α░░α▒üα░▓α▒ü, α░ñα▒åα░▓α▒üα░ùα▒üα░▓α▒ï α░àα░éα░ªα▒üα░¼α░╛α░ƒα▒üα░▓α▒ï α░ëα░¿α▒ìα░¿α░╛α░»α░┐. α░çα░╡α░┐ α░Üα░ªα░╡α░íα░é/α░╡α░┐α░¿α░íα░é α░ªα▒ìα░╡α░╛α░░α░╛ α░ªα▒üα░░α▒ìα░¼α▒ïα░ºα░▓α░òα▒ü α░óα▒Çα░ƒα▒êα░¿ α░╕α░«α░╛α░ºα░╛α░¿α░╛α░▓α░¿α▒ü α░ñα▒åα░▓α▒üα░╕α▒üα░òα▒ïα░╡α░íα░«α▒ç α░òα░╛α░òα▒üα░éα░íα░╛, α░ªα▒üα░░α▒ìα░¼α▒ïα░ºα░òα▒üα░▓α░òα▒ü α░«α░░α░┐α░»α▒ü α░╡α░┐α░«α░░α▒ìα░╢α░òα▒üα░▓α░òα▒ü α░▓α▒çα░ûα░¿α░╛α░¿α▒üα░╕α░╛α░░α░«α▒êα░¿ α░╕α░«α░╛α░ºα░╛α░¿α░╛α░▓α░¿α▒ü α░Äα░▓α░╛ α░çα░╡α▒ìα░╡α░╛α░▓α▒ï α░òα▒éα░íα░╛ α░«α▒Çα░░α▒ü α░¿α▒çα░░α▒ìα░Üα▒üα░òα▒üα░éα░ƒα░╛α░░α▒ü. α░£α▒Çα░╡α░┐α░ñα░éα░▓α▒ï α░Äα░ªα▒üα░░α░»α▒ìα░»α▒ç α░àα░¿α▒çα░ò α░Üα░┐α░òα▒ìα░òα▒ü α░¬α▒ìα░░α░╢α▒ìα░¿α░▓α░òα▒ü α░¼α▒êα░¼α░┐α░▓α▒ì α░åα░ºα░╛α░░α░┐α░ñ α░╕α░«α░╛α░ºα░╛α░¿α░╛α░▓α░ñα▒ï α░¿α░┐α░╡α▒âα░ñα▒ìα░ñα░┐α░¿α░┐ α░òα░▓α░┐α░ùα░┐α░éα░Üα▒çα░▓α░╛ α░ê α░╡α▒åα░¼α▒ìα░╕α▒êα░ƒα▒ì α░«α▒Çα░òα▒ïα░╕α░é α░¿α░┐α░░α▒ìα░«α░┐α░éα░Üα░¼α░íα░┐α░éα░ªα░┐.
+            నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.
           </p>
-          {/* Fish ΓÇö smaller size */}
+          {/* Fish — smaller size */}
           <img
             src="/wp-content/2026/03/fish.png"
             alt="Fish"

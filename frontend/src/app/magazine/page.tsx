@@ -8,10 +8,53 @@ export default function MagazineSubscribePage() {
   const [relationship, setRelationship] = useState("Parent");
   const [numChildren, setNumChildren] = useState(1);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted! To be connected to backend.");
-    alert("Application submitted successfully! (Frontend Only)");
+    const form = e.currentTarget;
+    const inputs = Array.from(form.querySelectorAll('input'));
+    const selects = Array.from(form.querySelectorAll('select'));
+    
+    const title = selects[1]?.value || '';
+    const fullName = inputs[0]?.value || '';
+    
+    // If Parent, index 1 is spouse. If Guardian, index 1 is email.
+    const isParent = relationship === 'Parent';
+    const email = inputs[isParent ? 2 : 1]?.value || '';
+    const mobileIndex = isParent ? 3 : 2;
+    const mobile = inputs[mobileIndex]?.value || '';
+    
+    const door = inputs[mobileIndex + 2]?.value || '';
+    const street = inputs[mobileIndex + 3]?.value || '';
+    const area = inputs[mobileIndex + 4]?.value || '';
+    const city = inputs[mobileIndex + 5]?.value || '';
+    const pincode = inputs[mobileIndex + 6]?.value || '';
+    const state = inputs[mobileIndex + 7]?.value || '';
+    const district = inputs[mobileIndex + 8]?.value || '';
+
+    const address = `${door}, ${street}, ${area}, ${city}, ${district}, ${state} - ${pincode}`;
+    
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api'}/magazine-subscriptions/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: `${title} ${fullName}`,
+          email: email,
+          phone: mobile,
+          address: address,
+        }),
+      });
+
+      if (response.ok) {
+        alert("Subscription submitted successfully!");
+        form.reset();
+      } else {
+        alert("Failed to submit. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again.");
+    }
   };
 
   return (
