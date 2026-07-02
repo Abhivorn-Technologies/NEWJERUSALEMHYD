@@ -1,22 +1,39 @@
-import Link from 'next/link';
+import os
+
+pages = {
+    'coloring': {
+        'title': 'Coloring Pages',
+        'prefix': 'Coloring'
+    },
+    'puzzles': {
+        'title': 'Bible Puzzles',
+        'prefix': 'Puzzles'
+    },
+    'quizzes': {
+        'title': 'Bible Quizzes',
+        'prefix': 'Quizzes'
+    }
+}
+
+template = """import Link from 'next/link';
 import ActivitiesTabs from '../ActivitiesTabs';
 
 export const dynamic = 'force-dynamic';
 
-export default async function ColoringPage() {
+export default async function {component_name}Page() {{
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
   let otStories = [];
   let ntStories = [];
 
-  try {
-    const otRes = await fetch(`${API_URL}/content-items/?page_category=Activities&section=Coloring+OT`, { cache: 'no-store' });
+  try {{
+    const otRes = await fetch(`${{API_URL}}/content-items/?page_category=Activities&section={prefix}+OT`, {{ cache: 'no-store' }});
     if (otRes.ok) otStories = await otRes.json();
 
-    const ntRes = await fetch(`${API_URL}/content-items/?page_category=Activities&section=Coloring+NT`, { cache: 'no-store' });
+    const ntRes = await fetch(`${{API_URL}}/content-items/?page_category=Activities&section={prefix}+NT`, {{ cache: 'no-store' }});
     if (ntRes.ok) ntStories = await ntRes.json();
-  } catch (err) {
+  }} catch (err) {{
     console.error(err);
-  }
+  }}
 
   return (
     <div className="min-h-screen bg-[#FADADD] py-16 px-6">
@@ -33,13 +50,13 @@ export default async function ColoringPage() {
           </div>
         </div>
 
-        {/* Single combined card */}
+        {{/* Single combined card */}}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
           <div className="pt-6 px-4 sm:px-8">
             <ActivitiesTabs />
           </div>
           <div className="px-4 sm:px-8 pb-8 pt-4">
-            <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">Coloring Pages</h1>
+            <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">{title}</h1>
             <div className="h-1 w-24 bg-[#FF99BE] rounded-full"></div>
           </div>
           <div className="bg-[#FF99BE] text-white grid grid-cols-2 divide-x divide-white/20">
@@ -55,61 +72,61 @@ export default async function ColoringPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-100">
 
-            {/* OT List */}
+            {{/* OT List */}}
             <div>
               <div className="px-5 py-3 bg-gray-50 border-b border-gray-100">
                 <h3 className="text-xs font-bold text-[#4D1C2C] uppercase tracking-wider">OT List</h3>
               </div>
               <ul className="divide-y divide-gray-100">
-                {otStories.map((story: any, i: number) => (
-                  <li key={story.id || i}>
+                {{otStories.map((story: any, i: number) => (
+                  <li key={{story.id || i}}>
                     <a
-                      href={story.links?.[0]?.url || '#'}
+                      href={{story.links?.[0]?.url || '#'}}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 px-5 py-3 hover:bg-[#FFF0F5] transition-colors group"
                     >
-                      <span className="text-xs font-bold text-[#8b1e15] w-6 shrink-0 pt-0.5">{i + 1}</span>
+                      <span className="text-xs font-bold text-[#8b1e15] w-6 shrink-0 pt-0.5">{{i + 1}}</span>
                       <div>
                         <span className="block text-sm text-gray-800 font-semibold group-hover:text-[#8b1e15] transition-colors line-clamp-1">
-                          {story.title}
+                          {{story.title}}
                         </span>
                         <span className="block text-[11px] text-gray-400 font-normal mt-0.5 line-clamp-2">
-                          {story.subtitle}
+                          {{story.subtitle}}
                         </span>
                       </div>
                     </a>
                   </li>
-                ))}
+                ))}}
               </ul>
             </div>
 
-            {/* NT List */}
+            {{/* NT List */}}
             <div>
               <div className="px-5 py-3 bg-gray-50 border-b border-gray-100">
                 <h3 className="text-xs font-bold text-[#D81B60] uppercase tracking-wider">NT List</h3>
               </div>
               <ul className="divide-y divide-gray-100">
-                {ntStories.map((story: any, i: number) => (
-                  <li key={story.id || i}>
+                {{ntStories.map((story: any, i: number) => (
+                  <li key={{story.id || i}}>
                     <a
-                      href={story.links?.[0]?.url || '#'}
+                      href={{story.links?.[0]?.url || '#'}}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-start gap-3 px-5 py-3 hover:bg-[#fdf2f2] transition-colors group"
                     >
-                      <span className="text-xs font-bold text-[#8b1e15] w-6 shrink-0 pt-0.5">{i + 1}</span>
+                      <span className="text-xs font-bold text-[#8b1e15] w-6 shrink-0 pt-0.5">{{i + 1}}</span>
                       <div>
                         <span className="block text-sm text-gray-800 font-semibold group-hover:text-[#8b1e15] transition-colors line-clamp-1">
-                          {story.title}
+                          {{story.title}}
                         </span>
                         <span className="block text-[11px] text-gray-400 font-normal mt-0.5 line-clamp-2">
-                          {story.subtitle}
+                          {{story.subtitle}}
                         </span>
                       </div>
                     </a>
                   </li>
-                ))}
+                ))}}
               </ul>
             </div>
 
@@ -118,4 +135,19 @@ export default async function ColoringPage() {
       </div>
     </div>
   );
-}
+}}
+"""
+
+for slug, data in pages.items():
+    component_name = slug.capitalize()
+    content = template.format(
+        component_name=component_name,
+        title=data['title'],
+        prefix=data['prefix']
+    )
+    
+    file_path = f"src/app/activities/{slug}/page.tsx"
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f"Generated {file_path}")

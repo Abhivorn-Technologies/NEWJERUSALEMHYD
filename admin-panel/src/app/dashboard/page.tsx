@@ -54,9 +54,39 @@ export default function DashboardPage() {
     'Infographics', 'Maps', 'Resource Stories', 'Downloads', 'Genealogies', 'Missionary Stories'
   ];
 
-  const getSectionCounts = (sectionName: string) => {
-    const s = stats.content_breakdown.find((x: any) => x.section === sectionName);
-    return s || { total: 0, active: 0 };
+  const getSectionCounts = (sectionName: string, titleMapName?: string) => {
+    let total = 0;
+    let active = 0;
+    
+    const search1 = sectionName.toLowerCase();
+    const search2 = titleMapName ? titleMapName.toLowerCase() : search1;
+    
+    // Sum across matching sections (e.g., "Coloring OT" + "Coloring NT" for "Coloring")
+    if (stats.content_breakdown) {
+      stats.content_breakdown.forEach((x: any) => {
+        const sec = (x.section || "").toLowerCase();
+        if (sec.includes(search1) || sec.includes(search2)) {
+          total += x.total;
+          active += x.active;
+        }
+      });
+    }
+
+    // Sum across matching categories (e.g., "Bible Infographics" for "Bible Infographics")
+    if (stats.category_breakdown_content) {
+      stats.category_breakdown_content.forEach((x: any) => {
+        const cat = (x.page_category || "").toLowerCase();
+        if (cat.includes(search1) || cat.includes(search2)) {
+          // Prevent double counting if it matched a section
+          if (total === 0) {
+            total += x.total;
+            active += x.active;
+          }
+        }
+      });
+    }
+
+    return { total, active };
   };
 
   return (
@@ -87,7 +117,14 @@ export default function DashboardPage() {
         />
         <StatCard 
           title="Bible Resources" 
-          value={resourcesSections.reduce((sum, sec) => sum + getSectionCounts(sec).total, 0)} 
+          value={resourcesSections.reduce((sum, sec) => {
+            const tm: Record<string, string> = {
+              'Infographics': 'Bible Infographics', 'Maps': 'Bible Maps',
+              'Resource Stories': 'Missionary Stories', 'Downloads': 'Bible Downloads',
+              'Genealogies': 'Bible Genealogies', 'Missionary Stories': 'Missionary Stories'
+            };
+            return sum + getSectionCounts(sec, tm[sec] || sec).total;
+          }, 0)} 
           sub="Resource cards" 
           icon={BookOpen} gradientFrom="#0EA5E9" gradientTo="#38BDF8" delay={500} 
         />
@@ -97,7 +134,15 @@ export default function DashboardPage() {
         />
         <StatCard 
           title="Stories & Activities" 
-          value={storiesSections.reduce((sum, sec) => sum + getSectionCounts(sec).active, 0)} 
+          value={storiesSections.reduce((sum, sec) => {
+            const tm: Record<string, string> = {
+              'Old Testament': 'Old Testament Stories', 'New Testament': 'New Testament Stories',
+              'Topical': 'Topical Lessons', 'Biographical': 'Biographical Stories',
+              'Pre School': 'Pre School Lessons', 'Coloring': 'Coloring Activities',
+              'Puzzles': 'Bible Puzzles', 'Quizzes': 'Bible Quizzes'
+            };
+            return sum + getSectionCounts(sec, tm[sec] || sec).active;
+          }, 0)} 
           sub="Active content items" 
           icon={Layers} gradientFrom="#EF4444" gradientTo="#F87171" delay={700} 
         />
@@ -117,7 +162,6 @@ export default function DashboardPage() {
           <div className="p-6 bg-[#f8fafc]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {storiesSections.map(sec => {
-                const counts = getSectionCounts(sec);
                 const titleMap: Record<string, string> = {
                   'Old Testament': 'Old Testament Stories',
                   'New Testament': 'New Testament Stories',
@@ -128,6 +172,7 @@ export default function DashboardPage() {
                   'Puzzles': 'Bible Puzzles',
                   'Quizzes': 'Bible Quizzes'
                 };
+                const counts = getSectionCounts(sec, titleMap[sec] || sec);
                 return (
                   <Link href={`/dashboard/content?section=${sec}`} key={sec} className="bg-white rounded-[16px] p-5 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#128a95]/30 transition group flex flex-col justify-between">
                     <h4 className="text-[15px] font-bold text-[#1a3845] mb-4 leading-snug group-hover:text-[#128a95] transition-colors">{titleMap[sec] || sec}</h4>
@@ -150,7 +195,6 @@ export default function DashboardPage() {
           <div className="p-6 bg-[#f8fafc]">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
               {resourcesSections.map(sec => {
-                const counts = getSectionCounts(sec);
                 const titleMap: Record<string, string> = {
                   'Infographics': 'Bible Infographics',
                   'Maps': 'Bible Maps',
@@ -159,6 +203,7 @@ export default function DashboardPage() {
                   'Genealogies': 'Bible Genealogies',
                   'Missionary Stories': 'Missionary Stories'
                 };
+                const counts = getSectionCounts(sec, titleMap[sec] || sec);
                 return (
                   <Link 
                     href={sec === 'Missionary Stories' ? '/dashboard/missionary-stories' : `/dashboard/resources?category=${titleMap[sec] || sec}`} 
@@ -179,7 +224,16 @@ export default function DashboardPage() {
       {/* LANGUAGE CARDS */}
       <div className="grid grid-cols-1 gap-6">
         {['English', 'Hindi', 'Telugu'].map((lang, idx) => {
-          const lstat = stats.language_breakdown.find((x: any) => x.language === lang) || { total: 0, active: 0, inactive: 0 };
+          // Aggregate all variants of the language (e.g. "telugu" and "sunday_telugu")
+          const lstat = stats.language_breakdown.reduce((acc: any, curr: any) => {
+            if (curr.language.toLowerCase().includes(lang.toLowerCase())) {
+              acc.total += curr.total;
+              acc.active += curr.active;
+              acc.inactive += curr.inactive;
+            }
+            return acc;
+          }, { total: 0, active: 0, inactive: 0 });
+
           return (
             <div key={lang} className="bg-white rounded-[24px] shadow-sm border border-gray-100 p-8 flex flex-col sm:flex-row items-center justify-between text-center sm:text-left animate-fade-up" style={{ animationDelay: `${1000 + (idx * 100)}ms` }}>
               <div>

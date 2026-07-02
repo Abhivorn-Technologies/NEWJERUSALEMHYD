@@ -1,19 +1,49 @@
-import Link from 'next/link';
+import os
+
+pages = {
+    'old-testament': {
+        'title': 'Old Testament Stories',
+        'desc': 'Review the contents, scriptures, and chapters detailing stories from the Old Testament.',
+        'section': 'Old Testament'
+    },
+    'new-testament': {
+        'title': 'New Testament Stories',
+        'desc': 'Review the contents, scriptures, and chapters detailing stories from the New Testament.',
+        'section': 'New Testament'
+    },
+    'topical': {
+        'title': 'Topical Stories',
+        'desc': 'Review stories categorized by topic and life lessons.',
+        'section': 'Topical'
+    },
+    'biographical': {
+        'title': 'Biographical Stories',
+        'desc': 'Review the biographical details, timelines, and life stories of key biblical figures.',
+        'section': 'Biographical'
+    },
+    'pre-school': {
+        'title': 'Pre School Stories',
+        'desc': 'Review simple, engaging bible stories perfect for pre-school children.',
+        'section': 'Pre School'
+    }
+}
+
+template = """import Link from 'next/link';
 import StoriesTabs from '../StoriesTabs';
 
 export const dynamic = 'force-dynamic';
 
-export default async function StoriesPage() {
+export default async function StoriesPage() {{
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
   let storiesList = [];
-  try {
-    const res = await fetch(`${API_URL}/content-items/?page_category=Bible+Stories+%26+Activities&section=New+Testament`, { cache: 'no-store' });
-    if (res.ok) {
+  try {{
+    const res = await fetch(`${{API_URL}}/content-items/?page_category=Bible+Stories+%26+Activities&section={section_url}`, {{ cache: 'no-store' }});
+    if (res.ok) {{
       storiesList = await res.json();
-    }
-  } catch (err) {
+    }}
+  }} catch (err) {{
     console.error(err);
-  }
+  }}
 
   return (
     <div className="min-h-screen bg-[#FADADD] py-8 px-4 sm:px-6">
@@ -29,7 +59,7 @@ export default async function StoriesPage() {
           </div>
         </div>
 
-        {/* Contents Card */}
+        {{/* Contents Card */}}
         <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden pb-8">
           <div className="pt-4 px-4 sm:px-8">
             <StoriesTabs />
@@ -38,17 +68,17 @@ export default async function StoriesPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-0 mt-4">
             <div className="bg-[#FF99BE] px-4 sm:px-8 py-5 text-white flex flex-row items-center justify-between gap-4 rounded-t-2xl sm:rounded-2xl shadow-md mb-6">
               <div>
-                <h1 className="text-2xl font-bold">New Testament Stories</h1>
-                <p className="text-white/80 text-sm mt-1 max-w-md">Review the contents, scriptures, and chapters detailing stories from the New Testament.</p>
+                <h1 className="text-2xl font-bold">{title}</h1>
+                <p className="text-white/80 text-sm mt-1 max-w-md">{desc}</p>
               </div>
               <img 
                 src="/images/stories/old-testament/image1.jpeg" 
-                alt="New Testament Stories" 
+                alt="{title}" 
                 className="w-24 h-16 object-cover rounded-lg border border-white/20 shadow-sm"
               />
             </div>
             
-            {storiesList.length > 0 ? (
+            {{storiesList.length > 0 ? (
               <div className="overflow-x-auto bg-white rounded-b-2xl sm:rounded-2xl border border-gray-100 shadow-sm">
                 <table className="w-full border-collapse table-auto">
                   <thead>
@@ -65,30 +95,30 @@ export default async function StoriesPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
-                    {storiesList.map((story: any, index: number) => {
+                    {{storiesList.map((story: any, index: number) => {{
                       return (
-                        <tr key={story.id || index} className="hover:bg-pink-50/50 transition-colors">
+                        <tr key={{story.id || index}} className="hover:bg-pink-50/50 transition-colors">
                           <td className="px-1 py-2 sm:px-3 sm:py-3">
                             <img 
-                              src={story.image_url || '/images/default.jpeg'} 
-                              alt={story.title} 
+                              src={{story.image_url || '/images/default.jpeg'}} 
+                              alt={{story.title}} 
                               className="w-12 h-8 sm:w-16 sm:h-12 object-cover rounded-md shadow-sm border border-gray-100" 
                             />
                           </td>
                           <td className="px-1 py-2 sm:px-3 sm:py-3 break-words">
                             <a 
-                              href={story.links?.[0]?.url || '#'} 
+                              href={{story.links?.[0]?.url || '#'}} 
                               target="_blank" 
                               rel="noopener noreferrer" 
                               className="block text-sm sm:text-[15px] text-gray-800 font-bold hover:text-[#D81B60] hover:underline transition-colors"
                             >
-                              {story.title}
+                              {{story.title}}
                             </a>
-                            <span className="block text-[10px] sm:text-xs text-gray-500 font-normal mt-0.5 line-clamp-2">{story.subtitle}</span>
+                            <span className="block text-[10px] sm:text-xs text-gray-500 font-normal mt-0.5 line-clamp-2">{{story.subtitle}}</span>
                           </td>
                           <td className="px-1 py-2 sm:px-3 sm:py-3 text-right">
                             <a
-                              href={story.links?.[0]?.url || '#'}
+                              href={{story.links?.[0]?.url || '#'}}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center justify-center px-2 py-1 sm:px-3 sm:py-1.5 bg-[#D81B60] text-white text-[10px] sm:text-xs font-bold rounded-md shadow-sm hover:bg-[#C2185B] transition-colors"
@@ -98,7 +128,7 @@ export default async function StoriesPage() {
                           </td>
                         </tr>
                       );
-                    })}
+                    }})}}
                   </tbody>
                 </table>
               </div>
@@ -106,7 +136,7 @@ export default async function StoriesPage() {
               <div className="bg-[#FFF0F5]/50 rounded-3xl p-8 sm:p-12 shadow-sm border border-pink-100/50 max-w-2xl mx-auto space-y-6 transition-all duration-300">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#FFF0F5] rounded-full flex items-center justify-center mx-auto shadow-md text-[#C2185B] animate-pulse">
                   <svg className="w-8 h-8 sm:w-10 sm:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={{1.5}} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                 </div>
                 <div className="space-y-3 text-center">
@@ -116,10 +146,25 @@ export default async function StoriesPage() {
                   </p>
                 </div>
               </div>
-            )}
+            )}}
           </div>
         </div>
       </div>
     </div>
   );
-}
+}}
+"""
+
+for slug, data in pages.items():
+    section_url = data['section'].replace(' ', '+')
+    content = template.format(
+        section_url=section_url,
+        title=data['title'],
+        desc=data['desc']
+    )
+    
+    file_path = f"src/app/stories/{slug}/page.tsx"
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print(f"Generated {file_path}")

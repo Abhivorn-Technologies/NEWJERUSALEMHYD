@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django.db.models import Count, Q
 from songs.models import Song, SongCategory
-from pages.models import ContentItem
+from pages.models import ContentItem, ResourceDownload
 from contact.models import PrayerRequest
 
 class DashboardSummaryView(APIView):
@@ -28,6 +28,20 @@ class DashboardSummaryView(APIView):
             total=Count('id'),
             active=Count('id', filter=Q(is_active=True))
         ))
+        
+        content_items_by_category = list(ContentItem.objects.values('page_category').annotate(
+            total=Count('id'),
+            active=Count('id', filter=Q(is_active=True))
+        ))
+        
+        # Add Resource Downloads
+        total_downloads = ResourceDownload.objects.count()
+        if total_downloads > 0:
+            content_items_by_category.append({
+                'page_category': 'Bible Downloads',
+                'total': total_downloads,
+                'active': total_downloads
+            })
         
         # Language Breakdown
         language_breakdown = list(Song.objects.values('language').annotate(
@@ -62,6 +76,7 @@ class DashboardSummaryView(APIView):
                 'unread_prayer_requests': unread_prayer_requests,
             },
             'content_breakdown': content_items_by_section,
+            'category_breakdown_content': content_items_by_category,
             'language_breakdown': language_breakdown,
             'category_breakdown': category_breakdown,
             'letter_breakdown': letter_breakdown

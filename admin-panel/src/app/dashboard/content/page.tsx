@@ -48,11 +48,18 @@ function ContentItemsPageInner() {
   const fetchItems = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Bible+Stories+%26+Activities");
-      if (res.ok) {
-        const data = await res.json();
-        setItems(data);
+      // Fetch both categories
+      const res1 = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Bible+Stories+%26+Activities");
+      const res2 = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Activities");
+      
+      let allData = [];
+      if (res1.ok) {
+        allData = [...allData, ...(await res1.json())];
       }
+      if (res2.ok) {
+        allData = [...allData, ...(await res2.json())];
+      }
+      setItems(allData);
     } catch (err) {
       console.error("Error fetching items:", err);
     } finally {
@@ -184,9 +191,10 @@ function ContentItemsPageInner() {
   };
 
   const filteredItems = items.filter((m) => {
-    const matchesSection = activeSectionFilter === "All Sections" || m.section === activeSectionFilter;
-    const matchesSearch = m.title.toLowerCase().includes(searchQuery.toLowerCase());
-    const isRelevantSection = sectionsList.includes(m.section) && m.section !== "All Sections";
+    const sectionSafe = m.section || "";
+    const matchesSection = activeSectionFilter === "All Sections" || sectionSafe.toLowerCase().includes(activeSectionFilter.toLowerCase());
+    const matchesSearch = (m.title || "").toLowerCase().includes(searchQuery.toLowerCase());
+    const isRelevantSection = sectionsList.some(s => sectionSafe.toLowerCase().includes(s.toLowerCase())) && sectionSafe !== "All Sections";
     return matchesSection && matchesSearch && isRelevantSection;
   });
 
