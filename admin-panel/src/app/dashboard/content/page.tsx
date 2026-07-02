@@ -52,7 +52,7 @@ function ContentItemsPageInner() {
       const res1 = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Bible+Stories+%26+Activities");
       const res2 = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Activities");
       
-      let allData = [];
+      let allData: any[] = [];
       if (res1.ok) {
         allData = [...allData, ...(await res1.json())];
       }
