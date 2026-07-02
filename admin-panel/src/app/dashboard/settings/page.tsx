@@ -18,7 +18,7 @@ export default function SettingsPage() {
   });
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/site-settings/')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/site-settings/`)
       .then(res => res.json())
       .then(data => {
         if (data.length > 0) {
@@ -48,7 +48,7 @@ export default function SettingsPage() {
       return;
     }
 
-    const res = await fetch(`http://127.0.0.1:8000/api/site-settings/${formData.id}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/site-settings/${formData.id}/`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

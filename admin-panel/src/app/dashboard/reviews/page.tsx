@@ -10,7 +10,7 @@ export default function ReviewsPage() {
   const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   const fetchReviews = () => {
-    fetch('http://127.0.0.1:8000/api/reviews/')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/`)
       .then(res => res.json())
       .then(data => {
         setReviews(Array.isArray(data) ? data : (data?.results || []));
@@ -29,7 +29,7 @@ export default function ReviewsPage() {
       return;
     }
 
-    const res = await fetch(`http://127.0.0.1:8000/api/reviews/${id}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/${id}/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export default function ReviewsPage() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/reviews/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/${deleteId}/`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Token ${token}`

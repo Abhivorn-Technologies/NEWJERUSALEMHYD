@@ -33,7 +33,7 @@ export default function MagazinesAdminPage() {
       const token = localStorage.getItem('admin_token');
       const headers: any = {};
       if (token) headers['Authorization'] = `Token ${token}`;
-      const res = await fetch("http://127.0.0.1:8000/api/magazines/", { headers });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/magazines/`, { headers });
       if (res.ok) {
         const data = await res.json();
         setMagazines(Array.isArray(data) ? data : (data?.results || []));
@@ -63,7 +63,7 @@ export default function MagazinesAdminPage() {
   const handleToggleStatus = async (mag: any) => {
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/magazines/${mag.id}/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/magazines/${mag.id}/`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',
@@ -100,8 +100,8 @@ export default function MagazinesAdminPage() {
     try {
       const token = localStorage.getItem('admin_token');
       const url = isEditing 
-        ? `http://127.0.0.1:8000/api/magazines/${editId}/` 
-        : "http://127.0.0.1:8000/api/magazines/";
+        ? `${process.env.NEXT_PUBLIC_API_URL}/magazines/${editId}/` 
+        : `${process.env.NEXT_PUBLIC_API_URL}/magazines/`;
       const method = isEditing ? "PATCH" : "POST";
 
       const res = await fetch(url, {
@@ -142,7 +142,7 @@ export default function MagazinesAdminPage() {
     if (!deleteId) return;
     try {
       const token = localStorage.getItem('admin_token');
-      const res = await fetch(`http://127.0.0.1:8000/api/magazines/${deleteId}/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/magazines/${deleteId}/`, {
         method: "DELETE",
         headers: {
           ...(token ? { 'Authorization': `Token ${token}` } : {})

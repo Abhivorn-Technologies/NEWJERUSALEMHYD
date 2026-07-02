@@ -26,7 +26,7 @@ export default function BibleResourceCardsPage() {
       const token = localStorage.getItem('admin_token');
       const headers: any = {};
       if (token) headers['Authorization'] = `Token ${token}`;
-      const res = await fetch("http://127.0.0.1:8000/api/bible-resources/", { headers });
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bible-resources/`, { headers });
       if (res.ok) {
         const data = await res.json();
         setCards(Array.isArray(data) ? data : (data?.results || []));
@@ -71,8 +71,8 @@ export default function BibleResourceCardsPage() {
     try {
       const token = localStorage.getItem('admin_token');
       const url = isEditing 
-        ? `http://127.0.0.1:8000/api/bible-resources/${editId}/` 
-        : "http://127.0.0.1:8000/api/bible-resources/";
+        ? `${process.env.NEXT_PUBLIC_API_URL}/bible-resources/${editId}/` 
+        : `${process.env.NEXT_PUBLIC_API_URL}/bible-resources/`;
       const method = isEditing ? "PUT" : "POST";
 
       const res = await fetch(url, {
@@ -106,7 +106,7 @@ export default function BibleResourceCardsPage() {
     if (!deleteId) return;
     try {
       const token = localStorage.getItem('admin_token');
-      const res = await fetch(`http://127.0.0.1:8000/api/bible-resources/${deleteId}/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bible-resources/${deleteId}/`, {
         method: "DELETE",
         headers: {
           ...(token ? { 'Authorization': `Token ${token}` } : {})

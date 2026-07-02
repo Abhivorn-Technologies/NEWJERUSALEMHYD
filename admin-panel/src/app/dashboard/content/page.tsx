@@ -49,8 +49,8 @@ function ContentItemsPageInner() {
     setLoading(true);
     try {
       // Fetch both categories
-      const res1 = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Bible+Stories+%26+Activities");
-      const res2 = await fetch("http://127.0.0.1:8000/api/content-items/?page_category=Activities");
+      const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/?page_category=Bible+Stories+%26+Activities`);
+      const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/?page_category=Activities`);
       
       let allData: any[] = [];
       if (res1.ok) {
@@ -119,8 +119,8 @@ function ContentItemsPageInner() {
     };
 
     const url = isEditing 
-      ? `http://127.0.0.1:8000/api/content-items/${editId}/` 
-      : `http://127.0.0.1:8000/api/content-items/`;
+      ? `${process.env.NEXT_PUBLIC_API_URL}/content-items/${editId}/` 
+      : `${process.env.NEXT_PUBLIC_API_URL}/content-items/`;
     const method = isEditing ? 'PUT' : 'POST';
 
     try {
@@ -151,7 +151,7 @@ function ContentItemsPageInner() {
 
   const handleToggleStatus = async (item: any) => {
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${item.id}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/${item.id}/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ function ContentItemsPageInner() {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`http://127.0.0.1:8000/api/content-items/${deleteId}/`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/${deleteId}/`, {
         method: "DELETE",
         headers: {
           'Authorization': `Token ${token}`

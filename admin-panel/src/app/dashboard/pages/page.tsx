@@ -28,7 +28,7 @@ export default function PagesManagement() {
     const headers: any = {};
     if (token) headers['Authorization'] = `Token ${token}`;
     
-    fetch('http://127.0.0.1:8000/api/pages/', { headers })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/pages/`, { headers })
       .then(res => res.json())
       .then(data => {
         setPages(Array.isArray(data) ? data : (data?.results || []));
@@ -67,7 +67,7 @@ export default function PagesManagement() {
       return;
     }
 
-    const url = editingPage ? `http://127.0.0.1:8000/api/pages/${editingPage.slug}/` : 'http://127.0.0.1:8000/api/pages/';
+    const url = editingPage ? `${process.env.NEXT_PUBLIC_API_URL}/pages/${editingPage.slug}/` : `${process.env.NEXT_PUBLIC_API_URL}/pages/`;
     const method = editingPage ? 'PUT' : 'POST';
 
     const res = await fetch(url, {
@@ -94,7 +94,7 @@ export default function PagesManagement() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/pages/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/pages/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });

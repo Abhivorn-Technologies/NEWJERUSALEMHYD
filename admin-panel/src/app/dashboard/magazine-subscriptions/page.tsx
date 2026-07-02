@@ -9,7 +9,7 @@ export default function MagazineSubscriptionsPage() {
 
   const fetchSubscriptions = () => {
     const token = localStorage.getItem('admin_token');
-    fetch('http://127.0.0.1:8000/api/magazine-subscriptions/', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/magazine-subscriptions/`, {
       headers: { 'Authorization': `Token ${token}` }
     })
       .then(res => res.json())
@@ -29,7 +29,7 @@ export default function MagazineSubscriptionsPage() {
 
   const toggleStatus = (item: any) => {
     const token = localStorage.getItem('admin_token');
-    fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${item.id}/`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/magazine-subscriptions/${item.id}/`, {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export default function MagazineSubscriptionsPage() {
   const executeDelete = () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    fetch(`http://127.0.0.1:8000/api/magazine-subscriptions/${deleteId}/`, { 
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/magazine-subscriptions/${deleteId}/`, { 
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     })

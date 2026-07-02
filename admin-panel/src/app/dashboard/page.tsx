@@ -16,7 +16,7 @@ export default function DashboardPage() {
       headers['Authorization'] = `Token ${token}`;
     }
 
-    fetch('http://127.0.0.1:8000/api/summary/', { headers })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/summary/`, { headers })
       .then(async res => {
         if (!res.ok) {
           throw new Error('Failed to fetch summary');

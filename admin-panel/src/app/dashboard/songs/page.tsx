@@ -25,7 +25,7 @@ export default function ManageSongsPage() {
     const headers: any = {};
     if (token) headers['Authorization'] = `Token ${token}`;
     
-    fetch('http://127.0.0.1:8000/api/songs/', { headers })
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/`, { headers })
       .then(res => res.json())
       .then(data => {
         setSongs(Array.isArray(data) ? data : (data?.results || []));
@@ -34,7 +34,7 @@ export default function ManageSongsPage() {
   };
 
   const fetchCategories = () => {
-    fetch('http://127.0.0.1:8000/api/categories/')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/`)
       .then(res => res.json())
       .then(data => setCategoriesList(Array.isArray(data) ? data : (data?.results || [])))
       .catch(() => setCategoriesList([]));
@@ -50,7 +50,7 @@ export default function ManageSongsPage() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/songs/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
@@ -67,7 +67,7 @@ export default function ManageSongsPage() {
     const token = localStorage.getItem('admin_token');
     if (!token) return;
 
-    const res = await fetch(`http://127.0.0.1:8000/api/songs/${song.id}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/${song.id}/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

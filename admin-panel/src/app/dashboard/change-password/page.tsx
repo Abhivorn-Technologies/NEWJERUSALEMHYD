@@ -30,7 +30,7 @@ export default function ChangePasswordPage() {
     const token = localStorage.getItem('admin_token');
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/change-password/', {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/change-password/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

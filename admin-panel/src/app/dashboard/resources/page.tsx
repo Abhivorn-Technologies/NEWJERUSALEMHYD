@@ -81,7 +81,7 @@ export default function BibleResourcesPage() {
 
   const fetchItems = () => {
     setLoading(true);
-    fetch('http://127.0.0.1:8000/api/content-items/')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/`)
       .then(res => res.json())
       .then(data => {
         setItems(Array.isArray(data) ? data : (data?.results || []));
@@ -156,7 +156,7 @@ export default function BibleResourcesPage() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
@@ -171,7 +171,7 @@ export default function BibleResourcesPage() {
 
   const handleToggleStatus = async (item: any) => {
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${item.id}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/${item.id}/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -187,7 +187,7 @@ export default function BibleResourcesPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('admin_token');
-    const url = isEditing ? `http://127.0.0.1:8000/api/content-items/${editId}/` : 'http://127.0.0.1:8000/api/content-items/';
+    const url = isEditing ? `${process.env.NEXT_PUBLIC_API_URL}/content-items/${editId}/` : `${process.env.NEXT_PUBLIC_API_URL}/content-items/`;
     const method = isEditing ? 'PUT' : 'POST';
 
     const validLinks = formData.links.filter(l => l.text.trim() || l.url.trim());

@@ -15,7 +15,7 @@ export default function ManageCategoriesPage() {
   const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
 
   const fetchCategories = () => {
-    fetch('http://127.0.0.1:8000/api/categories/')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/`)
       .then(res => res.json())
       .then(data => {
         setCategories(Array.isArray(data) ? data : (data?.results || []));
@@ -48,7 +48,7 @@ export default function ManageCategoriesPage() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/categories/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
@@ -67,7 +67,7 @@ export default function ManageCategoriesPage() {
     const token = localStorage.getItem('admin_token');
     if (!token) return setAlertConfig({ isOpen: true, title: 'Error', message: 'Not logged in', type: 'error' });
 
-    const url = isEditing ? `http://127.0.0.1:8000/api/categories/${editingId}/` : 'http://127.0.0.1:8000/api/categories/';
+    const url = isEditing ? `${process.env.NEXT_PUBLIC_API_URL}/categories/${editingId}/` : `${process.env.NEXT_PUBLIC_API_URL}/categories/`;
     const method = isEditing ? 'PUT' : 'POST';
 
     const res = await fetch(url, {

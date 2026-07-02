@@ -30,7 +30,7 @@ export default function MissionaryStoriesPage() {
 
   const fetchItems = () => {
     setLoading(true);
-    fetch('http://127.0.0.1:8000/api/content-items/?page_category=Missionary+Stories')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/?page_category=Missionary+Stories`)
       .then(res => res.json())
       .then(data => {
         setItems(Array.isArray(data) ? data : (data?.results || []));
@@ -85,7 +85,7 @@ export default function MissionaryStoriesPage() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/${deleteId}/`, {
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     });
@@ -100,7 +100,7 @@ export default function MissionaryStoriesPage() {
 
   const handleToggleStatus = async (item: any) => {
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/content-items/${item.id}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/content-items/${item.id}/`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -116,7 +116,7 @@ export default function MissionaryStoriesPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const token = localStorage.getItem('admin_token');
-    const url = isEditing ? `http://127.0.0.1:8000/api/content-items/${editId}/` : 'http://127.0.0.1:8000/api/content-items/';
+    const url = isEditing ? `${process.env.NEXT_PUBLIC_API_URL}/content-items/${editId}/` : `${process.env.NEXT_PUBLIC_API_URL}/content-items/`;
     const method = isEditing ? 'PUT' : 'POST';
 
     const links = formData.file_url ? [{ text: 'PDF', url: formData.file_url }] : [];

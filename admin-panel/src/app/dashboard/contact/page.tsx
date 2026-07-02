@@ -11,7 +11,7 @@ export default function ContactInboxPage() {
 
   const fetchMessages = () => {
     const token = localStorage.getItem('admin_token');
-    fetch('http://127.0.0.1:8000/api/contact-submissions/', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact-submissions/`, {
       headers: { 'Authorization': `Token ${token}` }
     })
       .then(res => res.json())
@@ -32,7 +32,7 @@ export default function ContactInboxPage() {
   const executeDelete = async () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    const res = await fetch(`http://127.0.0.1:8000/api/contact-submissions/${deleteId}/`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contact-submissions/${deleteId}/`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Token ${token}`

@@ -9,7 +9,7 @@ export default function PrayerRequestsPage() {
 
   const fetchRequests = () => {
     const token = localStorage.getItem('admin_token');
-    fetch('http://127.0.0.1:8000/api/prayer-requests/', {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/prayer-requests/`, {
       headers: { 'Authorization': `Token ${token}` }
     })
       .then(res => res.json())
@@ -29,7 +29,7 @@ export default function PrayerRequestsPage() {
 
   const toggleReadStatus = (item: any) => {
     const token = localStorage.getItem('admin_token');
-    fetch(`http://127.0.0.1:8000/api/prayer-requests/${item.id}/`, {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/prayer-requests/${item.id}/`, {
       method: 'PUT',
       headers: { 
         'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export default function PrayerRequestsPage() {
   const executeDelete = () => {
     if (!deleteId) return;
     const token = localStorage.getItem('admin_token');
-    fetch(`http://127.0.0.1:8000/api/prayer-requests/${deleteId}/`, { 
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/prayer-requests/${deleteId}/`, { 
       method: 'DELETE',
       headers: { 'Authorization': `Token ${token}` }
     })

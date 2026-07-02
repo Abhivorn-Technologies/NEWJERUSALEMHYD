@@ -32,7 +32,7 @@ export default function AddOrEditSongPage() {
   });
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/categories/')
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/`)
       .then(res => res.json())
       .then(data => setCategoriesList(Array.isArray(data) ? data : (data?.results || [])))
       .catch(() => setCategoriesList([]));
@@ -42,7 +42,7 @@ export default function AddOrEditSongPage() {
       const headers: any = {};
       if (token) headers['Authorization'] = `Token ${token}`;
 
-      fetch(`http://127.0.0.1:8000/api/songs/${editId}/`, { headers })
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/${editId}/`, { headers })
         .then(res => res.json())
         .then(song => {
           let uiLang = song.language.replace('sunday_', '');
@@ -98,7 +98,7 @@ export default function AddOrEditSongPage() {
       payload.append('audio_file', formData.audio_file);
     }
 
-    const url = editId ? `http://127.0.0.1:8000/api/songs/${editId}/` : 'http://127.0.0.1:8000/api/songs/';
+    const url = editId ? `${process.env.NEXT_PUBLIC_API_URL}/songs/${editId}/` : `${process.env.NEXT_PUBLIC_API_URL}/songs/`;
     const method = editId ? 'PUT' : 'POST';
 
     const res = await fetch(url, {
