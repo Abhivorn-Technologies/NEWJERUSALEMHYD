@@ -27,7 +27,7 @@ export default function HeroBanner() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-white h-auto md:h-[680px] lg:h-[720px] w-full flex flex-col md:block">
+    <section className="relative overflow-hidden bg-white h-auto md:h-[calc(100vh-75px)] md:min-h-[600px] md:max-h-[840px] md:max-h-[900px] w-full flex flex-col md:block">
       
       {/* Wave Background Layers Container (starts responsively to align with the middle of the book cover) */}
       <div className="absolute top-[160px] md:top-[125px] lg:top-[145px] xl:top-[165px] bottom-0 left-0 w-full pointer-events-none overflow-hidden">
@@ -329,7 +329,7 @@ export default function HeroBanner() {
       {/* Welcome Message overlaying the bottom waves */}
       <div className="relative md:absolute bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-7xl px-6 pb-2 z-30 text-slate-800 text-left space-y-3 sm:space-y-4 select-none mt-3 md:mt-0">
         <h2 
-          className="text-[18px] md:text-[24px] font-normal text-[#102E44] tracking-wide pl-4 md:pl-12 lg:pl-24"
+          className="text-[18px] md:text-[22px] font-normal text-[#102E44] tracking-wide pl-4 md:pl-12 lg:pl-24"
           style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           నూతన యెరూషలేము పరిచర్యల వెబ్ సైట్ కు స్వాగతం!
@@ -338,7 +338,7 @@ export default function HeroBanner() {
         {/* Paragraph + Fish side by side after స్వాగతం — fish never touches text */}
         <div className="relative">
           <p 
-            className="text-[18px] md:text-[24px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[220px] pl-4 md:pl-12 lg:pl-24 text-justify"
+            className="text-[16px] md:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[220px] pl-4 md:pl-12 lg:pl-24 text-justify"
             style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.

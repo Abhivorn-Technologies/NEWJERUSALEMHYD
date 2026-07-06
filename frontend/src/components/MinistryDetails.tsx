@@ -30,13 +30,13 @@ export default function MinistryDetails() {
           {/* Bible Verse Section */}
           <div className="text-center space-y-1.5 max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto">
             <p 
-              className="text-[#FFEBB3] italic font-normal text-[18px] md:text-[24px] tracking-wide"
+              className="text-[#FFEBB3] italic font-normal text-[16px] md:text-[19px] tracking-wide"
               style={{ fontFamily: 'var(--font-mallanna)' }}
             >
               1 కొరింథి 4 : 20 , రోమా 14 : 17
             </p>
             <div 
-              className="space-y-0.5 text-white/95 text-[18px] md:text-[24px] leading-relaxed font-[500]"
+              className="space-y-0.5 text-white/95 text-[16px] md:text-[19px] leading-relaxed font-[500]"
               style={{ fontFamily: 'var(--font-mallanna)' }}
             >
               <p>“దేవుని రాజ్యము మాటలతో కాదు శక్తి తోనే యున్నది.</p>
@@ -47,7 +47,7 @@ export default function MinistryDetails() {
 
           {/* Ministry History Paragraphs */}
           <div 
-            className="text-[18px] md:text-[24px] leading-relaxed font-[400] text-gray-200 text-center md:text-justify max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto"
+            className="text-[16px] md:text-[19px] leading-relaxed font-[400] text-gray-200 text-center md:text-justify max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto"
             style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             <p>
@@ -65,11 +65,11 @@ export default function MinistryDetails() {
               className="bg-[#F9F9F9] text-gray-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-200/50 text-center space-y-5 max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto"
               style={{ fontFamily: 'var(--font-mallanna)' }}
             >
-              <p className="text-[18px] md:text-[24px] leading-relaxed font-[400] text-gray-700 text-justify">
+              <p className="text-[16px] md:text-[19px] leading-relaxed font-[400] text-gray-700 text-justify">
                 నిశ్చయముగా ఈ పరిచర్య మీకు నిశ్చలత్వమును, నిర్భయమును, నిగూఢమైన దైవిక క్రమమును, నిరంతరమైన ధైర్యమును, నిలకడైన ఆత్మీయతను పంచగలదని ప్రగాఢమైన విశ్వాసముతో..... మరియు ధనదాహముతో కాక నిస్వార్థమైన ఆత్మలదాహముతో కొనసాగే ఈ నిబంధన పరిచర్యలో మీరు నిజమైన పాలిభాగస్థులు కాగలరని నిండు మనస్సుతో ఆహ్వానిస్తున్నాము.
               </p>
               <p 
-                className="text-gray-900 font-normal text-[18px] md:text-[24px] tracking-wide"
+                className="text-gray-900 font-normal text-[16px] md:text-[19px] tracking-wide"
                 style={{ fontFamily: 'var(--font-mallanna)' }}
               >
                 మీకొరకు ప్రార్థించే మీ సంఘం, మీ దైవజనులు ఎల్లప్పుడు మీకు తోడుగా ఉన్నారని మరచిపోవద్దు.
