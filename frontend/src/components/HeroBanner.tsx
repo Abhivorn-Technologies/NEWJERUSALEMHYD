@@ -129,7 +129,7 @@ export default function HeroBanner() {
       <div className="relative md:absolute md:left-[42%] md:-translate-x-1/2 top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] z-30 w-full max-w-[90%] md:max-w-7xl lg:px-[85px] flex justify-center pointer-events-none pt-2 pb-1 px-4">
         <span 
           className="text-[#102E44] text-[13px] sm:text-[14px] md:text-[17px] lg:text-[21px] font-normal text-center select-none leading-normal font-sans"
-          style={{ fontFamily: '"Mallanna", sans-serif' }}
+          style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           చిన్న పిల్లల ఆధ్యాత్మికమైన ఎదుగుదల కొరకు
         </span>
@@ -209,7 +209,7 @@ export default function HeroBanner() {
                 fontSize="34px" 
                 fontWeight="900" 
                 textAnchor="middle" 
-                style={{ fontFamily: '"Mallanna", sans-serif', letterSpacing: '0.05em' }}
+                style={{ fontFamily: 'var(--font-mallanna)', letterSpacing: '0.05em' }}
               >
                 ఉచితము
               </text>
@@ -221,7 +221,7 @@ export default function HeroBanner() {
           </svg>
         </div>
 
-        <div className="w-auto transform self-start mt-4 md:mt-[40px] lg:mt-[50px] ml-auto" style={{ fontFamily: '"Mallanna", sans-serif' }}>
+        <div className="w-auto transform self-start mt-4 md:mt-[40px] lg:mt-[50px] ml-auto" style={{ fontFamily: 'var(--font-mallanna)' }}>
           {/* Two columns layout for the bullet points */}
           <div className="flex gap-1 sm:gap-2 md:gap-3 text-[#102E44]">
             {/* First Column */}
@@ -330,7 +330,7 @@ export default function HeroBanner() {
       <div className="relative md:absolute bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-7xl px-6 pb-2 z-30 text-slate-800 text-left space-y-3 sm:space-y-4 select-none mt-3 md:mt-0">
         <h2 
           className="text-[18px] md:text-[22px] font-normal text-[#102E44] tracking-wide pl-4 md:pl-12 lg:pl-24"
-          style={{ fontFamily: '"Mallanna", sans-serif' }}
+          style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           నూతన యెరూషలేము పరిచర్యల వెబ్ సైట్ కు స్వాగతం!
         </h2>
@@ -339,7 +339,7 @@ export default function HeroBanner() {
         <div className="relative">
           <p 
             className="text-[16px] md:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[220px] pl-4 md:pl-12 lg:pl-24 text-justify"
-            style={{ fontFamily: '"Mallanna", sans-serif' }}
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.
           </p>

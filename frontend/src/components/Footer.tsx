@@ -60,7 +60,7 @@ export default function Footer() {
         {/* Contact Details Title */}
         <div 
           className="text-center text-[#FFEBB3] text-[13px] sm:text-base md:text-lg lg:text-[21px] font-normal leading-relaxed pt-4 md:pt-6"
-          style={{ fontFamily: '"Mallanna", sans-serif' }}
+          style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           <p>మీ ప్రార్థన అవసరతకై సంప్రదించవలసిన మా చిరునామా :</p>
         </div>
@@ -118,13 +118,13 @@ export default function Footer() {
         >
           <p 
             className="font-normal text-white tracking-wide text-[18px] md:text-[24px] text-center md:text-justify"
-            style={{ fontFamily: '"Mallanna", sans-serif' }}
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             ఈ వెబ్ సైట్ యొక్క సర్వ హక్కులు నూతన యెరూషలేము పరిచర్యలు నకు చెందినవి.
           </p>
           <p 
             className="text-gray-300/85 leading-loose text-[18px] md:text-[24px] text-center md:text-justify"
-            style={{ fontFamily: '"Mallanna", sans-serif' }}
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             ముఖ్య గమనిక : నూతన యెరూషలేము పరిచర్యలు ఎప్పుడూ, ఎవరినీ ఆర్థిక సహాయం కోరదు; ఒకవేళ నూతన యెరూషలేము పరిచర్యలు పేరుతో ఎవరైనా ఆర్థిక సహాయం అడిగితే, వారి వివరాలు మాకు తప్పక తెలియజేయండి. ఈ హెచ్చరికను ఖాతరు చేయకుండా ఎవరైనా నూతన యెరూషలేము పరిచర్యలకు అనుకుని ఆర్థిక సహాయం అందిస్తే అందుకు నూతన యెరూషలేము పరిచర్యలు ఎలాంటి బాధ్యత వహించదు.
           </p>

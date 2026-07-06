@@ -23,6 +23,12 @@
   --color-foreground: #171717;
   --font-sans: "Roboto", sans-serif;
   --font-mono: "Roboto Mono", monospace;
+  
+  --font-mallanna: "Mallanna", sans-serif;
+  --font-ramabhadra: "Ramabhadra", sans-serif;
+  --font-suranna: "Suranna", serif;
+  --font-tenali: "Tenali Ramakrishna", sans-serif;
+  --font-mandali: "Mandali", sans-serif;
 }
 
 body {

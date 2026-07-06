@@ -439,7 +439,7 @@ ${requestForm.details || "N/A"}
   // Interaction states
   const [favorites, setFavorites] = useState<string[]>([]);
   const [fontSize, setFontSize] = useState<number>(24);
-  const [fontFamily, setFontFamily] = useState<string>("'Mallanna', sans-serif");
+  const [fontFamily, setFontFamily] = useState<string>('var(--font-mallanna)');
   const [lineHeight, setLineHeight] = useState<number>(2.0);
   const [activeLyricsTab, setActiveLyricsTab] = useState<
     "telugu" | "english" | "hindi" | "ppt"
@@ -477,10 +477,10 @@ ${requestForm.details || "N/A"}
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return {
       fontFamily: isTelugu
-        ? "'Mallanna', sans-serif"
+        ? 'var(--font-mallanna)'
         : isHindi
           ? "sans-serif"
-          : "'Mallanna', sans-serif",
+          : 'var(--font-mallanna)',
       fontSize: isTelugu || isHindi ? "34px" : "22px",
       lineHeight: "1",
     };
@@ -491,10 +491,10 @@ ${requestForm.details || "N/A"}
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return {
       fontFamily: isTelugu
-        ? "'Mallanna', sans-serif"
+        ? 'var(--font-mallanna)'
         : isHindi
           ? "sans-serif"
-          : "'Mallanna', sans-serif",
+          : 'var(--font-mallanna)',
       fontSize: isTelugu || isHindi ? "64px" : "50px",
       lineHeight: "1",
       verticalAlign: "middle",
@@ -507,10 +507,10 @@ ${requestForm.details || "N/A"}
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return {
       fontFamily: isTelugu
-        ? "'Mallanna', sans-serif"
+        ? 'var(--font-mallanna)'
         : isHindi
           ? "sans-serif"
-          : "'Mallanna', sans-serif",
+          : 'var(--font-mallanna)',
       fontSize: isTelugu || isHindi ? "34px" : "24px",
       lineHeight: "1",
       paddingTop: isTelugu || isHindi ? "2px" : "0px",
@@ -1392,7 +1392,7 @@ ${requestForm.details || "N/A"}
                                 : "border-transparent bg-transparent text-gray-300 cursor-not-allowed opacity-30"
                             }`}
                             style={{
-                              fontFamily: "'Mallanna', sans-serif",
+                              fontFamily: 'var(--font-mallanna)',
                               fontSize: "40px",
                             }}
                           >
@@ -1529,7 +1529,7 @@ ${requestForm.details || "N/A"}
                                   style={{
                                     fontFamily:
                                       currentLang === "telugu"
-                                        ? "'Mallanna', sans-serif"
+                                        ? 'var(--font-mallanna)'
                                         : currentLang === "hindi"
                                           ? "sans-serif"
                                           : "inherit",
@@ -1568,7 +1568,7 @@ ${requestForm.details || "N/A"}
                                       onClick={() => handleSelectSong(song)}
                                       className="song-btn text-left py-1 px-3 rounded-lg bg-transparent hover:bg-[#d1e3e8] text-[#3B7586] hover:text-[#1f4251] transition-colors duration-200 flex items-center gap-3 w-full"
                                       style={{
-                                        fontFamily: "'Mallanna', sans-serif",
+                                        fontFamily: 'var(--font-mallanna)',
                                       }}
                                     >
                                       <span className="text-lg md:text-xl font-mono font-medium opacity-70 shrink-0">
@@ -1881,7 +1881,7 @@ ${requestForm.details || "N/A"}
                       ? "bg-[#d1e3e8] border-transparent text-[#3B7586] shadow-sm"
                       : "bg-[#FCFDFF] border-transparent hover:bg-white hover:shadow-[0_4px_12px_rgba(87,149,167,0.12)] hover:border-[#bcd3d8]/50 hover:text-[#3B7586] hover:-translate-y-0.5 text-gray-800"
                   }`}
-                  style={{ fontFamily: "'Mallanna', sans-serif" }}
+                  style={{ fontFamily: 'var(--font-mallanna)' }}
                 >
                   <span className="text-lg md:text-xl font-mono opacity-65">
                     {idx + 1}.
@@ -1920,7 +1920,7 @@ ${requestForm.details || "N/A"}
                     onClick={() => {
                       setFontSize(24);
                       setLineHeight(2.0);
-                      setFontFamily("'Mallanna', sans-serif");
+                      setFontFamily('var(--font-mallanna)');
                     }}
                     className="px-3 h-7 rounded-lg bg-white shadow-sm border border-gray-200 text-gray-600 hover:bg-gray-50 active:scale-95 transition-all text-[11px] font-bold"
                     title="Reset Font Size, Font Family, and Spacing"
@@ -1945,9 +1945,9 @@ ${requestForm.details || "N/A"}
                     onChange={(e) => setFontFamily(e.target.value)}
                     className="bg-white border border-gray-200 rounded-lg text-gray-700 text-xs px-2 py-1 outline-none shadow-sm hover:bg-gray-50 transition-all cursor-pointer"
                   >
-                    <option value="'Mallanna', sans-serif">Mallanna</option>
-                    <option value="'Mallanna', sans-serif">Ramabhadra</option>
-                    <option value="'Mallanna', sans-serif">Suranna</option>
+                    <option value='var(--font-mallanna)'>Mallanna</option>
+                    <option value='var(--font-mallanna)'>Ramabhadra</option>
+                    <option value='var(--font-mallanna)'>Suranna</option>
                     <option value="var(--font-poppins)">Poppins</option>
                     <option value="Arial, sans-serif">Arial</option>
                     <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
@@ -2018,7 +2018,7 @@ ${requestForm.details || "N/A"}
                 <div>
                   <h1
                     className="text-3xl md:text-4xl font-normal text-[#3B7586] leading-normal py-1"
-                    style={{ fontFamily: "'Mallanna', sans-serif" }}
+                    style={{ fontFamily: 'var(--font-mallanna)' }}
                   >
                     {keyboardLanguage === "telugu"
                       ? extractTeluguTitle(activeSong.title)
