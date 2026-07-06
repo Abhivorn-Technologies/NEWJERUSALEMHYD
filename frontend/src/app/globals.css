@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Mallanna&family=Mandali&family=Ramabhadra&family=Suranna&family=Tenali+Ramakrishna&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -15,6 +16,11 @@
   --medium-teal: #7ACED4;
   --card-bg: #F3F3F3;
   
+  --font-mallanna: 'Mallanna', sans-serif;
+  --font-ramabhadra: 'Ramabhadra', sans-serif;
+  --font-suranna: 'Suranna', serif;
+  --font-tenali: 'Tenali Ramakrishna', sans-serif;
+  --font-mandali: 'Mandali', sans-serif;
 }
 
 @theme inline {
