@@ -9,7 +9,7 @@ export default function NotFound() {
         </h1>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <h2 className="text-2xl md:text-4xl font-bold text-[#053245] mb-4">Page Not Found</h2>
-          <p className="text-[#1F3E50] max-w-md text-sm md:text-base mb-8" style={{ fontFamily: 'var(--font-mallanna)' }}>
+          <p className="text-[#1F3E50] max-w-md text-sm md:text-base mb-8" style={{ fontFamily: '"Mallanna", sans-serif' }}>
             The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
           </p>
           <Link 

@@ -1,25 +1,21 @@
 @import "tailwindcss";
 
-:root {
-  --primary: #173C4E;
-  --secondary: #54595F;
-  --text: #7A7A7A;
-  --accent: #61CE70;
-  --brick-red: #AB2423;
-  --teal-green: #1F6F5A;
-  --gold: #B8962E;
-  --teal: #2A9094;
-  --dark-teal: #015C61;
-  --very-dark-teal: #003138;
-  --light-teal: #A4DCE0;
-  --medium-teal: #7ACED4;
-  --card-bg: #F3F3F3;
-  
-  --font-mallanna: 'Mallanna', sans-serif;
-  --font-ramabhadra: 'Ramabhadra', sans-serif;
-  --font-suranna: 'Suranna', serif;
-  --font-tenali: 'Tenali Ramakrishna', sans-serif;
-  --font-mandali: 'Mandali', sans-serif;
+@layer base {
+  :root {
+    --primary: #173C4E;
+    --secondary: #54595F;
+    --text: #7A7A7A;
+    --accent: #61CE70;
+    --brick-red: #AB2423;
+    --teal-green: #1F6F5A;
+    --gold: #B8962E;
+    --teal: #2A9094;
+    --dark-teal: #015C61;
+    --very-dark-teal: #003138;
+    --light-teal: #A4DCE0;
+    --medium-teal: #7ACED4;
+    --card-bg: #F3F3F3;
+  }
 }
 
 @theme inline {
@@ -32,7 +28,7 @@
 body {
   background: #ffffff;
   color: #171717;
-  font-family: "Roboto", var(--font-mallanna), sans-serif;
+  font-family: "Roboto", "Mallanna", sans-serif, sans-serif;
 }
 
 @media (max-width: 767px) {
@@ -383,14 +379,14 @@ a:not([class*="slant"]):not([class*="reveal"]) {
 .about-content h2,
 .about-content h3,
 .about-content h4 {
-  font-family: var(--font-mallanna), sans-serif !important;
+  font-family: "Mallanna", sans-serif, sans-serif !important;
   font-weight: 400 !important;
 }
 
 .about-content p,
 .about-content span,
 .about-content li {
-  font-family: var(--font-mallanna), sans-serif !important;
+  font-family: "Mallanna", sans-serif, sans-serif !important;
 }
 
 /* Bullet point styles for mission/vision lists inside about-content */
