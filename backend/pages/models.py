@@ -182,6 +182,7 @@ class ResourceDownload(models.Model):
     CATEGORY_CHOICES = (
         ('Software', 'Software'),
         ('PPT', 'PPT'),
+        ('PDF', 'PDF'),
     )
     title = models.CharField(max_length=200)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES, default='Software')

@@ -37,6 +37,7 @@ const PAGE_SECTIONS_MAP: Record<string, string[]> = {
   'Bible Downloads': [
     'Software',
     'Presentations',
+    'PDF',
     'Other'
   ]
 };

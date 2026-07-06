@@ -126,10 +126,10 @@ export default function HeroBanner() {
       </div>
 
       {/* Subtitle (Chinna Pillala...) centered slightly to the left */}
-      <div className="relative md:absolute md:left-[42%] md:-translate-x-1/2 top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] z-30 w-full md:w-[90%] max-w-4xl flex justify-center pointer-events-none pt-2 pb-1 px-4">
+      <div className="relative md:absolute md:left-[42%] md:-translate-x-1/2 top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] z-30 w-full max-w-[90%] md:max-w-7xl lg:px-[85px] flex justify-center pointer-events-none pt-2 pb-1 px-4">
         <span 
           className="text-[#102E44] text-[13px] sm:text-[14px] md:text-[17px] lg:text-[21px] font-normal text-center select-none leading-normal font-sans"
-          style={{ fontFamily: 'var(--font-mandali)' }}
+          style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           చిన్న పిల్లల ఆధ్యాత్మికమైన ఎదుగుదల కొరకు
         </span>
@@ -139,7 +139,7 @@ export default function HeroBanner() {
       <div className="relative md:absolute md:right-[2%] sm:right-[5%] md:right-[8%] lg:right-[10%] top-[2px] sm:top-[4px] md:top-[6px] lg:top-[8px] w-full max-w-2xl md:w-auto md:max-w-[700px] lg:max-w-[900px] z-30 flex flex-row items-center justify-around md:justify-end gap-2.5 sm:gap-10 md:gap-8 mt-8 mb-6 md:my-0 px-2 sm:px-12 md:px-6">
         
         {/* Slanted Folded Ribbon: "పూర్తిగా ఉచితము" designed exactly like the reference image */}
-        <div className="hidden relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform translate-x-[40px] sm:translate-x-[60px] md:translate-x-[80px] lg:translate-x-[100px] -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
+        <div className="hidden relative w-[110px] sm:w-[170px] md:w-[240px] lg:w-[280px] aspect-[400/180] select-none mb-0 transform -translate-y-[10px] md:-translate-y-[20px] flex-shrink-0">
           <svg viewBox="0 0 400 180" className="w-full h-full overflow-visible">
             <defs>
               {/* Top Banner Gradient */}
@@ -209,7 +209,7 @@ export default function HeroBanner() {
                 fontSize="34px" 
                 fontWeight="900" 
                 textAnchor="middle" 
-                style={{ fontFamily: 'var(--font-ramabhadra)', letterSpacing: '0.05em' }}
+                style={{ fontFamily: 'var(--font-mallanna)', letterSpacing: '0.05em' }}
               >
                 ఉచితము
               </text>
@@ -221,7 +221,7 @@ export default function HeroBanner() {
           </svg>
         </div>
 
-        <div className="w-auto transform self-start mt-4 md:mt-[40px] lg:mt-[50px] ml-auto translate-x-[40px] sm:translate-x-[60px] md:translate-x-[100px] lg:translate-x-[130px]" style={{ fontFamily: 'var(--font-mandali)' }}>
+        <div className="w-auto transform self-start mt-4 md:mt-[40px] lg:mt-[50px] ml-auto" style={{ fontFamily: 'var(--font-mallanna)' }}>
           {/* Two columns layout for the bullet points */}
           <div className="flex gap-1 sm:gap-2 md:gap-3 text-[#102E44]">
             {/* First Column */}
@@ -330,7 +330,7 @@ export default function HeroBanner() {
       <div className="relative md:absolute bottom-0 md:left-1/2 md:-translate-x-1/2 w-full max-w-7xl px-6 pb-2 z-30 text-slate-800 text-left space-y-3 sm:space-y-4 select-none mt-3 md:mt-0">
         <h2 
           className="text-base sm:text-lg md:text-xl lg:text-[23px] font-normal text-[#102E44] tracking-wide"
-          style={{ fontFamily: 'var(--font-ramabhadra)' }}
+          style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           నూతన యెరూషలేము పరిచర్యల వెబ్ సైట్ కు స్వాగతం!
         </h2>
@@ -339,7 +339,7 @@ export default function HeroBanner() {
         <div className="relative">
           <p 
             className="text-[12px] sm:text-sm md:text-[15px] lg:text-[18px] leading-relaxed font-[400] text-[#1F3E50] md:pr-[170px] lg:pr-[220px] text-justify"
-            style={{ fontFamily: 'var(--font-mandali)' }}
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             నూతన యెరూషలేము పరిచర్యలు అనే ఈ వెబ్సైట్ తెలుగు క్రైస్తవ సంఘానికి ఆధ్యాత్మిక, అనుసరణీయ, సత్యవేద వాక్యాలను తెలుగులో అందిస్తుంది. ఇందులో ఎన్నో ప్రత్యేకమైన క్రైస్తవ పుస్తకాలు, బైబిలును లోతుగా అధ్యయనం చేయడానికి సహాయపడే వ్యాఖ్యానాలు, ఇంకా మరెన్నో వనరులు, తెలుగులో అందుబాటులో ఉన్నాయి. ఇవి చదవడం/వినడం ద్వారా దుర్బోధలకు ఢీటైన సమాధానాలను తెలుసుకోవడమే కాకుండా, దుర్బోధకులకు మరియు విమర్శకులకు లేఖనానుసారమైన సమాధానాలను ఎలా ఇవ్వాలో కూడా మీరు నేర్చుకుంటారు. జీవితంలో ఎదురయ్యే అనేక చిక్కు ప్రశ్నలకు బైబిల్ ఆధారిత సమాధానాలతో నివృత్తిని కలిగించేలా ఈ వెబ్సైట్ మీకోసం నిర్మించబడింది.
           </p>

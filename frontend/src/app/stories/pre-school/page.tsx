@@ -36,17 +36,7 @@ export default async function StoriesPage() {
           </div>
           
           <div className="max-w-4xl mx-auto px-4 sm:px-0 mt-4">
-            <div className="bg-[#FF99BE] px-4 sm:px-8 py-5 text-white flex flex-row items-center justify-between gap-4 rounded-t-2xl sm:rounded-2xl shadow-md mb-6">
-              <div>
-                <h1 className="text-2xl font-bold">Pre School Stories</h1>
-                <p className="text-white/80 text-sm mt-1 max-w-md">Review simple, engaging bible stories perfect for pre-school children.</p>
-              </div>
-              <img 
-                src="/images/stories/old-testament/image1.jpeg" 
-                alt="Pre School Stories" 
-                className="w-24 h-16 object-cover rounded-lg border border-white/20 shadow-sm"
-              />
-            </div>
+
             
             {storiesList.length > 0 ? (
               <div className="overflow-x-auto bg-white rounded-b-2xl sm:rounded-2xl border border-gray-100 shadow-sm">

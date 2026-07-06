@@ -164,48 +164,48 @@ export default function ManageSongsPage() {
             <table className="w-full text-left text-[14px]">
               <thead>
                 <tr className="border-b border-gray-100 text-gray-400 text-[12px] font-bold uppercase tracking-wider bg-white">
-                  <th className="py-4 px-6 pt-6">Song</th>
-                  <th className="py-4 px-6 pt-6">Language</th>
-                  <th className="py-4 px-6 pt-6">Song List</th>
-                  <th className="py-4 px-6 pt-6">Category</th>
-                  <th className="py-4 px-6 pt-6">Audio</th>
-                  <th className="py-4 px-6 pt-6">Status</th>
-                  <th className="py-4 px-6 pt-6 text-right">Actions</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Song</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Language</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Song List</th>
+                  <th className="py-4 px-3 md:px-4 pt-6 hidden lg:table-cell">Category</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Audio</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Status</th>
+                  <th className="py-4 px-3 md:px-4 pt-6 text-right">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50">
                 {filteredSongs.slice(0, 100).map(song => (
                   <tr key={song.id} className="hover:bg-gray-50/50 transition bg-white">
-                    <td className="py-5 px-6">
-                      <p className="text-[17px] font-bold text-[#1a3845] mb-1.5 leading-tight">{song.title}</p>
-                      <p className="text-[13px] text-gray-500 font-medium">{song.slug}</p>
+                    <td className="py-4 px-3 md:px-4">
+                      <p className="text-[15px] md:text-[17px] font-bold text-[#1a3845] mb-1 leading-tight">{song.title}</p>
+                      <p className="text-[12px] text-gray-500 font-medium">{song.slug}</p>
                     </td>
-                    <td className="py-4 px-6 text-gray-600 font-medium">{song.language.replace('sunday_', '').charAt(0).toUpperCase() + song.language.replace('sunday_', '').slice(1)}</td>
-                    <td className="py-4 px-6 text-gray-600 font-medium">{song.language.includes('sunday') ? 'Sunday School' : 'All Songs'}</td>
-                    <td className="py-4 px-6 text-gray-600 font-medium">
+                    <td className="py-4 px-3 md:px-4 text-gray-600 font-medium">{song.language.replace('sunday_', '').charAt(0).toUpperCase() + song.language.replace('sunday_', '').slice(1)}</td>
+                    <td className="py-4 px-3 md:px-4 text-gray-600 font-medium">{song.language.includes('sunday') ? 'Sunday School' : 'All Songs'}</td>
+                    <td className="py-4 px-3 md:px-4 text-gray-600 font-medium hidden lg:table-cell">
                       {song.categories?.length > 0 ? song.categories.map((c:any) => c.name).join(', ') : '-'}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-3 md:px-4">
                       {song.audio_video ? (
                          <span className="text-[#10b981] font-semibold">Yes</span>
                       ) : (
-                         <span className="text-[#ef4444] font-semibold bg-[#fef2f2] px-2 py-1 rounded">No</span>
+                         <span className="text-[#ef4444] font-semibold bg-[#fef2f2] px-2 py-1 rounded text-xs">No</span>
                       )}
                     </td>
-                    <td className="py-4 px-6">
+                    <td className="py-4 px-3 md:px-4">
                       {song.is_published ? (
-                        <span className="text-[#16a34a] font-semibold">Active</span>
+                        <span className="text-[#16a34a] font-semibold text-xs bg-green-50 px-2 py-1 rounded">Active</span>
                       ) : (
-                        <span className="text-gray-500 font-semibold">Inactive</span>
+                        <span className="text-gray-500 font-semibold text-xs bg-gray-50 px-2 py-1 rounded">Inactive</span>
                       )}
                     </td>
-                    <td className="py-4 px-6 text-right space-x-2 whitespace-nowrap">
-                      <a href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/songs/${song.slug}`} target="_blank" rel="noreferrer" className="inline-block px-4 py-2 bg-[#e8f3f4] text-[#128a95] rounded-full text-[13px] font-bold hover:bg-[#d1eaeb] transition">View</a>
-                      <button onClick={() => router.push(`/dashboard/songs/add?id=${song.id}`)} className="px-4 py-2 bg-[#128a95] text-white rounded-full text-[13px] font-bold hover:bg-[#0f717a] transition">Edit</button>
-                      <button onClick={() => toggleStatus(song)} className="px-4 py-2 bg-[#e5e7eb] text-[#128a95] rounded-full text-[13px] font-bold hover:bg-gray-300 transition">
-                        Inactive
+                    <td className="py-4 px-3 md:px-4 text-right space-x-1.5 whitespace-nowrap">
+                      <a href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/songs/${song.slug}`} target="_blank" rel="noreferrer" className="inline-block px-3 py-1.5 bg-[#e8f3f4] text-[#128a95] rounded-full text-[12px] font-bold hover:bg-[#d1eaeb] transition">View</a>
+                      <button onClick={() => router.push(`/dashboard/songs/add?id=${song.id}`)} className="px-3 py-1.5 bg-[#128a95] text-white rounded-full text-[12px] font-bold hover:bg-[#0f717a] transition">Edit</button>
+                      <button onClick={() => toggleStatus(song)} className="px-3 py-1.5 bg-[#e5e7eb] text-[#128a95] rounded-full text-[12px] font-bold hover:bg-gray-300 transition">
+                        {song.is_published ? 'Inactive' : 'Active'}
                       </button>
-                      <button onClick={() => confirmDelete(song.id)} className="px-4 py-2 bg-[#a31a1a] text-white rounded-full text-[13px] font-bold hover:bg-[#861414] transition">Delete</button>
+                      <button onClick={() => confirmDelete(song.id)} className="px-3 py-1.5 bg-[#a31a1a] text-white rounded-full text-[12px] font-bold hover:bg-[#861414] transition">Delete</button>
                     </td>
                   </tr>
                 ))}

@@ -45,6 +45,7 @@ export default function BibleResourcesPage() {
   const detailsRef = useRef<HTMLDivElement>(null);
 
   const [categories, setCategories] = useState<ResourceCategory[]>([]);
+  const [dynamicMissionaryData, setDynamicMissionaryData] = useState<any[]>([]);
 
   useEffect(() => {
     const baseUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
@@ -57,6 +58,15 @@ export default function BibleResourcesPage() {
       })
       .catch(err => console.error('Error fetching resource downloads:', err));
 
+    // Fetch missionary stories dynamically
+    fetch(`${baseUrl}/content-items/?page_category=Missionary+Stories`)
+      .then(res => res.json())
+      .then(data => {
+        const activeItems = (Array.isArray(data) ? data : (data.results || [])).filter((item: any) => item.is_active);
+        setDynamicMissionaryData(activeItems);
+      })
+      .catch(err => console.error('Error fetching missionary stories:', err));
+
     // Fetch resource cards dynamically
     fetch(`${baseUrl}/bible-resources/`)
       .then(res => res.json())
@@ -64,11 +74,11 @@ export default function BibleResourcesPage() {
         const sorted = (Array.isArray(data) ? data : (data.results || [])).sort((a: any, b: any) => a.order - b.order);
         
         const visualStyles = [
-          { gradientClass: "from-[#00A6CB] to-[#007B96]", slantClass: "slant-left-far z-10", originalRot: "28deg" },
-          { gradientClass: "from-[#173C4E] to-[#0A1D27]", slantClass: "slant-left-near z-20", originalRot: "22deg" },
-          { gradientClass: "from-[#C23130] via-[#AB2423] to-[#7A1918]", slantClass: "slant-flat-center z-30", originalRot: "0deg" },
-          { gradientClass: "from-[#1A5C5E] to-[#0D3031]", slantClass: "slant-right-near z-20", originalRot: "-22deg" },
-          { gradientClass: "from-[#29566B] to-[#142F3D]", slantClass: "slant-right-far z-10", originalRot: "-28deg" },
+          { gradientClass: "from-[#ECA300] to-[#D68F00]", slantClass: "slant-left-far z-10", originalRot: "28deg" },
+          { gradientClass: "from-[#F8411C] to-[#E3300C]", slantClass: "slant-left-near z-20", originalRot: "22deg" },
+          { gradientClass: "from-[#D80053] to-[#BC0044]", slantClass: "slant-flat-center z-30", originalRot: "0deg" },
+          { gradientClass: "from-[#A400F5] to-[#8A00D1]", slantClass: "slant-right-near z-20", originalRot: "-22deg" },
+          { gradientClass: "from-[#644CF4] to-[#4F39D6]", slantClass: "slant-right-far z-10", originalRot: "-28deg" },
         ];
 
         const mapped = sorted.map((item: any, index: number) => {
@@ -92,22 +102,14 @@ export default function BibleResourcesPage() {
   }, []);
 
   const getResourceUrl = (url: string) => {
-    if (
-      url.includes('infographics_john') || 
-      url.includes('infographics_mathew') ||
-      url.includes('genelogogy') ||
-      url.includes('Jacob_Genology') ||
-      url.includes('మూర్తి') ||
-      url.includes('స్కడ్డర్') ||
-      url.includes('వెస్లీ')
-    ) {
-      return url;
+    if (!url) return '';
+    // Append backend URL for media uploads
+    if (url.startsWith('/media/')) {
+      const backendUrl = process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL.replace('/api', '') : 'http://127.0.0.1:8000';
+      return `${backendUrl}${url}`;
     }
-    const ext = url.split('.').pop()?.toLowerCase();
-    if (ext === 'docx') {
-      return url;
-    }
-    return '/wp-content/uploads/2026/03/coming-soon.jpg';
+    // Return original url for frontend assets (/images, /wp-content, etc)
+    return url;
   };
 
   // Mouse Move: Calculate coordinate delta and update CSS variables in real time
@@ -191,7 +193,7 @@ export default function BibleResourcesPage() {
                   {section.title}
                 </h3>
                 
-                <div className="space-y-3.5">
+                <div className="space-y-1.5">
                   {cleanedItems.map((item, ii) => (
                     <div 
                       key={ii} 
@@ -269,7 +271,7 @@ export default function BibleResourcesPage() {
                 {section.title}
               </h3>
               
-              <div className="space-y-3.5">
+              <div className="space-y-1.5">
                 {section.items.map((item, ii) => (
                   <div 
                     key={ii} 
@@ -321,7 +323,7 @@ export default function BibleResourcesPage() {
             <div className="h-1 w-12 bg-[#AB2423] mx-auto rounded-full mt-2 mb-6"></div>
           </div>
 
-          <div className="space-y-3.5 max-w-5xl mx-auto">
+          <div className="space-y-1.5 max-w-5xl mx-auto">
             {/* John Row */}
             <div className="bg-white rounded-xl shadow-sm border border-gray-200/60 p-4 md:py-4 md:px-6 flex flex-col md:flex-row md:items-center justify-between gap-4 transition-all duration-300 hover:shadow-md">
               <div className="font-medium text-[#173C4E] text-[17px] md:text-[19px] tracking-tight">
@@ -401,7 +403,7 @@ export default function BibleResourcesPage() {
                 {section.title}
               </h3>
               
-              <div className="space-y-3.5">
+              <div className="space-y-1.5">
                 {section.items.map((item, ii) => (
                   <div 
                     key={ii} 
@@ -466,6 +468,13 @@ export default function BibleResourcesPage() {
         links: [{ text: "PPT", url: item.file }]
       }));
 
+    const pdfItems = resourceDownloads
+      .filter(item => item.category === 'PDF')
+      .map(item => ({
+        title: item.title,
+        links: [{ text: "PDF", url: item.file }]
+      }));
+
     // Fallback placeholders if DB is empty
     const dummySoftwareItems = [
       { title: "1", links: [{ text: "Download", url: "#" }] },
@@ -481,6 +490,13 @@ export default function BibleResourcesPage() {
       { title: "4", links: [{ text: "PPT", url: "#" }] }
     ];
 
+    const dummyPdfItems = [
+      { title: "1", links: [{ text: "PDF", url: "#" }] },
+      { title: "2", links: [{ text: "PDF", url: "#" }] },
+      { title: "3", links: [{ text: "PDF", url: "#" }] },
+      { title: "4", links: [{ text: "PDF", url: "#" }] }
+    ];
+
     const downloadsData = [
       {
         title: "Softwares",
@@ -489,6 +505,10 @@ export default function BibleResourcesPage() {
       {
         title: "PPTs",
         items: pptItems.length > 0 ? pptItems : dummyPptItems
+      },
+      {
+        title: "PDFs",
+        items: pdfItems.length > 0 ? pdfItems : dummyPdfItems
       }
     ];
 
@@ -508,7 +528,7 @@ export default function BibleResourcesPage() {
                 {section.title}
               </h3>
               
-              <div className="space-y-3.5">
+              <div className="space-y-1.5">
                 {section.items.map((item, ii) => (
                   <div 
                     key={ii} 
@@ -567,37 +587,43 @@ export default function BibleResourcesPage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {missionaryData.map((item, idx) => (
-            <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
-              <div className="relative pt-4 pb-0 px-4 flex items-center justify-center overflow-hidden bg-transparent">
-                <img 
-                  src={item.image} 
-                  alt="Missionary Story" 
-                  className="w-full h-auto object-contain drop-shadow-md rounded-xl transition-transform duration-300 group-hover:scale-105"
-                />
+          {dynamicMissionaryData.length > 0 ? dynamicMissionaryData.map((item, idx) => {
+            const firstLink = Array.isArray(item.links) && item.links.length > 0 ? item.links[0] : null;
+            const pdfLink = firstLink ? (typeof firstLink === 'string' ? firstLink : firstLink.url) : null;
+            return (
+              <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all flex flex-col group">
+                <div className="relative pt-4 pb-0 px-4 flex items-center justify-center overflow-hidden bg-transparent">
+                  <img 
+                    src={item.cover_image ? getResourceUrl(item.cover_image) : (item.image_url ? getResourceUrl(item.image_url) : item.image)} 
+                    alt={item.title || "Missionary Story"} 
+                    className="w-full h-auto object-contain drop-shadow-md rounded-xl transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                {pdfLink ? (
+                  <div className="pt-3 pb-4 px-4 text-center mt-auto">
+                    <a 
+                      href={getResourceUrl(pdfLink)} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide hover:bg-[#16303b] transition-all hover:scale-105 active:scale-95 shadow-sm"
+                    >
+                      Download Document
+                    </a>
+                  </div>
+                ) : (
+                  <div className="pt-3 pb-4 px-4 text-center mt-auto">
+                    <span 
+                      className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide select-none cursor-not-allowed shadow-sm"
+                    >
+                      Coming Soon
+                    </span>
+                  </div>
+                )}
               </div>
-              {item.link ? (
-                <div className="pt-3 pb-4 px-4 text-center mt-auto">
-                  <a 
-                    href={getResourceUrl(item.link)} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide hover:bg-[#16303b] transition-all hover:scale-105 active:scale-95 shadow-sm"
-                  >
-                    Download Document
-                  </a>
-                </div>
-              ) : (
-                <div className="pt-3 pb-4 px-4 text-center mt-auto">
-                  <span 
-                    className="inline-block bg-[#1f4251] text-white px-6 py-2.5 rounded-full text-[13px] font-medium tracking-wide select-none cursor-not-allowed shadow-sm"
-                  >
-                    Coming Soon
-                  </span>
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          }) : (
+            <p className="col-span-full text-center text-gray-500">No stories available.</p>
+          )}
         </div>
       </div>
     );
@@ -641,7 +667,7 @@ export default function BibleResourcesPage() {
       </div>
 
       {/* 3D Perspective Grid Container */}
-      <div className="w-full max-w-6xl flex justify-center items-center py-4 md:py-6 overflow-visible">
+      <div className="w-full max-w-[90%] md:max-w-7xl lg:px-[85px] flex justify-center items-center py-4 md:py-6 overflow-visible">
         {/* Scaling wrapper to keep layout pixel-perfect on mobile */}
         <div className="flex justify-center items-center w-full scale-55 xs:scale-65 sm:scale-75 md:scale-95 lg:scale-100 origin-center transition-transform duration-300">
           <div className={`perspective-1200 reflect-below flex justify-center items-center py-6 overflow-visible select-none ${activeCategory ? 'has-active' : ''}`}>
@@ -708,7 +734,7 @@ export default function BibleResourcesPage() {
       {activeCategory && (
         <div 
           ref={detailsRef}
-          className="w-full max-w-6xl mt-12 pb-20 animate-[fadeIn_0.35s_ease-out]"
+          className="w-full max-w-[90%] md:max-w-7xl lg:px-[85px] mt-12 pb-20 animate-[fadeIn_0.35s_ease-out]"
         >
           <div className="bg-[#e8f4f8] rounded-3xl p-6 md:p-10 shadow-sm border border-gray-200/50 relative">
             {/* Close Button */}

@@ -206,6 +206,11 @@ class ContentItemViewSet(viewsets.ModelViewSet):
         section = self.request.query_params.get('section')
         if section and section != 'all':
             queryset = queryset.filter(section=section)
+            
+        page_category = self.request.query_params.get('page_category')
+        if page_category and page_category != 'all':
+            queryset = queryset.filter(page_category=page_category)
+            
         return queryset
 
 class ContactSubmissionViewSet(viewsets.ModelViewSet):

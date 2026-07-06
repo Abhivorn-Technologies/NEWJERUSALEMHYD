@@ -32,7 +32,7 @@ export default function MagazineDownloadsPage() {
       </Head>
       
       {/* Header Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 text-center">
+      <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6 text-center">
         <Link 
           href="/magazine"
           className="inline-flex items-center gap-2 text-[#5795A7] hover:text-[#1f4251] font-semibold mb-6 transition-colors"
@@ -56,7 +56,7 @@ export default function MagazineDownloadsPage() {
       </div>
 
       {/* Main Content Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+      <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         {loading ? (
           <div className="text-center py-20 text-[#5795A7] font-bold animate-pulse">Loading Magazines...</div>
         ) : magazines.length === 0 ? (

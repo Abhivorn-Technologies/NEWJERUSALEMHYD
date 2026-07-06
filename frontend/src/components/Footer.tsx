@@ -60,7 +60,7 @@ export default function Footer() {
         {/* Contact Details Title */}
         <div 
           className="text-center text-[#FFEBB3] text-[13px] sm:text-base md:text-lg lg:text-[21px] font-normal leading-relaxed pt-4 md:pt-6"
-          style={{ fontFamily: 'var(--font-ramabhadra)' }}
+          style={{ fontFamily: 'var(--font-mallanna)' }}
         >
           <p>మీ ప్రార్థన అవసరతకై సంప్రదించవలసిన మా చిరునామా :</p>
         </div>
@@ -114,17 +114,17 @@ export default function Footer() {
 
         {/* Copyright Disclaimer Block */}
         <div 
-          className="text-center space-y-4 text-gray-300 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-[90%] md:max-w-[800px] lg:max-w-[980px] mx-auto pt-2"
+          className="space-y-4 text-gray-300 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto pt-2"
         >
           <p 
-            className="font-normal text-white tracking-wide text-[13px] sm:text-base md:text-lg lg:text-[20px]"
-            style={{ fontFamily: 'var(--font-mandali)' }}
+            className="font-normal text-white tracking-wide text-[13px] sm:text-base md:text-lg lg:text-[20px] text-center md:text-justify"
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             ఈ వెబ్ సైట్ యొక్క సర్వ హక్కులు నూతన యెరూషలేము పరిచర్యలు నకు చెందినవి.
           </p>
           <p 
-            className="text-gray-300/85 leading-loose text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px]"
-            style={{ fontFamily: 'var(--font-mandali)' }}
+            className="text-gray-300/85 leading-loose text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-center md:text-justify"
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             ముఖ్య గమనిక : నూతన యెరూషలేము పరిచర్యలు ఎప్పుడూ, ఎవరినీ ఆర్థిక సహాయం కోరదు; ఒకవేళ నూతన యెరూషలేము పరిచర్యలు పేరుతో ఎవరైనా ఆర్థిక సహాయం అడిగితే, వారి వివరాలు మాకు తప్పక తెలియజేయండి. ఈ హెచ్చరికను ఖాతరు చేయకుండా ఎవరైనా నూతన యెరూషలేము పరిచర్యలకు అనుకుని ఆర్థిక సహాయం అందిస్తే అందుకు నూతన యెరూషలేము పరిచర్యలు ఎలాంటి బాధ్యత వహించదు.
           </p>
@@ -132,7 +132,7 @@ export default function Footer() {
 
         {/* English Copyright & Developer Info */}
         <div 
-          className={`flex flex-col md:flex-row items-center justify-between text-xs sm:text-sm pt-4 border-t border-white/10 max-w-7xl mx-auto mt-6 gap-4 ${isSpecialTheme ? 'text-white/70' : 'text-gray-400'}`}
+          className={`flex flex-col md:flex-row items-center justify-between text-xs sm:text-sm pt-4 border-t border-white/10 max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto mt-6 gap-4 ${isSpecialTheme ? 'text-white/70' : 'text-gray-400'}`}
           style={{ fontFamily: 'var(--font-poppins)' }}
         >
           <p className="text-center md:text-left">

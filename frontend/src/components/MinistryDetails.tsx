@@ -28,16 +28,16 @@ export default function MinistryDetails() {
           
 
           {/* Bible Verse Section */}
-          <div className="text-center space-y-1.5 max-w-4xl mx-auto">
+          <div className="text-center space-y-1.5 max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto">
             <p 
               className="text-[#FFEBB3] italic font-normal text-sm sm:text-base md:text-lg lg:text-[22px] tracking-wide"
-              style={{ fontFamily: 'var(--font-ramabhadra)' }}
+              style={{ fontFamily: 'var(--font-mallanna)' }}
             >
               1 కొరింథి 4 : 20 , రోమా 14 : 17
             </p>
             <div 
               className="space-y-0.5 text-white/95 text-[13px] sm:text-base md:text-[17px] lg:text-[19px] leading-relaxed font-[500]"
-              style={{ fontFamily: 'var(--font-mandali)' }}
+              style={{ fontFamily: 'var(--font-mallanna)' }}
             >
               <p>“దేవుని రాజ్యము మాటలతో కాదు శక్తి తోనే యున్నది.</p>
               <p>దేవుని రాజ్యము భోజనమును పానమును కాదు గాని, నీతియు సమాధానమును, పరిశుద్ధాత్మయందలి ఆనందమునై యున్నది.”</p>
@@ -47,8 +47,8 @@ export default function MinistryDetails() {
 
           {/* Ministry History Paragraphs */}
           <div 
-            className="text-[13px] sm:text-base md:text-lg lg:text-[21px] leading-relaxed font-[400] text-gray-200 text-justify"
-            style={{ fontFamily: 'var(--font-mandali)' }}
+            className="text-[13px] sm:text-base md:text-lg lg:text-[21px] leading-relaxed font-[400] text-gray-200 text-center md:text-justify max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto"
+            style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             <p>
               నిత్యజీవప్రధాతయైన దేవుని వాక్యం యొక్క శక్తి నిరంతరము గొప్పది మరియు ఘనమైనది. ఆ ఘనమైన దేవుని వాక్యమును ప్రబలముగా నమ్మి, యేసుక్రీస్తు నందు ఒకరినొకరు అపోస్తులుల బోధ, ప్రార్థన, ప్రేమ, విశ్వాసం, విధేయత మరియు కరుణతో కొనసాగించుచున్నాము.
@@ -62,15 +62,15 @@ export default function MinistryDetails() {
           {/* Invitation Rounded White Card */}
           <div className="pt-2">
             <div 
-              className="bg-[#F9F9F9] text-gray-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-200/50 text-center space-y-5 max-w-7xl mx-auto"
-              style={{ fontFamily: 'var(--font-mandali)' }}
+              className="bg-[#F9F9F9] text-gray-800 rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-gray-200/50 text-center space-y-5 max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto"
+              style={{ fontFamily: 'var(--font-mallanna)' }}
             >
               <p className="text-[13px] sm:text-base md:text-lg lg:text-[21px] leading-relaxed font-[400] text-gray-700 text-justify">
                 నిశ్చయముగా ఈ పరిచర్య మీకు నిశ్చలత్వమును, నిర్భయమును, నిగూఢమైన దైవిక క్రమమును, నిరంతరమైన ధైర్యమును, నిలకడైన ఆత్మీయతను పంచగలదని ప్రగాఢమైన విశ్వాసముతో..... మరియు ధనదాహముతో కాక నిస్వార్థమైన ఆత్మలదాహముతో కొనసాగే ఈ నిబంధన పరిచర్యలో మీరు నిజమైన పాలిభాగస్థులు కాగలరని నిండు మనస్సుతో ఆహ్వానిస్తున్నాము.
               </p>
               <p 
                 className="text-gray-900 font-normal text-[14px] sm:text-lg md:text-xl lg:text-[22px] tracking-wide"
-                style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                style={{ fontFamily: 'var(--font-mallanna)' }}
               >
                 మీకొరకు ప్రార్థించే మీ సంఘం, మీ దైవజనులు ఎల్లప్పుడు మీకు తోడుగా ఉన్నారని మరచిపోవద్దు.
               </p>

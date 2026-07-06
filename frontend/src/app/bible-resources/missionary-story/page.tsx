@@ -19,7 +19,7 @@ export default async function MissionaryStoryPage() {
 
   return (
     <div className="min-h-screen bg-[#e8f4f8] py-16 px-6">
-      <div className="max-w-6xl mx-auto space-y-12">
+      <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto space-y-12">
         
         <div className="text-center mb-16">
           <Link href="/bible-resources" className="text-sm text-[#8b1e15] font-semibold hover:underline mb-4 inline-block">
@@ -35,19 +35,20 @@ export default async function MissionaryStoryPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {activeItems.map((item: any, idx: number) => {
              // Missionary stories have an array of links, we just take the first one if it exists
-             const pdfLink = item.links && item.links.length > 0 ? item.links[0].url : null;
+             const firstLink = Array.isArray(item.links) && item.links.length > 0 ? item.links[0] : null;
+             const pdfLink = firstLink ? (typeof firstLink === 'string' ? firstLink : firstLink.url) : null;
              
              return (
               <div key={idx} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
                 <div className="relative h-64 bg-gray-100 p-4 flex items-center justify-center">
                   <img 
-                    src={item.image_url} 
+                    src={item.cover_image ? item.cover_image : (item.image_url ? item.image_url : item.image)} 
                     alt={item.title || "Missionary Story"} 
                     className="max-h-full max-w-full object-contain drop-shadow-md rounded"
                   />
                 </div>
-                {pdfLink && (
-                  <div className="p-6 text-center border-t border-gray-50 mt-auto">
+                <div className="p-6 text-center border-t border-gray-50 mt-auto">
+                  {pdfLink ? (
                     <a 
                       href={pdfLink} 
                       target="_blank" 
@@ -56,8 +57,14 @@ export default async function MissionaryStoryPage() {
                     >
                       Download Document
                     </a>
-                  </div>
-                )}
+                  ) : (
+                    <span 
+                      className="inline-block bg-[#1f4251] text-white px-6 py-2 rounded-full text-sm font-bold opacity-90 cursor-not-allowed shadow-sm"
+                    >
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
               </div>
             );
           })}

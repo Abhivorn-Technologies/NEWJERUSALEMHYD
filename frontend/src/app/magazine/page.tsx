@@ -60,7 +60,7 @@ export default function MagazineSubscribePage() {
   return (
     <div className="min-h-screen bg-[#f0f6f9] pb-20 font-sans">
       {/* Simple Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 text-center">
+      <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto px-4 sm:px-6 lg:px-8 pt-10 text-center">
         <span className="inline-block py-1 px-3 rounded-full bg-[#5795A7]/10 text-[#5795A7] text-sm font-semibold tracking-wider uppercase mb-2">
           Magazine
         </span>
@@ -75,11 +75,11 @@ export default function MagazineSubscribePage() {
       </div>
 
       {/* Main Content Layout */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-12">
-        {/* Top Section: Info & Do You Know (2 Columns) */}
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          {/* Left Column: About Magazine */}
-          <div className="w-full lg:w-1/2">
+      <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto px-4 sm:px-6 lg:px-8 mt-12 space-y-12">
+        {/* Top Section: Info & Do You Know (Vertical) */}
+        <div className="flex flex-col gap-12 lg:gap-16">
+          {/* Top Card: About Magazine */}
+          <div className="w-full">
             {/* Intro Card */}
             <div className="bg-white rounded-3xl p-8 shadow-xl shadow-[#5795A7]/5 border border-white/60 relative overflow-hidden group h-full">
               <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#5795A7] to-[#8bbacc]" />
@@ -139,29 +139,26 @@ export default function MagazineSubscribePage() {
                     ))}
                   </ul>
                 </div>
-                <div className="shrink-0 w-48 xl:w-40 relative group-hover:scale-105 transition-transform duration-500">
-                  <div className="absolute inset-0 bg-[#5795A7]/20 blur-xl rounded-full transform -translate-y-4" />
+                <div className="shrink-0 w-64 xl:w-60 relative group-hover:scale-105 transition-transform duration-500 translate-y-6 -translate-x-4">
                   <img
-                    src="https://newjerusalemhyd.com/uploads/resources/resource_6a3d3735e1fbb9.34693331.png"
+                    src="/wp-content/uploads/2026/03/book-image.png"
                     alt="Kids Magazine Cover"
-                    className="relative z-10 w-full rounded-lg shadow-2xl border border-gray-200"
+                    className="relative z-10 w-full h-auto object-contain drop-shadow-[0_12px_24px_rgba(16,46,68,0.25)] transition-all duration-300"
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Do You Know */}
-          <div className="w-full lg:w-1/2">
+          {/* Bottom Card: Do You Know */}
+          <div className="w-full">
             {/* Do You Know Section */}
-            <div className="bg-[#1f4251] rounded-3xl p-8 shadow-xl text-white relative overflow-hidden h-full">
-              {/* Decorative background shapes */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#5795A7] rounded-full mix-blend-multiply filter blur-2xl opacity-50 translate-x-10 -translate-y-10" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#3B7586] rounded-full mix-blend-multiply filter blur-2xl opacity-50 -translate-x-10 translate-y-10" />
-
-              <h2 className="relative text-2xl font-bold text-[#e8f1f3] mb-6 flex items-center gap-3">
+            <div className="bg-white rounded-3xl p-8 shadow-xl shadow-[#5795A7]/5 border border-white/60 relative overflow-hidden group h-full">
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#5795A7] to-[#8bbacc]" />
+              
+              <h2 className="relative text-2xl font-bold text-[#1f4251] mb-6 flex items-center gap-3">
                 <svg
-                  className="w-6 h-6 text-[#8bbacc]"
+                  className="w-6 h-6 text-[#5795A7]"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -176,7 +173,7 @@ export default function MagazineSubscribePage() {
                 Do You Know?
               </h2>
 
-              <div className="relative space-y-6 text-[#cddfe6] text-sm md:text-base leading-relaxed">
+              <div className="relative space-y-6 text-gray-600 text-sm md:text-base leading-relaxed">
                 <ul className="space-y-4 list-none">
                   {[
                     '"చిన్నారుల జాలరీ" అనేది పిల్లల కోసం రూపొందించిన ఒక ప్రత్యేక ప్రచురణ. మేము ఈ పుస్తకాన్ని ప్రత్యేకంగా 3 నుండి 14 సంవత్సరాల వయస్సు గల పిల్లలకు మాత్రమే పంపుతాము.',
@@ -185,7 +182,7 @@ export default function MagazineSubscribePage() {
                     'ప్రస్తుతం, "చిన్నారుల జాలరీ" తెలుగు, కన్నడ మరియు తమిళంలో మాత్రమే పంపిణీ చేయబడుతోంది.',
                   ].map((text, i) => (
                     <li key={i} className="flex gap-3">
-                      <span className="text-[#8bbacc] mt-1 text-lg leading-none">
+                      <span className="text-[#5795A7] mt-1 text-lg leading-none">
                         •
                       </span>
                       <span>{text}</span>
@@ -200,7 +197,7 @@ export default function MagazineSubscribePage() {
                     "This magazine will only be sent to subscribers.",
                   ].map((text, i) => (
                     <li key={i} className="flex gap-3">
-                      <span className="text-[#8bbacc] mt-1 text-lg leading-none">
+                      <span className="text-[#5795A7] mt-1 text-lg leading-none">
                         •
                       </span>
                       <span>{text}</span>

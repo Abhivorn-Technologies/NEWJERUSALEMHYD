@@ -48,7 +48,7 @@ export default function PrayerRequestPage() {
       style={{ fontFamily: "var(--font-poppins)" }}
     >
       {/* ── Main Content ────────────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-4 md:px-8 py-14">
+      <section className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto px-4 md:px-8 py-14">
         {/* Page Header */}
         <div className="text-center mb-10 reveal">
           <h1 className="text-4xl font-extrabold text-[#1f4251] mb-4 tracking-tight">

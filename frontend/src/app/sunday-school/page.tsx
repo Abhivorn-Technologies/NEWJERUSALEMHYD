@@ -24,7 +24,7 @@ export default function SundaySchoolPage() {
 
   return (
     <div className="min-h-screen bg-[#FADADD] py-16 px-6">
-      <div className="max-w-6xl mx-auto space-y-12">
+      <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto space-y-12">
         <div className="text-center mb-16 reveal">
           <h1 className="text-4xl font-extrabold text-[#4D1C2C] mb-4">Sunday School</h1>
           <div className="h-1 w-24 bg-[#FF99BE] mx-auto rounded-full"></div>

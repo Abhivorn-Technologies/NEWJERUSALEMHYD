@@ -64,6 +64,14 @@ const getDynamicFirstLetter = (song: Song, kbLang: 'telugu' | 'english' | 'hindi
       const firstChar = engText.charAt(0).toUpperCase();
       if (/[A-Z]/.test(firstChar)) return firstChar;
     }
+
+    // Support for "Telugu Title / English Title" format
+    const slashParts = title.split('/');
+    if (slashParts.length > 1) {
+      const engText = slashParts[slashParts.length - 1].trim();
+      const firstChar = engText.charAt(0).toUpperCase();
+      if (/[A-Z]/.test(firstChar)) return firstChar;
+    }
     const cleanTitle = title.replace(/^[🎵📖⛪🙏\s\-\/\(\)]+/, '');
     const firstChar = cleanTitle.charAt(0).toUpperCase();
     if (/[A-Z]/.test(firstChar)) return firstChar;
@@ -269,6 +277,7 @@ ${requestForm.details || 'N/A'}
   // Interaction states
   const [favorites, setFavorites] = useState<string[]>([]);
   const [fontSize, setFontSize] = useState<number>(24);
+  const [fontFamily, setFontFamily] = useState<string>('var(--font-mallanna)');
   const [activeLyricsTab, setActiveLyricsTab] = useState<'telugu' | 'english' | 'hindi' | 'ppt'>('telugu');
   const [keyboardLanguage, setKeyboardLanguage] = useState<'telugu' | 'english' | 'hindi'>('telugu');
   
@@ -285,7 +294,7 @@ ${requestForm.details || 'N/A'}
     const isTelugu = l && /[\u0C00-\u0C7F]/.test(l);
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return { 
-      fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
+      fontFamily: isTelugu ? 'var(--font-mallanna), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-mallanna), sans-serif',
       fontSize: (isTelugu || isHindi) ? '44px' : '32px',
       lineHeight: '1'
     };
@@ -295,7 +304,7 @@ ${requestForm.details || 'N/A'}
     const isTelugu = l && /[\u0C00-\u0C7F]/.test(l);
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return { 
-      fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
+      fontFamily: isTelugu ? 'var(--font-mallanna), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-mallanna), sans-serif',
       fontSize: (isTelugu || isHindi) ? '64px' : '50px',
       lineHeight: '1',
       verticalAlign: 'middle',
@@ -307,7 +316,7 @@ ${requestForm.details || 'N/A'}
     const isTelugu = l && /[\u0C00-\u0C7F]/.test(l);
     const isHindi = l && /[\u0900-\u097F]/.test(l);
     return { 
-      fontFamily: isTelugu ? 'var(--font-ramabhadra), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-ramabhadra), sans-serif',
+      fontFamily: isTelugu ? 'var(--font-mallanna), sans-serif' : isHindi ? 'sans-serif' : 'var(--font-mallanna), sans-serif',
       fontSize: (isTelugu || isHindi) ? '34px' : '24px',
       lineHeight: '1',
       paddingTop: (isTelugu || isHindi) ? '2px' : '0px',
@@ -702,7 +711,7 @@ ${requestForm.details || 'N/A'}
   if (viewState === 'index') {
     return (
       <div className="min-h-screen bg-[#FADADD] py-8 px-4 md:px-8 font-sans">
-        <div className="max-w-6xl mx-auto space-y-6">
+        <div className="max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto space-y-6">
           
           {/* Header Title with Back Link */}
           <div className="flex flex-col gap-4">
@@ -732,7 +741,7 @@ ${requestForm.details || 'N/A'}
               <div className="flex flex-wrap gap-3 md:gap-4 items-end">
                 <button
                   onClick={() => { setViewTab('home'); }}
-                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
                     viewTab === 'home' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -741,7 +750,7 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('telugu-songs'); }}
-                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
                     viewTab === 'telugu-songs' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -750,7 +759,7 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('hindi-songs'); }}
-                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
                     viewTab === 'hindi-songs' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -759,7 +768,7 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('english-songs'); }}
-                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
                     viewTab === 'english-songs' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -768,7 +777,7 @@ ${requestForm.details || 'N/A'}
                 </button>
                 <button
                   onClick={() => { setViewTab('song-request'); }}
-                  className={`px-6 py-3 md:px-8 md:py-3.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
+                  className={`px-4 py-2 md:px-5 md:py-2.5 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm border ${
                     viewTab === 'song-request' ? 'bg-[#FF99BE] text-white border-transparent' : 'bg-[#FFF0F3] text-[#A04A65] border-[#FFC2D9] hover:bg-[#FFE0E9]'
                   }`}
                   style={{ fontFamily: 'var(--font-poppins)' }}
@@ -934,11 +943,11 @@ ${requestForm.details || 'N/A'}
             ) : (
               <div id="songs-top">
                 {/* Index Tabs above keyboard */}
-                {viewTab === 'home' && (
+                {viewTab === 'telugu-songs' && (
                   <div className="flex flex-wrap justify-center gap-4 md:gap-6 mb-6 max-w-5xl mx-auto">
                     <button
                       onClick={() => { selectKeyboardLanguage('telugu'); }}
-                      className={`px-8 py-3.5 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm ${
+                      className={`px-5 py-2.5 md:px-8 md:py-3 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm ${
                         keyboardLanguage === 'telugu' ? 'bg-[#FF99BE] text-white' : 'bg-[#FFF0F3] text-[#A04A65] border border-[#FFC2D9] hover:bg-[#FFE0E9]'
                       }`}
                       style={{ fontFamily: 'var(--font-poppins)' }}
@@ -948,7 +957,7 @@ ${requestForm.details || 'N/A'}
 
                     <button
                       onClick={() => { selectKeyboardLanguage('english'); }}
-                      className={`px-8 py-3.5 md:px-10 md:py-4 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm ${
+                      className={`px-5 py-2.5 md:px-8 md:py-3 rounded-xl text-sm md:text-base font-bold transition-colors shadow-sm ${
                         keyboardLanguage === 'english' ? 'bg-[#FF99BE] text-white' : 'bg-[#FFF0F3] text-[#A04A65] border border-[#FFC2D9] hover:bg-[#FFE0E9]'
                       }`}
                       style={{ fontFamily: 'var(--font-poppins)' }}
@@ -959,8 +968,8 @@ ${requestForm.details || 'N/A'}
                 )}
 
                 {/* Show Telugu Keyboard */}
-                {viewTab === 'home' && keyboardLanguage === 'telugu' && (
-                  <div className="bg-[#FFF0F3] border-2 border-[#FFC2D9] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner">
+                {viewTab === 'telugu-songs' && keyboardLanguage === 'telugu' && (
+                  <div className="bg-[#FFF0F3] border-2 border-[#FFC2D9] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner sticky top-[85px] z-10">
                     <div className="grid grid-cols-8 sm:grid-cols-12 gap-1.5 keyboard-grid">
                       {teluguAlphabet.map((letter) => {
                         const hasSongs = filteredSongsList.some(s => getDynamicFirstLetter(s, 'telugu') === letter);
@@ -974,12 +983,12 @@ ${requestForm.details || 'N/A'}
                                 el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                               }
                             }}
-                            className={`py-2 text-center rounded-lg text-sm font-normal transition-all border ${
+                            className={`py-0.5 text-center rounded-lg text-sm font-normal transition-all border ${
                               hasSongs
                                 ? 'border-[#FFC2D9]/40 bg-white shadow-sm hover:border-[#FFC2D9] hover:bg-[#FFF0F3] text-[#A04A65] hover:text-[#4D1C2C] hover:shadow'
                                 : 'border-transparent bg-transparent text-gray-300 cursor-not-allowed opacity-30'
                             }`}
-                            style={{ fontFamily: 'var(--font-ramabhadra)', fontSize: '26px' }}
+                            style={{ fontFamily: 'var(--font-mallanna)', fontSize: '26px' }}
                           >
                             {letter}
                           </button>
@@ -990,8 +999,8 @@ ${requestForm.details || 'N/A'}
                 )}
 
                 {/* Show English Keyboard */}
-                {viewTab === 'home' && keyboardLanguage === 'english' && (
-                  <div className="bg-[#FFF0F3] border-2 border-[#FFC2D9] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner">
+                {viewTab === 'telugu-songs' && keyboardLanguage === 'english' && (
+                  <div className="bg-[#FFF0F3] border-2 border-[#FFC2D9] rounded-2xl p-4 mb-8 max-w-5xl mx-auto shadow-inner sticky top-[85px] z-10">
                     <div className="grid grid-cols-6 sm:grid-cols-7 gap-1.5 keyboard-grid">
                       {englishAlphabet.map((letter) => {
                         const hasSongs = filteredSongsList.some(s => getDynamicFirstLetter(s, 'english') === letter);
@@ -1005,7 +1014,7 @@ ${requestForm.details || 'N/A'}
                                 el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                               }
                             }}
-                            className={`py-2 text-center rounded-lg text-sm font-normal transition-all border ${
+                            className={`py-0.5 text-center rounded-lg text-sm font-normal transition-all border ${
                               hasSongs
                                 ? 'border-[#FFC2D9]/40 bg-white shadow-sm hover:border-[#FFC2D9] hover:bg-[#FFF0F3] text-[#A04A65] hover:text-[#4D1C2C] hover:shadow'
                                 : 'border-transparent bg-transparent text-gray-300 cursor-not-allowed opacity-30'
@@ -1032,8 +1041,13 @@ ${requestForm.details || 'N/A'}
                     alphabetToUse = hindiAlphabet;
                     letterLang = 'hindi';
                   } else if (viewTab === 'telugu-songs' || viewTab === 'telugu-index') {
-                    alphabetToUse = teluguAlphabet;
-                    letterLang = 'telugu';
+                    if (keyboardLanguage === 'english') {
+                      alphabetToUse = englishAlphabet;
+                      letterLang = 'english';
+                    } else {
+                      alphabetToUse = teluguAlphabet;
+                      letterLang = 'telugu';
+                    }
                   }
 
                   // Home tab displays mixed lists (Telugu, Hindi, and English alphabets)
@@ -1044,21 +1058,22 @@ ${requestForm.details || 'N/A'}
                     <>
                       {alphabetsToGroup.map((alphabet, aIdx) => {
                         let currentLang: 'telugu' | 'english' | 'hindi' = 'telugu';
+                        let targetLangStr = 'sunday_telugu';
+
                         if (isHomeTab) {
-                          if (aIdx === 0) currentLang = 'telugu';
-                          else if (aIdx === 1) currentLang = 'hindi';
-                          else if (aIdx === 2) currentLang = 'english';
+                          if (aIdx === 0) { currentLang = 'telugu'; targetLangStr = 'sunday_telugu'; }
+                          else if (aIdx === 1) { currentLang = 'hindi'; targetLangStr = 'sunday_hindi'; }
+                          else if (aIdx === 2) { currentLang = 'english'; targetLangStr = 'sunday_english'; }
                         } else {
-                          currentLang = 
-                            (viewTab === 'hindi-songs') ? 'hindi' :
-                            (viewTab === 'english-songs' || viewTab === 'english-index') ? 'english' : 
-                            'telugu';
+                          currentLang = letterLang;
+                          targetLangStr = 
+                            (viewTab === 'hindi-songs') ? 'sunday_hindi' :
+                            (viewTab === 'english-songs' || viewTab === 'english-index') ? 'sunday_english' : 
+                            'sunday_telugu';
                         }
                         
                         return alphabet.map(letter => {
-                          const targetLang = currentLang === 'telugu' ? 'sunday_telugu' :
-                                             currentLang === 'english' ? 'sunday_english' : 'sunday_hindi';
-                          const languageTargetedSongs = filteredSongsList.filter(s => s.language === targetLang);
+                          const languageTargetedSongs = filteredSongsList.filter(s => s.language === targetLangStr);
                           const letterSongs = languageTargetedSongs.filter(s => getDynamicFirstLetter(s, currentLang) === letter);
                           if (letterSongs.length === 0) return null;
                           return (
@@ -1067,7 +1082,7 @@ ${requestForm.details || 'N/A'}
                                 <span 
                                   className="text-4xl font-normal text-[#D04A73] leading-none shrink-0" 
                                   style={{ 
-                                    fontFamily: currentLang === 'telugu' ? 'var(--font-ramabhadra)' : 
+                                    fontFamily: currentLang === 'telugu' ? 'var(--font-mallanna)' : 
                                                 currentLang === 'hindi' ? 'sans-serif' : 'inherit' 
                                   }}
                                 >
@@ -1076,22 +1091,26 @@ ${requestForm.details || 'N/A'}
                                 <div className="flex-1 border-b border-[#D04A73]/50 mt-2"></div>
                                 <span className="text-base font-bold text-[#A02C4E] shrink-0 mt-2">{letterSongs.length} songs</span>
                               </div>
-                              <div className="grid grid-cols-1 gap-4">
-                                {letterSongs.map((song, idx) => (
-                                  <button
-                                    key={song.id}
-                                    onClick={() => handleSelectSong(song)}
-                                    className="song-btn text-left p-3 px-5 rounded-2xl border border-transparent hover:border-transparent bg-transparent hover:bg-[#FFE2EC] text-[#4D1C2C] hover:text-black transition-all duration-200 flex gap-3 text-xl md:text-2xl items-center hover:shadow-sm w-full font-bold"
-                                    style={{ 
-                                      fontFamily: 'var(--font-mandali)'
-                                    }}
-                                  >
-                                    <span className="text-lg md:text-xl font-mono font-bold opacity-80 pt-0.5">{idx + 1}.</span>
-                                    <span className="leading-tight flex-1 truncate">
-                                      {(song.language === 'sunday_telugu' || song.language === 'sunday_hindi') ? cleanNonEnglishTitle(song.title) : song.title}
-                                    </span>
-                                  </button>
-                                ))}
+                              <div className="flex flex-col gap-1">
+                                {letterSongs.map((song, idx) => {
+                                  return (
+                                    <button
+                                      key={song.id}
+                                      onClick={() => handleSelectSong(song)}
+                                      className="song-btn text-left py-1 px-3 rounded-lg bg-transparent hover:bg-[#FFE0E9] text-[#A02C4E] hover:text-[#5c162a] transition-colors duration-200 flex items-center gap-3 w-full"
+                                      style={{
+                                        fontFamily: 'var(--font-mallanna)',
+                                      }}
+                                    >
+                                      <span className="text-lg md:text-xl font-mono font-bold opacity-80 shrink-0">
+                                        {idx + 1}.
+                                      </span>
+                                      <span className="leading-normal flex-1 text-2xl md:text-[28px] break-words">
+                                        {(song.language === 'sunday_telugu' || song.language === 'sunday_hindi') ? cleanNonEnglishTitle(song.title) : song.title}
+                                      </span>
+                                    </button>
+                                  );
+                                })}
                               </div>
                               <div className="text-right mt-4 pt-3 border-t border-gray-100">
                                 <button
@@ -1125,7 +1144,7 @@ ${requestForm.details || 'N/A'}
       <div className="w-full max-w-[1500px] mx-auto bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/80 flex flex-col md:flex-row min-h-[750px]">
 
         {/* Left column: Songs Index Search & List */}
-        <div className="w-full md:w-[380px] border-r border-gray-200 p-6 flex flex-col flex-shrink-0 bg-[#FFFFFF]">
+        <div className="w-full md:w-[480px] border-r border-gray-200 p-6 flex flex-col flex-shrink-0 bg-[#FFFFFF]">
           
           <div className="mb-4">
             <button
@@ -1299,14 +1318,14 @@ ${requestForm.details || 'N/A'}
                     setActiveSong(song);
                     determineDefaultLyricsTab(song);
                   }}
-                  className={`song-btn w-full text-left p-4 rounded-2xl transition-all duration-200 border flex gap-4 text-xl md:text-2xl items-center font-bold ${
+                  className={`song-btn w-full text-left p-4 rounded-2xl transition-all duration-200 border flex gap-4 text-xl md:text-2xl items-center ${
                     activeSong?.id === song.id
-                      ? 'bg-[#FFE2EC] border-transparent text-[#A02C4E] shadow-sm font-bold'
+                      ? 'bg-[#FFE2EC] border-transparent text-[#A02C4E] shadow-sm'
                       : 'bg-[#FCFDFF] border-transparent hover:bg-white hover:shadow-[0_4px_12px_rgba(208,74,115,0.12)] hover:border-[#FFC2D9]/50 hover:text-[#D04A73] hover:-translate-y-0.5 text-gray-800'
                   }`}
-                  style={{ fontFamily: 'var(--font-mandali)' }}
+                  style={{ fontFamily: 'var(--font-mallanna)' }}
                 >
-                  <span className="text-lg md:text-xl font-mono font-bold opacity-80 pt-0.5">{idx + 1}.</span>
+                  <span className="text-lg md:text-xl font-mono opacity-80 pt-0.5">{idx + 1}.</span>
                   <span className="leading-tight flex-1">
                     {(song.language === 'sunday_telugu' || song.language === 'sunday_hindi') ? cleanNonEnglishTitle(song.title) : song.title}
                   </span>
@@ -1324,9 +1343,11 @@ ${requestForm.details || 'N/A'}
               {/* Interaction Toolbar */}
               <div className="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-gray-100 mb-6">
                 
-                {/* Font Size Adjusters */}
-                <div className="flex items-center gap-1.5 text-xs text-gray-500 font-bold bg-gray-100 rounded-xl p-1 shadow-inner border border-gray-200/50">
-                  <span className="pl-2 pr-1">Font Size :</span>
+                {/* Text Adjusters */}
+                <div className="flex flex-wrap items-center gap-3">
+                  {/* Font Size */}
+                  <div className="flex items-center gap-1.5 text-xs text-gray-500 font-bold bg-gray-100 rounded-xl p-1 shadow-inner border border-gray-200/50">
+                    <span className="pl-2 pr-1">Size:</span>
                   <button 
                     onClick={() => setFontSize(prev => Math.max(12, prev - 2))}
                     className="w-7 h-7 rounded-lg bg-white shadow-sm border border-gray-200 text-gray-700 font-extrabold flex items-center justify-center hover:bg-gray-50 active:scale-95 transition-all text-sm"
@@ -1346,6 +1367,23 @@ ${requestForm.details || 'N/A'}
                     +
                   </button>
                 </div>
+
+                {/* Font Style */}
+                <div className="flex items-center gap-1.5 text-xs text-gray-500 font-bold bg-gray-100 rounded-xl p-1 shadow-inner border border-gray-200/50">
+                  <span className="pl-2 pr-1">Font:</span>
+                  <select
+                    value={fontFamily}
+                    onChange={(e) => setFontFamily(e.target.value)}
+                    className="bg-white border border-gray-200 text-gray-700 rounded-lg px-2 h-7 text-[11px] font-normal outline-none focus:border-[#D04A73]"
+                  >
+                    <option value="var(--font-mallanna)">Mallanna</option>
+                    <option value="var(--font-ramabhadra)">Ramabhadra</option>
+                    <option value="var(--font-suranna)">Suranna</option>
+                    <option value="var(--font-tenali)">Tenali Ramakrishna</option>
+                    <option value="var(--font-mandali)">Mandali</option>
+                  </select>
+                </div>
+              </div>
 
                 {/* Toolbar Buttons */}
                 <div className="flex flex-wrap items-center gap-2 text-xs font-bold text-gray-600">
@@ -1392,8 +1430,8 @@ ${requestForm.details || 'N/A'}
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <h1 
-                    className="text-3xl md:text-4xl font-normal text-[#A02C4E] leading-tight"
-                    style={{ fontFamily: 'var(--font-ramabhadra)' }}
+                    className="text-3xl md:text-4xl font-normal text-[#A02C4E] leading-normal py-1"
+                    style={{ fontFamily: 'var(--font-mallanna)' }}
                   >
                     {(activeSong.language === 'sunday_telugu' || activeSong.language === 'sunday_hindi') ? cleanNonEnglishTitle(activeSong.title) : activeSong.title}
                   </h1>
@@ -1473,7 +1511,7 @@ ${requestForm.details || 'N/A'}
                 {activeContent ? (
                   <div 
                     className="prose max-w-none text-gray-800 leading-relaxed select-text [&_p]:mb-5 [&_p]:leading-normal [&_p_br]:mb-0 [&_br]:mb-0 print:text-black"
-                    style={{ fontFamily: 'var(--font-mandali)' }}
+                    style={{ fontFamily: fontFamily }}
                     dangerouslySetInnerHTML={{ __html: formatLyrics(activeContent) }}
                   />
                 ) : (

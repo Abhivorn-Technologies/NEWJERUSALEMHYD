@@ -27,7 +27,7 @@
 body {
   background: #ffffff;
   color: #171717;
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", var(--font-mallanna), sans-serif;
 }
 
 @media (max-width: 767px) {
@@ -378,14 +378,14 @@ a:not([class*="slant"]):not([class*="reveal"]) {
 .about-content h2,
 .about-content h3,
 .about-content h4 {
-  font-family: var(--font-ramabhadra), sans-serif !important;
+  font-family: var(--font-mallanna), sans-serif !important;
   font-weight: 400 !important;
 }
 
 .about-content p,
 .about-content span,
 .about-content li {
-  font-family: var(--font-mandali), sans-serif !important;
+  font-family: var(--font-mallanna), sans-serif !important;
 }
 
 /* Bullet point styles for mission/vision lists inside about-content */

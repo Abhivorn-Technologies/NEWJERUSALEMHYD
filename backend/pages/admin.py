@@ -1,9 +1,8 @@
 from django.contrib import admin
 from .models import (
     Page, SiteSettings, NavMenuItem, HeroItem,
-    Belief, BibleResource, StoryCategory, Activity, ResourceDownload, Magazine
+    Belief, BibleResource, StoryCategory, Activity, ResourceDownload, Magazine, ContentItem
 )
-
 
 @admin.register(SiteSettings)
 class SiteSettingsAdmin(admin.ModelAdmin):
@@ -79,3 +78,8 @@ class MagazineAdmin(admin.ModelAdmin):
     list_display = ('title', 'month_year', 'language', 'order', 'created_at')
     list_filter = ('language',)
     list_editable = ('order',)
+@admin.register(ContentItem)
+class ContentItemAdmin(admin.ModelAdmin):
+    list_display = ('title', 'page_category', 'section', 'is_active', 'created_at')
+    list_filter = ('page_category', 'section', 'is_active')
+    search_fields = ('title', 'subtitle')
