@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -78,11 +78,11 @@ export default function Navbar() {
         <div className="hidden md:flex gap-1">
           {navItems.map(item => {
             const isActive = pathname === item.url || (item.url === '/' && pathname === '/');
-            const linkColorClass = isActive ? 'text-[#AB2423] font-semibold' : 'text-[#173C4E] hover:text-[#AB2423]';
+            const linkColorClass = isActive ? 'text-[#AB2423] font-normal' : 'text-[#173C4E] hover:text-[#AB2423]';
             
             return item.children.length > 0 ? (
               <div key={item.id} className="relative group cursor-pointer">
-                <Link href={item.url} className={`px-4 py-6 text-sm font-[500] transition-colors flex items-center gap-1 ${linkColorClass}`}>
+                <Link href={item.url} className={`px-4 py-6 text-sm font-normal uppercase transition-colors flex items-center gap-1 ${linkColorClass}`}>
                   {item.label}
                   <svg className="w-3 h-3 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -95,7 +95,7 @@ export default function Navbar() {
                       <Link
                         key={child.id}
                         href={child.url}
-                        className={`block px-6 py-3 text-sm font-[400] transition-colors ${
+                        className={`block px-6 py-3 text-sm font-normal uppercase transition-colors ${
                           isChildActive ? 'text-[#AB2423] bg-gray-50' : 'text-gray-700 hover:bg-gray-50 hover:text-[#AB2423]'
                         } ${idx > 0 ? 'border-t border-gray-100' : ''}`}
                       >
@@ -109,7 +109,7 @@ export default function Navbar() {
               <Link 
                 key={item.id} 
                 href={item.url} 
-                className={`px-4 py-6 text-sm font-[500] transition-colors ${linkColorClass}`}
+                className={`px-4 py-6 text-sm font-normal uppercase transition-colors ${linkColorClass}`}
               >
                 {item.label}
               </Link>
@@ -123,13 +123,13 @@ export default function Navbar() {
         <div className="md:hidden fixed top-[72px] inset-x-0 bottom-0 h-[calc(100vh-72px)] bg-[#F9F9F9] z-40 overflow-y-auto px-6 py-6 space-y-3 pb-16">
           {navItems.map(item => {
             const isActive = pathname === item.url || (item.url === '/' && pathname === '/');
-            const linkColorClass = isActive ? 'text-[#AB2423] font-semibold' : 'text-[#173C4E] hover:text-[#AB2423]';
+            const linkColorClass = isActive ? 'text-[#AB2423] font-normal' : 'text-[#173C4E] hover:text-[#AB2423]';
             
             return (
               <div key={item.id} className="py-1">
                 {item.children.length > 0 ? (
                   <div className="space-y-1">
-                    <Link href={item.url} onClick={() => setIsOpen(false)} className={`px-3 py-2 text-sm font-[500] flex items-center justify-between ${linkColorClass}`}>
+                    <Link href={item.url} onClick={() => setIsOpen(false)} className={`px-3 py-2 text-sm font-normal uppercase flex items-center justify-between ${linkColorClass}`}>
                       {item.label}
                     </Link>
                     <div className="pl-4 border-l border-gray-200 space-y-1">
@@ -140,7 +140,7 @@ export default function Navbar() {
                             key={child.id}
                             href={child.url}
                             onClick={() => setIsOpen(false)}
-                            className={`block px-3 py-2 text-xs font-[400] transition-colors rounded ${
+                            className={`block px-3 py-2 text-xs font-normal uppercase transition-colors rounded ${
                               isChildActive ? 'text-[#AB2423] bg-gray-50' : 'text-gray-700 hover:bg-gray-50 hover:text-[#AB2423]'
                             }`}
                           >
@@ -154,7 +154,7 @@ export default function Navbar() {
                   <Link 
                     href={item.url} 
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-sm font-[500] transition-colors rounded ${linkColorClass}`}
+                    className={`block px-3 py-2 text-sm font-normal uppercase transition-colors rounded ${linkColorClass}`}
                   >
                     {item.label}
                   </Link>

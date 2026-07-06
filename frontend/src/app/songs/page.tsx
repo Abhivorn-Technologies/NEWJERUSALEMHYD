@@ -1858,7 +1858,7 @@ ${requestForm.details || "N/A"}
           </div>
 
           {/* Sidebar song list */}
-          <div className="flex-1 overflow-y-auto pr-1 space-y-2 max-h-[500px] md:max-h-[none]">
+          <div className="flex-1 overflow-y-auto pr-1 space-y-0.5 max-h-[500px] md:max-h-[none]">
             {loading ? (
               <div className="flex flex-col items-center justify-center py-12 text-gray-400 gap-2">
                 <div className="w-8 h-8 border-4 border-[#5795A7] border-t-transparent rounded-full animate-spin"></div>
@@ -1876,17 +1876,17 @@ ${requestForm.details || "N/A"}
                     setActiveSong(song);
                     determineDefaultLyricsTab(song);
                   }}
-                  className={`song-btn w-full text-left p-4 rounded-2xl transition-all duration-200 border flex gap-4 text-xl md:text-2xl items-center ${
+                  className={`song-btn w-full text-left px-2 py-1 rounded-lg transition-all duration-200 border flex gap-2 text-xl md:text-2xl items-center ${
                     activeSong?.id === song.id
                       ? "bg-[#d1e3e8] border-transparent text-[#3B7586] shadow-sm"
                       : "bg-[#FCFDFF] border-transparent hover:bg-white hover:shadow-[0_4px_12px_rgba(87,149,167,0.12)] hover:border-[#bcd3d8]/50 hover:text-[#3B7586] hover:-translate-y-0.5 text-gray-800"
                   }`}
                   style={{ fontFamily: "var(--font-mallanna)" }}
                 >
-                  <span className="text-lg md:text-xl font-mono opacity-65 pt-0.5">
+                  <span className="text-lg md:text-xl font-mono opacity-65">
                     {idx + 1}.
                   </span>
-                  <span className="leading-relaxed pt-1 pb-1 flex-1">
+                  <span className="leading-relaxed flex-1">
                     {keyboardLanguage === "telugu"
                       ? extractTeluguTitle(song.title)
                       : keyboardLanguage === "english"

@@ -117,13 +117,13 @@ export default function Footer() {
           className="space-y-4 text-gray-300 text-[11px] sm:text-xs md:text-sm leading-relaxed max-w-[90%] md:max-w-7xl lg:px-[85px] mx-auto pt-2"
         >
           <p 
-            className="font-normal text-white tracking-wide text-[13px] sm:text-base md:text-lg lg:text-[20px] text-center md:text-justify"
+            className="font-normal text-white tracking-wide text-[18px] md:text-[24px] text-center md:text-justify"
             style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             ఈ వెబ్ సైట్ యొక్క సర్వ హక్కులు నూతన యెరూషలేము పరిచర్యలు నకు చెందినవి.
           </p>
           <p 
-            className="text-gray-300/85 leading-loose text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] text-center md:text-justify"
+            className="text-gray-300/85 leading-loose text-[18px] md:text-[24px] text-center md:text-justify"
             style={{ fontFamily: 'var(--font-mallanna)' }}
           >
             ముఖ్య గమనిక : నూతన యెరూషలేము పరిచర్యలు ఎప్పుడూ, ఎవరినీ ఆర్థిక సహాయం కోరదు; ఒకవేళ నూతన యెరూషలేము పరిచర్యలు పేరుతో ఎవరైనా ఆర్థిక సహాయం అడిగితే, వారి వివరాలు మాకు తప్పక తెలియజేయండి. ఈ హెచ్చరికను ఖాతరు చేయకుండా ఎవరైనా నూతన యెరూషలేము పరిచర్యలకు అనుకుని ఆర్థిక సహాయం అందిస్తే అందుకు నూతన యెరూషలేము పరిచర్యలు ఎలాంటి బాధ్యత వహించదు.
