@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto, Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import LayoutWrapper from "@/components/LayoutWrapper";
 import ScrollObserver from "@/components/ScrollObserver";
 
 export const metadata: Metadata = {
@@ -38,11 +37,9 @@ export default function RootLayout({
       </head>
       <body className="bg-white min-h-screen flex flex-col" suppressHydrationWarning>
         <ScrollObserver />
-        <Navbar />
-        <main className="flex-grow">
+        <LayoutWrapper>
           {children}
-        </main>
-        <Footer />
+        </LayoutWrapper>
       </body>
     </html>
   );

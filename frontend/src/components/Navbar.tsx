@@ -18,15 +18,29 @@ interface NavItem {
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 
+const DEFAULT_NAV_ITEMS: NavItem[] = [
+  { id: 1, label: "Home", url: "/", children: [] },
+  { id: 3, label: "Bible Resources", url: "/bible-resources", children: [] },
+  { id: 4, label: "Sunday School", url: "/sunday-school", children: [] },
+  { id: 2, label: "All Songs", url: "/songs", children: [] },
+  { id: 5, label: "Prayer Request", url: "/prayer-request", children: [] },
+  { id: 6, label: "Magazine", url: "/magazine", children: [
+    { id: 9999, label: "About Us", url: "/about" }
+  ]}
+];
+
 export default function Navbar() {
-  const [navItems, setNavItems] = useState<NavItem[]>([]);
+  const [navItems, setNavItems] = useState<NavItem[]>(DEFAULT_NAV_ITEMS);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    // Only fetch if we want to check for updates, but we already have default items to show instantly.
     fetch(`${BASE_URL}/nav-menu/`)
       .then(r => r.json())
       .then((data: NavItem[]) => {
+        if (!data || !Array.isArray(data)) return;
+        
         // Remove children from "About Us" so it acts as a direct link without a dropdown
         const processedData = data.map(item => {
           if (item.label.toLowerCase() === 'about us') {
@@ -43,7 +57,9 @@ export default function Navbar() {
         });
         setNavItems(processedData);
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.warn('Backend unavailable, using default nav items.', err);
+      });
   }, []);
 
   return (

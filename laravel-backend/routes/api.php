@@ -50,6 +50,7 @@ Route::post('/change-password', [ChangePasswordController::class, 'change']);
 // ── Songs (/api/songs/, /api/songs/{id}/) ────────────────────
 Route::get('/songs', [SongController::class, 'index']);
 Route::post('/songs', [SongController::class, 'store']);
+Route::post('/songs/bulk-upload', [SongController::class, 'bulkUpload']);
 Route::get('/songs/{id}', [SongController::class, 'show']);
 Route::put('/songs/{id}', [SongController::class, 'update']);
 Route::patch('/songs/{id}', [SongController::class, 'update']);

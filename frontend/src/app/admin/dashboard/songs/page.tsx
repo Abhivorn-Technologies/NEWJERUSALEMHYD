@@ -1,0 +1,278 @@
+'use client';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import ConfirmModal from '../../../../components/admin/ConfirmModal';
+import AlertModal from '../../../../components/admin/AlertModal';
+
+export default function ManageSongsPage() {
+  const router = useRouter();
+  const [songs, setSongs] = useState<any[]>([]);
+  const [categoriesList, setCategoriesList] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [deleteId, setDeleteId] = useState<number | null>(null);
+  const [alertConfig, setAlertConfig] = useState({ isOpen: false, title: '', message: '', type: 'info' as 'info' | 'success' | 'error' });
+  
+  // Filters
+  const [search, setSearch] = useState('');
+  const [filterLang, setFilterLang] = useState('all');
+  const [filterSongList, setFilterSongList] = useState('all');
+  const [filterCategory, setFilterCategory] = useState('all');
+  const [filterStatus, setFilterStatus] = useState('all');
+
+  const fetchSongs = () => {
+    const token = localStorage.getItem('admin_token');
+    const headers: any = {};
+    if (token) headers['Authorization'] = `Token ${token}`;
+    
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/`, { headers })
+      .then(res => res.json())
+      .then(data => {
+        setSongs(Array.isArray(data) ? data : (data?.results || []));
+        setLoading(false);
+      });
+  };
+
+  const fetchCategories = () => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/categories/`)
+      .then(res => res.json())
+      .then(data => setCategoriesList(Array.isArray(data) ? data : (data?.results || [])))
+      .catch(() => setCategoriesList([]));
+  };
+
+  useEffect(() => {
+    fetchSongs();
+    fetchCategories();
+  }, []);
+
+  const handleBulkUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setLoading(true);
+    const token = localStorage.getItem('admin_token');
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/bulk-upload/`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Token ${token}`
+        },
+        body: formData
+      });
+      
+      const data = await res.json();
+      if (res.ok) {
+        setAlertConfig({ isOpen: true, title: 'Success', message: `Bulk upload completed. Successful: ${data.successful}, Failed: ${data.failed}.`, type: 'success' });
+        fetchSongs(); // refresh the list
+      } else {
+        setAlertConfig({ isOpen: true, title: 'Error', message: data.error || 'Bulk upload failed.', type: 'error' });
+      }
+    } catch (err) {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'An unexpected error occurred.', type: 'error' });
+    }
+    setLoading(false);
+    
+    // Clear the input so the same file can be uploaded again if needed
+    e.target.value = '';
+  };
+
+  const confirmDelete = (id: number) => setDeleteId(id);
+
+  const executeDelete = async () => {
+    if (!deleteId) return;
+    const token = localStorage.getItem('admin_token');
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/${deleteId}/`, {
+      method: 'DELETE',
+      headers: { 'Authorization': `Token ${token}` }
+    });
+    if (res.ok) {
+      setSongs(songs.filter(s => s.id !== deleteId));
+      setDeleteId(null);
+    } else {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to delete song.', type: 'error' });
+      setDeleteId(null);
+    }
+  };
+
+  const toggleStatus = async (song: any) => {
+    const token = localStorage.getItem('admin_token');
+    if (!token) return;
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/songs/${song.id}/`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token ${token}`
+      },
+      body: JSON.stringify({ is_published: !song.is_published })
+    });
+    
+    if (res.ok) {
+      setSongs(songs.map(s => s.id === song.id ? { ...s, is_published: !s.is_published } : s));
+    } else {
+      setAlertConfig({ isOpen: true, title: 'Error', message: 'Failed to change status.', type: 'error' });
+    }
+  };
+
+  const filteredSongs = songs.filter(s => {
+    // Text search
+    const textMatch = search === '' || 
+      s.title.toLowerCase().includes(search.toLowerCase()) || 
+      s.slug.toLowerCase().includes(search.toLowerCase()) ||
+      (s.english_lyrics && s.english_lyrics.toLowerCase().includes(search.toLowerCase()));
+
+    // Language Match
+    const langMatch = filterLang === 'all' || s.language === filterLang;
+    
+    // Song List Match
+    const isSunday = s.language.includes('sunday');
+    const listMatch = filterSongList === 'all' || (filterSongList === 'sunday_school' && isSunday) || (filterSongList === 'all_songs' && !isSunday);
+
+    // Category Match
+    const catMatch = filterCategory === 'all' || s.categories?.some((c:any) => c.slug === filterCategory);
+
+    // Status Match
+    const statMatch = filterStatus === 'all' || 
+      (filterStatus === 'active' && s.is_published) || 
+      (filterStatus === 'inactive' && !s.is_published);
+
+    return textMatch && langMatch && listMatch && catMatch && statMatch;
+  });
+
+  const teluguLetters = ["అ", "ఆ", "ఇ", "ఈ", "ఉ", "ఊ", "ఋ", "ౠ", "ఎ", "ఏ", "ఐ", "ఒ", "ఓ", "ఔ", "అం", "అః", "క", "ఖ", "గ", "ఘ", "చ", "ఛ", "జ", "ఝ", "ట", "ఠ", "డ", "ఢ", "ణ", "త", "థ", "ద", "ధ", "న", "ప", "ఫ", "బ", "భ", "మ", "య", "ర", "ల", "వ", "శ", "ష", "స", "హ", "ళ", "క్ష", "ఱ"];
+  const englishLetters = Array.from({length: 26}, (_, i) => String.fromCharCode(65 + i));
+
+  return (
+    <div>
+      <div className="bg-white rounded-[24px] px-8 py-5 flex items-center justify-between mb-6 shadow-sm border border-gray-100">
+        <h1 className="text-[24px] font-bold text-[#1a3845]">Manage Songs</h1>
+        <div className="flex gap-4">
+          <label className="cursor-pointer px-6 py-2.5 bg-[#f0a500] text-white rounded-full hover:bg-[#e09900] transition shadow-md flex items-center justify-center">
+            <span>Bulk Upload CSV</span>
+            <input type="file" accept=".csv" className="hidden" onChange={handleBulkUpload} />
+          </label>
+          <button onClick={() => router.push('/admin/dashboard/songs/add')} className="px-6 py-2.5 bg-[#128a95] text-white rounded-full hover:bg-[#0f717a] transition shadow-md">
+            Add Song
+          </button>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-4 mb-6">
+        <input 
+          type="text" 
+          placeholder="Search title, slug, lyrics" 
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          className="px-4 py-2.5 bg-white border border-gray-200 rounded-[12px] outline-none focus:border-[#128a95] flex-1 min-w-[200px] text-gray-900 placeholder-gray-400" 
+        />
+        
+        <select value={filterLang} onChange={e => setFilterLang(e.target.value)} className="px-4 py-2.5 bg-white border border-gray-200 rounded-[12px] outline-none focus:border-[#128a95] min-w-[150px] text-gray-900">
+          <option value="all">All Languages</option>
+          <option value="telugu">Telugu</option>
+          <option value="sunday_telugu">Sunday School Telugu</option>
+          <option value="sunday_hindi">Sunday School Hindi</option>
+          <option value="sunday_english">Sunday School English</option>
+        </select>
+
+        <select value={filterSongList} onChange={e => setFilterSongList(e.target.value)} className="px-4 py-2.5 bg-white border border-gray-200 rounded-[12px] outline-none focus:border-[#128a95] min-w-[150px] text-gray-900">
+          <option value="all">All Song Lists</option>
+          <option value="all_songs">All Songs</option>
+          <option value="sunday_school">Sunday School</option>
+        </select>
+
+        <select value={filterCategory} onChange={e => setFilterCategory(e.target.value)} className="px-4 py-2.5 bg-white border border-gray-200 rounded-[12px] outline-none focus:border-[#128a95] min-w-[150px] text-gray-900">
+          <option value="all">All Categories</option>
+          {categoriesList.map(c => <option key={c.id} value={c.slug}>{c.name}</option>)}
+        </select>
+
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value)} className="px-4 py-2.5 bg-white border border-gray-200 rounded-[12px] outline-none focus:border-[#128a95] min-w-[150px] text-gray-900">
+          <option value="all">All Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+
+      </div>
+
+      <div className="bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden">
+        {loading ? (
+          <div className="p-12 text-center text-gray-500">Loading songs...</div>
+        ) : (
+          <div className="overflow-x-auto pb-4">
+            <table className="w-full text-left text-[14px]">
+              <thead>
+                <tr className="border-b border-gray-100 text-gray-400 text-[12px] uppercase tracking-wider bg-white">
+                  <th className="py-4 px-3 md:px-4 pt-6">Song</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Language</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Song List</th>
+                  <th className="py-4 px-3 md:px-4 pt-6 hidden lg:table-cell">Category</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Audio</th>
+                  <th className="py-4 px-3 md:px-4 pt-6">Status</th>
+                  <th className="py-4 px-3 md:px-4 pt-6 text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-50">
+                {filteredSongs.slice(0, 100).map(song => (
+                  <tr key={song.id} className="hover:bg-gray-50/50 transition bg-white">
+                    <td className="py-4 px-3 md:px-4">
+                      <p className="text-[15px] md:text-[17px] text-[#1a3845] mb-1 leading-tight">{song.title}</p>
+                      <p className="text-[12px] text-gray-500">{song.slug}</p>
+                    </td>
+                    <td className="py-4 px-3 md:px-4 text-gray-600">{song.language.replace('sunday_', '').charAt(0).toUpperCase() + song.language.replace('sunday_', '').slice(1)}</td>
+                    <td className="py-4 px-3 md:px-4 text-gray-600">{song.language.includes('sunday') ? 'Sunday School' : 'All Songs'}</td>
+                    <td className="py-4 px-3 md:px-4 text-gray-600 hidden lg:table-cell">
+                      {song.categories?.length > 0 ? song.categories.map((c:any) => c.name).join(', ') : '-'}
+                    </td>
+                    <td className="py-4 px-3 md:px-4">
+                      {song.audio_video ? (
+                         <span className="text-[#10b981]">Yes</span>
+                      ) : (
+                         <span className="text-[#ef4444] bg-[#fef2f2] px-2 py-1 rounded text-xs">No</span>
+                      )}
+                    </td>
+                    <td className="py-4 px-3 md:px-4">
+                      {song.is_published ? (
+                        <span className="text-[#16a34a] text-xs bg-green-50 px-2 py-1 rounded">Active</span>
+                      ) : (
+                        <span className="text-gray-500 text-xs bg-gray-50 px-2 py-1 rounded">Inactive</span>
+                      )}
+                    </td>
+                    <td className="py-4 px-3 md:px-4 text-right space-x-1.5 whitespace-nowrap">
+                      <a href={`${process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000'}/songs/${song.slug}`} target="_blank" rel="noreferrer" className="inline-block px-3 py-1.5 bg-[#e8f3f4] text-[#128a95] rounded-full text-[12px] hover:bg-[#d1eaeb] transition">View</a>
+                      <button onClick={() => router.push(`/admin/dashboard/songs/add?id=${song.id}`)} className="px-3 py-1.5 bg-[#128a95] text-white rounded-full text-[12px] hover:bg-[#0f717a] transition">Edit</button>
+                      <button onClick={() => toggleStatus(song)} className="px-3 py-1.5 bg-[#e5e7eb] text-[#128a95] rounded-full text-[12px] hover:bg-gray-300 transition">
+                        {song.is_published ? 'Inactive' : 'Active'}
+                      </button>
+                      <button onClick={() => confirmDelete(song.id)} className="px-3 py-1.5 bg-[#a31a1a] text-white rounded-full text-[12px] hover:bg-[#861414] transition">Delete</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {filteredSongs.length === 0 && (
+              <div className="p-8 text-center text-gray-500">No songs match your filters.</div>
+            )}
+          </div>
+        )}
+      </div>
+
+      <ConfirmModal 
+        isOpen={!!deleteId}
+        title="Delete Song"
+        message="Are you sure you want to permanently delete this song? This action cannot be undone."
+        onConfirm={executeDelete}
+        onCancel={() => setDeleteId(null)}
+      />
+
+      <AlertModal 
+        isOpen={alertConfig.isOpen}
+        title={alertConfig.title}
+        message={alertConfig.message}
+        type={alertConfig.type}
+        onClose={() => setAlertConfig(prev => ({ ...prev, isOpen: false }))}
+      />
+    </div>
+  );
+}

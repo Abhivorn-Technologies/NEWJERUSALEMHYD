@@ -44,7 +44,55 @@ export default function BibleResourcesPage() {
   const [resourceDownloads, setResourceDownloads] = useState<any[]>([]);
   const detailsRef = useRef<HTMLDivElement>(null);
 
-  const [categories, setCategories] = useState<ResourceCategory[]>([]);
+  const DEFAULT_CATEGORIES: ResourceCategory[] = [
+    {
+      id: "infographics",
+      title: "BIBLE",
+      subTitle: "INFOGRAPHICS",
+      url: "/bible-resources/infographics",
+      gradientClass: "from-[#ECA300] to-[#D68F00]",
+      slantClass: "slant-left-far z-10",
+      originalRot: "28deg"
+    },
+    {
+      id: "maps",
+      title: "BIBLE",
+      subTitle: "MAPS",
+      url: "/bible-resources/maps",
+      gradientClass: "from-[#F8411C] to-[#E3300C]",
+      slantClass: "slant-left-near z-20",
+      originalRot: "22deg"
+    },
+    {
+      id: "missionary-story",
+      title: "MISSIONARY",
+      subTitle: "STORIES",
+      url: "/bible-resources/missionary-story",
+      gradientClass: "from-[#D80053] to-[#BC0044]",
+      slantClass: "slant-flat-center z-30",
+      originalRot: "0deg"
+    },
+    {
+      id: "downloads",
+      title: "BIBLE",
+      subTitle: "DOWNLOADS",
+      url: "/bible-resources/downloads",
+      gradientClass: "from-[#A400F5] to-[#8A00D1]",
+      slantClass: "slant-right-near z-20",
+      originalRot: "-22deg"
+    },
+    {
+      id: "genealogies",
+      title: "BIBLE",
+      subTitle: "GENEALOGIES",
+      url: "/bible-resources/genealogies",
+      gradientClass: "from-[#644CF4] to-[#4F39D6]",
+      slantClass: "slant-right-far z-10",
+      originalRot: "-28deg"
+    }
+  ];
+
+  const [categories, setCategories] = useState<ResourceCategory[]>(DEFAULT_CATEGORIES);
   const [dynamicMissionaryData, setDynamicMissionaryData] = useState<any[]>([]);
 
   useEffect(() => {
@@ -71,6 +119,7 @@ export default function BibleResourcesPage() {
     fetch(`${baseUrl}/bible-resources/`)
       .then(res => res.json())
       .then(data => {
+        if (!data || data.length === 0) return;
         const sorted = (Array.isArray(data) ? data : (data.results || [])).sort((a: any, b: any) => a.order - b.order);
         
         const visualStyles = [
@@ -100,6 +149,15 @@ export default function BibleResourcesPage() {
       })
       .catch(err => console.error('Error fetching bible resources:', err));
   }, []);
+
+  // Scroll to details when activeCategory changes
+  useEffect(() => {
+    if (activeCategory && detailsRef.current) {
+      setTimeout(() => {
+        detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50); // small delay to ensure animation frame is ready
+    }
+  }, [activeCategory]);
 
   const getResourceUrl = (url: string) => {
     if (!url) return '';
@@ -151,11 +209,6 @@ export default function BibleResourcesPage() {
     } else {
       console.log("Activating category:", catId);
       setActiveCategory(catId);
-      // Smooth scroll to the details container
-      setTimeout(() => {
-        console.log("Scrolling to ref:", detailsRef.current);
-        detailsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 150);
     }
   };
 

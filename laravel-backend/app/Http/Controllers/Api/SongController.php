@@ -140,6 +140,87 @@ class SongController extends Controller
         return response()->json($this->transform($song), 201);
     }
 
+    public function bulkUpload(Request $request): JsonResponse
+    {
+        if (! $this->isAuthenticated($request)) {
+            return $this->unauthenticated();
+        }
+
+        if (!$request->hasFile('file')) {
+            return response()->json(['error' => 'No file uploaded. Please provide a CSV file in the "file" field.'], 400);
+        }
+
+        $file = $request->file('file');
+        
+        $path = $file->getRealPath();
+        $data = array_map('str_getcsv', file($path));
+        $header = array_shift($data);
+
+        // Normalize header (lowercase, trim spaces)
+        $header = array_map(fn($h) => strtolower(trim($h)), $header);
+
+        $successful = 0;
+        $failed = 0;
+        $errors = [];
+
+        foreach ($data as $index => $row) {
+            if (count($header) !== count($row)) {
+                $failed++;
+                $errors[] = "Row " . ($index + 2) . ": Column count mismatch.";
+                continue;
+            }
+
+            $rowData = array_combine($header, $row);
+
+            try {
+                $song = Song::create([
+                    'title'             => $rowData['title']             ?? '',
+                    'slug'              => $rowData['slug']              ?? '',
+                    'language'          => $rowData['language']          ?? 'telugu',
+                    'first_letter'      => $rowData['first_letter']      ?? '',
+                    'telugu_lyrics'     => $rowData['telugu_lyrics']     ?? '',
+                    'hindi_lyrics'      => $rowData['hindi_lyrics']      ?? '',
+                    'english_lyrics'    => $rowData['english_lyrics']    ?? '',
+                    'powerpoint_slides' => $rowData['powerpoint_slides'] ?? '',
+                    'audio_video'       => $rowData['audio_video']       ?? '',
+                    'chords'            => $rowData['chords']            ?? '',
+                    'is_published'      => isset($rowData['is_published']) ? filter_var($rowData['is_published'], FILTER_VALIDATE_BOOLEAN) : true,
+                    'wp_post_id'        => !empty($rowData['wp_post_id']) ? $rowData['wp_post_id'] : null,
+                ]);
+
+                if (!empty($rowData['categories'])) {
+                    $categoryNames = explode(',', $rowData['categories']);
+                    $categoryIds = [];
+                    foreach ($categoryNames as $catName) {
+                        $catName = trim($catName);
+                        if (empty($catName)) continue;
+                        
+                        $category = \App\Models\SongCategory::firstOrCreate(
+                            ['name' => $catName],
+                            ['slug' => \Illuminate\Support\Str::slug($catName), 'is_active' => true]
+                        );
+                        $categoryIds[] = $category->id;
+                    }
+                    if (!empty($categoryIds)) {
+                        $song->categories()->sync($categoryIds);
+                    }
+                }
+
+                $successful++;
+            } catch (\Exception $e) {
+                $failed++;
+                $errors[] = "Row " . ($index + 2) . ": " . $e->getMessage();
+            }
+        }
+
+        return response()->json([
+            'message' => 'Bulk upload completed',
+            'successful' => $successful,
+            'failed' => $failed,
+            'errors' => $errors
+        ]);
+    }
+
     public function update(Request $request, string $id): JsonResponse
     {
         if (! $this->isAuthenticated($request)) {
